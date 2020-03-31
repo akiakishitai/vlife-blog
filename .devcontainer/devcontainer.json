@@ -1,6 +1,6 @@
 {
   // general
-  "name": "Nuxt TypeScript dev",
+  "name": "Nuxt TypeScript static",
   // project root
   "context": "..",
   "containerEnv": {
@@ -25,13 +25,14 @@
   "remoteUser": "node",
   "build": {
     "args": {
-      "PROJECT": "vscode-remote-try-nuxt-with-fish",
+      "PROJECT": "vlife-blog",
       "NOTES_ROOT": "/workspaces/notes"
     }
   },
   // Use a named volume for your entire source tree
   // https://code.visualstudio.com/docs/remote/containers-advanced#_use-a-named-volume-for-your-entire-source-tree
-  "workspaceMount": "type=volume,src=try-nuxt-with-fish,dst=/workspaces/vscode-remote-try-nuxt-with-fish",
+  "workspaceMount": "type=volume,src=vlife-blog,dst=/workspaces/vlife-blog",
+  "workspaceFolder": "/workspaces/vlife-blog",
   "mounts": [
     // volume trick: .vscode-server
     "type=volume,src=vscode-extension,dst=/home/node/.vscode-server",
