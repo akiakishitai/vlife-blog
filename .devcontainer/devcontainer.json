@@ -1,0 +1,41 @@
+{
+  // general
+  "name": "Nuxt TypeScript dev",
+  // project root
+  "context": "..",
+  "containerEnv": {
+    "LANG": "ja_JP.utf8"
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "patricklee.vsnotes"
+  ],
+  "settings": {
+    // powerline font
+    "terminal.integrated.fontFamily": "cica",
+    "terminal.integrated.fontSize": 19,
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
+    "vsnotes.defaultNotePath": "/workspaces/notes"
+  },
+  "forwardPorts": [3000],
+  // Dockerfile
+  "dockerFile": "Dockerfile",
+  "remoteUser": "node",
+  "build": {
+    "args": {
+      "PROJECT": "vscode-remote-try-nuxt-with-fish",
+      "NOTES_ROOT": "/workspaces/notes"
+    }
+  },
+  // Use a named volume for your entire source tree
+  // https://code.visualstudio.com/docs/remote/containers-advanced#_use-a-named-volume-for-your-entire-source-tree
+  "workspaceMount": "type=volume,src=try-nuxt-with-fish,dst=/workspaces/vscode-remote-try-nuxt-with-fish",
+  "mounts": [
+    // volume trick: .vscode-server
+    "type=volume,src=vscode-extension,dst=/home/node/.vscode-server",
+    // root dir of VSNotes
+    "type=volume,src=notes-store,dst=/workspaces/notes"
+  ]
+}
