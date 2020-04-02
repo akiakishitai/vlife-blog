@@ -11,6 +11,12 @@ RUN sed -i \
   /etc/locale.gen \
   && locale-gen
 
+# Copy dotfiles
+COPY .devcontainer/dotfiles dotfiles/
+# replace submodule .git
+RUN rm -f dotfiles/.git
+COPY .git/modules/.devcontainer/dotfiles dotfiles/.git/
+
 # ----------
 FROM node:12-buster-slim
 
@@ -39,7 +45,6 @@ RUN apt update && apt install -y --no-install-recommends \
   # vsnotes
   && mkdir -p $NOTES_ROOT \
   && chown node ${NOTES_ROOT} \
-  #&& runuser -l $USERNAME -c "mkdir -p /home/$USERNAME/dotfiles" \
   # register github.com host key
   && ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts \
   # Clean up
@@ -49,3 +54,10 @@ RUN apt update && apt install -y --no-install-recommends \
 
 # locale
 COPY --from=builder /usr/lib/locale/locale-archive /usr/lib/locale/locale-archive
+# dotfiles
+COPY --from=builder --chown=node:node /work/dotfiles ${HOME}/dotfiles/
+
+# rewrite core.worktree in .git/config
+RUN sed -i -r "s@(\s+worktree = ).+@\1${HOME}/dotfiles@g" ${HOME}/dotfiles/.git/config \
+  # install dotfiles
+  && runuser -l $USERNAME -c "${HOME}/dotfiles/install";
