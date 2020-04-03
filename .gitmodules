@@ -1,3 +1,0 @@
-[submodule ".devcontainer/dotfiles"]
-	path = .devcontainer/dotfiles
-	url = git@github.com:akiakishitai/dotfiles-container.git
