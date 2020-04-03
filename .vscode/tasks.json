@@ -1,0 +1,60 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "linux": {
+    "options": {
+      "shell": {
+        "executable": "/bin/bash",
+        "args": ["-c"]
+      }
+    }
+  },
+  "tasks": [
+    {
+      "label": "dotfiles clone",
+      "type": "shell",
+      "command": "cd ~/ && git clone ${input:dotfiles-repo} dotfiles"
+    },
+    {
+      "label": "dotfiles install",
+      "type": "shell",
+      "command": "~/dotfiles/install"
+    },
+    {
+      "label": "Dotfiles clone & install",
+      "type": "shell",
+      "dependsOn": ["dotfiles clone", "dotfiles install"],
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "clone source",
+      "type": "shell",
+      "command": "git clone ${input:source-repo} .",
+      "detail": "Git clone the sourece code here from prompt repository"
+    },
+    {
+      "label": "create nuxt app",
+      "type": "shell",
+      "command": "yarn create nuxt-app ${input:nuxt-source}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "dotfiles-repo",
+      "type": "promptString",
+      "description": "your dotfiles repository url"
+    },
+    {
+      "id": "source-repo",
+      "type": "promptString",
+      "description": "your source code repository url"
+    },
+    {
+      "id": "nuxt-source",
+      "type": "promptString",
+      "description": "nuxt",
+      "default": "./app"
+    }
+  ]
+}
