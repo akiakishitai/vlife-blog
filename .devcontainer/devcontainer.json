@@ -10,14 +10,27 @@
     "dbaeumer.vscode-eslint",
     "mhutchie.git-graph",
     "eamodio.gitlens",
-    "patricklee.vsnotes"
+    "patricklee.vsnotes",
+    "esbenp.prettier-vscode",
+    "pmneo.tsimporter",
+    "quicktype.quicktype",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "visualstudioexptteam.vscodeintellicode",
+    "xabikos.javascriptsnippets",
+    "formulahendry.code-runner",
+    "octref.vetur",
+    "dariofuzinato.vue-peek",
+    "titiaiev.vue-docs"
   ],
   "settings": {
     // powerline font
     "terminal.integrated.fontFamily": "cica",
     "terminal.integrated.fontSize": 19,
     "terminal.integrated.shell.linux": "/usr/bin/fish",
-    "vsnotes.defaultNotePath": "/workspaces/notes"
+    "vsnotes.defaultNotePath": "/workspaces/notes",
+    "javascript.format.enable": false,
+    "typescript.format.enable": false
   },
   "forwardPorts": [3000],
   // Dockerfile
@@ -35,7 +48,7 @@
   "workspaceFolder": "/workspaces/vlife-blog",
   "mounts": [
     // volume trick: .vscode-server
-    "type=volume,src=vscode-extension,dst=/home/node/.vscode-server",
+    "type=volume,src=vscode-extension-vlife,dst=/home/node/.vscode-server",
     // root dir of VSNotes
     "type=volume,src=notes-store,dst=/workspaces/notes"
   ]

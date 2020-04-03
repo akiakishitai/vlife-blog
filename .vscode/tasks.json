@@ -6,9 +6,7 @@
     "options": {
       "shell": {
         "executable": "/bin/bash",
-        "args": [
-          "-c"
-        ]
+        "args": ["-c"]
       }
     }
   },
@@ -26,10 +24,7 @@
     {
       "label": "Dotfiles clone & install",
       "type": "shell",
-      "dependsOn": [
-        "dotfiles clone",
-        "dotfiles install"
-      ],
+      "dependsOn": ["dotfiles clone", "dotfiles install"],
       "dependsOrder": "sequence"
     },
     {
@@ -41,7 +36,25 @@
     {
       "label": "create nuxt app",
       "type": "shell",
-      "command": "yarn create nuxt-app ${input:nuxt-source}",
+      "command": "yarn create nuxt-app ${input:nuxt-source}"
+    },
+    {
+      "label": "serve",
+      "type": "shell",
+      "command": "yarn --cwd ./nuxt dev",
+      "detail": "serve nuxt projet with hot reload at localhost:3000"
+    },
+    {
+      "label": "static serve",
+      "type": "shell",
+      "command": "yarn --cwd ./nuxt run http-server ./dist -p 3000",
+      "detail": "serve generated static files at localhost:3000",
+      "dependsOn": ["generate"]
+    },
+    {
+      "label": "generate",
+      "type": "shell",
+      "command": "yarn --cwd ./nuxt generate"
     }
   ],
   "inputs": [
