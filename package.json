@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
+    "dev:static": "yarn generate && yarn run http-server ./dist -p 3000",
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",

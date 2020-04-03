@@ -12,22 +12,6 @@
   },
   "tasks": [
     {
-      "label": "dotfiles clone",
-      "type": "shell",
-      "command": "cd ~/ && git clone ${input:dotfiles-repo} dotfiles"
-    },
-    {
-      "label": "dotfiles install",
-      "type": "shell",
-      "command": "~/dotfiles/install"
-    },
-    {
-      "label": "Dotfiles clone & install",
-      "type": "shell",
-      "dependsOn": ["dotfiles clone", "dotfiles install"],
-      "dependsOrder": "sequence"
-    },
-    {
       "label": "clone source",
       "type": "shell",
       "command": "git clone ${input:source-repo} .",
@@ -37,32 +21,9 @@
       "label": "create nuxt app",
       "type": "shell",
       "command": "yarn create nuxt-app ${input:nuxt-source}"
-    },
-    {
-      "label": "serve",
-      "type": "shell",
-      "command": "yarn --cwd ./nuxt dev",
-      "detail": "serve nuxt projet with hot reload at localhost:3000"
-    },
-    {
-      "label": "static serve",
-      "type": "shell",
-      "command": "yarn --cwd ./nuxt run http-server ./dist -p 3000",
-      "detail": "serve generated static files at localhost:3000",
-      "dependsOn": ["generate"]
-    },
-    {
-      "label": "generate",
-      "type": "shell",
-      "command": "yarn --cwd ./nuxt generate"
     }
   ],
   "inputs": [
-    {
-      "id": "dotfiles-repo",
-      "type": "promptString",
-      "description": "your dotfiles repository url"
-    },
     {
       "id": "source-repo",
       "type": "promptString",
