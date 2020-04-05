@@ -61,11 +61,9 @@ COPY --from=builder /usr/lib/locale/locale-archive /usr/lib/locale/locale-archiv
 COPY --from=builder --chown=node:node /work/dotfiles ${HOME}/dotfiles/
 
 # Fix permissions from Windos 755
-RUN chmod 700 ${HOME}/dotfiles \
-  && chmod a=rX,u+w ${HOME}/dotfiles/* \
-  && chmod u+x ${HOME}/dotfiles/install \
-  && chmod -R a=rX,u+w ${HOME}/dotfiles/config \
-  && chmod -R a=rX,u+w ${HOME}/dotfiles/gitconf \
+RUN find $HOME/dotfiles -type d -name .git -prune -o -name dotbot -prune -o -type d -print0 | xargs -0 -n 20 chmod 700 \
+  && find $HOME/dotfiles -type d -name .git -prune -o -name dotbot -prune -o -type f -print0 | xargs -0 -n 20 chmod 644 \
+  && chmod 744 $HOME/dotfiles/install \
   # rewrite core.worktree in .git/config
   && sed -i -r "s@(\s+worktree = ).+@\1${HOME}/dotfiles@g" ${HOME}/dotfiles/.git/config \
   # install dotfiles
