@@ -40,6 +40,8 @@ RUN apt update && apt install -y --no-install-recommends \
   && curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key \
   | apt-key add - \
   && apt install -y --no-install-recommends fish \
+  ## install typescript to global
+  && runuser -l $USERNAME -c "yarn global add typescript ts-node" \
   # vscode extensions
   && runuser -l $USERNAME -c "mkdir -p /home/$USERNAME/.vscode-server/extensions" \
   # mount project
