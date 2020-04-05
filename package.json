@@ -5,14 +5,15 @@
   "author": "akiakiS",
   "private": true,
   "scripts": {
+    "deploy": "DEPLOY_ENV=GH_PAGES nuxt-ts generate",
     "dev": "nuxt-ts",
     "dev:static": "yarn generate && yarn run http-server ./dist -p 3000",
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "test": "ava",
-    "test:unit": "cross-env TEST=unit ava ./test/specs/**/*",
-    "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
+    "test": "yarn test:unit && yarn test:e2e",
+    "test:unit": "TEST=unit ava ./test/specs/**/*",
+    "test:e2e": "TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
