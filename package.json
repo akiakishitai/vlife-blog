@@ -9,6 +9,7 @@
     "dev": "nuxt-ts",
     "dev:static": "yarn generate && yarn run http-server ./dist -p 3000",
     "build": "nuxt-ts build",
+    "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
     "test": "yarn test:unit && yarn test:e2e",
@@ -28,6 +29,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "browser-env": "^3.2.5",
     "http-server": "^0.12.1",
+    "prettier": "^2.0.3",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
     "require-extension-hooks-vue": "^2.0.0"
