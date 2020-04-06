@@ -1,14 +1,12 @@
 {
   "env": {
     "test": {
-      "plugins": [
+      "presets": [
         [
-          "module-resolver",
+          "@babel/preset-env",
           {
-            "root": ["."],
-            "alias": {
-              "@": ".",
-              "~": "."
+            "targets": {
+              "node": "current"
             }
           }
         ]
