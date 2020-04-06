@@ -10,7 +10,7 @@ let nuxt = null
 test.before(async () => {
   const config = {
     dev: false,
-    rootDir: resolve(__dirname, '../../')
+    rootDir: resolve(__dirname, '../../'),
   }
   nuxt = new Nuxt(config)
   await new Builder(nuxt).build()
