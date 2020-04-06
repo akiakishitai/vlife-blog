@@ -2,6 +2,8 @@
 
 > Generate a static site with Nuxt.js
 
+GitHub Page: <https://akiakishitai.github.io/vlife-blog/>
+
 ## Build Setup
 
 ```bash

@@ -5,30 +5,30 @@
   "author": "akiakiS",
   "private": true,
   "scripts": {
+    "deploy": "DEPLOY_ENV=GH_PAGES nuxt-ts generate",
     "dev": "nuxt-ts",
     "dev:static": "yarn generate && yarn run http-server ./dist -p 3000",
     "build": "nuxt-ts build",
+    "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "test": "ava",
-    "test:unit": "cross-env TEST=unit ava ./test/specs/**/*",
-    "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
+    "test": "jest"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "nuxt-property-decorator": "^2.5.1"
   },
   "devDependencies": {
-    "@ava/babel": "^1.0.0",
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/tailwindcss": "^1.0.0",
+    "@types/jest": "^25.2.1",
     "@vue/test-utils": "^1.0.0-beta.27",
-    "ava": "^3.0.0",
-    "babel-plugin-module-resolver": "^3.2.0",
-    "browser-env": "^3.2.5",
+    "babel-jest": "^24.1.0",
     "http-server": "^0.12.1",
-    "require-extension-hooks": "^0.3.3",
-    "require-extension-hooks-babel": "^1.0.0",
-    "require-extension-hooks-vue": "^2.0.0"
+    "jest": "^24.1.0",
+    "prettier": "^2.0.3",
+    "vue-jest": "^4.0.0-0",
+    "ts-jest": ">=24.0.0 <25.0.0"
   }
 }
