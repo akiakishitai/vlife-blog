@@ -16,8 +16,12 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
+    "@types/markdown-it": "^10.0.0",
+    "front-matter": "^3.1.0",
+    "markdown-it": "^10.0.0",
     "nuxt": "^2.0.0",
-    "nuxt-property-decorator": "^2.5.1"
+    "nuxt-property-decorator": "^2.5.1",
+    "raw-loader": "^4.0.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
@@ -28,7 +32,9 @@
     "http-server": "^0.12.1",
     "jest": "^24.1.0",
     "prettier": "^2.0.3",
-    "vue-jest": "^4.0.0-0",
-    "ts-jest": ">=24.0.0 <25.0.0"
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "ts-jest": ">=24.0.0 <25.0.0",
+    "vue-jest": "^4.0.0-0"
   }
 }
