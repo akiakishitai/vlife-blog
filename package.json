@@ -7,7 +7,6 @@
   "scripts": {
     "deploy": "DEPLOY_ENV=GH_PAGES nuxt-ts generate",
     "dev": "nuxt-ts",
-    "dev:static": "yarn generate && yarn run http-server ./dist -p 3000",
     "build": "nuxt-ts build",
     "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "nuxt-ts generate",
@@ -29,7 +28,6 @@
     "@types/jest": "^25.2.1",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
-    "http-server": "^0.12.1",
     "jest": "^24.1.0",
     "prettier": "^2.0.3",
     "sass": "^1.26.3",
