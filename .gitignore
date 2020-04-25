@@ -90,4 +90,4 @@ sw.*
 *.swp
 
 # Readme
-/*/README.md
+src/**/README.md

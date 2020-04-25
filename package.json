@@ -18,6 +18,7 @@
     "@types/markdown-it": "^10.0.0",
     "front-matter": "^3.1.0",
     "markdown-it": "^10.0.0",
+    "moment": "^2.24.0",
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "^2.5.1",
     "raw-loader": "^4.0.0"
