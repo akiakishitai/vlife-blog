@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'src/**'
+      - '.babelrc'
+      - 'nuxt.config.js'
 
 jobs:
   build-deploy:
@@ -36,9 +40,6 @@ jobs:
       - name: install offline
         if: steps.yarn-cache.outputs.cache-hit == 'true'
         run: yarn install --offline
-
-      - name: test
-        run: yarn run test-ci
 
       - name: generate
         run: yarn deploy
