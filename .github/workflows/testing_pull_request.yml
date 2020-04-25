@@ -1,13 +1,14 @@
-name: github pages
+name: testing pull request
 
 on:
-  push:
+  pull_request:
     branches:
       - master
+      - develop
 
 jobs:
-  build-deploy:
-    runs-on: ubuntu-18.04
+  testing:
+        runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
@@ -35,14 +36,3 @@ jobs:
 
       - name: test
         run: yarn test:ci
-
-      - name: generate
-        run: yarn deploy
-
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./dist
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
