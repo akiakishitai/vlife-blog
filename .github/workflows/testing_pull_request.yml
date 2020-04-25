@@ -2,13 +2,14 @@ name: testing pull request
 
 on:
   pull_request:
+    types: [opened, synchronize]
     branches:
       - master
       - develop
 
 jobs:
   testing:
-        runs-on: ubuntu-18.04
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
