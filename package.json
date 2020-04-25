@@ -12,7 +12,7 @@
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
     "test": "jest",
-    "test:ci": "jest --coverage false"
+    "test-ci": "jest --coverage false"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",

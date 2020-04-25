@@ -33,8 +33,12 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
 
+      - name: install offline
+        if: steps.yarn-cache.outputs.cache-hit == 'true'
+        run: yarn install --offline
+
       - name: test
-        run: yarn test:ci
+        run: yarn run test-ci
 
       - name: generate
         run: yarn deploy

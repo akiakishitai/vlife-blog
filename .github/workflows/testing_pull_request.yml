@@ -2,13 +2,14 @@ name: testing pull request
 
 on:
   pull_request:
+    types: [opened, synchronize]
     branches:
       - master
       - develop
 
 jobs:
   testing:
-        runs-on: ubuntu-18.04
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
@@ -34,5 +35,9 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
 
+      - name: install offline
+        if: steps.yarn-cache.outputs.cache-hit == 'true'
+        run: yarn install --offline
+
       - name: test
-        run: yarn test:ci
+        run: yarn run test-ci
