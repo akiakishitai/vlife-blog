@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'src/**'
+      - '.babelrc'
+      - 'nuxt.config.js'
 
 jobs:
   build-deploy:

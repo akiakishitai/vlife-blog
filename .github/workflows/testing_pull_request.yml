@@ -6,6 +6,11 @@ on:
     branches:
       - master
       - develop
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.vue'
+      - '.github/workflows/*.yml'
 
 jobs:
   testing:
