@@ -1,16 +1,19 @@
-name: github pages
+name: testing pull request
 
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize]
     branches:
       - master
+      - develop
     paths:
-      - 'src/**'
-      - '.babelrc'
-      - 'nuxt.config.js'
+      - '**.js'
+      - '**.ts'
+      - '**.vue'
+      - '.github/workflows/*.yml'
 
 jobs:
-  build-deploy:
+  testing:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -41,13 +44,5 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit == 'true'
         run: yarn install --offline
 
-      - name: generate
-        run: yarn deploy
-
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./dist
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+      - name: test
+        run: yarn run test-ci

@@ -1,5 +1,7 @@
 # vlife-blog
 
+![github pages](https://github.com/akiakishitai/vlife-blog/workflows/github%20pages/badge.svg)
+
 > Generate a static site with Nuxt.js
 
 GitHub Page: <https://akiakishitai.github.io/vlife-blog/>

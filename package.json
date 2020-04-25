@@ -11,7 +11,8 @@
     "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "test": "jest"
+    "test": "jest",
+    "test-ci": "jest --coverage false"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
