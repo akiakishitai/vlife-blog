@@ -7,7 +7,7 @@ declare module '*.md' {
     readonly title: string
     readonly description?: string
     readonly date: string
-    readonly updateAt?: string
+    readonly updatedAt?: string
     readonly tags: string[]
   }
 
