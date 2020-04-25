@@ -34,7 +34,7 @@ jobs:
         run: yarn install
 
       - name: test
-        run: yarn test:ci
+        run: yarn test-ci
 
       - name: generate
         run: yarn deploy
