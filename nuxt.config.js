@@ -69,4 +69,8 @@ export default {
    ** Router
    */
   routerBase,
+  /*
+   ** Nuxt source directory
+   */
+  srcDir: 'src/',
 }
