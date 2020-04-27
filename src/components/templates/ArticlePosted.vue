@@ -1,16 +1,11 @@
 <template>
   <div>
     <HeadingLevel v-bind:value="headingLevel" />
-    <div>
-      <div class="flex">
-        <TagChip v-for="(item, index) in article.tags" v-bind:key="index" v-bind:tag="item" />
-      </div>
-      <div class="flex justify-end">
-        <div v-if="article.updatedAt != null">更新日：{{ article.updatedAt | moment }}</div>
-        <div>作成日：{{ article.createdAt | moment }}</div>
-      </div>
+    <div class="mt-4">
+      <TagColumn v-bind:tags="article.tags" />
+      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
     </div>
-    <ArticleBody class="mt-5" v-bind:renderd="article.body" />
+    <ArticleBody class="mt-6" v-bind:renderd="article.body" />
   </div>
 </template>
 
@@ -21,8 +16,9 @@ import { Article, HeadingLevelType } from '@/models'
 import { Content } from '*.md'
 
 import ArticleBody from '../organisms/ArticleBody.vue'
+import DatesDisplay from '../molecules/DatesDisplay.vue'
 import HeadingLevel from '../atoms/HeadingLevel.vue'
-import TagChip from '../atoms/TagChip.vue'
+import TagColumn from '../molecules/TagColumn.vue'
 
 /**
  * _Markdown_ 記事テンプレート。
@@ -34,12 +30,19 @@ import TagChip from '../atoms/TagChip.vue'
 @Component({
   components: {
     ArticleBody,
+    DatesDisplay,
     HeadingLevel,
-    TagChip,
+    TagColumn,
   },
   filters: {
-    moment: function (date: Date) {
-      return moment(date).format('YYYY年MM月DD日')
+    dateFormats: function (pickDate: Pick<Article, 'createdAt' | 'updatedAt'>) {
+      return {
+        createdAt: moment(pickDate.createdAt).format('YYYY年MM月DD日'),
+        updatedAt:
+          pickDate.updatedAt != null
+            ? moment(pickDate.updatedAt).format('YYYY年MM月DD日')
+            : '',
+      }
     },
   },
 })

@@ -20,7 +20,6 @@ describe('ArticleBody', () => {
     '```\n\n' +
     'check.\n'.trimLeft()
 
-  const header = 'codeblock_header'
   let wrapper: Wrapper<ArticleBody>
 
   beforeEach(async () => {
@@ -42,7 +41,9 @@ describe('ArticleBody', () => {
     expect(wrapper2.find('h2').text()).toBe('Remain this header')
   })
 
-  it('is render codeblock header', () => {
+  it('is render code with a note', () => {
+    const header = 'code-note'
+
     // コードブロック:
     expect(wrapper.contains('.language-ts')).toBeTruthy()
     expect(wrapper.contains('.language-js')).toBeTruthy()

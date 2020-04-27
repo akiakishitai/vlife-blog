@@ -1,6 +1,7 @@
 <template functional>
-  <div>
-    <span>{{ props.tag }}</span>
+  <div class="flex items-center" v-bind:class="[data.class, data.staticClass]">
+    <span class="material-icons text-lg">local_offer</span>
+    <div class="pl-1">{{ props.tag }}</div>
   </div>
 </template>
 

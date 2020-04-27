@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="mx-4">
+    <main class="pt-6">
+      <nuxt />
+    </main>
   </div>
 </template>
 

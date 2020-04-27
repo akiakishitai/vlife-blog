@@ -6,6 +6,9 @@
  */
 module.exports = {
   theme: {},
-  variants: {},
+  variants: {
+    backgroundColor: ['responsive', 'hover', 'focus', 'even'],
+    textColor: ['responsive', 'hover', 'focus', 'visited'],
+  },
   plugins: [],
 }
