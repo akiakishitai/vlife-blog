@@ -3,3 +3,7 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
+
+.code-note {
+  @apply absolute left-0 top-0 inline-block rounded bg-green-300 px-1 mt-2 ml-2;
+}

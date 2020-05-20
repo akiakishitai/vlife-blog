@@ -15,11 +15,20 @@ declare global {
      * 空文字の場合は `true` を返す。
      */
     isEmpty(): boolean
+
+    /**
+     * 空文字以外の場合に `true` を返す。
+     */
+    isNotEmpty(): boolean
   }
 }
 
 String.prototype.isEmpty = function () {
-  return this === ''
+  return this == ''
+}
+
+String.prototype.isNotEmpty = function () {
+  return !this.isEmpty()
 }
 
 String.prototype.without = function (pattern: RegExp | string) {
