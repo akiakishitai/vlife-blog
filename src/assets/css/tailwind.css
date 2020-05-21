@@ -4,6 +4,10 @@
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
+.text-on-background {
+  @apply text-black text-opacity-87;
+}
+
 .code-note {
-  @apply absolute left-0 top-0 inline-block rounded bg-green-300 px-1 mt-2 ml-2;
+  @apply text-primary-light text-opacity-75 border-b px-6 mb-2;
 }

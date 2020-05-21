@@ -1,6 +1,8 @@
 <template functional>
   <div class="flex items-center" v-bind:class="[data.class, data.staticClass]">
-    <span class="material-icons text-xl">{{ $options.methods.dateIcon(props.item) }}</span>
+    <span class="material-icons text-xl opacity-87">{{
+      $options.methods.dateIcon(props.item)
+    }}</span>
     <div class="pl-1">{{ props.item.date }}</div>
   </div>
 </template>
@@ -45,5 +47,4 @@ export default class DatePrefixIcon extends Vue {
 }
 </script>
 
-<style>
-</style>
+<style></style>

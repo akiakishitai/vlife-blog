@@ -4,11 +4,50 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
+import { colors, opacity } from 'tailwindcss/defaultTheme'
+
+const lime = {
+  light: '#ffff6c',
+  default: '#ccdb37',
+  dark: '#98aa00',
+}
+const amber = {
+  light: '#fff350',
+  default: '#ffc107',
+  dark: '#c79100',
+}
+const cyan = {
+  light: '#6ff9ff',
+  default: '#26c6da',
+  dark: '#0095a8',
+}
+
 module.exports = {
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        lime: lime,
+        amber: amber,
+        primary: amber,
+        secondary: cyan,
+        background: '#efebe9',
+        surface: '#efebe9',
+        error: '#B00020',
+      },
+      opacity: {
+        '15': '0.15',
+        '38': '0.38',
+        '54': '0.54',
+        '87': '0.87',
+        ...opacity,
+      },
+    },
+  },
   variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'even'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'even', 'odd'],
+    backgroundOpacity: ['responsive', 'hover', 'focus', 'even', 'odd'],
     textColor: ['responsive', 'hover', 'focus', 'visited'],
   },
   plugins: [],
+  purge: ['./**/*.html', './**/*.vue'],
 }
