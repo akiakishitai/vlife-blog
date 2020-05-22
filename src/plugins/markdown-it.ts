@@ -24,15 +24,15 @@ export const md = import('markdown-it').then((x) => {
        */
       const dom = (langClass: string, context: string = ''): string => {
         const preClass =
-          'relative rounded-lg bg-green-500 mt-4 ' +
-          (context.isNotEmpty() ? 'pt-10 pb-4' : 'py-4')
+          'relative rounded bg-gray-700 mt-4 ' +
+          (context.isNotEmpty() ? 'pt-1 pb-4' : 'py-4')
 
         const block = `<div class="code-note">${context}</div>`
 
         return (
           `<pre class="${preClass}">` +
           (context.isNotEmpty() ? block : '') +
-          `<code class="px-6` +
+          `<code class="px-6 text-white text-opacity-87` +
           `${langClass.isNotEmpty() ? ` ${langClass}"` : '"'}>` +
           `${m.utils.escapeHtml(content)}</code>` +
           `</pre>`
@@ -104,11 +104,11 @@ const mdPlugin: Plugin = async (context) => {
   // <h1~6>
   mdIt.renderer.rules['heading_open'] = renderRule('', (token) => {
     const classAttr = new Map<string, string>([
-      ['h1', 'text-3xl font-semibold'],
-      ['h2', 'text-2xl font-semibold mt-8'],
-      ['h3', 'text-xl font-semibold mt-6'],
-      ['h4', 'text-lg font-semibold mt-4'],
-      ['h5', 'text-base font-semibold mt-4'],
+      ['h1', 'text-4xl font-light'],
+      ['h2', 'text-3xl font-normal mt-8'],
+      ['h3', 'text-2xl font-semibold mt-6'],
+      ['h4', 'text-xl font-semibold mt-4'],
+      ['h5', 'text-lg font-semibold mt-4'],
       ['h6', 'text-base font-semibold mt-4'],
     ]).get(token.tag)
 
@@ -144,16 +144,21 @@ const mdPlugin: Plugin = async (context) => {
   mdIt.renderer.rules['table_open'] = renderRule(
     'table-auto border-collapse mt-4 ml'
   )
-  mdIt.renderer.rules['tr_open'] = renderRule('even:bg-gray-200')
-  mdIt.renderer.rules['th_open'] = renderRule('border border-b-4 px-4 py-2')
-  mdIt.renderer.rules['td_open'] = renderRule('border px-4 py-2')
+  //mdIt.renderer.rules['thead_open'] = renderRule('border-b border-black')
+  mdIt.renderer.rules['tr_open'] = renderRule(
+    'border-b border-black border-opacity-50 even:bg-primary-light even:bg-opacity-15'
+  )
+  mdIt.renderer.rules['th_open'] = renderRule('px-4 py-3')
+  mdIt.renderer.rules['td_open'] = renderRule('px-4 py-2')
   // <blockquote>
-  mdIt.renderer.rules['blockquote_open'] = renderRule('border-l-4 pl-4')
+  mdIt.renderer.rules['blockquote_open'] = renderRule(
+    'border-l-4 border-primary border-opacity-54 text-black text-opacity-75 italic pl-4'
+  )
   // <hr>
-  mdIt.renderer.rules['hr'] = renderRule('mt-6')
+  mdIt.renderer.rules['hr'] = renderRule('mt-6 border-gray-600')
   // <a>
   mdIt.renderer.rules['link_open'] = renderRule(
-    'text-indigo-500 visited:text-purple-600 hover:underline'
+    'text-indigo-500 visited:text-purple-800 hover:underline'
   )
 
   /* render.js rules */
@@ -162,7 +167,7 @@ const mdPlugin: Plugin = async (context) => {
   defaultRules.set('image', mdIt.renderer.rules.image)
   // <code>
   const codeInline: RenderRule = (tokens, idx, options, env, self): string => {
-    tokens[idx].attrJoin('class', 'rounded-sm bg-green-500 px-1')
+    tokens[idx].attrJoin('class', 'rounded-sm bg-primary bg-opacity-75 px-1')
 
     const defaultRule = defaultRules.get('code_inline')
     if (defaultRule != null) {

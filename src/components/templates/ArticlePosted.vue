@@ -3,8 +3,12 @@
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
       <TagColumn v-bind:tags="article.tags" />
-      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
+      <DatesDisplay
+        class="flex justify-end"
+        v-bind:item="article | dateFormats"
+      />
     </div>
+    <hr class="mt-2 border-gray-600" />
     <ArticleBody class="mt-6" v-bind:renderd="article.body" />
   </div>
 </template>
