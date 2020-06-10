@@ -5,11 +5,12 @@
   "author": "akiakiS",
   "private": true,
   "scripts": {
-    "deploy": "env DEPLOY_ENV=GH_PAGES NODE_ENV=production nuxt-ts generate",
-    "dev": "nuxt-ts",
     "build": "nuxt-ts build",
+    "deploy": "yarn mdlist && env DEPLOY_ENV=GH_PAGES NODE_ENV=production nuxt-ts generate",
+    "dev": "yarn mdlist && nuxt-ts",
     "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "NODE_ENV=production nuxt-ts generate",
+    "mdlist": "node --experimental-modules fileListToJson.mjs",
     "start": "nuxt-ts start",
     "test": "jest",
     "test-ci": "jest --coverage false"
