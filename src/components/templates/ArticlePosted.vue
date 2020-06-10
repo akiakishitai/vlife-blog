@@ -2,13 +2,18 @@
   <div>
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
-      <TagColumn v-bind:tags="article.tags" />
-      <DatesDisplay
-        class="flex justify-end"
-        v-bind:item="article | dateFormats"
-      />
+      <TagColumn v-bind:tags="tags" v-on:click="onClickTag" />
+      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
     </div>
     <hr class="mt-2 border-gray-600" />
+
+    <div class="flex mt-4">
+      <ButtonMaterial />
+      <ButtonMaterial class="ml-4" v-bind:property="{label: 'hoge'}" />
+      <ButtonMaterial class="ml-4" v-bind:property="{type: 'outlined'}" />
+      <ButtonMaterial class="ml-4" v-bind:property="{type: 'raised', icon: 'bookmark'}" />
+    </div>
+
     <ArticleBody class="mt-6" v-bind:renderd="article.body" />
   </div>
 </template>
@@ -16,13 +21,14 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import moment from 'moment'
-import { Article, HeadingLevelType } from '@/models'
+import { Article, ArticleTag, HeadingLevelType } from '@/models'
 import { Content } from '*.md'
 
 import ArticleBody from '../organisms/ArticleBody.vue'
 import DatesDisplay from '../molecules/DatesDisplay.vue'
 import HeadingLevel from '../atoms/HeadingLevel.vue'
 import TagColumn from '../molecules/TagColumn.vue'
+import ButtonMaterial from '../atoms/ButtonMaterial.vue'
 
 /**
  * _Markdown_ 記事テンプレート。
@@ -37,6 +43,7 @@ import TagColumn from '../molecules/TagColumn.vue'
     DatesDisplay,
     HeadingLevel,
     TagColumn,
+    ButtonMaterial,
   },
   filters: {
     dateFormats: function (pickDate: Pick<Article, 'createdAt' | 'updatedAt'>) {
@@ -87,6 +94,31 @@ export default class ArticlePosted extends Vue {
       text: this.article.title,
       level: 1,
     }
+  }
+
+  /**
+   * {@link ArticleTag} 型に変換する。
+   *
+   * `ArticleTag.value` はタグ検索ページとする。
+   */
+  get tags(): ArticleTag[] {
+    return this.article.tags.map((tag) => ({
+      name: tag,
+      value: `/search/${tag}`,
+    }))
+  }
+
+  /**
+   * タグをクリックしたときに実行する関数。
+   *
+   * タグ検索のページに移動させる。
+   *
+   * ToDo
+   */
+  onClickTag(value: any) {
+    //this.$router.push(value)
+
+    console.log('Sorry, not implements.')
   }
 }
 </script>

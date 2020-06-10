@@ -70,6 +70,18 @@ export default {
         exclude: /(node_modules)/,
       })
     },
+    /**
+     * Webpack loaders options
+     */
+    loaders: {
+      scss: {
+        sassOptions: {
+          includePaths: ['node_modules', 'src/assets/css'],
+        },
+        implementation: require('sass'),
+        webpackImporter: false,
+      },
+    },
   },
   /*
    ** Router

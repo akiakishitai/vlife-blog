@@ -19,6 +19,7 @@
     "@types/markdown-it": "^10.0.0",
     "front-matter": "^3.1.0",
     "markdown-it": "^10.0.0",
+    "material-components-web": "^6.0.0",
     "moment": "^2.24.0",
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "^2.5.1",
@@ -32,7 +33,7 @@
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
     "prettier": "^2.0.3",
-    "sass": "^1.26.3",
+    "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "ts-jest": ">=24.0.0 <25.0.0",
     "vue-jest": "^4.0.0-0"

@@ -1,11 +1,12 @@
 <template functional>
-  <div class="flex">
+  <div class="mdc-chip-set">
     <component
       v-bind:is="injections.components.TagChip"
       v-for="(item, index) in $options.methods.skipEmpty(props.tags)"
       v-bind:key="index"
-      v-bind:class="{'ml-1': index >= 1}"
-      v-bind:tag="item"
+      v-bind:tag="item.name"
+      v-bind:value="item.value"
+      v-on:click="listeners.click"
     ></component>
   </div>
 </template>
@@ -14,6 +15,7 @@
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import TagChip from '../atoms/TagChip.vue'
 import '@/helpers/string.extension'
+import { ArticleTag } from '@/models'
 
 /**
  * 複数タグの表示を定義。
@@ -39,19 +41,20 @@ import '@/helpers/string.extension'
 })
 export default class TagColumn extends Vue {
   /**
-   * タグ名の配列。
+   * タグの配列。
    */
   @Prop({ required: true })
-  tags!: string[]
+  tags!: ArticleTag[]
 
   /**
    * 値が空白文字である要素を排除した配列を返す。
    */
-  skipEmpty(strs: string[]): string[] {
-    return strs.filter((value) => value.isNotEmpty())
+  skipEmpty(strs: ArticleTag[]): ArticleTag[] {
+    return strs.filter((value) => value.name.isNotEmpty())
   }
 }
 </script>
 
-<style>
+<style lang-"scss" scoped>
+@use "@material/chips/mdc-chips";
 </style>
