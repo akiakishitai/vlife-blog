@@ -1,12 +1,7 @@
+const postsList = require('./src/assets/markdowns/posts/postlist.json')
+
 // If github branch is 'gh-pages'
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/vlife-blog/',
-        },
-      }
-    : {}
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/vlife-blog/' : '/'
 
 export default {
   mode: 'universal',
@@ -15,6 +10,7 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || '',
+    titleTemplate: '%s - Vがある生活',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -86,7 +82,20 @@ export default {
   /*
    ** Router
    */
-  routerBase,
+  router: {
+    base: routerBase,
+  },
+  /**
+   * Generate route
+   */
+  generate: {
+    fallback: true,
+    routes() {
+      return postsList.posts.map((x) => {
+        return `/posts/${x.title}`
+      })
+    },
+  },
   /*
    ** Nuxt source directory
    */

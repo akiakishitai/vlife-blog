@@ -91,3 +91,6 @@ sw.*
 
 # Readme
 src/**/README.md
+
+### markdown posts list
+src/assets/markdowns/posts/postlist.json
