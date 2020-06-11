@@ -1,0 +1,10 @@
+$primary-color: #ffc107;
+$secondary-color: #26c6da;
+$background-color: #efebe9;
+
+// マテリアルデザインのカラーテーマ
+@forward '@material/theme' with (
+  $primary: $primary-color !default,
+  $secondary: $secondary-color !default,
+  $background: $background-color !default,
+);

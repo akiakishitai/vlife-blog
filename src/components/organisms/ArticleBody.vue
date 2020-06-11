@@ -19,7 +19,7 @@ export default class ArticleBody extends Vue {
    * HTMLの `H1` 要素（タイトル）があれば削除。
    */
   get body(): string {
-    return this.renderd.without(/<h1>.+?<\/h1>/)
+    return this.renderd.without(/<h1.+?<\/h1>/)
   }
 }
 </script>

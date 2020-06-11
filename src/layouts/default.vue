@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="px-4 bg-background">
+    <main class="pt-6 text-black text-opacity-87">
+      <nuxt />
+    </main>
   </div>
 </template>
 

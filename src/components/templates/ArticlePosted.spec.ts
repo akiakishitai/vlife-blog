@@ -57,4 +57,32 @@ describe('ArticlePosted', () => {
       })
     ).toBeFalsy()
   })
+
+  test('filter', () => {
+    const filter = ArticlePosted.filter('dateFormats')
+    expect(filter({ createdAt: new Date('2020-04-22') })).toEqual({
+      createdAt: '2020年04月22日',
+      updatedAt: '',
+    })
+
+    expect(
+      filter({
+        createdAt: new Date('2020-01-12'),
+        updatedAt: new Date('2020-01-15'),
+      })
+    ).toEqual({
+      createdAt: '2020年01月12日',
+      updatedAt: '2020年01月15日',
+    })
+
+    expect(
+      filter({
+        createdAt: new Date('2020-04-22'),
+        updatedAt: new Date('2020-04-25'),
+      })
+    ).toEqual({
+      createdAt: '2020年04月22日',
+      updatedAt: '2020年04月25日',
+    })
+  })
 })

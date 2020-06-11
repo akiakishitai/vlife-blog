@@ -22,8 +22,8 @@ describe('Markdown-it', () => {
     expect(doc.querySelectorAll('pre code').length).toBe(2)
     expect(doc.querySelectorAll('pre div + code').length).toBe(1)
     expect(doc.querySelectorAll('.language-ts').length).toBe(2)
-    expect(doc.querySelectorAll('.codeblock_header').length).toBe(1)
-    expect(doc.querySelectorAll('.codeblock_header').item(0).textContent).toBe(
+    expect(doc.querySelectorAll('.code-note').length).toBe(1)
+    expect(doc.querySelectorAll('.code-note').item(0).textContent).toBe(
       'sample'
     )
   })

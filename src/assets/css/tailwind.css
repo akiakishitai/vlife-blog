@@ -3,3 +3,11 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
+
+.text-on-background {
+  @apply text-black text-opacity-87;
+}
+
+.code-note {
+  @apply text-primary-light text-opacity-75 border-b px-6 mb-2;
+}
