@@ -1,16 +1,16 @@
 import { shallowMount, Wrapper } from '@vue/test-utils'
 import ArticleBody from '@/components/organisms/ArticleBody.vue'
-import { md } from '@/plugins/markdown-it'
+import { mdIt } from '@/plugins/markdown-it'
 
 describe('ArticleBody', () => {
   const sample =
     '# Remove this title\n\n' +
     '## Remain this header\n\n' +
-    '```ts:hogehoge\n' +
+    '```ts {data-lang=hogehoge}\n' +
     "const test = 'test codeblock'\n" +
     'console.log(test)\n' +
     '```\n\n' +
-    '```ts:fugafuga\n' +
+    '```ts {data-lang=fugafuga}\n' +
     "const test2 = 'test codeblock2'\n" +
     'console.log(test2)\n' +
     '```\n\n' +
@@ -22,9 +22,9 @@ describe('ArticleBody', () => {
 
   let wrapper: Wrapper<ArticleBody>
 
-  beforeEach(async () => {
+  beforeEach(() => {
     wrapper = shallowMount(ArticleBody, {
-      propsData: { renderd: (await md).render(sample) },
+      propsData: { renderd: mdIt.render(sample) },
     })
   })
 
@@ -47,10 +47,16 @@ describe('ArticleBody', () => {
     // コードブロック:
     expect(wrapper.contains('.language-ts')).toBeTruthy()
     expect(wrapper.contains('.language-js')).toBeTruthy()
-    const codeblockHeades = wrapper.findAll(`.${header}`)
+    expect(wrapper.findAll(`.${header}`).length).toEqual(3)
+
+    const codeblockHeades = wrapper.findAll(`.${header}[data-lang]`)
     expect(codeblockHeades.length).toEqual(2)
-    expect(codeblockHeades.at(0).find(`.${header}`).text()).toBe('hogehoge')
-    expect(codeblockHeades.at(1).find(`.${header}`).text()).toBe('fugafuga')
+    expect(
+      codeblockHeades.at(0).find(`.${header}`).attributes()['data-lang']
+    ).toBe('hogehoge')
+    expect(
+      codeblockHeades.at(1).find(`.${header}`).attributes()['data-lang']
+    ).toBe('fugafuga')
 
     const text = `<h2>Without code block header</h2>
     <p>fugafuga</p>

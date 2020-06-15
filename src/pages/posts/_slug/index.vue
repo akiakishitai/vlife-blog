@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { ComponentOptions } from 'vue'
+import Vue, { ComponentOptions } from 'vue'
 import fm from 'front-matter'
 import { Attribute, Content } from '*.md'
 import { posts } from '@/assets/markdowns/posts/postlist.json'
@@ -13,7 +13,7 @@ type Property = {
   prop: Content
 }
 
-const option: ComponentOptions<Vue> = {
+export default Vue.extend({
   /**
    * Markdownファイル名とパラメータ `slug` を照合。
    */
@@ -41,11 +41,14 @@ const option: ComponentOptions<Vue> = {
       },
     }
   },
+  mounted() {
+    this.$prism.highlightAll()
+  },
   components: {
     ArticlePosted,
   },
   head() {
-    const prop = (this as Property).prop
+    const prop = ((this as any) as Property).prop
     return {
       title: prop.attribute.title,
       meta: [
@@ -57,9 +60,7 @@ const option: ComponentOptions<Vue> = {
       ],
     }
   },
-}
-// `export default` を使う必要あり
-export default option
+})
 </script>
 
 <style lang="scss" scoped></style>

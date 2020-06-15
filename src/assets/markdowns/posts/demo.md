@@ -33,12 +33,18 @@ const code_block;
 
 ### ファイル名付き
 
-```ts:test
+```ts {data-lang=test}
 const hoge = 'hoge'
 ```
 
-```ts:test2
+```ts {data-lang=test2}
 const foo = 'foo'
+const fuga = 'fuga'
+```
+
+```js {data-lang=javascript}
+var hogehoge
+console.log('日本語test')
 ```
 
 ### インライン
@@ -111,3 +117,11 @@ _斜体: em_
 ### 打ち消し
 
 ~~禁則事項です~~
+
+## markdown-it プラグイン
+
+### markdown-it-attrs
+
+class {.hoge}
+
+attribute {.foo data-lang=foo}
