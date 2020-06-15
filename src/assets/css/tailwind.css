@@ -8,6 +8,22 @@
   @apply text-black text-opacity-87;
 }
 
+/* Markdownのコードブロック */
 .code-note {
-  @apply text-primary-light text-opacity-75 border-b px-6 mb-2;
+  @apply relative rounded mt-4;
+}
+
+.code-note:not([data-lang]) {
+  @apply py-4 px-6;
+}
+
+.code-note[data-lang] {
+  @apply pb-4;
+}
+
+.code-note[data-lang]::before {
+  @apply text-primary-light text-opacity-75 border-b border-dashed border-opacity-50 -mt-2 mb-4 -ml-3;
+
+  content: attr(data-lang);
+  display: block;
 }
