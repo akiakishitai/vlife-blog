@@ -65,6 +65,11 @@ export default {
         loader: 'raw-loader',
         exclude: /(node_modules)/,
       })
+      config.module.rules.push({
+        test: /\.txt$/i,
+        loader: 'raw-loader',
+        exclude: /(node_modules)/,
+      })
     },
     /**
      * Webpack loaders options
