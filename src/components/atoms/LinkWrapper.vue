@@ -1,16 +1,18 @@
 <template functional>
   <a
-    class="text-indigo-500 visited:text-purple-800 hover:underline"
     v-if="props.href.match(/^https?:\/\//) != null"
+    class="link"
     v-bind:href="props.href"
     target="_blank"
+    v-bind:disabled="props.disabled"
   >
     <slot></slot>
   </a>
   <nuxt-link
-    class="text-indigo-500 visited:text-purple-800 hover:underline"
     v-else
     v-bind:to="props.href"
+    class="link"
+    v-bind:disabled="props.disabled"
   >
     <slot></slot>
   </nuxt-link>
@@ -28,7 +30,26 @@ export default class LinkWrapper extends Vue {
    * リンク先のURLを格納。
    */
   @Prop({ required: true }) href!: string
+
+  @Prop() disabled!: boolean
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.link:not([disabled]) {
+  @apply text-indigo-500;
+
+  &:visited {
+    @apply text-purple-800;
+  }
+
+  &:hover {
+    @apply underline;
+  }
+}
+
+.link[disabled] {
+  /* リンクを無効化 */
+  pointer-events: none;
+}
+</style>

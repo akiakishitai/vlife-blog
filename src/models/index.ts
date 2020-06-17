@@ -1,4 +1,7 @@
 export * from './article'
 export * from './buttonAttribute'
 export * from './headingLevelType'
+export * from './paging'
+export * from './postFile'
 export * from './tag'
+export * from './vueProperties'

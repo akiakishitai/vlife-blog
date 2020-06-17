@@ -1,4 +1,4 @@
-import { maybeDo, splitLicense } from './functions'
+import { maybeDo, splitLicense, isObject, encodePathURI } from './functions'
 
 describe('Functions', () => {
   test('of maybeDo', () => {
@@ -97,5 +97,24 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`)
+  })
+
+  test('of isObject', () => {
+    expect(isObject('not object')).toBeFalsy()
+    expect(isObject(12345)).toBeFalsy()
+    expect(isObject(null)).toBeFalsy()
+    expect(isObject({})).toBeTruthy()
+    expect(isObject({ hoge: 123 })).toBeTruthy()
+    expect(isObject(() => 'function')).toBeTruthy()
+  })
+
+  test.each([
+    ['hoge', 'hoge'],
+    ['f o o', 'f+o+o'],
+    ['にほんご', '%E3%81%AB%E3%81%BB%E3%82%93%E3%81%94'],
+    ['query=anything', 'query=anything'],
+    ['q=', 'q='],
+  ])('does encodePathURI(%s)', (x, expected) => {
+    expect(encodePathURI(x)).toEqual(expected)
   })
 })
