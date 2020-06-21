@@ -1,8 +1,8 @@
 <template functional>
   <a
     class="text-indigo-500 visited:text-purple-800 hover:underline"
-    v-if="props.link.url.match(/^https?:\/\//) != null"
-    v-bind:href="props.link.url"
+    v-if="props.href.match(/^https?:\/\//) != null"
+    v-bind:href="props.href"
     target="_blank"
   >
     <slot></slot>
@@ -10,7 +10,7 @@
   <nuxt-link
     class="text-indigo-500 visited:text-purple-800 hover:underline"
     v-else
-    v-bind:to="props.link.url"
+    v-bind:to="props.href"
   >
     <slot></slot>
   </nuxt-link>
@@ -25,13 +25,10 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component
 export default class LinkWrapper extends Vue {
   /**
-   * 内部リンク先のURLを格納。
-   *
-   * `:` が混ざると直接 `v-bind` 属性の値として入力できないため、オブジェクトでラップする。
+   * リンク先のURLを格納。
    */
-  @Prop({ required: true }) link!: { url: string }
+  @Prop({ required: true }) href!: string
 }
 </script>
 
-<style>
-</style>
+<style></style>

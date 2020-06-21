@@ -2,9 +2,9 @@ import { shallowMount, Wrapper, RouterLinkStub } from '@vue/test-utils'
 import LinkWrapper from './LinkWrapper.vue'
 
 describe('LinkWrapper', () => {
-  const createWrapper = (prop: { url: string }) => {
+  const createWrapper = (href: string) => {
     return shallowMount(LinkWrapper, {
-      propsData: { link: prop },
+      propsData: { href: href },
       stubs: { NuxtLink: RouterLinkStub },
       slots: {
         default: 'hoge',
@@ -14,11 +14,9 @@ describe('LinkWrapper', () => {
 
   test('is inner link or outer link', () => {
     let url = 'https://example.com'
-    expect(
-      createWrapper({ url: url }).find('a[href]').attributes()['href']
-    ).toBe(url)
+    expect(createWrapper(url).find('a[href]').attributes()['href']).toBe(url)
 
     url = '/sample/inner'
-    expect(createWrapper({ url: url }).props().to).toBe(url)
+    expect(createWrapper(url).props().to).toBe(url)
   })
 })
