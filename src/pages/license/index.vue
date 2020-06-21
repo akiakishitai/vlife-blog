@@ -5,9 +5,9 @@
         <ul class="list-disc ml-6">
           <li class="mt-8">
             Material Design icons: Licensed under
-            <LinkWrapper
-              v-bind:link="{url: 'https://www.apache.org/licenses/LICENSE-2.0'}"
-            >Apache license version 2.0</LinkWrapper>.
+            <LinkWrapper href="https://www.apache.org/licenses/LICENSE-2.0"
+              >Apache license version 2.0</LinkWrapper
+            >.
           </li>
         </ul>
       </template>
