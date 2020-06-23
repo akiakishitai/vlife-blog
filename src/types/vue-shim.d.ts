@@ -1,4 +1,13 @@
 declare module '*.vue' {
   import Vue from 'vue'
-  export default Vue
+
+  // メソッドを参照できるようにする
+  interface Options {
+    options: {
+      methods: { [key: string]: Function }
+    }
+  }
+  const vue: typeof Vue & Options
+
+  export default vue
 }
