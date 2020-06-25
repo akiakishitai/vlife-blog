@@ -7,7 +7,7 @@
   "scripts": {
     "build": "nuxt-ts build",
     "deploy": "yarn license-file && yarn mdlist && env DEPLOY_ENV=GH_PAGES NODE_ENV=production nuxt-ts generate",
-    "dev": "yarn mdlist && nuxt-ts",
+    "dev": "nuxt-ts",
     "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "NODE_ENV=production nuxt-ts generate",
     "license-file": "yarn licenses generate-disclaimer --ignore-platform > src/assets/thirdparty_license.txt",
