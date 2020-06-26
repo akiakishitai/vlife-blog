@@ -94,3 +94,6 @@ src/**/README.md
 
 ### markdown posts list
 src/assets/markdowns/posts/postlist.json
+
+### third-party licenses
+src/assets/**/thirdparty_license.txt

@@ -1,7 +1,7 @@
 <template>
-  <div class="px-4 bg-background">
-    <main class="pt-6 text-black text-opacity-87">
-      <nuxt />
+  <div class="min-h-screen flex flex-col items-center mx-auto bg-background">
+    <main class="container flex-grow text-black text-opacity-87 px-4">
+      <nuxt class="mt-6" />
     </main>
   </div>
 </template>
