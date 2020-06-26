@@ -20,12 +20,16 @@ describe('ArticleBody', () => {
     '```\n\n' +
     'check.\n'.trimLeft()
 
-  let wrapper: Wrapper<ArticleBody>
+  let wrapper: Wrapper<Vue>
 
   beforeEach(() => {
     wrapper = shallowMount(ArticleBody, {
       propsData: { renderd: mdIt.render(sample) },
     })
+  })
+
+  afterEach(() => {
+    wrapper.destroy()
   })
 
   it('is render removed title', () => {

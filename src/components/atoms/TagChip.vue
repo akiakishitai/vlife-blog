@@ -17,7 +17,6 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import * as funcs from '@/helpers/functions'
 
 /**
  * タグのチップ表示を定義。
@@ -42,9 +41,16 @@ export default class TagChip extends Vue {
 
   /**
    * 引数の関数が存在すれば実行する。
+   *
+   * @param func 実行する関数。
+   * @param args `func` にわたす引数。
    */
-  maybeDo(func: Function, ...args: any[]) {
-    funcs.maybeDo(func, ...args)
+  maybeDo(func?: Function, ...args: any[]) {
+    if (func == null) {
+      return
+    }
+
+    return func(...args)
   }
 }
 </script>
