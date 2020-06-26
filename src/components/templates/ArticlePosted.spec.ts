@@ -19,7 +19,7 @@ describe('ArticlePosted', () => {
     'hello, world.\n'
 
   const content = fm<Attribute>(md)
-  let wrapper: Wrapper<ArticlePosted>
+  let wrapper: Wrapper<Vue>
 
   beforeEach(() => {
     wrapper = shallowMount(ArticlePosted, {
@@ -31,6 +31,10 @@ describe('ArticlePosted', () => {
         },
       },
     })
+  })
+
+  afterEach(() => {
+    wrapper.destroy()
   })
 
   it('convert to Article', () => {
