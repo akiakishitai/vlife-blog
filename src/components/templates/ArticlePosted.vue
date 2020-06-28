@@ -3,25 +3,32 @@
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
       <TagColumn v-bind:tags="tags" v-on:click="onClickTag" />
-      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
+      <DatesDisplay
+        class="flex justify-end"
+        v-bind:item="article | dateFormats"
+      />
     </div>
     <hr class="mt-2 border-gray-600" />
-
-    <div class="flex mt-4">
+    <!-- 要素テスト用 -->
+    <div v-if="isDebug(article.tags)" class="flex mt-4">
       <ButtonMaterial />
-      <ButtonMaterial class="ml-4" v-bind:property="{label: 'hoge'}" />
-      <ButtonMaterial class="ml-4" v-bind:property="{type: 'outlined'}" />
-      <ButtonMaterial class="ml-4" v-bind:property="{type: 'raised', icon: 'bookmark'}" />
+      <ButtonMaterial class="ml-4" v-bind:property="{ label: 'hoge' }" />
+      <ButtonMaterial class="ml-4" v-bind:property="{ type: 'outlined' }" />
+      <ButtonMaterial
+        class="ml-4"
+        v-bind:property="{ type: 'raised', icon: 'bookmark' }"
+      />
     </div>
-
+    <!-- 要素テスト終了 -->
     <ArticleBody class="mt-6" v-bind:renderd="article.body" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Component, mixins, Prop, Vue } from 'nuxt-property-decorator'
 import moment from 'moment'
 import { Article, ArticleTag, HeadingLevelType } from '@/models'
+import { DebugMixin } from '@/mixins/debugMixin'
 import { Content } from '*.md'
 
 import ArticleBody from '../organisms/ArticleBody.vue'
@@ -57,7 +64,7 @@ import ButtonMaterial from '../atoms/ButtonMaterial.vue'
     },
   },
 })
-export default class ArticlePosted extends Vue {
+export default class ArticlePosted extends mixins(DebugMixin) {
   /**
    * _Front Matter_ つきの _Markdown_ ファイルの内容。
    */
