@@ -6,6 +6,10 @@
       Using fonts:
       <slot name="font"></slot>
     </div>
+    <div class="mt-8">
+      Using icons:
+      <slot name="icon"></slot>
+    </div>
     <div class="js-library">
       <div class="mt-8">{{ description }}</div>
       <LicenseYarnGenerated v-bind:licenses="splitLicense" />
