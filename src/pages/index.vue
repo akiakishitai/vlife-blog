@@ -1,5 +1,11 @@
 <template>
-  <TopPage v-bind:contents="contents" v-bind:paging="paging" v-bind:route="route" />
+  <TopPage v-bind:contents="contents" v-bind:paging="paging" v-bind:route="route">
+    <template v-slot:preamble>
+      <div v-if="paging.current === 1" class="mb-6">
+        <span>Vtuberさんの感想とかプログラミングのメモとか書くブログ。</span>
+      </div>
+    </template>
+  </TopPage>
 </template>
 
 <script lang="ts">
