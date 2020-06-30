@@ -30,3 +30,22 @@ export namespace TopPageProps {
     route: string
   }
 }
+
+/**
+ * リンクに関わるプロパティを定義するインタフェース。
+ */
+export namespace LinkProps {
+  export interface ToLinkProp {
+    /**
+     * リンク先URL。
+     */
+    href: string
+  }
+
+  export interface RouteProp {
+    /**
+     * 表示ページのルートパス。
+     */
+    route: string
+  }
+}
