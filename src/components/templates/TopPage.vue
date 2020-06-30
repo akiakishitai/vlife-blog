@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col justify-center items-center text-center mx-auto">
-    <HeadingLevel v-bind:value="{ level: 1, text: 'Top' }" />
+    <!-- 前置き -->
+    <slot name="preamble"></slot>
+    <!-- slot end. -->
     <ul class="overview w-3/4">
       <li
         class="flex-row justify-start hover:bg-lime hover:bg-opacity-25 p-2 mt-6"
