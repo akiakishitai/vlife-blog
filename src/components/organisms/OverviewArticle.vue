@@ -5,15 +5,15 @@
         <span class="graphic rounded-full flex items-center justify-center">
           <span class="material-icons text-4xl">article</span>
         </span>
-        <span class="description text-left ml-4">
+        <div class="description text-left ml-4">
           <div class="text-xl">{{ content.title }}</div>
           <div class="text-black text-opacity-54">{{ createdAt }}</div>
-        </span>
+        </div>
       </div>
     </nuxt-link>
-    <span class="tags flex mt-2 relative z-10">
+    <div class="tags flex mt-2 relative z-10">
       <TagColumn v-bind:tags="propTags(content)" />
-    </span>
+    </div>
   </div>
 </template>
 

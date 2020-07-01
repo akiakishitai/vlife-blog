@@ -6,8 +6,8 @@
     v-on:click="$options.methods.maybeDo(listeners.click, props.value)"
   >
     <div class="mdc-chip__ripple"></div>
-    <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">local_offer</i>
-    <span role="gridcell">
+    <i class="material-icons mdc-chip__icon mdc-chip__icon--leading" role="cell">local_offer</i>
+    <span role="cell">
       <span role="button" tabindex="0" class="mdc-chip__primary-action">
         <span class="mdc-chip__text">{{ props.tag }}</span>
       </span>

@@ -1,5 +1,5 @@
 <template functional>
-  <div class="mdc-chip-set">
+  <div class="mdc-chip-set" role="table">
     <component
       v-bind:is="injections.components.TagChip"
       v-for="(item, index) in $options.methods.skipEmpty(props.tags)"
