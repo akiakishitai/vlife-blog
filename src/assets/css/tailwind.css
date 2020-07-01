@@ -27,3 +27,14 @@
   content: attr(data-lang);
   display: block;
 }
+
+/* Simples Icons in markdown */
+.markdown-body img[src^="https://cdn.jsdelivr.net/npm/simple-icons"]
+{
+  @apply inline;
+  @apply w-5;
+  @apply align-baseline;
+  @apply opacity-87;
+
+  /* filter: invert(1); */
+}
