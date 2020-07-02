@@ -1,18 +1,17 @@
 <template functional>
-  <button
+  <div
     v-if="props.property.icon == null"
     class="mdc-button pagination-btn"
-    v-bind:class="[data.class, data.staticClass]"
-    v-bind:disabled="props.property.isDisabled"
+    v-bind:class="[data.class, data.staticClass, { disabled: props.property.isDisabled }]"
   >
     <div class="mdc-button__ripple"></div>
     <span class="mdc-button__label">{{ props.property.page }}</span>
-  </button>
-  <button
+  </div>
+  <div
     v-else
     class="mdc-icon-button material-icons pagination-icon"
-    v-bind:disabled="props.property.isDisabled"
-  >{{ props.property.icon }}</button>
+    v-bind:class="{ disabled: props.property.isDisabled }"
+  >{{ props.property.icon }}</div>
 </template>
 
 <script lang="ts">
@@ -55,7 +54,7 @@ export default class ButtonPagination extends Vue {
   min-width: 40px;
   --mdc-typography-button-font-size: 1.25rem;
 
-  &[disabled] {
+  &.disabled {
     background: #bdbdbd;
   }
 }
