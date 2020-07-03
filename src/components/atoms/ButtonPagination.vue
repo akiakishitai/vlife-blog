@@ -49,19 +49,23 @@ export default class ButtonPagination extends Vue {
 @use "@material/icon-button" as icon;
 
 .pagination-btn {
-  @include button.ink-color(rgba(0, 0, 0, 0.87));
-  @include button.disabled-ink-color(rgba(0, 0, 0, 0.54));
+  @include button.ink-color(rgba(black, 0.87));
+  @include button.disabled-ink-color(rgba(black, 0.54));
   min-width: 40px;
   --mdc-typography-button-font-size: 1.25rem;
 
   &.disabled {
-    background: #bdbdbd;
+    @apply bg-grey-400 bg-opacity-54;
   }
 }
 
 .pagination-icon {
   @include icon.icon-size(32px, 32px, 4px);
-  @include icon.ink-color(rgba(0, 0, 0, 0.87));
-  @include icon.disabled-ink-color(rgba(0, 0, 0, 0.38));
+  @include icon.ink-color(rgba(black, 0.87));
+  @include icon.disabled-ink-color(rgba(black, 0.38));
+
+  &.disabled {
+    @include icon.ink-color(rgba(theme.$md-grey-600, 0.87));
+  }
 }
 </style>

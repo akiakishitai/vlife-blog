@@ -1,17 +1,24 @@
 <template>
-  <div>
-    <nuxt-link v-bind:to="linkToArticle">
+  <div class="relative text-left">
+    <nuxt-link class="link-article" v-bind:to="linkToArticle">
       <div class="flex">
-        <span class="graphic rounded-full flex items-center justify-center">
+        <!-- 画像 -->
+        <span
+          class="graphic rounded-full flex items-center justify-center bg-grey-400 bg-opacity-38"
+        >
           <span class="material-icons text-4xl">article</span>
         </span>
+
+        <!-- テキスト情報 -->
         <div class="description text-left ml-4">
           <div class="text-xl">{{ content.title }}</div>
           <div class="text-black text-opacity-54">{{ createdAt }}</div>
         </div>
       </div>
     </nuxt-link>
-    <div class="tags flex mt-2 relative z-10">
+
+    <!-- タグ一覧 -->
+    <div class="inline-flex relative z-10 mt-4">
       <TagColumn v-bind:tags="propTags(content)" />
     </div>
   </div>
@@ -69,8 +76,18 @@ export default class OverviewArticle extends Vue {
 @include list.core-styles;
 
 .graphic {
-  background-color: rgba(0, 0, 0, 0.07);
   width: 56px;
   height: 56px;
+}
+
+// クリック反応範囲の拡大
+.link-article::before {
+  @apply block;
+  @apply absolute left-0 top-0;
+  @apply pointer-events-auto;
+  @apply bg-transparent;
+  @apply w-full h-full;
+
+  content: '';
 }
 </style>

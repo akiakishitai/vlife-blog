@@ -1,6 +1,10 @@
-$primary-color: #ffc107;
-$secondary-color: #26c6da;
-$background-color: #efebe9;
+// Material Colors
+@use 'material-colors/dist/colors.scss';
+@forward 'material-colors/dist/colors.scss';
+
+$primary-color: colors.$md-amber-500;
+$secondary-color: colors.$md-cyan-400;
+$background-color: colors.$md-grey-200;
 
 // マテリアルデザインのカラーテーマ
 @forward '@material/theme' with (
