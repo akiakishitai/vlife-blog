@@ -80,7 +80,7 @@ export default class Pagination extends Vue {
     return `${route}?page=${page}`
   }
 }
-</script lang="ts">
+</script>
 
 <style>
 </style>

@@ -16,15 +16,15 @@ describe('LinkButtonPagination', () => {
     const example = 'https://example.com'
     let wrapper = createWrapper(example, 'first')
     expect(wrapper.find('[href]').attributes().href).toBe(example)
-    expect(wrapper.contains('[disabled]')).toBeFalsy()
+    expect(wrapper.contains('.disabled')).toBeFalsy()
 
     wrapper = createWrapper(example, { page: '7' })
     expect(wrapper.find('[href]').attributes().href).toBe(example)
-    expect(wrapper.contains('[disabled]')).toBeFalsy()
+    expect(wrapper.contains('.disabled')).toBeFalsy()
 
     wrapper = createWrapper(example, { page: '7' }, true)
     expect(wrapper.find('[href]').attributes().href).toBe(example)
-    expect(wrapper.contains('[disabled]')).toBeTruthy()
+    expect(wrapper.contains('.disabled')).toBeTruthy()
   })
 
   test('of propByPaging', () => {

@@ -2,18 +2,13 @@
   <a
     v-if="props.href.match(/^https?:\/\//) != null"
     class="link"
+    v-bind:class="{ disabled: props.disabled }"
     v-bind:href="props.href"
     target="_blank"
-    v-bind:disabled="props.disabled"
   >
     <slot></slot>
   </a>
-  <nuxt-link
-    v-else
-    v-bind:to="props.href"
-    class="link"
-    v-bind:disabled="props.disabled"
-  >
+  <nuxt-link v-else v-bind:to="props.href" class="link" v-bind:class="{ disabled: props.disabled }">
     <slot></slot>
   </nuxt-link>
 </template>
@@ -31,12 +26,12 @@ export default class LinkWrapper extends Vue {
    */
   @Prop({ required: true }) href!: string
 
-  @Prop() disabled!: boolean
+  @Prop({ required: false }) disabled?: boolean
 }
 </script>
 
 <style lang="scss" scoped>
-.link:not([disabled]) {
+.link:not(.disabled) {
   @apply text-indigo-500;
 
   &:visited {
@@ -48,7 +43,7 @@ export default class LinkWrapper extends Vue {
   }
 }
 
-.link[disabled] {
+.link.disabled {
   /* リンクを無効化 */
   pointer-events: none;
 }

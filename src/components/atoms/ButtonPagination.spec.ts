@@ -34,13 +34,13 @@ describe('ButtonPagination', () => {
   test('is disabled', () => {
     expect(
       createWrapper({ isDisabled: true, page: 1 }).contains(
-        '.pagination-btn[disabled]'
+        '.pagination-btn.disabled'
       )
     ).toBeTruthy()
 
     expect(
       createWrapper({ isDisabled: true, icon: 'done' }).contains(
-        '.pagination-icon[disabled]'
+        '.pagination-icon.disabled'
       )
     ).toBeTruthy()
   })
