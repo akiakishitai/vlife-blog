@@ -8,7 +8,7 @@
         v-bind:item="article | dateFormats"
       />
     </div>
-    <hr class="mt-2 border-gray-600" />
+    <hr class="mt-2 border-grey-500" />
     <!-- 要素テスト用 -->
     <div v-if="isDebug(article.tags)" class="flex mt-4">
       <ButtonMaterial />

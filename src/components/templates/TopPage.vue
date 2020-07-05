@@ -5,7 +5,7 @@
     <!-- slot end. -->
     <ul class="overview w-3/4">
       <li
-        class="flex-row justify-start hover:bg-lime hover:bg-opacity-25 p-2 mt-6"
+        class="flex-row justify-start hover:bg-primary hover:bg-opacity-15 p-2 mt-6"
         v-for="(item, index) in notDebugContents"
         v-bind:key="index"
       >

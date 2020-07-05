@@ -136,7 +136,7 @@ export function applyCustomRules(md: MarkdownIt): MarkdownIt {
     // <hr>
     {
       name: 'hr',
-      rule: renderRule('mt-6 border-gray-600'),
+      rule: renderRule('mt-6 border-grey-500'),
     },
     // <a>
     {

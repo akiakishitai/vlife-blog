@@ -1,24 +1,28 @@
 <template>
   <header class="mdc-top-app-bar relative">
     <div class="mdc-top-app-bar__row">
-      <div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+      <div
+        class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+      >
         <nuxt-link class="mdc-top-app-bar__title" to="/">Vがある生活</nuxt-link>
       </div>
       <nav class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
         <ul class="flex">
           <li>
             <LinkItemOnAppBar
-              class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-gray-600 hover:bg-opacity-15"
+              class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-grey-500 hover:bg-opacity-15"
               href="/"
               v-bind:route="routePath"
-            >Home</LinkItemOnAppBar>
+              >Home</LinkItemOnAppBar
+            >
           </li>
           <li class="ml-2">
             <LinkItemOnAppBar
-              class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-gray-600 hover:bg-opacity-15"
+              class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-grey-500 hover:bg-opacity-15"
               href="/license"
               v-bind:route="routePath"
-            >License</LinkItemOnAppBar>
+              >License</LinkItemOnAppBar
+            >
           </li>
         </ul>
         <ul class="flex ml-4">

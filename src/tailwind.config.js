@@ -5,6 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 import { colors, opacity } from 'tailwindcss/defaultTheme'
+import palette from 'material-colors'
 
 const lime = {
   light: '#ffff6c',
@@ -30,9 +31,10 @@ module.exports = {
         amber: amber,
         primary: amber,
         secondary: cyan,
-        background: '#efebe9',
+        background: palette.grey[200], // gray = grey
         surface: '#efebe9',
         error: '#B00020',
+        ...palette,
       },
       opacity: {
         '15': '0.15',

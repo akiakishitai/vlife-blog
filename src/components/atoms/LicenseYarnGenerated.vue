@@ -2,7 +2,9 @@
   <ul class="list-disc ml-6" v-if="props.licenses.length > 0">
     <li class="mt-8" v-for="(item, index) in props.licenses" v-bind:key="index">
       <div v-for="(elem, idx) in item.desc" v-bind:key="idx">{{ elem }}</div>
-      <pre class="whitespace-pre-wrap bg-gray-300 bg-opacity-75 p-4 mt-4">{{ item.body }}</pre>
+      <pre class="whitespace-pre-wrap bg-grey-300 p-4 mt-4">{{
+        item.body
+      }}</pre>
     </li>
   </ul>
 </template>
@@ -20,5 +22,4 @@ export default class LicenseYarnGenerated extends Vue {
 }
 </script>
 
-<style>
-</style>
+<style></style>
