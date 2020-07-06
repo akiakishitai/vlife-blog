@@ -29,5 +29,29 @@ export interface Article {
   /**
    * その他情報
    */
-  readonly meta?: object
+  readonly meta?: { [key: string]: any }
+}
+
+/**
+ * 前の記事・次の記事へのリンクと記事タイトルを格納する。
+ *
+ * @property next - 次の記事
+ * @property prev - 前の記事
+ */
+export interface ArticleNavigation {
+  /**
+   * 次の記事のリンク先 `path` と記事のタイトル `title` を持つ。
+   */
+  readonly next: {
+    path: string
+    title: string
+  }
+
+  /**
+   * 前の記事のリンク先 `path` と記事のタイトル `title` を持つ。
+   */
+  readonly prev: {
+    path: string
+    title: string
+  }
 }

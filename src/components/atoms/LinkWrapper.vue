@@ -2,13 +2,18 @@
   <a
     v-if="props.href.match(/^https?:\/\//) != null"
     class="link"
-    v-bind:class="{ disabled: props.disabled }"
+    v-bind:class="[{ disabled: props.disabled }, data.class, data.staticClass]"
     v-bind:href="props.href"
     target="_blank"
   >
     <slot></slot>
   </a>
-  <nuxt-link v-else v-bind:to="props.href" class="link" v-bind:class="{ disabled: props.disabled }">
+  <nuxt-link
+    v-else
+    v-bind:to="props.href"
+    class="link"
+    v-bind:class="[{ disabled: props.disabled }, data.class, data.staticClass]"
+  >
     <slot></slot>
   </nuxt-link>
 </template>

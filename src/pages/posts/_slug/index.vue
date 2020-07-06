@@ -1,5 +1,5 @@
 <template>
-  <ArticlePosted v-bind:markdown="prop" />
+  <ArticlePosted v-bind:markdown="prop" v-bind:navigation="navi" />
 </template>
 
 <script lang="ts">
@@ -8,9 +8,13 @@ import fm from 'front-matter'
 import { Attribute, Content } from '*.md'
 import { posts } from '@/assets/markdowns/posts/postlist.json'
 import ArticlePosted from '@/components/templates/ArticlePosted.vue'
+import { naviArticleFrontBack } from '@/helpers/functions'
+import { ArticleNavigation } from '../../../models'
+import { DebugMixinMethod } from '@/mixins/debugMixin'
 
 type Property = {
   prop: Content
+  navi: ArticleNavigation
 }
 
 export default Vue.extend({
@@ -31,7 +35,16 @@ export default Vue.extend({
     )
     const post = fm<Attribute>(md.default)
 
-    //console.log(`params: ${context.params.slug}`)
+    const navi = naviArticleFrontBack(
+      context.route.path,
+      posts
+        .filter((x) => !DebugMixinMethod.isDebug(x.tags))
+        .map((x) => {
+          return { filename: x.filename_noext, title: x.title }
+        })
+    )
+
+    //console.log(`navi: { prev: ${navi.prev}, next: ${navi.next} }`)
 
     return {
       prop: {
@@ -39,6 +52,7 @@ export default Vue.extend({
         body: context.$markdownIt.render(post.body),
         frontMatter: post.frontmatter,
       },
+      navi: navi,
     }
   },
   mounted() {
