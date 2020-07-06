@@ -1,3 +1,5 @@
+import { ArticleNavigation } from '../models'
+
 /**
  * 引数がオブジェクトか否かを判定する。
  *
@@ -22,4 +24,39 @@ export function encodePathURI(path: string): string {
   }
 
   return uri
+}
+
+/**
+ * 前の記事と次の記事へのリンクパスを返す。
+ *
+ * 現在ページのパスおよび記事ファイル名からリンクパスを生成する。
+ *
+ * @param routePath 現在のページのパス。
+ * @param files すべての記事ファイル名とタイトル。昇順ソート済みであること。
+ * @return `next` 次のリンク `prev`: 前のリンク
+ */
+export function naviArticleFrontBack(
+  routePath: string,
+  files: { filename: string; title: string }[]
+): ArticleNavigation {
+  const parentPath = routePath.split('/').slice(0, -1).join('/')
+  const currentFileName = routePath.split('/').slice(-1)[0]
+  const index = files.findIndex((x) => x.filename === currentFileName)
+
+  return {
+    next:
+      index - 1 < 0
+        ? { path: '', title: '' }
+        : {
+            path: [parentPath, files[index - 1]?.filename].join('/'),
+            title: files[index - 1].title,
+          },
+    prev:
+      index + 1 >= files.length
+        ? { path: '', title: '' }
+        : {
+            path: [parentPath, files[index + 1]?.filename].join('/'),
+            title: files[index + 1].title,
+          },
+  }
 }

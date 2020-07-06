@@ -1,33 +1,43 @@
 <template>
-  <div>
+  <div class="pb-6">
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
       <TagColumn v-bind:tags="tags" v-on:click="onClickTag" />
-      <DatesDisplay
-        class="flex justify-end"
-        v-bind:item="article | dateFormats"
-      />
+      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
     </div>
+
     <hr class="mt-2 border-grey-500" />
+
     <!-- 要素テスト用 -->
     <div v-if="isDebug(article.tags)" class="flex mt-4">
       <ButtonMaterial />
       <ButtonMaterial class="ml-4" v-bind:property="{ label: 'hoge' }" />
       <ButtonMaterial class="ml-4" v-bind:property="{ type: 'outlined' }" />
-      <ButtonMaterial
-        class="ml-4"
-        v-bind:property="{ type: 'raised', icon: 'bookmark' }"
-      />
+      <ButtonMaterial class="ml-4" v-bind:property="{ type: 'raised', icon: 'bookmark' }" />
     </div>
     <!-- 要素テスト終了 -->
+
+    <!-- Markdown記事本文 -->
     <ArticleBody class="mt-6" v-bind:renderd="article.body" />
+
+    <!--
+      前後記事へのナビゲーション
+      作業途中・草案中の記事では表示しない。
+    -->
+    <ArticlePagination v-if="!isDebug(article.tags)" class="mt-8" v-bind:navigation="navigation" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, mixins, Prop, Vue } from 'nuxt-property-decorator'
 import moment from 'moment'
-import { Article, ArticleTag, HeadingLevelType } from '@/models'
+import {
+  Article,
+  ArticleNavigation,
+  ArticlePageProps,
+  ArticleTag,
+  HeadingLevelType,
+} from '@/models'
 import { DebugMixin } from '@/mixins/debugMixin'
 import { Content } from '*.md'
 
@@ -36,6 +46,7 @@ import DatesDisplay from '../molecules/DatesDisplay.vue'
 import HeadingLevel from '../atoms/HeadingLevel.vue'
 import TagColumn from '../molecules/TagColumn.vue'
 import ButtonMaterial from '../atoms/ButtonMaterial.vue'
+import ArticlePagination from '../organisms/ArticlePagination.vue'
 
 /**
  * _Markdown_ 記事テンプレート。
@@ -47,6 +58,7 @@ import ButtonMaterial from '../atoms/ButtonMaterial.vue'
 @Component({
   components: {
     ArticleBody,
+    ArticlePagination,
     DatesDisplay,
     HeadingLevel,
     TagColumn,
@@ -64,7 +76,8 @@ import ButtonMaterial from '../atoms/ButtonMaterial.vue'
     },
   },
 })
-export default class ArticlePosted extends mixins(DebugMixin) {
+export default class ArticlePosted extends mixins(DebugMixin)
+  implements ArticlePageProps.NavigationProp {
   /**
    * _Front Matter_ つきの _Markdown_ ファイルの内容。
    */
@@ -75,6 +88,8 @@ export default class ArticlePosted extends mixins(DebugMixin) {
     },
   })
   markdown!: Content
+
+  @Prop({ required: true }) navigation!: ArticleNavigation
 
   /**
    * `props` の `markdown` を `Article` 型へ変換する。
