@@ -29,6 +29,10 @@ describe('ArticlePosted', () => {
           frontMatter: content.frontmatter,
           body: content.body,
         },
+        navigation: {
+          next: { path: '/sample/path/next', title: 'sample Next' },
+          prev: { path: '/sample/path/prev', title: 'sample Prev' },
+        },
       },
     })
   })
