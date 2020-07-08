@@ -3,7 +3,10 @@
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
       <TagColumn v-bind:tags="tags" v-on:click="onClickTag" />
-      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
+      <DatesDisplay
+        class="flex justify-end"
+        v-bind:item="article | dateFormats"
+      />
     </div>
 
     <hr class="mt-2 border-grey-500" />
@@ -13,7 +16,10 @@
       <ButtonMaterial />
       <ButtonMaterial class="ml-4" v-bind:property="{ label: 'hoge' }" />
       <ButtonMaterial class="ml-4" v-bind:property="{ type: 'outlined' }" />
-      <ButtonMaterial class="ml-4" v-bind:property="{ type: 'raised', icon: 'bookmark' }" />
+      <ButtonMaterial
+        class="ml-4"
+        v-bind:property="{ type: 'raised', icon: 'bookmark' }"
+      />
     </div>
     <!-- 要素テスト終了 -->
 
@@ -24,7 +30,11 @@
       前後記事へのナビゲーション
       作業途中・草案中の記事では表示しない。
     -->
-    <ArticlePagination v-if="!isDebug(article.tags)" class="mt-8" v-bind:navigation="navigation" />
+    <ArticlePagination
+      v-if="!isDebug(article.tags)"
+      class="mt-8"
+      v-bind:navigation="navigation"
+    />
   </div>
 </template>
 
@@ -54,6 +64,7 @@ import ArticlePagination from '../organisms/ArticlePagination.vue'
  * `props`
  *
  * - `markdown` : _Markdown_ ファイルの内容を {@link "Content"} 型で格納する。
+ * - `navigation` : 前後記事へのリンク
  */
 @Component({
   components: {
