@@ -32,7 +32,7 @@
               href="https://twitter.com/akiakiS101"
               target="_blank"
             >
-              <SimpleIconsImage name="twitter" alt="To twitter account" />
+              <SvgImageTwitter title="Twitter account" />
             </a>
           </li>
           <li class="flex items-center">
@@ -41,7 +41,7 @@
               href="https://github.com/akiakishitai/vlife-blog"
               target="_blank"
             >
-              <SimpleIconsImage name="github" alt="To github source" />
+              <SvgImageGithub title="Github source" />
             </a>
           </li>
         </ul>
@@ -54,10 +54,15 @@
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import LinkItemOnAppBar from '../atoms/LinkItemOnAppBar.vue'
 import LinkWrapper from '../atoms/LinkWrapper.vue'
-import SimpleIconsImage from '../atoms/SimpleIconsImage.vue'
+import { SvgImageGithub, SvgImageTwitter } from '../atoms/SvgImageConcretes'
 
 @Component({
-  components: { LinkWrapper, LinkItemOnAppBar, SimpleIconsImage },
+  components: {
+    LinkWrapper,
+    LinkItemOnAppBar,
+    SvgImageTwitter,
+    SvgImageGithub,
+  },
 })
 export default class TopAppBar extends Vue {
   get routePath() {

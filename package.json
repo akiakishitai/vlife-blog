@@ -30,12 +30,14 @@
     "nuxt-property-decorator": "^2.5.1",
     "prism-themes": "^1.4.0",
     "prismjs": "^1.20.0",
-    "raw-loader": "^4.0.0"
+    "raw-loader": "^4.0.0",
+    "simple-icons": "^3.0.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/tailwindcss": "^2.0.0",
     "@types/jest": "^25.2.1",
+    "@types/simple-icons": "^2.5.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
