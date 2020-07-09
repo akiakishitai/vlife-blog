@@ -1,5 +1,9 @@
 <template>
-  <ArticlePosted v-bind:markdown="prop" v-bind:navigation="navi" />
+  <ArticlePosted
+    v-bind:markdown="prop"
+    v-bind:navigation="navi"
+    v-bind:currentFullPath="currentPath"
+  />
 </template>
 
 <script lang="ts">
@@ -15,6 +19,7 @@ import { DebugMixinMethod } from '@/mixins/debugMixin'
 type Property = {
   prop: Content
   navi: ArticleNavigation
+  currentPath: string
 }
 
 export default Vue.extend({
@@ -53,6 +58,7 @@ export default Vue.extend({
         frontMatter: post.frontmatter,
       },
       navi: navi,
+      currentPath: context.route.fullPath,
     }
   },
   mounted() {

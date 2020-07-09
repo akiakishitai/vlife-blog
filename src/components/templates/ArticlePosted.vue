@@ -3,10 +3,7 @@
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
       <TagColumn v-bind:tags="tags" v-on:click="onClickTag" />
-      <DatesDisplay
-        class="flex justify-end"
-        v-bind:item="article | dateFormats"
-      />
+      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
     </div>
 
     <hr class="mt-2 border-grey-500" />
@@ -16,25 +13,27 @@
       <ButtonMaterial />
       <ButtonMaterial class="ml-4" v-bind:property="{ label: 'hoge' }" />
       <ButtonMaterial class="ml-4" v-bind:property="{ type: 'outlined' }" />
-      <ButtonMaterial
-        class="ml-4"
-        v-bind:property="{ type: 'raised', icon: 'bookmark' }"
-      />
+      <ButtonMaterial class="ml-4" v-bind:property="{ type: 'raised', icon: 'bookmark' }" />
     </div>
     <!-- 要素テスト終了 -->
 
     <!-- Markdown記事本文 -->
     <ArticleBody class="mt-6" v-bind:renderd="article.body" />
 
+    <!-- シェアボタン -->
+    <div class="share-buttons mt-8">
+      <ShareButtonsBar
+        class="items-center justify-center"
+        v-bind:url="currentFullPath"
+        v-bind:text="article.title"
+      />
+    </div>
+
     <!--
       前後記事へのナビゲーション
       作業途中・草案中の記事では表示しない。
     -->
-    <ArticlePagination
-      v-if="!isDebug(article.tags)"
-      class="mt-8"
-      v-bind:navigation="navigation"
-    />
+    <ArticlePagination v-if="!isDebug(article.tags)" class="mt-6" v-bind:navigation="navigation" />
   </div>
 </template>
 
@@ -57,6 +56,7 @@ import HeadingLevel from '../atoms/HeadingLevel.vue'
 import TagColumn from '../molecules/TagColumn.vue'
 import ButtonMaterial from '../atoms/ButtonMaterial.vue'
 import ArticlePagination from '../organisms/ArticlePagination.vue'
+import ShareButtonsBar from '../organisms/ShareButtonsBar.vue'
 
 /**
  * _Markdown_ 記事テンプレート。
@@ -72,6 +72,7 @@ import ArticlePagination from '../organisms/ArticlePagination.vue'
     ArticlePagination,
     DatesDisplay,
     HeadingLevel,
+    ShareButtonsBar,
     TagColumn,
     ButtonMaterial,
   },
@@ -101,6 +102,11 @@ export default class ArticlePosted extends mixins(DebugMixin)
   markdown!: Content
 
   @Prop({ required: true }) navigation!: ArticleNavigation
+
+  /**
+   * 現在ページのフルパス。
+   */
+  @Prop({ required: true }) currentFullPath!: string
 
   /**
    * `props` の `markdown` を `Article` 型へ変換する。

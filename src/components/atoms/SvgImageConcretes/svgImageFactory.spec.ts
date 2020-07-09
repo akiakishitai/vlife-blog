@@ -8,21 +8,16 @@ describe('SvgImageFactory', () => {
     hex: 'ffffff',
   }
 
-  test.each([[icon, 'sample', '48']])(
-    'create Vue instance',
-    (x, title, size) => {
-      const wrapper = shallowMount(SvgImageFactory(x), {
-        propsData: { title: title, size: size },
-        template: `<div>
+  test.each([[icon, 'sample']])('create Vue instance', (x, title) => {
+    const wrapper = shallowMount(SvgImageFactory(x), {
+      propsData: { title: title },
+      template: `<div>
         <span class="title">{{ title }}</span>
-        <span class="size">{{ size }}</span>
         <span class="path">{{ svgPath() }}</span>
         </div>`,
-      })
+    })
 
-      expect(wrapper.find('.title').text()).toBe(title)
-      expect(wrapper.find('.size').text()).toBe(size)
-      expect(wrapper.find('.path').text()).toBe(icon.path)
-    }
-  )
+    expect(wrapper.find('.title').text()).toBe(title)
+    expect(wrapper.find('.path').text()).toBe(icon.path)
+  })
 })

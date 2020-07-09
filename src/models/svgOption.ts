@@ -13,11 +13,6 @@ export interface SvgOption {
    * SVG要素の `path`。図形のパス
    */
   readonly svgPath: string
-
-  /**
-   * 描画領域のサイズ。デフォルト `24`
-   */
-  readonly size?: number
 }
 
 /**

@@ -57,6 +57,7 @@ module.exports = {
     backgroundOpacity: ['responsive', 'hover', 'focus', 'even', 'odd'],
     textColor: ['responsive', 'hover', 'focus', 'visited'],
     textDecoration: ['responsive', 'hover', 'focus', 'group-hover'],
+    margin: ['responsive', 'first'],
   },
   plugins: [],
   purge: ['./**/*.html', './**/*.vue'],
