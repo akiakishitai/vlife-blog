@@ -74,8 +74,6 @@ export default class TopAppBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-//@use 'material_theme.scss';
-@use '@material/theme' with ($primary: #2e2e2e);
 @use "@material/icon-button";
 @use "@material/top-app-bar/mdc-top-app-bar";
 
@@ -83,9 +81,7 @@ export default class TopAppBar extends Vue {
 
 .mdc-top-app-bar.relative {
   position: relative;
-}
-
-.simpleicons {
-  filter: invert(1);
+  --mdc-theme-primary: var(--md-grey-800);
+  --mdc-theme-on-primary: var(--md-light-text-primary);
 }
 </style>

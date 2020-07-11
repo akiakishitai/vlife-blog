@@ -12,6 +12,7 @@
     "generate": "NODE_ENV=production nuxt-ts generate",
     "license-file": "yarn licenses generate-disclaimer --ignore-platform > src/assets/thirdparty_license.txt",
     "mdlist": "node --experimental-modules fileListToJson.mjs",
+    "sass-build": "sass -I ./node_modules src/assets/css/scss/",
     "start": "nuxt-ts start",
     "test": "jest",
     "test-ci": "jest --coverage false"

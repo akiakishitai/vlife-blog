@@ -56,13 +56,12 @@ export default class TagChip extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@use "material_theme" as theme;
 @use "@material/chips/mdc-chips";
 @use "@material/chips";
 
 .mdc-chip {
   @include chips.fill-color(transparent);
-  @include chips.outline(2px, solid, theme.$primary-color);
-  @include chips.leading-icon-color(theme.$md-grey-700, 0.87);
+  @include chips.outline(2px, solid, var(--color-primary-dark));
+  @include chips.leading-icon-color(var(--md-grey-700-rgb), 0.87);
 }
 </style>
