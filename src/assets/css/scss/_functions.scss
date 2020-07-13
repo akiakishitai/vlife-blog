@@ -1,0 +1,24 @@
+@use 'sass:map';
+
+// mapの値を更新する。
+// $source - map 対象のMap
+// $update - map 更新する値
+@function map-update($source, $update) {
+  @return map.merge($source, $update);
+}
+
+// １６進数表記カラーを 0~255 のRGB値に変換する。
+// var(--*) を rgba() 関数の中でも使うため。
+@function colorHexToRGB($color) {
+  @return red($color), green($color), blue($color);
+}
+
+@function colorMapHexToRGB($map) {
+  $ret: ();
+  @each $name, $value in $map {
+    $ret: map-update($ret, (#{$name}: colorHexToRGB($value)));
+  }
+
+  //@debug $ret;
+  @return $ret;
+}

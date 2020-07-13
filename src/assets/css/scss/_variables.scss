@@ -1,0 +1,17 @@
+@use 'material-colors/dist/colors.scss';
+@use './functions' as f;
+
+@forward 'material-colors/dist/colors.scss';
+
+// テーマカラー変数
+$color-primary: colors.$md-amber-500;
+$color-primary-dark: colors.$md-amber-700;
+$color-primary-light: colors.$md-amber-300;
+$color-secondary: colors.$md-cyan-500;
+$color-secondary-dark: colors.$md-cyan-700;
+$color-secondary-light: colors.$md-cyan-300;
+$color-background: colors.$md-grey-200;
+$color-surface: colors.$md-grey-200;
+$color-on-surface: colors.$md-dark-text-primary;
+$color-error: colors.$md-red-900;
+$color-on-error: colors.$md-light-text-primary;

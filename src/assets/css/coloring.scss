@@ -1,8 +1,0 @@
-$outline-color: rgba(0, 0, 0, 0.12) !default;
-
-@use '@material/button' as btn;
-
-/* ボタンのアウトラインカラー */
-.button-outlined-color {
-  @include btn.outline-color($outline-color);
-}
