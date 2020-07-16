@@ -29,6 +29,11 @@ describe('ArticlePosted', () => {
           frontMatter: content.frontmatter,
           body: content.body,
         },
+        navigation: {
+          next: { path: '/sample/path/next', title: 'sample Next' },
+          prev: { path: '/sample/path/prev', title: 'sample Prev' },
+        },
+        currentFullPath: 'https://hogehoge.com',
       },
     })
   })
@@ -88,5 +93,9 @@ describe('ArticlePosted', () => {
       createdAt: '2020年04月22日',
       updatedAt: '2020年04月25日',
     })
+  })
+
+  test('Share button', () => {
+    expect(wrapper.find('sharebuttonsbar-stub').exists()).toBeTruthy()
   })
 })

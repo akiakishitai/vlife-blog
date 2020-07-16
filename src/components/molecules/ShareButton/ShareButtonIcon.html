@@ -1,0 +1,20 @@
+<div>
+  <div
+    class="share-button"
+    v-bind:class="[data.staticClass, data.class]"
+    rel="nofollow"
+  >
+    <component
+      v-bind:is="injections.components.ButtonMaterialIcon"
+      class="w-full h-full"
+      v-bind:href="$options.methods.shareFullURL(props.url, props.text)"
+      v-bind:args="[props.url]"
+      v-on:click="$options.methods.onClick"
+    >
+      <component
+        v-bind:is="injections.components.SvgIcon"
+        v-bind:title="props.title"
+      />
+    </component>
+  </div>
+</div>

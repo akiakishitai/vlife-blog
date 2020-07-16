@@ -2,7 +2,11 @@
   <div
     v-if="props.property.icon == null"
     class="mdc-button pagination-btn"
-    v-bind:class="[data.class, data.staticClass, { disabled: props.property.isDisabled }]"
+    v-bind:class="[
+      data.class,
+      data.staticClass,
+      { disabled: props.property.isDisabled },
+    ]"
   >
     <div class="mdc-button__ripple"></div>
     <span class="mdc-button__label">{{ props.property.page }}</span>
@@ -43,29 +47,31 @@ export default class ButtonPagination extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@use 'material_theme.scss' as theme;
 @use '@material/button/mdc-button';
 @use '@material/button';
 @use "@material/icon-button" as icon;
 
+.pagination-btn,
+.pagination-icon {
+  --mdc-theme-primary: var(--md-dark-text-primary);
+}
+
 .pagination-btn {
-  @include button.ink-color(rgba(black, 0.87));
-  @include button.disabled-ink-color(rgba(black, 0.54));
   min-width: 40px;
   --mdc-typography-button-font-size: 1.25rem;
 
   &.disabled {
     @apply bg-grey-400 bg-opacity-54;
+    color: var(--md-dark-text-secondary);
   }
 }
 
 .pagination-icon {
   @include icon.icon-size(32px, 32px, 4px);
-  @include icon.ink-color(rgba(black, 0.87));
-  @include icon.disabled-ink-color(rgba(black, 0.38));
 
   &.disabled {
-    @include icon.ink-color(rgba(theme.$md-grey-600, 0.87));
+    //@include icon.ink-color(rgba(var.$md-grey-600, 0.87));
+    color: var(--md-dark-text-secondary);
   }
 }
 </style>

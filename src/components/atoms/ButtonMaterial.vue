@@ -1,13 +1,20 @@
 <template functional>
   <button
     class="mdc-button"
-    v-bind:class="[{
-      'mdc-button--outlined': $options.methods.updateProperty(props).type === 'outlined', 
-      'button-outlined-color': $options.methods.updateProperty(props).type === 'outlined', 
-      'mdc-button--raised': $options.methods.updateProperty(props).type === 'raised', 
-      'mdc-button--unelevated': $options.methods.updateProperty(props).type === 'unelevated'},
+    v-bind:class="[
+      {
+        'mdc-button--outlined':
+          $options.methods.updateProperty(props).type === 'outlined',
+        'button-outlined-color':
+          $options.methods.updateProperty(props).type === 'outlined',
+        'mdc-button--raised':
+          $options.methods.updateProperty(props).type === 'raised',
+        'mdc-button--unelevated':
+          $options.methods.updateProperty(props).type === 'unelevated',
+      },
       data.class,
-      data.staticClass]"
+      data.staticClass,
+    ]"
     v-bind="data.attrs"
   >
     <div class="mdc-button__ripple"></div>
@@ -65,8 +72,22 @@ export default class ButtonMaterial extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@use 'material_theme.scss' as theme;
 @use '@material/button/mdc-button';
 @use '@material/button';
-@use 'coloring' with ($outline-color: theme.$primary-color);
+
+.mdc-button {
+  --mdc-theme-on-primary: var(--md-dark-text-primary);
+
+  @apply font-semibold;
+}
+
+// ボタンのアウトラインカラー
+// --mdc-theme-primary プロパティを変更することで色変更可能。
+.button-outlined-color:not(:disabled) {
+  //@include button.outline-color(var.$color-primary);
+  --mdc-theme-primary: var(--color-primary-dark);
+  border-color: var(--mdc-theme-primary);
+
+  @apply border-2;
+}
 </style>

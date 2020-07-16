@@ -1,14 +1,29 @@
 <template functional>
   <a
     v-if="props.href.match(/^https?:\/\//) != null"
-    class="link"
-    v-bind:class="{ disabled: props.disabled }"
+    v-bind:class="[{link: props.isDefaultStyle},{ disabled: props.disabled }, data.class, data.staticClass]"
     v-bind:href="props.href"
+    v-bind:rel="data.attrs.rel"
+    v-bind:media="data.attrs.media"
+    v-bind:hreflang="data.attrs.hreflang"
+    v-bind:type="data.attrs.type"
+    v-bind:ping="data.attrs.ping"
+    v-bind:download="data.attrs.download"
     target="_blank"
   >
     <slot></slot>
   </a>
-  <nuxt-link v-else v-bind:to="props.href" class="link" v-bind:class="{ disabled: props.disabled }">
+  <nuxt-link
+    v-else
+    v-bind:to="props.href"
+    v-bind:class="[{link: props.isDefaultStyle},{ disabled: props.disabled }, data.class, data.staticClass]"
+    v-bind:rel="data.attrs.rel"
+    v-bind:media="data.attrs.media"
+    v-bind:hreflang="data.attrs.hreflang"
+    v-bind:type="data.attrs.type"
+    v-bind:ping="data.attrs.ping"
+    v-bind:download="data.attrs.download"
+  >
     <slot></slot>
   </nuxt-link>
 </template>
@@ -26,11 +41,21 @@ export default class LinkWrapper extends Vue {
    */
   @Prop({ required: true }) href!: string
 
-  @Prop({ required: false }) disabled?: boolean
+  /**
+   * リンク無効化
+   */
+  @Prop({ required: false, default: false }) disabled?: boolean
+
+  /**
+   * リンクのデフォルトCSSを適用するか否か。
+   * デフォルトでは `true` となり適用する。
+   */
+  @Prop({ required: false, default: true }) isDefaultStyle?: boolean
 }
 </script>
 
 <style lang="scss" scoped>
+// リンクのデフォルトスタイル
 .link:not(.disabled) {
   @apply text-indigo-500;
 

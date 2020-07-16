@@ -1,12 +1,12 @@
 /* purgecss start ignore */
+
+/* Sass compiled stylesheet */
+@import './scss/index.css';
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
-
-.text-on-background {
-  @apply text-black text-opacity-87;
-}
 
 /* Markdownのコードブロック */
 .code-note {
@@ -22,7 +22,9 @@
 }
 
 .code-note[data-lang]::before {
-  @apply text-primary-light text-opacity-75 border-b border-dashed border-opacity-50 -mt-2 mb-4 -ml-3;
+  @apply text-primary-light text-opacity-54;
+  @apply border-b border-dashed border-opacity-50;
+  @apply -mt-2 mb-4 -ml-3;
 
   content: attr(data-lang);
   display: block;

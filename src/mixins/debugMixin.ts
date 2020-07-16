@@ -1,5 +1,11 @@
 import Vue from 'vue'
 
+export namespace DebugMixinMethod {
+  export function isDebug(tags: string[]) {
+    return ['WIP', 'draft'].some((x) => tags.includes(x))
+  }
+}
+
 /**
  * デバッグ用関数を提供する _Vue mixin_
  *
@@ -17,7 +23,7 @@ export const DebugMixin = Vue.extend({
      * @param tags 記事のタグ
      */
     isDebug(tags: string[]) {
-      return ['WIP', 'draft'].some((x) => tags.includes(x))
+      return DebugMixinMethod.isDebug(tags)
     },
   },
 })

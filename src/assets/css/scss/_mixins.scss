@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use './functions' as f;
+
+// $value をカスタムプロパティ $name として登録。
+@mixin customProperty($name, $value) {
+  //@debug $name, $value;
+  --#{$name}: #{$value};
+}
+
+@mixin convertCustomProperty($map) {
+  //@debug $args;
+
+  @each $name, $value in $map {
+    @include customProperty($name, $value);
+  }
+}
+
+/* RGB値も一緒にCSSカスタムプロパティに登録する（*-rgb） */
+@mixin propertyColorHexWithRGB($map) {
+  @each $name, $value in f.colorMapHexToRGB($map) {
+    @include customProperty($name, map.get($map, $name));
+    @include customProperty(#{$name}-rgb, $value);
+  }
+}

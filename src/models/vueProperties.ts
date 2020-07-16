@@ -1,5 +1,6 @@
 import { Paging } from './paging'
 import { PostFile } from './postFile'
+import { ArticleNavigation } from './article'
 
 /**
  * トップページに関わるプロパティをもつインタフェースを定義。
@@ -47,5 +48,20 @@ export namespace LinkProps {
      * 表示ページのルートパス。
      */
     route: string
+  }
+}
+
+/**
+ * 記事ページに関わるプロパティを定義するインタフェース。
+ */
+export namespace ArticlePageProps {
+  /**
+   * ナビゲーションについてのインタフェース。
+   */
+  export interface NavigationProp {
+    /**
+     * 前後記事へのナビゲーションリンク。
+     */
+    readonly navigation: ArticleNavigation
   }
 }

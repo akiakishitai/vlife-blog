@@ -1,0 +1,6 @@
+<component
+  v-bind:is="injections.components.SvgImage"
+  v-bind:class="[data.staticClass, data.class]"
+  v-bind:title="props.title"
+  v-bind:svgPath="$options.methods.svgPath()"
+/>

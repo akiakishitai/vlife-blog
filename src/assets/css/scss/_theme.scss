@@ -1,0 +1,25 @@
+// Material Colors
+@use 'sass:meta';
+//@use 'material-colors/dist/colors.scss';
+//@use './functions' as f;
+@use './mixins';
+@use './variables' as var;
+
+@use '@material/theme' with (
+  $primary: var.$color-primary,
+  $secondary: var.$color-secondary,
+  $background: var.$color-background,
+  $surface: var.$color-surface
+);
+
+/* カラーパレット*/
+:root {
+  // variables.scss で定義したカラー変数をCSSカスタムプロパティに登録
+  $colorMap: meta.module-variables('var');
+  @include mixins.propertyColorHexWithRGB($colorMap);
+
+  @at-root {
+    /* Material Components for the web - Theme */
+    @include theme.core-styles();
+  }
+}
