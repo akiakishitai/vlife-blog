@@ -1,9 +1,16 @@
 const postsList = require('./src/assets/markdowns/posts/postlist.json')
 
 // If github branch is 'gh-pages'
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/vlife-blog/' : '/'
+const isDeploy = process.env.DEPLOY_ENV === 'GH_PAGES'
+const routerBase = isDeploy ? '/vlife-blog/' : '/'
 
 export default {
+  /**
+   * Environment variables
+   */
+  env: {
+    NUXT_ENV_SCHEME: isDeploy ? 'https://' : 'http://',
+  },
   mode: 'universal',
   /*
    ** Headers of the page
@@ -100,7 +107,7 @@ export default {
     fallback: true,
     routes() {
       return postsList.posts.map((x) => {
-        return `/posts/${x.title}`
+        return `/posts/${x.filename_noext}`
       })
     },
   },

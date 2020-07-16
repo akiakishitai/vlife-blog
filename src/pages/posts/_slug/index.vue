@@ -49,7 +49,9 @@ export default Vue.extend({
         })
     )
 
-    //console.log(`navi: { prev: ${navi.prev}, next: ${navi.next} }`)
+    const host = process.server
+      ? context.req.headers.host
+      : window.location.host
 
     return {
       prop: {
@@ -58,7 +60,7 @@ export default Vue.extend({
         frontMatter: post.frontmatter,
       },
       navi: navi,
-      currentPath: context.route.fullPath,
+      currentPath: `${process.env.NUXT_ENV_SCHEME}${host}${context.route.path}`,
     }
   },
   mounted() {

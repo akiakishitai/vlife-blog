@@ -3,10 +3,16 @@
     <div
       v-bind:is="props.href.isEmpty() ? 'button' : 'a'"
       class="material-icons mdc-icon-button"
-      v-bind:class="[{ disabled: props.isDisabled }, data.class, data.staticClass]"
+      v-bind:class="[
+        { disabled: props.isDisabled },
+        data.class,
+        data.staticClass,
+      ]"
       v-bind:href="props.href.isNotEmpty() ? props.href : false"
       v-bind:target="props.href.isNotEmpty() ? '_blank' : false"
-      v-on:click="props.href.isEmpty() ? listeners.click(...props.args) : () => ''"
+      v-on:click="
+        props.href.isEmpty() ? listeners.click(...props.args) : () => ''
+      "
     >
       <slot></slot>
     </div>
@@ -50,7 +56,9 @@ export default class ButtonMaterialIcon extends Vue {
   font-size: 1em;
   width: 100%;
   height: 100%;
-  padding: min(0px, calc((100% - #{icon-button.$icon-size}) / 2));
+
+  // 指定数値が '0' だと generate 時に単位（px, % など）が消えて不正な値になるのを防止
+  padding: min(0.01px, calc((100% - #{icon-button.$icon-size}) / 2));
 
   color: var(--mdc-theme-text-primary-on-background);
 
