@@ -12,8 +12,6 @@ import SvgImage from '../SvgImage.vue'
  *
  * - `title` SVG画像のタイトル名。
  *
- * - `size` 描画領域のサイズ（デフォルト `24`）。
- *
  * @param icon `simple-icons` からのインポート
  */
 export const SvgImageFactory = (
@@ -22,8 +20,6 @@ export const SvgImageFactory = (
   @Component
   class Factory extends Vue implements SvgSpecificComponent {
     @Prop({ required: true }) title!: string
-
-    @Prop({ required: false, default: 24 }) size?: number
 
     svgPath() {
       return icon.path
