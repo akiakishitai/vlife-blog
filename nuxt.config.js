@@ -10,6 +10,7 @@ export default {
    */
   env: {
     NUXT_ENV_SCHEME: isDeploy ? 'https://' : 'http://',
+    NUXT_ENV_DOMAIN: isDeploy ? 'akiakishitai.github.io' : 'localhost:3000',
   },
   mode: 'universal',
   /*
