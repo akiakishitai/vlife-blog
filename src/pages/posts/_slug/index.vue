@@ -50,7 +50,7 @@ export default Vue.extend({
     )
 
     const host = process.server
-      ? context.req.headers.host
+      ? context.req?.headers?.host ?? process.env.NUXT_ENV_DOMAIN
       : window.location.host
 
     return {
