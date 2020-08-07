@@ -46,20 +46,22 @@ describe('ArticleBody', () => {
   })
 
   it('is render code with a note', () => {
-    const header = 'code-note'
-
     // コードブロック:
     expect(wrapper.contains('.language-ts')).toBeTruthy()
     expect(wrapper.contains('.language-js')).toBeTruthy()
-    expect(wrapper.findAll(`.${header}`).length).toEqual(3)
+    expect(wrapper.findAll('pre code[class*="language-"]').length).toEqual(3)
 
-    const codeblockHeades = wrapper.findAll(`.${header}[data-lang]`)
+    const codeblockHeades = wrapper.findAll(`pre code[data-lang]`)
     expect(codeblockHeades.length).toEqual(2)
     expect(
-      codeblockHeades.at(0).find(`.${header}`).attributes()['data-lang']
+      codeblockHeades.at(0).find('pre code[class*="language-"]').attributes()[
+        'data-lang'
+      ]
     ).toBe('hogehoge')
     expect(
-      codeblockHeades.at(1).find(`.${header}`).attributes()['data-lang']
+      codeblockHeades.at(1).find('pre code[class*="language-"]').attributes()[
+        'data-lang'
+      ]
     ).toBe('fugafuga')
 
     const text = `<h2>Without code block header</h2>
@@ -68,7 +70,7 @@ describe('ArticleBody', () => {
     const wrapper2 = shallowMount(ArticleBody, {
       propsData: { renderd: text },
     })
-    expect(wrapper2.contains(`.${header}`)).toBeFalsy()
+    expect(wrapper2.contains('pre code[class*="language-"]')).toBeTruthy()
     expect(wrapper2.contains('h2')).toBeTruthy()
   })
 })

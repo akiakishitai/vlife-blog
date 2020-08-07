@@ -26,7 +26,8 @@ declare module '@nuxt/types' {
 /**
  * カスタムルール適用済み `markdown-it` オブジェクト。
  */
-export const mdIt = applyCustomRules(makeMarkdownItObject())
+export const mdIt = makeMarkdownItObject()
+// applyCustomRules(makeMarkdownItObject())
 
 // プラグイン実装
 const mdPlugin: Plugin = (context) => {
