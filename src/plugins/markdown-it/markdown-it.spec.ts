@@ -21,9 +21,8 @@ describe('Markdown-it', () => {
 
     expect(doc.querySelectorAll('pre code').length).toBe(2)
     expect(doc.querySelectorAll('.language-ts').length).toBe(2)
-    expect(doc.querySelectorAll('.code-note').length).toBe(2)
 
-    const dataLangElems = doc.querySelectorAll('.code-note[data-lang]')
+    const dataLangElems = doc.querySelectorAll('pre code[data-lang]')
     expect(dataLangElems.length).toBe(1)
     expect(dataLangElems.item(0).getAttribute('data-lang')).toBe('sample')
   })
