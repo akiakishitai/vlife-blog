@@ -30,7 +30,7 @@
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "^2.5.1",
     "prism-themes": "^1.4.0",
-    "prismjs": "^1.20.0",
+    "prismjs": "^1.21.0",
     "raw-loader": "^4.0.0",
     "simple-icons": "^3.0.1"
   },
