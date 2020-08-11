@@ -1,4 +1,4 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import ButtonPagination from './ButtonPagination.vue'
 
 describe('ButtonPagination', () => {

@@ -46,6 +46,7 @@ describe('ArticlePosted', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
     expect(wrapper.vm.$props).toHaveProperty('markdown')
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const article: Article = (wrapper.vm as any).article
     expect(!!article).toBeTruthy()
     expect(article.title).toBe('Sample Test')
@@ -59,6 +60,7 @@ describe('ArticlePosted', () => {
 
   it('not markdown content', () => {
     expect(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (wrapper.vm.$options.props as any).markdown.validator({
         body: 'not markdown file.',
         attribute: undefined,

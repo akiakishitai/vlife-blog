@@ -35,7 +35,7 @@ describe('ButtonMaterialIcon', () => {
     expect(w.find('.disabled').exists()).toBe(isDisabled)
   })
 
-  test.each([[['hoge']], [[1, 2, 3]]])('does click(%s)', (args: any[]) => {
+  test.each([[['hoge']], [[1, 2, 3]]])('does click(%s)', (args: unknown[]) => {
     const mockFn = jest.fn((x) => x)
     const w = shallowMount(ButtonMaterialIcon, {
       propsData: {
@@ -43,7 +43,7 @@ describe('ButtonMaterialIcon', () => {
         args: args,
       },
       listeners: {
-        click: (...arg: any) => mockFn(arg),
+        click: (...arg: unknown[]) => mockFn(arg),
       },
       slots: {
         default: '<span class="material-icon">sample</span>',

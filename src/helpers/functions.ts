@@ -5,7 +5,7 @@ import { ArticleNavigation } from '../models'
  *
  * @param x オブジェクト判定対象
  */
-export function isObject(x: unknown): x is object {
+export function isObject(x: unknown): x is Record<string, unknown> {
   return x != null && (typeof x === 'object' || typeof x === 'function')
 }
 

@@ -1,0 +1,14 @@
+{
+  "browser-preview.startUrl": "http://localhost:3000",
+  "css.validate": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.alwaysShowStatus": true,
+  "[javascript]": {
+    //"editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    //"editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

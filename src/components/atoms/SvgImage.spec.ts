@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import SvgImage from './SvgImage.vue'
 
 describe('SvgImage', () => {
-  const createWrapper = (title: string = 'Sample', path: string = 'dummy') =>
+  const createWrapper = (title = 'Sample', path = 'dummy') =>
     shallowMount(SvgImage, {
       propsData: {
         title: title,

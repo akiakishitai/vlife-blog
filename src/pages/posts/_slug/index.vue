@@ -14,7 +14,7 @@ import { posts } from '@/assets/markdowns/posts/postlist.json'
 import ArticlePosted from '@/components/templates/ArticlePosted.vue'
 import { naviArticleFrontBack } from '@/helpers/functions'
 import { ArticleNavigation } from '../../../models'
-import { DebugMixinMethod } from '@/mixins/debugMixin'
+import * as DebugMixinMethod from '@/mixins/debugMixin'
 
 type Property = {
   prop: Content

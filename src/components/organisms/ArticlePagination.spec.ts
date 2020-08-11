@@ -1,4 +1,4 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import ArticlePagination from './ArticlePagination.vue'
 import { ArticleNavigation } from '@/models'
 

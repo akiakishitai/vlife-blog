@@ -1,3 +1,5 @@
+/* eslint-env commonjs */
+
 module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',

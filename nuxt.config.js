@@ -1,3 +1,6 @@
+/* eslint-env node */
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const postsList = require('./src/assets/markdowns/posts/postlist.json')
 
 // If github branch is 'gh-pages'
@@ -70,6 +73,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    // eslint-disable-next-line no-unused-vars
     extend(config, ctx) {
       config.module.rules.push({
         test: /\.md$/,

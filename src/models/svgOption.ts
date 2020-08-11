@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 /**
  * SVGコンポーネントの設定プロパティ。
  */

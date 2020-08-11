@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "env": { "browser": true },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["jest"],
+  "extends": ["eslint:recommended", "plugin:jest/recommended", "prettier"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+      ]
+    }
+  ]
+}

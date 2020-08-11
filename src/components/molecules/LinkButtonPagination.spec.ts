@@ -1,4 +1,4 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import LinkButtonPagination from './LinkButtonPagination.vue'
 import { PagingMode } from '@/models'
 

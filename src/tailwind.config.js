@@ -4,6 +4,9 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
+
+/* eslint-env node, es6 */
+
 import { opacity } from 'tailwindcss/defaultTheme'
 import palette from 'material-colors'
 
