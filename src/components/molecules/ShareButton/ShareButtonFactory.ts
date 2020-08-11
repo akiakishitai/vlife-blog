@@ -50,7 +50,8 @@ interface ShareLink {
  *
  * @param type 各SNSの種類。
  */
-export function shareButtonFactory(type: ShareType): typeof Vue {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export function shareButtonFactory(type: ShareType) {
   // 各SNSごとのクエリを生成する関数を返す
   const queryCreateMap = new Map<ShareType, ShareLink>([
     [

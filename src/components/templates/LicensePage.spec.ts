@@ -74,7 +74,8 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
 
     const wrapper = createWrapper(mockText)
-    const ret = (wrapper.vm as Record<string, LicenseContent[]>).splitLicense
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const ret = (wrapper.vm as any).splitLicense
 
     expect(ret.length).toBe(2)
     expect(ret[0].desc).toEqual({

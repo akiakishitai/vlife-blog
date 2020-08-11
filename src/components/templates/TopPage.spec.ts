@@ -38,7 +38,8 @@ describe('TopPage', () => {
   })
 
   test('does notDebugContents', () => {
-    let instance: Record<string, Array<unknown>> = new TopPage({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let instance: any = new TopPage({
       propsData: createProps(),
     })
     expect(instance.notDebugContents.length).toBe(1)

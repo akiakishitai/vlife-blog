@@ -7,7 +7,7 @@ import Vue from 'vue'
  * @param copyText コピーする文字列
  */
 export function onClick(
-  copyText: string | Record<string, unknown>
+  copyText: string | number | Record<string, unknown> | null | undefined
 ): Promise<void> {
   if (copyText == null) {
     console.error('Undefined copy text!')
