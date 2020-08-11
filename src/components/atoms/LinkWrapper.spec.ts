@@ -1,6 +1,5 @@
 import {
   shallowMount,
-  Wrapper,
   RouterLinkStub,
   createLocalVue,
   mount,

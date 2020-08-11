@@ -56,7 +56,8 @@ describe('ShareButtonFactory', () => {
   })
 
   test.each(['wrong', 'missing', 'notfound'])('wrong sns type', (sns) => {
-    const spy = spyOn(console, 'error')
+    // eslint-disable-next-line jest/no-jasmine-globals
+    spyOn(console, 'error')
 
     const component = shareButtonFactory(sns as ShareType)
     expect(() => createWrapper(component)).toThrowError()

@@ -174,9 +174,10 @@ export function applyCustomRules(md: MarkdownIt): MarkdownIt {
         const token = tokens[idx]
         const info = token.info ? utils.unescapeAll(token.info).trim() : ''
         const langName = info.split(/\s+/g)[0]
-        const highlighted = !!options.highlight
-          ? options.highlight(token.content, langName)
-          : utils.escapeHtml(token.content)
+        const highlighted =
+          options.highlight != null
+            ? options.highlight(token.content, langName)
+            : utils.escapeHtml(token.content)
 
         // `highlight` が `<pre>` タグから始まる場合は最後に改行コードをつけたものを返す。
         if (highlighted.indexOf('<pre') === 0) {

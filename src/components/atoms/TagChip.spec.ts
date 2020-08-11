@@ -12,7 +12,7 @@ describe('TagChip', () => {
     const localVue = createLocalVue()
     const maybeDo = new TagChip().$options.methods?.maybeDo
 
-    const func = (x: number = 1) => x + 1
+    const func = (x = 1) => x + 1
     expect(maybeDo?.call(new localVue(), func)).toBe(2)
     expect(maybeDo?.call(new localVue(), func, 3)).toBe(4)
     expect(maybeDo?.call(new localVue(), undefined)).toBeUndefined()

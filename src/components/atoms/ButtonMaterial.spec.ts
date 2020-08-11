@@ -1,4 +1,4 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import ButtonMaterial from './ButtonMaterial.vue'
 import '@/helpers/jest.extension'
 import { ButtonAttribute } from '@/models'
@@ -13,7 +13,7 @@ describe('ButtonMaterial', () => {
   }
 
   test('button properties', () => {
-    let label = 'hoge'
+    const label = 'hoge'
     let wrapper = createMount({ label: label })
     expect(wrapper.find('button').text()).toBe(label)
     expect(wrapper.find('.mdc-button--outlined').exists()).toBeFalsy()
@@ -40,10 +40,11 @@ describe('ButtonMaterial', () => {
 
   // not type of button property
   test('property validator', () => {
-    const createCmp = (value: any) =>
+    const createCmp = (value?: Record<string, unknown>) =>
       shallowMount(ButtonMaterial, {
         propsData: { property: value },
       })
+    // eslint-disable-next-line jest/no-jasmine-globals
     const spy = spyOn(console, 'error')
 
     expect(createCmp({ wrong: true })).toOutputVueInvalidProp(spy)

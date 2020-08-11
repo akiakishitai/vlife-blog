@@ -1,8 +1,8 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import TopPage from './TopPage.vue'
 
 describe('TopPage', () => {
-  const createProps = (content?: object) => {
+  const createProps = (content?: Record<string, unknown>) => {
     return {
       contents: [
         {
@@ -38,12 +38,14 @@ describe('TopPage', () => {
   })
 
   test('does notDebugContents', () => {
-    let instance = new TopPage({ propsData: createProps() }) as any
+    let instance: Record<string, Array<unknown>> = new TopPage({
+      propsData: createProps(),
+    })
     expect(instance.notDebugContents.length).toBe(1)
 
     instance = new TopPage({
       propsData: createProps({ tags: ['draft', 'hoge', 'foo'] }),
-    }) as any
+    })
     expect(instance.notDebugContents.length).toBe(0)
   })
 })

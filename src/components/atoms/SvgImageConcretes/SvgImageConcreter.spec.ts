@@ -6,7 +6,7 @@ import SvgImageFacebook from './SvgImageFacebook.vue'
 import SvgImagePocket from './SvgImagePocket.vue'
 
 describe('Concrete SvgImage', () => {
-  const createWrapper = (vue: typeof Vue, title: string = 'sample') =>
+  const createWrapper = (vue: typeof Vue, title = 'sample') =>
     shallowMount(vue, { propsData: { title: title } })
 
   test.each([

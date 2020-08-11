@@ -6,15 +6,17 @@ import Vue from 'vue'
  *
  * @param copyText コピーする文字列
  */
-export function onClick(copyText: any) {
+export function onClick(
+  copyText: string | Record<string, unknown>
+): Promise<void> {
   if (copyText == null) {
     console.error('Undefined copy text!')
     throw new Error('Argument is null.')
   }
 
-  navigator.clipboard
+  return navigator.clipboard
     ?.writeText(copyText.toString())
-    .then((_) => console.log(`Copied ${copyText}`))
+    .then(() => console.log(`Copied ${copyText}`))
 }
 
 /**

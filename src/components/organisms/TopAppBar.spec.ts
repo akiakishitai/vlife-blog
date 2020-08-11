@@ -9,6 +9,6 @@ describe('TopAppBar', () => {
     })
 
     expect(wrapper.isVueInstance()).toBeTruthy()
-    expect((wrapper.vm as any).routePath).toBe('/')
+    expect((wrapper.vm as Record<string, unknown>).routePath).toBe('/')
   })
 })

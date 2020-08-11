@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace jest {
   interface Matchers<R> {
     toOutputVueWarn(spyError: jasmine.Spy): R
@@ -6,7 +7,7 @@ declare namespace jest {
 }
 
 const toOutput = (catchMessage: string) => (
-  received: any,
+  received: unknown,
   console: jasmine.Spy
 ): jest.CustomMatcherResult => {
   const recent = console.calls.mostRecent()
@@ -21,13 +22,13 @@ const toOutput = (catchMessage: string) => (
 
 expect.extend({
   toOutputVueWarn(
-    received: object,
+    received: Record<string, unknown>,
     spyError: jasmine.Spy
   ): jest.CustomMatcherResult {
     return toOutput('[Vue warn]:')(received, spyError)
   },
   toOutputVueInvalidProp(
-    received: object,
+    received: Record<string, unknown>,
     spyError: jasmine.Spy
   ): jest.CustomMatcherResult {
     return toOutput('[Vue warn]: Invalid prop:')(received, spyError)

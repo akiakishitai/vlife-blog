@@ -8,6 +8,7 @@ describe('copyClipboardMixin', () => {
     [null, false],
     [undefined, false],
   ])('does onClick(%s)', (text, isNormal) => {
+    // eslint-disable-next-line jest/no-jasmine-globals
     spyOn(console, 'error')
     isNormal
       ? expect(() => onClick(text)).not.toThrow()

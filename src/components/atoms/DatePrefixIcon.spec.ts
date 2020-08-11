@@ -1,8 +1,8 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import DatePrefixIcon from './DatePrefixIcon.vue'
 
 describe('DatePrefixIcon', () => {
-  const factoryWrapper = function (date: string, type: string = 'create') {
+  const factoryWrapper = function (date: string, type = 'create') {
     return shallowMount(DatePrefixIcon, {
       propsData: {
         item: {

@@ -1,9 +1,9 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
-import { ComputedOptions } from 'vue'
+import { shallowMount } from '@vue/test-utils'
 import LicensePage from './LicensePage.vue'
+import { LicenseContent } from '@/models'
 
 describe('LicensePage', () => {
-  const createWrapper = (content: string, slot: string = 'Sample font') =>
+  const createWrapper = (content: string, slot = 'Sample font') =>
     shallowMount(LicensePage, {
       propsData: { content: content },
       slots: { default: slot },
@@ -74,7 +74,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
 
     const wrapper = createWrapper(mockText)
-    const ret = (wrapper.vm as any).splitLicense
+    const ret = (wrapper.vm as Record<string, LicenseContent[]>).splitLicense
 
     expect(ret.length).toBe(2)
     expect(ret[0].desc).toEqual({

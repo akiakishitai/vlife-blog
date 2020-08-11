@@ -1,7 +1,6 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import HeadingLevel from './HeadingLevel.vue'
 import { HeadingLevelType } from '@/models'
-import { Component } from 'vue'
 
 describe('HeadingLevel', () => {
   const factoryWrapper = function (value: HeadingLevelType) {
