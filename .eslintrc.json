@@ -12,6 +12,15 @@
         "plugin:@typescript-eslint/recommended",
         "prettier/@typescript-eslint"
       ]
+    },
+    {
+      "files": ["*.config.js", "**/modules/**/*.js"],
+      "env": { "node": true, "es6": true },
+      "parserOptions": {
+        "ecmaVersion": 2015,
+        "sourceType": "module",
+        "ecmaFeatures": { "modules": true }
+      }
     }
   ]
 }
