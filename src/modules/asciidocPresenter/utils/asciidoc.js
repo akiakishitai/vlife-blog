@@ -11,7 +11,7 @@ const processor = Processor()
 /**
  * AsciiDoc を解析して {@link import('./models').AsciidocParsed} に変換した値について、必須の値が設定されているかどうかを検証。
  *
- * @param {import('../models').AsciidocParsed} article 検証するオブジェクト
+ * @param {import('..').AsciidocParsed} article 検証するオブジェクト
  * @throws {TypeError} Argument article is not null about title and created_at
  */
 function validateArticle(article) {
@@ -40,12 +40,12 @@ function validateArticle(article) {
  * @param {string} file AsciiDocファイルのローカルパス。
  * @param {import('@asciidoctor/core').Asciidoctor.ProcessorOptions | undefined} options クラスメンバのオプションを上書きする Asciidoctor 解析用オプション。
  *
- * @returns {import('../models').AsciidocParsed}  {@link import('./models').AsciidocParsed} オブジェクトを返す
+ * @returns {import('..').AsciidocParsed}  {@link import('./models').AsciidocParsed} オブジェクトを返す
  */
 export function parse(file, options) {
   const doc = processor.loadFile(file, options)
 
-  /** @type {import('../models').AsciidocParsed} */
+  /** @type {import('..').AsciidocParsed} */
   const parsing = {
     filename: basename(file),
     rendered: doc.convert(),
@@ -75,7 +75,7 @@ export function parse(file, options) {
  * @param {string[]} files AsciiDocファイルのパスのリスト。
  * @param {import('@asciidoctor/core').Asciidoctor.ProcessorOptions | undefined} options クラスメンバのオプションを上書きする Asciidoctor 解析用オプション。
  *
- * @returns {import('../models').AsciidocParsed[]}  {@link import('./models').AsciidocParsed} オブジェクトを返す
+ * @returns {import('..').AsciidocParsed[]}  {@link import('./models').AsciidocParsed} オブジェクトを返す
  */
 export function parseFiles(files, options) {
   return files
@@ -95,8 +95,8 @@ export function parseFiles(files, options) {
 /**
  * {@link import('../models').AsciidocParsed} から {@link import('../models').AsciidocSummary} へ変換する（不要なプロパティを削除する）。
  *
- * @param {import('../models').AsciidocParsed} asciidocParsed
- * @returns {import('../models').AsciidocSummary}
+ * @param {import('..').AsciidocParsed} asciidocParsed
+ * @returns {import('..').AsciidocSummary}
  */
 export function convertToSummary(asciidocParsed) {
   // eslint-disable-next-line no-unused-vars

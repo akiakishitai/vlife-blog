@@ -10,9 +10,10 @@ import jsonData from '<%= options.jsonFile %>'
 export class AsciidocPlugin {
   /**
    *
-   * @param {import('./models').AsciidocSummaryJson} summaryJson ファイル一覧データを含むオブジェクト
+   * @param {import('.').AsciidocSummaryJson} summaryJson ファイル一覧データを含むオブジェクト
    */
   constructor(summaryJson) {
+    /** ファイル一覧を含むJSONオブジェクト */
     this.summaryJson = summaryJson
   }
 
@@ -43,7 +44,7 @@ export class AsciidocPlugin {
    *
    * @param {string} filename AsciiDocソースファイル名
    * @throws {Error} Not found filename in summary path lists
-   * @returns {Promise<import('./models').AsciidocParsed>} AsciiDocの解析データを返す。
+   * @returns {Promise<import('.').AsciidocParsed>} AsciiDocの解析データを返す。
    */
   async loadFile(filename) {
     const filepath = this.__findSummaryFromList(filename)
