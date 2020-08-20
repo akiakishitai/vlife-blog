@@ -5,7 +5,7 @@ import * as utils from './utils'
 /**
  * _AsciiDoc_ ファイルをNuxtビルド前にJSONファイルとして出力するモジュール。
  *
- * @type {import('@nuxt/types').Module<import('./models').ModuleOptions>}
+ * @type {import('@nuxt/types').Module<import('.').ModuleOptions>}
  */
 export default function AsciidocPresenter(moduleOptions) {
   const options = {

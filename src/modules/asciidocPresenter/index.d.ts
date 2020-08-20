@@ -55,3 +55,13 @@ export interface AsciidocParsed extends AsciidocSummary {
   revision?: string // '1.1 (revision number)'
   revision_remark?: string // 'update comment (revision remark)'
 }
+
+// context.app にプラグインをInject
+declare module '@nuxt/types' {
+  interface NuxtAppOptions {
+    /**
+     * AsciiDocファイルを解析したデータを提供する
+     */
+    $asciidoc: import('./plugin').AsciidocPlugin
+  }
+}

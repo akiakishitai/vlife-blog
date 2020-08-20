@@ -54,12 +54,12 @@ async function equalExistJson(target, value, encoding = 'utf8') {
  *
  * {@link import('./models').AsciidocSummary} から一覧として不要な要素を排除したJSONオブジェクトを生成して出力する。
  *
- * @param {import('../models').AsciidocSummary[]} summary 解析済みのオブジェクト
+ * @param {import('..').AsciidocSummary[]} summary 解析済みのオブジェクト
  * @param {string} sourceDir AsciiDocファイルのあるディレクトリパス
  * @param {string} jsonFile 出力先JSONファイルパス
  */
 export async function outputSummaryJson(summary, sourceDir, jsonFile) {
-  /** @type {import('../models').AsciidocSummaryJson} */
+  /** @type {import('..').AsciidocSummaryJson} */
   const jsonData = {
     dir: sourceDir,
     list: summary,

@@ -1,7 +1,7 @@
 import path from 'path'
 import Processer from '@asciidoctor/core'
 import { parse, parseFiles, convertToSummary } from '../utils/asciidoc'
-import { AsciidocParsed } from '../models'
+import { AsciidocParsed } from '..'
 
 describe('Asciidoc functions', () => {
   const processer = Processer()
