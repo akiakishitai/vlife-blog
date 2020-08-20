@@ -1,0 +1,48 @@
+@use 'common';
+
+@mixin icon_prefix($tailwind-color) {
+  //tr {
+  //  @apply border border-#{$tailwind-color} border-opacity-50;
+  //}
+
+  .icon {
+    @apply border-#{$tailwind-color};
+    @apply bg-#{$tailwind-color} bg-opacity-15;
+
+    .title {
+      @apply text-#{$tailwind-color};
+    }
+  }
+}
+
+@mixin title-icon-prefix($icon, $color: var(--mdc-theme-primary)) {
+  > .title {
+    @extend %material-icon-prefix;
+
+    &::before {
+      content: $icon;
+      color: $color;
+    }
+  }
+}
+
+@mixin iframe-size($width, $aspect) {
+  iframe {
+    width: $width;
+    height: $width * $aspect;
+  }
+}
+
+@mixin iframe-breakpoints($aspect: 9/16) {
+  @media screen and (min-width: 480px) {
+    @include iframe-size(360px, $aspect);
+  }
+
+  @media screen and (min-width: 768px) {
+    @include iframe-size(560px, $aspect);
+  }
+
+  @media screen and (min-width: 1024px) {
+    @include iframe-size(720px, $aspect);
+  }
+}

@@ -21,6 +21,21 @@
       "label": "create nuxt app",
       "type": "shell",
       "command": "yarn create nuxt-app ${input:nuxt-source}"
+    },
+    {
+      "label": "compile sass of asciidoc preview theme",
+      "type": "shell",
+      "command": "yarn run sass -I ./node_modules/ .vscode/_asciidoc-theme.scss .sass-cache/post-body.css"
+    },
+    {
+      "label": "tailwind build sass of asciidoc preview theme",
+      "type": "shell",
+      "command": "yarn run tailwindcss build .sass-cache/post-body.css -c src/tailwind.config.js -o .vscode/asciidoc-theme.css",
+      "dependsOn": ["compile sass of asciidoc preview theme"]
+    },
+    {
+      "label": "build vscode asciidoc preview theme",
+      "dependsOn": ["tailwind build sass of asciidoc preview theme"]
     }
   ],
   "inputs": [

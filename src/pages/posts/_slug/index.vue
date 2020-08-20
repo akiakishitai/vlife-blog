@@ -1,6 +1,6 @@
 <template>
   <ArticlePosted
-    v-bind:markdown="prop"
+    v-bind:posted="posted"
     v-bind:navigation="navi"
     v-bind:currentFullPath="currentPath"
   />
@@ -8,59 +8,47 @@
 
 <script lang="ts">
 import Vue, { ComponentOptions } from 'vue'
-import fm from 'front-matter'
-import { Attribute, Content } from '*.md'
-import { posts } from '@/assets/markdowns/posts/postlist.json'
 import ArticlePosted from '@/components/templates/ArticlePosted.vue'
-import { naviArticleFrontBack } from '@/helpers/functions'
 import { ArticleNavigation } from '../../../models'
-import * as DebugMixinMethod from '@/mixins/debugMixin'
+import { naviFrontBack } from './asyncData'
+import { AsciidocParsed } from '~/modules/asciidocPresenter'
 
 type Property = {
-  prop: Content
+  posted: AsciidocParsed
   navi: ArticleNavigation
-  currentPath: string
+  currentPath: URL
 }
 
 export default Vue.extend({
   /**
-   * Markdownファイル名とパラメータ `slug` を照合。
+   * AsciiDocファイル名とパラメータ `slug` を照合。
    */
   async validate(ctx) {
-    return posts.some((x) => x.filename_noext === ctx.params.slug)
+    return ctx.app.$asciidoc.hasFile(ctx.params.slug)
   },
   /**
    * Markdownファイルを読み込んでフロントマターを解析したものを返す。
    *
    * `body` については _markdown-it_ でレンダリングする。
    */
-  async asyncData(context): Promise<Property> {
-    const md: typeof import('*.md') = await import(
-      `@/assets/markdowns/posts/${context.params.slug}.md`
-    )
-    const post = fm<Attribute>(md.default)
+  async asyncData(ctx): Promise<Property> {
+    const asciidoc = ctx.app.$asciidoc
 
-    const navi = naviArticleFrontBack(
-      context.route.path,
-      posts
-        .filter((x) => !DebugMixinMethod.isDebug(x.tags))
-        .map((x) => {
-          return { filename: x.filename_noext, title: x.title }
-        })
-    )
-
+    // ドメインホスト
     const host = process.server
-      ? context.req?.headers?.host ?? process.env.NUXT_ENV_DOMAIN
+      ? ctx.req?.headers?.host ?? process.env.NUXT_ENV_DOMAIN
       : window.location.host
 
     return {
-      prop: {
-        attribute: post.attributes,
-        body: context.$markdownIt.render(post.body),
-        frontMatter: post.frontmatter,
-      },
-      navi: navi,
-      currentPath: `${process.env.NUXT_ENV_SCHEME}${host}${context.route.path}`,
+      posted: await asciidoc.content(ctx.params.slug),
+      navi: naviFrontBack(
+        (await asciidoc.filesByPage()).overviews,
+        ctx.route.path
+      ),
+      currentPath: new URL(
+        ctx.route.path,
+        `${process.env.NUXT_ENV_SCHEME}${host}`
+      ),
     }
   },
   mounted() {
@@ -70,14 +58,14 @@ export default Vue.extend({
     ArticlePosted,
   },
   head() {
-    const prop = ((this as any) as Property).prop
+    const prop: AsciidocParsed = (this as any).posted
     return {
-      title: prop.attribute.title,
+      title: prop.title.toString(),
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          content: prop.attribute.tags.join(','),
+          content: prop.tags.join(','),
         },
       ],
     }

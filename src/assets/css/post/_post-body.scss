@@ -1,0 +1,285 @@
+@use 'common';
+@use 'mixin';
+@use 'base';
+//@use '../scss/animations' as anim;
+
+/* 上部余白 */
+.paragraph,
+.listingblock,
+.exampleblock,
+.quoteblock,
+.imageblock,
+.videoblock,
+.hdlist,
+.dlist,
+.qlist,
+#footnotes {
+  @apply mt-4;
+}
+
+/* Table Block */
+table.tableblock {
+  @apply shadow;
+
+  th {
+    @apply bg-primary bg-opacity-50;
+  }
+
+  tbody tr {
+    @apply border-b border-grey-600 border-opacity-50;
+  }
+}
+.tableblock {
+  @extend %table-halign;
+}
+
+/* Block Title */
+.title {
+  + table,
+  + ol,
+  + ul,
+  + .content > pre {
+    @apply mt-0;
+  }
+}
+.admonitionblock td.content,
+.audioblock,
+.exampleblock,
+.imageblock,
+.listingblock,
+.literalblock,
+.stemblock,
+.openblock,
+.paragraph,
+.quoteblock,
+table.tableblock,
+.verseblock,
+.videoblock,
+.dlist,
+.olist,
+.ulist,
+.qlist,
+.hdlist {
+  > .title {
+    @apply italic font-semibold;
+    @apply text-black text-opacity-54;
+  }
+}
+.listingblock > .title {
+  @extend %material-icon-prefix;
+
+  &::before {
+    content: 'topic';
+    @apply text-primary-dark;
+  }
+}
+
+/* Table of Contents */
+@media screen and (max-width: 47.999rem) {
+  #toc {
+    @apply hidden;
+  }
+}
+#toc {
+  // レイアウト
+  grid-column: 1;
+  grid-row: 1 / 8;
+  grid-auto-rows: 100%;
+  @apply text-sm;
+
+  // スクロールバー
+  overflow-y: auto;
+  scrollbar-width: thin;
+  max-height: 64vh;
+  @apply sticky;
+  top: 1.5rem;
+
+  // アニメーション
+  //@apply opacity-0;
+  //@include anim.fadeinFromDown(1s, 300ms);
+
+  ~ div {
+    grid-column: 2;
+    grid-auto-rows: 100%;
+  }
+
+  #toctitle {
+    @apply font-semibold;
+  }
+
+  ul {
+    @apply pl-0 mt-0;
+    @apply list-none;
+
+    li {
+      @apply mt-0;
+
+      ul {
+        @apply pl-2;
+      }
+    }
+  }
+
+  a {
+    @apply inline-block w-full;
+    @apply text-grey-700;
+    @apply no-underline;
+
+    &:hover {
+      @apply bg-grey-300;
+      @apply text-black text-opacity-87;
+    }
+  }
+}
+
+/* Block quote */
+.quoteblock {
+  @apply bg-grey-300 bg-opacity-50;
+
+  > .title {
+    @apply bg-background bg-opacity-100;
+  }
+
+  blockquote {
+    > .quoteblock {
+      @apply bg-transparent;
+      @apply border-l-4 border-grey-500 border-opacity-54;
+    }
+
+    > .paragraph:first-of-type {
+      @apply mt-0;
+    }
+  }
+
+  > .attribution {
+    @apply mt-2 mr-4;
+    @apply italic;
+    @apply text-right;
+
+    > cite {
+      @apply text-black text-opacity-54;
+    }
+  }
+}
+
+/* Example content */
+.exampleblock {
+  @include mixin.title-icon-prefix('subject', var(--color-primary-dark));
+
+  > .content {
+    @apply border border-grey-500;
+    @apply rounded;
+    @apply p-4;
+
+    > :first-child {
+      @apply mt-0;
+    }
+  }
+}
+
+/* Admonition Block */
+.admonitionblock {
+  @apply flex justify-center;
+
+  table {
+    @apply w-11/12;
+    @apply shadow-md;
+  }
+
+  .icon {
+    @apply border-l-4;
+    @apply font-semibold;
+    @apply px-2;
+    @apply w-16;
+
+    .title {
+      @extend %material-icon-prefix;
+      @apply flex justify-center;
+    }
+  }
+
+  .content .title {
+    @apply italic;
+  }
+
+  .paragraph {
+    @apply mt-2;
+  }
+
+  &.note {
+    @include mixin.icon_prefix(blue-300);
+  }
+  &.tip {
+    @include mixin.icon_prefix(teal-400);
+  }
+  &.important {
+    @include mixin.icon_prefix(green-600);
+  }
+  &.caution {
+    @include mixin.icon_prefix(orange-600);
+  }
+  &.warning {
+    @include mixin.icon_prefix(red-500);
+  }
+}
+
+/* Description List */
+.dlist,
+.hdlist {
+  .hdlist1 {
+    @apply font-semibold;
+  }
+}
+.hdlist {
+  > table {
+    //@apply w-full;
+  }
+}
+.dlist {
+  > dl {
+    @apply px-4 py-2;
+  }
+
+  dt:not(:first-of-type) {
+    @apply mt-4;
+  }
+
+  dd {
+    @apply mt-2 ml-6;
+  }
+}
+
+/* Callouts description */
+.colist {
+  > ol {
+    @apply mt-0;
+  }
+  li {
+    @apply mt-1;
+  }
+  li:first-of-type {
+    @apply mt-0;
+  }
+}
+
+/* Image inline */
+span.image > img {
+  @apply inline;
+
+  &[src^="https://cdn.jsdelivr.net/npm/simple-icons"]
+  {
+    @apply align-baseline;
+  }
+}
+
+/* Video Block */
+.videoblock {
+  > .content {
+    @include mixin.iframe-breakpoints(9 / 16);
+  }
+}
+
+/* Footnotes */
+#footnotes {
+  @apply text-sm;
+}

@@ -1,5 +1,9 @@
 <template>
-  <TopPage v-bind:contents="contents" v-bind:paging="paging" v-bind:route="route">
+  <TopPage
+    v-bind:contents="contents"
+    v-bind:paging="paging"
+    v-bind:postRoute="route"
+  >
     <template v-slot:preamble>
       <div v-if="paging.current === 1" class="mb-6">
         <span>Vtuberさんの感想とかプログラミングのメモとか書くブログ。</span>
@@ -10,32 +14,30 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { join } from 'path'
 import TopPage from '../components/templates/TopPage.vue'
-import { posts } from '@/assets/markdowns/posts/postlist.json'
 import { PagingContent, PostFile } from '@/models'
+import { AsciidocParsed } from '~/modules/asciidocPresenter'
 
 @Component({
   watchQuery: ['page'],
   // クエリパラメータでページネーション
-  asyncData(ctx): PagingContent<PostFile> {
-    // ページ番号をクエリパラメータ `page` から取得。
-    const page = Number.parseInt(ctx.query.page?.toString() ?? 1)
-    //console.log(`page query: ${page}`)
-
+  async asyncData(
+    ctx
+  ): Promise<PagingContent<Omit<AsciidocParsed, 'rendered'>>> {
     // 1ページあたりの表示件数
     const count = 20
-    // 総ページ数
-    const size = Math.ceil(posts.length / count)
-    // ページに表示するコンテンツの配列の開始番号
-    const start = (page - 1) * count
+
+    const page = ctx.query.page?.toString() ?? '1'
+    const contents = await ctx.app.$asciidoc.filesByPage(parseInt(page, 10))
 
     return {
-      contents: posts.slice(start, start + count),
+      contents: contents.overviews,
       paging: {
-        current: page,
-        pages: [...new Array(size)].map((_, i) => i + 1),
+        current: contents.paging.current,
+        pages: [...new Array(contents.paging.total)].map((_, i) => i + 1),
       },
-      route: ctx.route.path,
+      route: join(ctx.route.path, 'posts'),
     }
   },
   components: {
