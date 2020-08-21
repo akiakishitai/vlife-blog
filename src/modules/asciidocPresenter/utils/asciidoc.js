@@ -100,7 +100,7 @@ export function parseFiles(files, options) {
  */
 export function convertToSummary(asciidocParsed) {
   // eslint-disable-next-line no-unused-vars
-  const { filename, created_at, ...remain } = asciidocParsed
+  const { filename, created_at } = asciidocParsed
   return {
     filename,
     created_at,
