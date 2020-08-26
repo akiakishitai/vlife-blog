@@ -10,5 +10,6 @@
   },
   "[typescript]": {
     //"editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "asciidoc.preview.style": "src/static/stylesheets/asciidoc-style.css"
 }
