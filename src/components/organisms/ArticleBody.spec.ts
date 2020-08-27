@@ -41,7 +41,7 @@ describe('ArticleBody', () => {
     expect(wrapper2.contains('h1')).toBeFalsy()
     expect(wrapper2.contains('h2')).toBeTruthy()
     expect(wrapper2.contains('code')).toBeTruthy()
-    expect(wrapper2.contains('.markdown-body')).toBeTruthy()
+    expect(wrapper2.contains('.post-body')).toBeTruthy()
     expect(wrapper2.find('h2').text()).toBe('Remain this header')
   })
 

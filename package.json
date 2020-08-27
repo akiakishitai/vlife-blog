@@ -14,6 +14,7 @@
     "mdlist": "node --experimental-modules fileListToJson.mjs",
     "sass-build": "sass -I ./node_modules src/assets/css/scss/",
     "start": "nuxt-ts start",
+    "tailwind-build": "tailwindcss build src/assets/css/post/_post-body.css -c src/tailwind.config.js -o src/static/stylesheets/asciidoc-style.css",
     "test": "jest",
     "test-ci": "jest --coverage false"
   },
