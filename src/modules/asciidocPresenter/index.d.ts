@@ -2,13 +2,13 @@
  * モジュールのオプション。
  *
  * @param {string} source 直下に AsciiDoc ファイルがあるディレクトリのパス
- * @param {string} target JSONファイルを出力するディレクトリのパス
- * @param {string=} summaryFilename AsciiDocファイル一覧を出力するJSONファイル名。デフォルト `_summary.json`
+ * @param {string=} apiPath 解析したAsciiDocファイルをJSONでAPI提供するパスのルート。デフォルト `/api/asciidoc`
+ * @param {string=} number AsciiDocファイル一覧を出力するJSONファイル名。デフォルト `20`
  */
 export interface ModuleOptions {
   source?: string
-  target?: string
-  summaryFilename?: string
+  apiPath?: string
+  count?: number
 }
 
 /**
@@ -62,6 +62,6 @@ declare module '@nuxt/types' {
     /**
      * AsciiDocファイルを解析したデータを提供する
      */
-    $asciidoc: import('./plugin').AsciidocPlugin
+    $asciidoc: import('./pluginBase').PluginBase
   }
 }

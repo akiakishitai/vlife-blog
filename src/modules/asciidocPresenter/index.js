@@ -1,62 +1,76 @@
 // @ts-check
-import { join } from 'path'
+import { resolve, join } from 'path'
 import * as utils from './utils'
+import { findByName, splitByPage } from './middleware'
 
 /**
  * _AsciiDoc_ ファイルをNuxtビルド前にJSONファイルとして出力するモジュール。
  *
  * @type {import('@nuxt/types').Module<import('.').ModuleOptions>}
  */
-export default function AsciidocPresenter(moduleOptions) {
+export default async function AsciidocPresenter(moduleOptions) {
   const options = {
     // Nuxtの srcDir からの相対パス
     source: 'outsides/asciidocs',
-    target: 'assets/_asciidocs/db',
-    summaryFilename: 'summary.json',
+    apiPath: '/api/asciidoc',
+    count: 20,
     ...moduleOptions,
   }
-  // ファイル一覧JSONファイルパス
-  const jsonFile = join(options.target, options.summaryFilename)
 
   /**
-   * Nuxtビルド作業前に実行する処理。
-   *
-   * AsciiDocソースファイルの一覧をJSONとして出力する。
-   *
-   * @param {*} nuxt
-   * @param {*} buildOptions
+   * Nuxtのソースディレクトリパス（デフォルトはルートパス）
    */
-  // eslint-disable-next-line no-unused-vars
-  const beforeBuildHook = async (nuxt, buildOptions) => {
-    const files = await utils.fileList(options.source)
-    const parsings = utils.parseFiles(files, {
-      safe: 'secure',
-    })
-    const summaries = parsings.map(utils.convertToSummary)
-
-    await utils.mkdir(options.target, {
-      recursive: true,
-    })
-    await utils.outputSummaryJson(summaries, options.source, jsonFile)
-    // await utils.outputDiscreteJson(parsings, options.target)
+  const srcDir = this.options.srcDir
+  if (srcDir == null) {
+    throw new Error('Cannot read nuxt configuration')
   }
 
+  // AsciiDocファイル解析
+  const files = await utils.fileList(resolve(srcDir, options.source))
+  const contents = utils.parseFiles(files, {
+    safe: 'secure',
+  })
+
   // hookに登録。
-  this.nuxt.hook('builder:prepared', beforeBuildHook)
+  // this.nuxt.hook('builder:prepared', async (nuxt, buildOptions) => {})
+
+  // APIのエンドポイント
+  const itemsApi = join(options.apiPath, 'items')
 
   // pluginに必要な相対パスファイルを登録
   this.addTemplate({
-    src: join(__dirname, 'utils/asciidoc.js'),
-    fileName: 'utils/asciidoc.js',
+    src: resolve(__dirname, 'pluginBase.js'),
+    fileName: 'pluginBase.js',
   })
 
   // plugin登録
-  // summary.json からAsciidocソースを取得して解析する
   this.addPlugin({
-    src: join(__dirname, 'plugin.js'),
+    src: resolve(__dirname, 'plugin.server.js'),
     options: {
-      // srcDirからの相対パス
-      jsonFile: join('@', jsonFile),
+      contents: contents,
+      count: options.count,
     },
   })
+  this.addPlugin({
+    src: resolve(__dirname, 'plugin.client.js'),
+    options: {
+      itemsApi: itemsApi,
+      count: options.count,
+    },
+  })
+
+  // serverMiddleware登録
+  // @ts-ignore
+  this.options.serverMiddleware.push(
+    // あるAsciiDocファイルの解析結果を取得
+    {
+      path: itemsApi,
+      handler: findByName(contents),
+    },
+    // AsciiDocファイル概要一覧
+    {
+      path: itemsApi,
+      handler: splitByPage(contents, options.count),
+    }
+  )
 }
