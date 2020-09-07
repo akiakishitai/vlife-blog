@@ -56,6 +56,26 @@ export interface AsciidocParsed extends AsciidocSummary {
   revision_remark?: string // 'update comment (revision remark)'
 }
 
+/**
+ * Asciidocのコンテンツを含まない情報
+ */
+export type AsciidocAttribute = Omit<AsciidocParsed, 'rendered'>
+
+/**
+ * Asciidocの一覧表示用JSONオブジェクト。
+ *
+ * @param {{current: number, total: number}} paging ページ番号
+ * @param {AsciidocAttribute[]} overviews Asciidocの概要一覧
+ */
+export interface AsciidocOverview {
+  paging: {
+    /** 全要素表示時には `0` を取る。 */
+    current: number
+    total: number
+  }
+  overviews: AsciidocAttribute[]
+}
+
 // context.app にプラグインをInject
 declare module '@nuxt/types' {
   interface NuxtAppOptions {
