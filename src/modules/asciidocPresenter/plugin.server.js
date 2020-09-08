@@ -4,9 +4,10 @@ import { withoutExtension, PluginBase } from './pluginBase'
 export class PluginServer extends PluginBase {
   /**
    *
-   * @param {import('.').AsciidocParsed[]} asciidocs
+   * @param {number} count 1ページあたりの表示件数
+   * @param {import('.').AsciidocParsed[]} asciidocs 解析済み Asciidoc のリスト
    */
-  constructor(asciidocs) {
+  constructor(count, asciidocs) {
     super(
       // AsciiDocファイルを返す
       (filename) => {
@@ -22,24 +23,33 @@ export class PluginServer extends PluginBase {
         return target
       },
       // ページに表示するファイル一覧を返す
-      (count, page) => {
+      (page) => {
         const maxPage = Math.ceil(asciidocs.length / count)
-        /** @type {(adoc: import('.').AsciidocParsed) => Omit<import('.').AsciidocParsed, 'rendered'>} */
+        /** @type {(adoc: import('.').AsciidocParsed) => import('.').AsciidocAttribute} */
         const callback = (adoc) => {
           // eslint-disable-next-line no-unused-vars
           const { rendered, ...remain } = adoc
           return remain
         }
 
-        const ret =
-          // page 指定
-          page == null || page < 1
-            ? asciidocs.map(callback)
-            : asciidocs
-                .slice(Math.min(page, maxPage) - 1 * count, count)
-                .map(callback)
+        /** @type {() => import('.').AsciidocOverview} */
+        const overview = () => {
+          if (page == null || page < 1) {
+            return {
+              paging: { current: 0, total: maxPage },
+              overviews: asciidocs.map(callback),
+            }
+          }
 
-        return ret
+          const current = Math.min(page, maxPage)
+          const start = (current - 1) * count
+          return {
+            paging: { current, total: maxPage },
+            overviews: asciidocs.slice(start, start + count).map(callback),
+          }
+        }
+
+        return overview()
       }
     )
   }
@@ -56,5 +66,7 @@ export default function plugin(ctx, inject) {
   /** @type {import('.').AsciidocParsed[]} */
   const items = JSON.parse(contents)
 
-  ctx.app.$asciidoc = new PluginServer(items)
+  const count = parseInt('<%= options.count %>', 10)
+
+  ctx.app.$asciidoc = new PluginServer(count, items)
 }

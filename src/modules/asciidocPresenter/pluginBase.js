@@ -29,7 +29,7 @@ import { basename, extname } from 'path'
  */
 export class PluginBase {
   /** @typedef {(filename: string) => import('.').AsciidocParsed | Promise<import('.').AsciidocParsed>} Content*/
-  /** @typedef {(count: number, page: number) => Omit<import('.').AsciidocParsed, 'rendered'>[] | Promise<Omit<import('.').AsciidocParsed, 'rendered'>[]>} FileList */
+  /** @typedef {(page?: number) => import('.').AsciidocOverview | Promise<import('.').AsciidocOverview>} FileList */
 
   /**
    *
@@ -50,12 +50,10 @@ export class PluginBase {
     /**
      * あるページにおけるAsciiDocファイルの概要一覧を返す。
      *
-     * `pageNum` が未指定または `1` 以下の場合はすべての一覧を返す。
+     * `page` が未指定または `0` 以下の場合はすべての一覧を返す。
      *
      * @type {FileList}
-     * @param {number} count ページあたりの表示件数
      * @param {number | undefined} page `1` から始まるページ番号
-     * @returns {Omit<import('.').AsciidocParsed, 'rendered'>[]}
      */
     this.filesByPage = filesByPage
   }

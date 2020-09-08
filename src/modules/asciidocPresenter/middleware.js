@@ -62,7 +62,7 @@ export function findByName(asciidocs) {
 }
 
 /**
- * `page` クエリパラメータの数値によって、そのページで表示するAsciiDocファイルの一覧を返すServerMiddlewareを返す。
+ * `page` クエリパラメータの数値によって、そのページで表示するAsciiDocファイルの一覧 {@link import('.').AsciidocOverview} を返すServerMiddlewareを返す。
  *
  * @param {import('.').AsciidocParsed[]} asciidocs
  * @param {number} count
@@ -75,7 +75,7 @@ export function findByName(asciidocs) {
  * `https://~~/items?page=7`
  */
 export function splitByPage(asciidocs, count) {
-  /** @type {Omit<import('.').AsciidocParsed, 'rendered'>[]} */
+  /** @type {import('.').AsciidocAttribute[]} */
   const summaries = asciidocs.map((adoc) => {
     // eslint-disable-next-line no-unused-vars
     const { rendered, ...remain } = adoc
@@ -85,23 +85,34 @@ export function splitByPage(asciidocs, count) {
 
   return (req, res, next) => {
     const url = new URL(req.url || '', 'http://hoge.com')
-    const params = url.searchParams
-
     if (url.pathname !== '/') {
       next()
     }
 
-    // 数値が範囲外の場合は全要素を返す。
-    const page = parseInt(params.get('page') || '', 10)
-    const msg =
-      isNaN(page) || page < 1
-        ? summaries
-        : summaries.slice((Math.min(page, maxPage) - 1) * count, count)
-
+    // 共通レスポンスヘッダー
     res.setHeader('Content-Type', 'application/json;charset=utf-8')
     res.setHeader('Cache-Control', 'max-age=300')
 
-    const data = JSON.stringify(msg)
+    /** @type {(url: URL) => import('.').AsciidocOverview} */
+    const overview = (url) => {
+      // 数値が範囲外の場合は全要素を返す。
+      const page = parseInt(url.searchParams.get('page') || '', 10)
+
+      // 範囲外（上方以外）の場合は全要素を返す。
+      if (isNaN(page) || page < 1) {
+        return { paging: { current: 0, total: maxPage }, overviews: summaries }
+      }
+
+      const current = Math.min(page, maxPage)
+      const start = (current - 1) * count
+
+      return {
+        paging: { current, total: maxPage },
+        overviews: summaries.slice(start, start + count),
+      }
+    }
+
+    const data = JSON.stringify(overview(url))
     res.setHeader('ETag', etagToken(data))
 
     const cmp = compress(data, req.headers['accept-encoding'])

@@ -4,19 +4,25 @@ import { PluginBase } from './pluginBase'
 
 export class PluginClient extends PluginBase {
   /**
+   * @param {number} count 1ページあたりの表示件数
    * @param {string} itemsApi AsciiDocファイルの解析結果を返すAPIエンドポイント
    */
-  constructor(itemsApi) {
+  constructor(count, itemsApi) {
     super(
-      // @ts-ignore
       (filename) => {
         const api = join(itemsApi, filename)
-        return fetchAPI(api, '')
+        /** @type {Promise<import('.').AsciidocParsed>} */
+        // @ts-ignore
+        const ret = fetchAPI(api, '')
+        return ret
       },
-      // @ts-ignore
-      (count, page) => {
+
+      (page) => {
         const param = `page=${page}`
-        return fetchAPI(itemsApi, param)
+        /** @type {Promise<import('.').AsciidocOverview>} */
+        // @ts-ignore
+        const attrs = fetchAPI(itemsApi, param)
+        return attrs
       }
     )
   }
@@ -28,7 +34,7 @@ export class PluginClient extends PluginBase {
  * @param {string} api アクセスするAPIパス
  * @param {string | undefined} query クエリパラメータ
  * @throws {Error} エラーメッセージが帰ってきた場合
- * @returns {Promise<import('.').AsciidocParsed | Omit<import('.').AsciidocParsed, 'rendered'>[]>}
+ * @returns {Promise<import('.').AsciidocParsed | import('.').AsciidocOverview>}
  */
 async function fetchAPI(api, query) {
   const url = [api, new URLSearchParams(query).toString()]
@@ -53,5 +59,7 @@ export default function plugin(ctx, inject) {
   /** @type {string} */
   const itemsApi = '<%= options.itemsApi %>'
 
-  ctx.app.$asciidoc = new PluginClient(itemsApi)
+  const count = parseInt('<%= options.count %>', 10)
+
+  ctx.app.$asciidoc = new PluginClient(count, itemsApi)
 }
