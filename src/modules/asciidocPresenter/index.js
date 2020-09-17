@@ -1,7 +1,6 @@
 // @ts-check
-import { resolve, join } from 'path'
+import { resolve } from 'path'
 import * as utils from './utils'
-import { findByName, splitByPage } from './middleware'
 
 /**
  * _AsciiDoc_ ファイルをNuxtビルド前にJSONファイルとして出力するモジュール。
@@ -9,11 +8,15 @@ import { findByName, splitByPage } from './middleware'
  * @type {import('@nuxt/types').Module<import('.').ModuleOptions>}
  */
 export default async function AsciidocPresenter(moduleOptions) {
+  /** @type {Required<import('.').ModuleOptions>} */
   const options = {
     // Nuxtの srcDir からの相対パス
     source: 'outsides/asciidocs',
-    apiPath: '/api/asciidoc',
     count: 20,
+    apiPath: {
+      overview: 'asciidoc_presenter/overview',
+      contents: 'asciidoc_presenter/contents',
+    },
     ...moduleOptions,
   }
 
@@ -25,52 +28,48 @@ export default async function AsciidocPresenter(moduleOptions) {
     throw new Error('Cannot read nuxt configuration')
   }
 
-  // AsciiDocファイル解析
-  const files = await utils.fileList(resolve(srcDir, options.source))
-  const contents = utils.parseFiles(files, {
-    safe: 'secure',
-  })
-
   // hookに登録。
-  // this.nuxt.hook('builder:prepared', async (nuxt, buildOptions) => {})
-
-  // APIのエンドポイント
-  const itemsApi = join(options.apiPath, 'items')
-
-  // pluginに必要な相対パスファイルを登録
-  this.addTemplate({
-    src: resolve(__dirname, 'pluginBase.js'),
-    fileName: 'pluginBase.js',
-  })
-
-  // plugin登録
-  this.addPlugin({
-    src: resolve(__dirname, 'plugin.server.js'),
-    options: {
-      contents: contents,
-      count: options.count,
-    },
-  })
-  this.addPlugin({
-    src: resolve(__dirname, 'plugin.client.js'),
-    options: {
-      itemsApi: itemsApi,
-      count: options.count,
-    },
-  })
-
-  // serverMiddleware登録
   // @ts-ignore
-  this.options.serverMiddleware.push(
-    // あるAsciiDocファイルの解析結果を取得
-    {
-      path: itemsApi,
-      handler: findByName(contents),
-    },
-    // AsciiDocファイル概要一覧
-    {
-      path: itemsApi,
-      handler: splitByPage(contents, options.count),
+  // eslint-disable-next-line no-unused-vars
+  this.nuxt.hook('builder:prepared', async (nuxt, buildOptions) => {
+    // AsciiDocファイル解析
+    const files = await utils.fileList(resolve(srcDir, options.source))
+    const contents = utils.parseFiles(files, {
+      safe: 'secure',
+    })
+
+    // add webpack plugins
+    const webpackPlugins = (this.options.build || {}).plugins
+    if (webpackPlugins == null) {
+      throw new Error('Cannot find configuration of webpack plugins')
     }
-  )
+    webpackPlugins.push(
+      // @ts-ignore
+      utils.createPlugin(contents, options.count, options.apiPath)
+    )
+
+    // pluginに必要な相対パスファイルを登録
+    this.addTemplate({
+      src: resolve(__dirname, 'pluginBase.js'),
+      fileName: 'pluginBase.js',
+      options: {
+        contents,
+      },
+    })
+
+    // plugin登録
+    this.addPlugin({
+      src: resolve(__dirname, 'plugin.server.js'),
+      options: {
+        count: options.count,
+      },
+    })
+    this.addPlugin({
+      src: resolve(__dirname, 'plugin.client.js'),
+      options: {
+        itemsApi: options.apiPath,
+        count: options.count,
+      },
+    })
+  })
 }

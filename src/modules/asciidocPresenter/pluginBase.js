@@ -80,3 +80,9 @@ export class PluginBase {
 export function withoutExtension(filename) {
   return basename(filename, extname(filename))
 }
+
+/** @type {import('.').AsciidocParsed[]} */
+export const adocParsedList = JSON.parse(
+  // オブジェクトをJSON文字列化、エスケープ文字をそのまま残す
+  String.raw`<%= JSON.stringify(options.contents) %>`
+)

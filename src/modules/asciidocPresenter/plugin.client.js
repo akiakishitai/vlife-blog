@@ -5,12 +5,13 @@ import { PluginBase } from './pluginBase'
 export class PluginClient extends PluginBase {
   /**
    * @param {number} count 1ページあたりの表示件数
-   * @param {string} itemsApi AsciiDocファイルの解析結果を返すAPIエンドポイント
+   * @param {import('.').ModuleApi} itemsApi AsciiDocファイルの解析結果を返すAPIエンドポイント
+   * @param {string=} publicPath
    */
-  constructor(count, itemsApi) {
+  constructor(count, itemsApi, publicPath = '_nuxt') {
     super(
       (filename) => {
-        const api = join(itemsApi, filename)
+        const api = join('/', publicPath, itemsApi.contents, `${filename}.json`)
         /** @type {Promise<import('.').AsciidocParsed>} */
         // @ts-ignore
         const ret = fetchAPI(api, '')
@@ -18,10 +19,11 @@ export class PluginClient extends PluginBase {
       },
 
       (page) => {
-        const param = `page=${page}`
+        const file = page != null && page > 0 ? `${page}.json` : 'all.json'
+        const api = join('/', publicPath, itemsApi.overview, file)
         /** @type {Promise<import('.').AsciidocOverview>} */
         // @ts-ignore
-        const attrs = fetchAPI(itemsApi, param)
+        const attrs = fetchAPI(api, '')
         return attrs
       }
     )
@@ -37,10 +39,9 @@ export class PluginClient extends PluginBase {
  * @returns {Promise<import('.').AsciidocParsed | import('.').AsciidocOverview>}
  */
 async function fetchAPI(api, query) {
-  const url = [api, new URLSearchParams(query).toString()]
-    .join('?')
-    .replace(/$\?/, '')
-
+  const param = new URLSearchParams(query).toString()
+  const url =
+    param === '' ? api : [api, new URLSearchParams(query).toString()].join('?')
   const response = await fetch(url)
   const data = await response.json()
 
@@ -56,8 +57,10 @@ async function fetchAPI(api, query) {
  */
 // eslint-disable-next-line no-unused-vars
 export default function plugin(ctx, inject) {
-  /** @type {string} */
-  const itemsApi = '<%= options.itemsApi %>'
+  /** @type {import('.').ModuleApi} */
+  const itemsApi = JSON.parse(
+    String.raw`<%= JSON.stringify(options.itemsApi) %>`
+  )
 
   const count = parseInt('<%= options.count %>', 10)
 
