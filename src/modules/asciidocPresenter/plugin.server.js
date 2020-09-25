@@ -1,5 +1,5 @@
 // @ts-check
-import { withoutExtension, PluginBase } from './pluginBase'
+import { adocParsedList, withoutExtension, PluginBase } from './pluginBase'
 
 export class PluginServer extends PluginBase {
   /**
@@ -61,12 +61,7 @@ export class PluginServer extends PluginBase {
  */
 // eslint-disable-next-line no-unused-vars
 export default function plugin(ctx, inject) {
-  // オブジェクトをJSON文字列化、エスケープ文字をそのまま残す
-  const contents = String.raw`<%= JSON.stringify(options.contents) %>`
-  /** @type {import('.').AsciidocParsed[]} */
-  const items = JSON.parse(contents)
-
   const count = parseInt('<%= options.count %>', 10)
 
-  ctx.app.$asciidoc = new PluginServer(count, items)
+  ctx.app.$asciidoc = new PluginServer(count, adocParsedList)
 }

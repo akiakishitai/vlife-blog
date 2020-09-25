@@ -2,13 +2,18 @@
  * モジュールのオプション。
  *
  * @param {string} source 直下に AsciiDoc ファイルがあるディレクトリのパス
- * @param {string=} apiPath 解析したAsciiDocファイルをJSONでAPI提供するパスのルート。デフォルト `/api/asciidoc`
+ * @param {ModuleApi=} apiPath 解析したAsciiDocファイルをJSONでAPI提供するパスのルート。デフォルト `/api/asciidoc`
  * @param {string=} number AsciiDocファイル一覧を出力するJSONファイル名。デフォルト `20`
  */
 export interface ModuleOptions {
   source?: string
-  apiPath?: string
+  apiPath?: Partial<ModuleApi>
   count?: number
+}
+
+export type ModuleApi = {
+  overview: string
+  contents: string
 }
 
 /**
