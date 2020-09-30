@@ -1,17 +1,20 @@
 // @ts-check
-import { adocParsedList, withoutExtension, PluginBase } from './pluginBase'
+import { join } from 'path'
+import { asciidocFiles, withoutExtension, PluginBase } from './pluginBase'
+import { parse } from './utils/asciidoc'
 
 export class PluginServer extends PluginBase {
   /**
    *
    * @param {number} count 1ページあたりの表示件数
-   * @param {import('.').AsciidocParsed[]} asciidocs 解析済み Asciidoc のリスト
+   * @param {import('.').AsciidocSummaryJson} asciidocs Asciidoc ファイルのリスト
+   * @param {import('@asciidoctor/core').Asciidoctor.ProcessorOptions} options
    */
-  constructor(count, asciidocs) {
+  constructor(count, asciidocs, options) {
     super(
       // AsciiDocファイルを返す
       (filename) => {
-        const target = asciidocs.find(
+        const target = asciidocs.list.find(
           (adoc) =>
             withoutExtension(adoc.filename) === withoutExtension(filename)
         )
@@ -20,15 +23,18 @@ export class PluginServer extends PluginBase {
           throw new Error(`NotFound: target file "${filename}"`)
         }
 
-        return target
+        return parse(join(asciidocs.dir, target.filename), options)
       },
       // ページに表示するファイル一覧を返す
       (page) => {
-        const maxPage = Math.ceil(asciidocs.length / count)
-        /** @type {(adoc: import('.').AsciidocParsed) => import('.').AsciidocAttribute} */
-        const callback = (adoc) => {
+        const maxPage = Math.ceil(asciidocs.list.length / count)
+        /** @type {(filename: string) => import('.').AsciidocAttribute} */
+        const callback = (filename) => {
           // eslint-disable-next-line no-unused-vars
-          const { rendered, ...remain } = adoc
+          const { rendered, ...remain } = parse(
+            join(asciidocFiles.dir, filename),
+            options
+          )
           return remain
         }
 
@@ -37,7 +43,7 @@ export class PluginServer extends PluginBase {
           if (page == null || page < 1) {
             return {
               paging: { current: 0, total: maxPage },
-              overviews: asciidocs.map(callback),
+              overviews: asciidocs.list.map((x) => callback(x.filename)),
             }
           }
 
@@ -45,7 +51,9 @@ export class PluginServer extends PluginBase {
           const start = (current - 1) * count
           return {
             paging: { current, total: maxPage },
-            overviews: asciidocs.slice(start, start + count).map(callback),
+            overviews: asciidocs.list
+              .slice(start, start + count)
+              .map((x) => callback(x.filename)),
           }
         }
 
@@ -63,5 +71,11 @@ export class PluginServer extends PluginBase {
 export default function plugin(ctx, inject) {
   const count = parseInt('<%= options.count %>', 10)
 
-  ctx.app.$asciidoc = new PluginServer(count, adocParsedList)
+  /** @type {import('@asciidoctor/core').Asciidoctor.ProcessorOptions} */
+  const processorOptions = JSON.parse(
+    // オブジェクトをJSON文字列化、エスケープ文字をそのまま残す
+    String.raw`<%= JSON.stringify(options.processorOptions) %>`
+  )
+
+  ctx.app.$asciidoc = new PluginServer(count, asciidocFiles, processorOptions)
 }

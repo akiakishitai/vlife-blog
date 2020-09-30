@@ -17,6 +17,7 @@ export default async function AsciidocPresenter(moduleOptions) {
       overview: 'asciidoc_presenter/overview',
       contents: 'asciidoc_presenter/contents',
     },
+    processorOptions: { safe: 'server' },
     ...moduleOptions,
   }
 
@@ -33,10 +34,9 @@ export default async function AsciidocPresenter(moduleOptions) {
   // eslint-disable-next-line no-unused-vars
   this.nuxt.hook('builder:prepared', async (nuxt, buildOptions) => {
     // AsciiDocファイル解析
-    const files = await utils.fileList(resolve(srcDir, options.source))
-    const contents = utils.parseFiles(files, {
-      safe: 'secure',
-    })
+    const sourceDir = resolve(srcDir, options.source)
+    const files = await utils.fileList(sourceDir)
+    const contents = utils.parseFiles(files, options.processorOptions)
 
     // add webpack plugins
     const webpackPlugins = (this.options.build || {}).plugins
@@ -50,10 +50,18 @@ export default async function AsciidocPresenter(moduleOptions) {
 
     // pluginに必要な相対パスファイルを登録
     this.addTemplate({
+      src: resolve(__dirname, 'utils/asciidoc.js'),
+      fileName: 'utils/asciidoc.js',
+    })
+    this.addTemplate({
       src: resolve(__dirname, 'pluginBase.js'),
       fileName: 'pluginBase.js',
       options: {
-        contents,
+        /** @type {import('.').AsciidocSummaryJson} */
+        summary: {
+          dir: sourceDir,
+          list: contents.map((x) => utils.convertToSummary(x)),
+        },
       },
     })
 
@@ -62,6 +70,7 @@ export default async function AsciidocPresenter(moduleOptions) {
       src: resolve(__dirname, 'plugin.server.js'),
       options: {
         count: options.count,
+        processorOptions: options.processorOptions,
       },
     })
     this.addPlugin({

@@ -4,11 +4,13 @@
  * @param {string} source 直下に AsciiDoc ファイルがあるディレクトリのパス
  * @param {ModuleApi=} apiPath 解析したAsciiDocファイルをJSONでAPI提供するパスのルート。デフォルト `/api/asciidoc`
  * @param {string=} number AsciiDocファイル一覧を出力するJSONファイル名。デフォルト `20`
+ * @param {import('@asciidoctor/core').Asciidoctor.ProcessorOptions} processorOptions Asciidoctorのコンバートオプション(https://asciidoctor-docs.netlify.app/asciidoctor.js/processor/convert-options/)
  */
 export interface ModuleOptions {
   source?: string
   apiPath?: Partial<ModuleApi>
   count?: number
+  processorOptions?: import('@asciidoctor/core').Asciidoctor.ProcessorOptions
 }
 
 export type ModuleApi = {
