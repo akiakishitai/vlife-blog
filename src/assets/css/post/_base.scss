@@ -18,11 +18,6 @@ h6 {
   @apply text-base font-semibold mt-4;
 }
 
-/* Paragrap*/
-p {
-  @apply mt-4;
-}
-
 /* List */
 ul,
 ol {
@@ -36,35 +31,36 @@ ol {
 }
 li {
   @apply mt-2;
-}
-> ul,
-> ol {
-  @apply pl-4 mt-0;
+
+  ul,
+  ol {
+    @apply pl-4 mt-0;
+  }
 }
 
 /* Table */
 table {
   @apply table-auto border-collapse mt-4;
-}
-tr {
-  @apply border-b border-black border-opacity-50;
-}
-tr:nth-of-type(even) {
-  @apply bg-primary-light bg-opacity-15;
-}
-th {
-  @apply px-4 py-3;
-}
-td {
-  @apply px-4 py-2;
+
+  th {
+    @apply px-4 py-2;
+  }
+  td {
+    @apply px-4 py-2;
+  }
 }
 
 /* Blockquote */
 blockquote {
-  @apply border-l-4;
-  @apply border-primary border-opacity-54;
+  @apply relative;
+  @apply px-6 py-4;
   @apply text-black text-opacity-75 italic;
-  @apply pl-4;
+
+  &::before {
+    content: '“';
+    @apply absolute top-0 left-0;
+    @apply font-semibold text-3xl text-primary-dark;
+  }
 }
 
 hr {
@@ -74,14 +70,15 @@ hr {
 /* Link */
 a {
   @apply text-indigo-500;
-}
-a:hover {
-  @apply underline;
-}
-a:visited {
-  @apply text-purple-800;
-}
 
+  &:hover {
+    @apply underline;
+  }
+
+  &:visited {
+    @apply text-purple-800;
+  }
+}
 /* Codes */
 pre,
 code {
@@ -89,8 +86,8 @@ code {
 }
 
 /* Inline Code */
-:not(pre) code {
-  @apply rounded-sm bg-primary bg-opacity-38;
+:not(pre) > code {
+  @apply rounded-sm bg-grey-400 bg-opacity-38;
   @apply px-1;
 
   color: rgb(var(--md-dark-text-primary-rgb));
@@ -98,19 +95,6 @@ code {
 
 /* Code Block */
 pre {
-  @apply relative rounded mt-4;
-}
-pre:not([data-lang]) {
-  @apply py-4 pr-6;
-}
-pre[data-lang] {
-  @apply pb-4;
-}
-pre[data-lang]::before {
-  @apply text-primary-light text-opacity-54;
-  @apply border-b border-dashed border-opacity-50;
-  @apply -mt-2 mb-4 -ml-3;
-
-  content: attr(data-lang);
-  display: block;
+  @apply relative rounded;
+  @apply py-4 px-6;
 }

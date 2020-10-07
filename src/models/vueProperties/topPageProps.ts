@@ -1,18 +1,26 @@
 import { Paging } from '../paging'
-import { PostFile } from '../postFile'
+import { AsciidocParsed } from '~/modules/asciidocPresenter'
 
 /**
  * トップページに関わるプロパティをもつインタフェースを定義。
  */
 
 /**
+ * 概要表示に使う記事の情報
+ */
+export type PostOverview = Pick<
+  AsciidocParsed,
+  'filename' | 'title' | 'description' | 'tags' | 'created_at' | 'updated_at'
+>
+
+/**
  * ページに表示するコンテンツのプロパティをもつインタフェース。
  */
 export interface ContentsProp {
   /**
-   * ページに表示する _Markdown_ 記事の情報。
+   * ページに表示する記事の情報。
    */
-  contents: PostFile[]
+  contents: PostOverview[]
 }
 
 /**
@@ -25,7 +33,7 @@ export interface PaginationProp {
   paging: Paging
 
   /**
-   * ページのルートパス。
+   * 記事ページのルートパス。
    */
-  route: string
+  postRoute: string
 }

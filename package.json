@@ -6,15 +6,13 @@
   "private": true,
   "scripts": {
     "build": "nuxt-ts build",
-    "deploy": "yarn license-file && yarn mdlist && env DEPLOY_ENV=GH_PAGES NODE_ENV=production nuxt-ts generate",
+    "deploy": "yarn license-file && env DEPLOY_ENV=GH_PAGES NODE_ENV=production nuxt-ts generate",
     "dev": "nuxt-ts",
     "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "NODE_ENV=production nuxt-ts generate",
     "license-file": "yarn licenses generate-disclaimer --ignore-platform > src/assets/thirdparty_license.txt",
-    "mdlist": "node --experimental-modules fileListToJson.mjs",
     "sass-build": "sass -I ./node_modules src/assets/css/scss/",
     "start": "nuxt-ts start",
-    "tailwind-build": "tailwindcss build src/assets/css/post/_post-body.css -c src/tailwind.config.js -o src/static/stylesheets/asciidoc-style.css",
     "test": "jest",
     "test-ci": "jest --coverage false"
   },

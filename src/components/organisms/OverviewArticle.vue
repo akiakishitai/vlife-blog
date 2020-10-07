@@ -26,8 +26,9 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { basename, extname, join } from 'path'
 import TagColumn from '../molecules/TagColumn.vue'
-import { ArticleTag, PostFile, TopPageProps } from '@/models'
+import { ArticleTag, TopPageProps } from '@/models'
 import { encodePathURI } from '@/helpers/functions'
 
 @Component({
@@ -39,7 +40,12 @@ export default class OverviewArticle extends Vue {
   /**
    * 表示する概要としてMarkdownファイルの情報を用いる。
    */
-  @Prop({ required: true }) content!: PostFile
+  @Prop({ required: true }) content!: TopPageProps.PostOverview
+
+  /**
+   * 記事ページのルートのパス。
+   */
+  @Prop({ required: true }) route!: string
 
   /**
    * 作成日を yyyy/mm/dd フォーマットにして返す。
@@ -52,7 +58,7 @@ export default class OverviewArticle extends Vue {
    * タグからTagColumnsのプロパティを生成する。
    */
   get propTags() {
-    return (post: PostFile): ArticleTag[] => {
+    return (post: TopPageProps.PostOverview): ArticleTag[] => {
       return post.tags.map((x) => {
         return { name: x, value: x }
       })
@@ -63,9 +69,12 @@ export default class OverviewArticle extends Vue {
    * 記事ページへのリンク先を返す。
    */
   get linkToArticle() {
-    const pageRoute: string = '/posts/'
+    const filenameNoExt = basename(
+      this.content.filename,
+      extname(this.content.filename)
+    )
     // URLエンコード処理を行っておく
-    return `${pageRoute}${encodePathURI(this.content.filename_noext)}`
+    return join(this.route, encodePathURI(filenameNoExt))
   }
 }
 </script>

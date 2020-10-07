@@ -1,0 +1,48 @@
+/** マテリアルアイコン用のフォント設定 */
+%material-icon-font {
+  font-family: 'Material Icons';
+  font-size: 24px;
+  @apply font-normal not-italic;
+  @apply mr-1;
+}
+
+/** 子要素について上下を中央揃え */
+%vertical-center {
+  @apply flex items-center;
+}
+
+%material-icon-prefix {
+  @extend %vertical-center;
+
+  &::before {
+    @extend %material-icon-font;
+  }
+}
+
+%table-halign {
+  &.halign-center {
+    @apply text-center;
+  }
+
+  &.halign-left {
+    @apply text-left;
+  }
+
+  &.halign-right {
+    @apply text-right;
+  }
+}
+
+%table-valign {
+  &.valign-center {
+    @apply align-middle;
+  }
+
+  &.valign-top {
+    @apply align-top;
+  }
+
+  &.valign-bottom {
+    @apply align-bottom;
+  }
+}

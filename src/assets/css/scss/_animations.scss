@@ -1,0 +1,39 @@
+@mixin fadeinFromDown($duration, $delay: 0ms) {
+  animation: 'fadein' $duration ease $delay, 'downToUp' $duration ease $delay;
+  animation-fill-mode: forwards;
+}
+
+@mixin fadeinFromRight($duration, $delay: 0ms) {
+  animation: 'fadein' $duration ease $delay, 'rightin' $duration ease $delay;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rightin {
+  from {
+    transform: translateX(min(25%, 100px));
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes downToUp {
+  from {
+    transform: translateY(min(25%, 100px));
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
