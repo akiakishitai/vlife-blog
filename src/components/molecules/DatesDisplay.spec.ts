@@ -20,18 +20,18 @@ describe('DatesDisplay', () => {
     let wrapper = factoryWrapper('2020/04/03')
     //console.log(wrapper.html())
     expect(wrapper.findAll('.material-icons').length).toBe(1)
-    expect(wrapper.contains('div.ml-2')).toBeFalsy()
+    expect(wrapper.find('div.ml-2').exists()).toBeFalsy()
 
     wrapper = factoryWrapper('2020/04/11', '2020/04/15')
     expect(wrapper.findAll('.material-icons').length).toBe(2)
-    expect(wrapper.contains('div.ml-2')).toBeTruthy()
+    expect(wrapper.find('div.ml-2').exists()).toBeTruthy()
 
     wrapper = factoryWrapper('')
     expect(wrapper.findAll('.material-icons').length).toBe(0)
-    expect(wrapper.contains('div.ml-2')).toBeFalsy()
+    expect(wrapper.find('div.ml-2').exists()).toBeFalsy()
 
     wrapper = factoryWrapper('', '2020-04-03')
     expect(wrapper.findAll('.material-icons').length).toBe(1)
-    expect(wrapper.contains('div.ml-2')).toBeFalsy()
+    expect(wrapper.find('div.ml-2').exists()).toBeFalsy()
   })
 })

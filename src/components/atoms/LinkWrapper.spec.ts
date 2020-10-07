@@ -38,8 +38,10 @@ describe('LinkWrapper', () => {
 
   test('is disable', () => {
     const url = 'https://example.com'
-    expect(createWrapper(url).contains('.link.disabled')).toBeFalsy()
-    expect(createWrapper(url, true).contains('.link.disabled')).toBeTruthy()
+    expect(createWrapper(url).find('.link.disabled').exists()).toBeFalsy()
+    expect(
+      createWrapper(url, true).find('.link.disabled').exists()
+    ).toBeTruthy()
   })
 
   test.each([

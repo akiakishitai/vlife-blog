@@ -26,7 +26,7 @@ describe('ShareButtonFactory', () => {
     const component = shareButtonFactory('twitter')
     const wrapper = createWrapper(component)
 
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent({ name: 'ShareButton' }).exists()).toBeTruthy()
   })
 
   test.each<[ShareType, string, string, string]>([

@@ -65,5 +65,9 @@ module.exports = {
     margin: ['responsive', 'first'],
   },
   plugins: [],
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
   purge: ['./**/*.html', './**/*.vue'],
 }

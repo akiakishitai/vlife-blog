@@ -1,30 +1,41 @@
 import { shallowMount, Wrapper } from '@vue/test-utils'
 import ArticleBody from '@/components/organisms/ArticleBody.vue'
-import { mdIt } from '@/plugins/markdown-it'
+import Processor from '@asciidoctor/core'
 
 describe('ArticleBody', () => {
-  const sample =
-    '# Remove this title\n\n' +
-    '## Remain this header\n\n' +
-    '```ts {data-lang=hogehoge}\n' +
-    "const test = 'test codeblock'\n" +
-    'console.log(test)\n' +
-    '```\n\n' +
-    '```ts {data-lang=fugafuga}\n' +
-    "const test2 = 'test codeblock2'\n" +
-    'console.log(test2)\n' +
-    '```\n\n' +
-    '```js\n' +
-    "const foo = 'foo'\n" +
-    'console.log(foo)\n' +
-    '```\n\n' +
-    'check.\n'.trimLeft()
+  const processor = Processor()
+  const sample = `
+= Remove this title
+
+== Remain this header
+
+.hogehoge
+[source,ts]
+----
+const test = 'test codeblock'
+console.log(test)
+----
+
+.fugafuga
+[source,ts]
+----
+const test2 = 'test codeblock2'
+console.log(test2)
+----
+
+[source,js]
+----
+const foo = 'foo'
+console.log(foo)
+----
+
+check.`
 
   let wrapper: Wrapper<Vue>
 
   beforeEach(() => {
     wrapper = shallowMount(ArticleBody, {
-      propsData: { renderd: mdIt.render(sample) },
+      propsData: { renderd: processor.load(sample).convert() },
     })
   })
 
@@ -33,36 +44,28 @@ describe('ArticleBody', () => {
   })
 
   it('is render removed title', () => {
-    expect(wrapper.contains('h1')).toBeFalsy()
+    expect(wrapper.find('h1').exists()).toBeFalsy()
 
     const wrapper2 = shallowMount(ArticleBody, {
       propsData: { renderd: wrapper.html() },
     })
-    expect(wrapper2.contains('h1')).toBeFalsy()
-    expect(wrapper2.contains('h2')).toBeTruthy()
-    expect(wrapper2.contains('code')).toBeTruthy()
-    expect(wrapper2.contains('.post-body')).toBeTruthy()
+    expect(wrapper2.find('h1').exists()).toBeFalsy()
+    expect(wrapper2.find('h2').exists()).toBeTruthy()
+    expect(wrapper2.find('code').exists()).toBeTruthy()
+    expect(wrapper2.find('.post-body').exists()).toBeTruthy()
     expect(wrapper2.find('h2').text()).toBe('Remain this header')
   })
 
   it('is render code with a note', () => {
     // コードブロック:
-    expect(wrapper.contains('.language-ts')).toBeTruthy()
-    expect(wrapper.contains('.language-js')).toBeTruthy()
+    expect(wrapper.find('.language-ts').exists()).toBeTruthy()
+    expect(wrapper.find('.language-js').exists()).toBeTruthy()
     expect(wrapper.findAll('pre code[class*="language-"]').length).toEqual(3)
 
-    const codeblockHeades = wrapper.findAll(`pre code[data-lang]`)
-    expect(codeblockHeades.length).toEqual(2)
-    expect(
-      codeblockHeades.at(0).find('pre code[class*="language-"]').attributes()[
-        'data-lang'
-      ]
-    ).toBe('hogehoge')
-    expect(
-      codeblockHeades.at(1).find('pre code[class*="language-"]').attributes()[
-        'data-lang'
-      ]
-    ).toBe('fugafuga')
+    const title = wrapper.findAll(`.listingblock > .title`)
+    expect(title.length).toEqual(2)
+    expect(title.at(0).text()).toBe('hogehoge')
+    expect(title.at(1).text()).toBe('fugafuga')
 
     const text = `<h2>Without code block header</h2>
     <p>fugafuga</p>
@@ -70,7 +73,7 @@ describe('ArticleBody', () => {
     const wrapper2 = shallowMount(ArticleBody, {
       propsData: { renderd: text },
     })
-    expect(wrapper2.contains('pre code[class*="language-"]')).toBeTruthy()
-    expect(wrapper2.contains('h2')).toBeTruthy()
+    expect(wrapper2.find('pre code[class*="language-"]').exists()).toBeTruthy()
+    expect(wrapper2.find('h2').exists()).toBeTruthy()
   })
 })
