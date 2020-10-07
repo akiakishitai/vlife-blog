@@ -29,7 +29,7 @@ export interface Article {
   /**
    * その他情報
    */
-  readonly meta?: { [key: string]: any }
+  readonly meta?: { [key: string]: unknown }
 }
 
 /**

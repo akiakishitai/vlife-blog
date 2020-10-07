@@ -92,17 +92,14 @@ sw.*
 # Readme
 src/**/README.md
 
-### markdown posts list
-src/assets/markdowns/posts/postlist.json
-
 ### third-party licenses
 src/assets/**/thirdparty_license.txt
 
 ### compole scss
 src/assets/css/scss/**/*.css
 
-### Symbolic link
-src/assets/markdowns/posts/images
+### asciidoc-preview theme
+!.vscode/_asciidoc-theme.scss
 
 # Created by https://www.toptal.com/developers/gitignore/api/sass
 # Edit at https://www.toptal.com/developers/gitignore?templates=sass

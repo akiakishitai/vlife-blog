@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "env": { "browser": true },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["jest"],
+  "extends": ["eslint:recommended", "plugin:jest/recommended", "prettier"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+      ]
+    },
+    {
+      "files": ["*.config.js", "**/modules/**/*.js"],
+      "env": { "node": true, "es6": true },
+      "parserOptions": {
+        "ecmaVersion": 2015,
+        "sourceType": "module",
+        "ecmaFeatures": { "modules": true }
+      }
+    }
+  ]
+}

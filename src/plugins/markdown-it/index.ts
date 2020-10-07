@@ -1,7 +1,6 @@
 import { Plugin } from '@nuxt/types'
 import MarkdownIt from 'markdown-it'
 import { makeMarkdownItObject } from './makeObject'
-import { applyCustomRules } from './customRules'
 
 // VueインスタンスにInject
 declare module 'vue/types/vue' {
@@ -26,7 +25,8 @@ declare module '@nuxt/types' {
 /**
  * カスタムルール適用済み `markdown-it` オブジェクト。
  */
-export const mdIt = applyCustomRules(makeMarkdownItObject())
+export const mdIt = makeMarkdownItObject()
+// applyCustomRules(makeMarkdownItObject())
 
 // プラグイン実装
 const mdPlugin: Plugin = (context) => {

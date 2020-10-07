@@ -1,10 +1,13 @@
-const postsList = require('./src/assets/markdowns/posts/postlist.json')
+/* eslint-env node */
+import { promises as fs } from 'fs'
+import { extname, join } from 'path'
 
 // If github branch is 'gh-pages'
 const isDeploy = process.env.DEPLOY_ENV === 'GH_PAGES'
 const routerBase = isDeploy ? '/vlife-blog/' : '/'
 
-export default {
+/** @type {import('@nuxt/types').Configuration} */
+const conf = {
   /**
    * Environment variables
    */
@@ -50,7 +53,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '@/plugins/markdown-it' }, { src: '@/plugins/prism' }],
+  plugins: [
+    { src: '@/plugins/markdown-it' },
+    { src: '@/plugins/prism', mode: 'client' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -58,6 +64,12 @@ export default {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    [
+      '@/modules/asciidocPresenter',
+      {
+        processorOptions: { safe: 'server', attributes: { 'env-nuxt': true } },
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules
@@ -70,6 +82,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    // eslint-disable-next-line no-unused-vars
     extend(config, ctx) {
       config.module.rules.push({
         test: /\.md$/,
@@ -106,14 +119,36 @@ export default {
    */
   generate: {
     fallback: true,
-    routes() {
-      return postsList.posts.map((x) => {
-        return `/posts/${x.filename_noext}`
-      })
+    async routes() {
+      /** @type {import('fs').Dirent[]} */
+      const dirent = await fs
+        .readdir('./src/outsides/asciidocs', { withFileTypes: true })
+        .catch((err) => {
+          console.error(err)
+          return []
+        })
+
+      return dirent
+        .filter((x) => x.isFile())
+        .reduce((prev, curr) => {
+          const name = ['.adoc', '.asciidoc'].some(
+            (ext) => extname(curr.name) === ext
+          )
+            ? curr.name.split('.').slice(0, -1).join('.')
+            : null
+
+          return name == null ? prev : [...prev, join('/posts', name)]
+        }, [])
     },
   },
   /*
    ** Nuxt source directory
    */
   srcDir: 'src/',
+  /**
+   * Watch custom files
+   */
+  watch: ['~/outsides/asciidocs/*.adoc'],
 }
+
+export default conf

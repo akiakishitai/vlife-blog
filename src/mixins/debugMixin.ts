@@ -1,9 +1,7 @@
 import Vue from 'vue'
 
-export namespace DebugMixinMethod {
-  export function isDebug(tags: string[]) {
-    return ['WIP', 'draft'].some((x) => tags.includes(x))
-  }
+export function isDebug(tags: string[]): boolean {
+  return ['WIP', 'draft'].some((x) => tags.includes(x))
 }
 
 /**
@@ -22,8 +20,6 @@ export const DebugMixin = Vue.extend({
      *
      * @param tags 記事のタグ
      */
-    isDebug(tags: string[]) {
-      return DebugMixinMethod.isDebug(tags)
-    },
+    isDebug,
   },
 })

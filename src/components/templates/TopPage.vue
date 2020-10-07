@@ -9,11 +9,11 @@
         v-for="(item, index) in notDebugContents"
         v-bind:key="index"
       >
-        <OverviewArticle v-bind:content="item" />
+        <OverviewArticle v-bind:content="item" v-bind:route="postRoute" />
       </li>
     </ul>
     <div class="opacity-75 hover:opacity-100 sticky bottom-0 py-4 mt-6">
-      <Pagination v-bind:paging="paging" v-bind:route="route" />
+      <Pagination v-bind:paging="paging" v-bind:route="postRoute" />
     </div>
   </div>
 </template>
@@ -23,8 +23,10 @@ import { Component, mixins, Prop, Vue } from 'nuxt-property-decorator'
 import HeadingLevel from '../atoms/HeadingLevel.vue'
 import OverviewArticle from '../organisms/OverviewArticle.vue'
 import Pagination from '../organisms/Pagination.vue'
-import { Paging, PostFile, TopPageProps } from '@/models'
+import { Paging, TopPageProps } from '@/models'
 import { DebugMixin } from '@/mixins/debugMixin'
+
+type PostOverview = TopPageProps.PostOverview
 
 @Component({
   components: {
@@ -35,16 +37,16 @@ import { DebugMixin } from '@/mixins/debugMixin'
 })
 export default class TopPage extends mixins(DebugMixin)
   implements TopPageProps.ContentsProp, TopPageProps.PaginationProp {
-  @Prop({ required: true }) contents!: PostFile[]
+  @Prop({ required: true }) contents!: PostOverview[]
 
   @Prop({ required: true }) paging!: Paging
 
-  @Prop({ required: true }) route!: string
+  @Prop({ required: true }) postRoute!: string
 
   /**
    * デバッグ用以外の `contents` を返す。
    */
-  get notDebugContents(): PostFile[] {
+  get notDebugContents(): PostOverview[] {
     return this.contents.filter((x) => !this.isDebug(x.tags))
   }
 }

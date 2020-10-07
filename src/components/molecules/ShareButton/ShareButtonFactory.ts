@@ -50,6 +50,7 @@ interface ShareLink {
  *
  * @param type 各SNSの種類。
  */
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function shareButtonFactory(type: ShareType) {
   // 各SNSごとのクエリを生成する関数を返す
   const queryCreateMap = new Map<ShareType, ShareLink>([
@@ -78,7 +79,8 @@ export function shareButtonFactory(type: ShareType) {
       'url',
       {
         base: '',
-        query: (url) => new URLSearchParams(),
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        query: (_url) => new URLSearchParams(),
       },
     ],
   ])

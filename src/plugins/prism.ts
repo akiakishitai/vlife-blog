@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import * as Prism from 'prismjs'
+import Prism from 'prismjs'
 //import 'prismjs/themes/prism-okaidia.css'
 import 'prism-themes/themes/prism-material-dark.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'

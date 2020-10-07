@@ -1,6 +1,5 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import Pagination from './Pagination.vue'
-import { Paging } from '@/models'
 
 describe('Pagination', () => {
   test('is Vue', () => {

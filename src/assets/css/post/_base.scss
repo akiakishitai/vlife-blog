@@ -1,0 +1,100 @@
+/* Heading Level */
+h1 {
+  @apply text-4xl font-light;
+}
+h2 {
+  @apply text-3xl font-normal mt-8;
+}
+h3 {
+  @apply text-2xl font-semibold mt-6;
+}
+h4 {
+  @apply text-xl font-semibold mt-4;
+}
+h5 {
+  @apply text-lg font-semibold mt-4;
+}
+h6 {
+  @apply text-base font-semibold mt-4;
+}
+
+/* List */
+ul,
+ol {
+  @apply pl-6 mt-4;
+}
+ul {
+  @apply list-disc;
+}
+ol {
+  @apply list-decimal;
+}
+li {
+  @apply mt-2;
+
+  ul,
+  ol {
+    @apply pl-4 mt-0;
+  }
+}
+
+/* Table */
+table {
+  @apply table-auto border-collapse mt-4;
+
+  th {
+    @apply px-4 py-2;
+  }
+  td {
+    @apply px-4 py-2;
+  }
+}
+
+/* Blockquote */
+blockquote {
+  @apply relative;
+  @apply px-6 py-4;
+  @apply text-black text-opacity-75 italic;
+
+  &::before {
+    content: '“';
+    @apply absolute top-0 left-0;
+    @apply font-semibold text-3xl text-primary-dark;
+  }
+}
+
+hr {
+  @apply border-grey-500 mt-6;
+}
+
+/* Link */
+a {
+  @apply text-indigo-500;
+
+  &:hover {
+    @apply underline;
+  }
+
+  &:visited {
+    @apply text-purple-800;
+  }
+}
+/* Codes */
+pre,
+code {
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Inline Code */
+:not(pre) > code {
+  @apply rounded-sm bg-grey-400 bg-opacity-38;
+  @apply px-1;
+
+  color: rgb(var(--md-dark-text-primary-rgb));
+}
+
+/* Code Block */
+pre {
+  @apply relative rounded;
+  @apply py-4 px-6;
+}

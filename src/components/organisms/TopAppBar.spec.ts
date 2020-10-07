@@ -9,6 +9,7 @@ describe('TopAppBar', () => {
     })
 
     expect(wrapper.isVueInstance()).toBeTruthy()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect((wrapper.vm as any).routePath).toBe('/')
   })
 })

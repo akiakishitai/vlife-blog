@@ -1,14 +1,15 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import TopPage from './TopPage.vue'
+import { TopPageProps } from '../../models'
 
 describe('TopPage', () => {
-  const createProps = (content?: object) => {
+  const createProps = (
+    content?: Record<string, unknown>
+  ): TopPageProps.ContentsProp & TopPageProps.PaginationProp => {
     return {
       contents: [
         {
-          path: 'hoge/foo/bar.md',
           filename: 'bar.md',
-          filename_noext: 'bar',
           title: 'Example',
           created_at: '2020-06-22',
           tags: ['hoge', 'foo'],
@@ -19,7 +20,7 @@ describe('TopPage', () => {
         current: 2,
         pages: [1, 2, 3, 4, 5, 6],
       },
-      route: '/posts',
+      postRoute: '/posts',
     }
   }
 
@@ -38,12 +39,15 @@ describe('TopPage', () => {
   })
 
   test('does notDebugContents', () => {
-    let instance = new TopPage({ propsData: createProps() }) as any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let instance: any = new TopPage({
+      propsData: createProps(),
+    })
     expect(instance.notDebugContents.length).toBe(1)
 
     instance = new TopPage({
       propsData: createProps({ tags: ['draft', 'hoge', 'foo'] }),
-    }) as any
+    })
     expect(instance.notDebugContents.length).toBe(0)
   })
 })

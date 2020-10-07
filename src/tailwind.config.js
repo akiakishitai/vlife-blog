@@ -4,8 +4,13 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
-import { opacity } from 'tailwindcss/defaultTheme'
-import palette from 'material-colors'
+
+/* eslint-env node, es6 */
+
+/** @type {{opacity: Record<string, string>}} */
+const { opacity } = require('tailwindcss/defaultTheme')
+/** @type {import('material-colors/dist/colors.json')} */
+const palette = require('material-colors/dist/colors.json')
 
 function customColorProperty(type, colorName) {
   const propertyMap = new Map([

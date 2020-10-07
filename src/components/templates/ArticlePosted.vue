@@ -3,7 +3,10 @@
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
       <TagColumn v-bind:tags="tags" v-on:click="onClickTag" />
-      <DatesDisplay class="flex justify-end" v-bind:item="article | dateFormats" />
+      <DatesDisplay
+        class="flex justify-end"
+        v-bind:item="article | dateFormats"
+      />
     </div>
 
     <hr class="mt-2 border-grey-500" />
@@ -13,7 +16,10 @@
       <ButtonMaterial />
       <ButtonMaterial class="ml-4" v-bind:property="{ label: 'hoge' }" />
       <ButtonMaterial class="ml-4" v-bind:property="{ type: 'outlined' }" />
-      <ButtonMaterial class="ml-4" v-bind:property="{ type: 'raised', icon: 'bookmark' }" />
+      <ButtonMaterial
+        class="ml-4"
+        v-bind:property="{ type: 'raised', icon: 'bookmark' }"
+      />
     </div>
     <!-- 要素テスト終了 -->
 
@@ -24,7 +30,7 @@
     <div class="share-buttons mt-8">
       <ShareButtonsBar
         class="items-center justify-center"
-        v-bind:url="currentFullPath"
+        v-bind:url="currentFullPath.href"
         v-bind:text="article.title"
       />
     </div>
@@ -33,7 +39,11 @@
       前後記事へのナビゲーション
       作業途中・草案中の記事では表示しない。
     -->
-    <ArticlePagination v-if="!isDebug(article.tags)" class="mt-6" v-bind:navigation="navigation" />
+    <ArticlePagination
+      v-if="!isDebug(article.tags)"
+      class="mt-6"
+      v-bind:navigation="navigation"
+    />
   </div>
 </template>
 
@@ -48,7 +58,6 @@ import {
   HeadingLevelType,
 } from '@/models'
 import { DebugMixin } from '@/mixins/debugMixin'
-import { Content } from '*.md'
 
 import ArticleBody from '../organisms/ArticleBody.vue'
 import DatesDisplay from '../molecules/DatesDisplay.vue'
@@ -57,6 +66,7 @@ import TagColumn from '../molecules/TagColumn.vue'
 import ButtonMaterial from '../atoms/ButtonMaterial.vue'
 import ArticlePagination from '../organisms/ArticlePagination.vue'
 import ShareButtonsBar from '../organisms/ShareButtonsBar.vue'
+import { AsciidocParsed } from '~/modules/asciidocPresenter'
 
 /**
  * _Markdown_ 記事テンプレート。
@@ -91,37 +101,36 @@ import ShareButtonsBar from '../organisms/ShareButtonsBar.vue'
 export default class ArticlePosted extends mixins(DebugMixin)
   implements ArticlePageProps.NavigationProp {
   /**
-   * _Front Matter_ つきの _Markdown_ ファイルの内容。
+   * 投稿記事のソースファイルの内容。
    */
-  @Prop({
-    required: true,
-    validator: function (x: Content) {
-      return x.attribute != null && x.frontMatter != null
-    },
-  })
-  markdown!: Content
+  @Prop({ required: true }) posted!: AsciidocParsed
 
   @Prop({ required: true }) navigation!: ArticleNavigation
 
   /**
    * 現在ページのフルパス。
    */
-  @Prop({ required: true }) currentFullPath!: string
+  @Prop({ required: true }) currentFullPath!: URL
 
   /**
-   * `props` の `markdown` を `Article` 型へ変換する。
+   * `props` の `posted` を `Article` 型へ変換する。
    */
   get article(): Article {
     return {
-      body: this.markdown.body,
-      title: this.markdown.attribute?.title,
-      tags: this.markdown.attribute?.tags,
-      createdAt: new Date(this.markdown.attribute?.date),
+      body: this.fixInternalLink,
+      title: this.posted.title.toString(),
+      tags: this.posted.tags,
+      createdAt: new Date(this.posted.created_at),
       updatedAt:
-        this.markdown.attribute?.updatedAt != null
-          ? new Date(this.markdown.attribute?.updatedAt)
+        this.posted.updated_at != null
+          ? new Date(this.posted.updated_at)
           : undefined,
-      meta: { description: this.markdown.attribute?.description },
+      meta: {
+        description: this.posted.description,
+        author: this.posted.author,
+        revision: this.posted.revision,
+        revisionRemark: this.posted.revision_remark,
+      },
     }
   }
 
@@ -145,6 +154,34 @@ export default class ArticlePosted extends mixins(DebugMixin)
       name: tag,
       value: `/search/${tag}`,
     }))
+  }
+
+  /**
+   * 記事内の <a> タグの内部リンクをNuxtで動作するように修正する。
+   *
+   * Nuxtは<base> URLを書き換えるため、`v-html` で設定する<a>の相対パスが期待通りに動作しない。
+   * よってこれを修正する。
+   */
+  get fixInternalLink() {
+    // URL のプロパティがブラウザ側で使えない…？
+    const url = this.currentFullPath.toString().split('/')
+    const parent = url[0] + '//' + url.slice(2, -1).join('/')
+
+    // ページ内遷移
+    const hashPattern = new RegExp('(<a [^>]*href=")(#[^"]*)("[^>]*>)', 'g')
+    const ast = this.posted.rendered.replace(
+      hashPattern,
+      `$1${this.currentFullPath}$2$3`
+    )
+
+    // サイト内遷移
+    const internal = new RegExp(
+      '(<a [^>]*href=")([^/][^:]+/[^"]*)("[^>]*>)',
+      'g'
+    )
+    const body = ast.replace(internal, `$1${parent}/$2$3`)
+
+    return body
   }
 
   /**
