@@ -93,7 +93,7 @@ sw.*
 src/**/README.md
 
 ### third-party licenses
-src/assets/**/thirdparty_license.txt
+src/**/thirdparty_license.txt
 
 ### compole scss
 src/assets/css/scss/**/*.css

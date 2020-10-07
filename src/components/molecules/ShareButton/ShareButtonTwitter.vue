@@ -23,7 +23,7 @@ export default class ShareButtonTwitter
 
 <style lang="scss" scoped>
 .share-button {
-  --mdc-theme-text-primary-on-background: var(--md-white);
+  --mdc-theme-text-primary-on-background: var(--mdc-theme-white);
   background-color: #1da1f2;
 }
 </style>

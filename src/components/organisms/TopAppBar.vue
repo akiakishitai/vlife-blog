@@ -76,12 +76,13 @@ export default class TopAppBar extends Vue {
 <style lang="scss" scoped>
 @use "@material/icon-button";
 @use "@material/top-app-bar/mdc-top-app-bar";
+@use "material-colors/dist/colors.scss";
 
 @include icon-button.core-styles;
 
 .mdc-top-app-bar.relative {
   position: relative;
-  --mdc-theme-primary: var(--md-grey-800);
-  --mdc-theme-on-primary: var(--md-light-text-primary);
+  --mdc-theme-primary: #{colors.$md-grey-800};
+  --mdc-theme-on-primary: var(--mdc-theme-text-primary-on-dark);
 }
 </style>

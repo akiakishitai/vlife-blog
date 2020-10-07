@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Prism from 'prismjs'
+import { highlightAll } from 'prismjs'
 //import 'prismjs/themes/prism-okaidia.css'
 import 'prism-themes/themes/prism-material-dark.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
@@ -28,12 +28,12 @@ declare module 'vue/types/vue' {
      */
     $prism: {
       /**
-       * {@link Prism.highlightAll} 関数を提供する。
+       * {@link highlightAll} 関数を提供する。
        */
-      highlightAll: typeof Prism.highlightAll
+      highlightAll: typeof highlightAll
     }
   }
 }
 
 // 実装
-Vue.prototype.$prism = { highlightAll: Prism.highlightAll }
+Vue.prototype.$prism = { highlightAll: highlightAll }
