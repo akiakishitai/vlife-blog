@@ -37,7 +37,7 @@ describe('ArticlePosted', () => {
   })
 
   it('convert to Article', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent(ArticlePosted).vm).toBeTruthy()
     expect(wrapper.vm.$props).toHaveProperty('posted')
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
