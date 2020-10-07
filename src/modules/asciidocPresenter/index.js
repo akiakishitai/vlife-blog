@@ -1,5 +1,5 @@
 // @ts-check
-import { resolve } from 'path'
+import { resolve, join } from 'path'
 import * as utils from './utils'
 
 /**
@@ -25,7 +25,9 @@ export default async function AsciidocPresenter(moduleOptions) {
    * Nuxtのソースディレクトリパス（デフォルトはルートパス）
    */
   const srcDir = this.options.srcDir
-  if (srcDir == null) {
+  // @ts-ignore
+  const publicPath = this.options.build.publicPath
+  if (srcDir == null || publicPath == null) {
     throw new Error('Cannot read nuxt configuration')
   }
 
@@ -77,6 +79,8 @@ export default async function AsciidocPresenter(moduleOptions) {
       src: resolve(__dirname, 'plugin.client.js'),
       options: {
         itemsApi: options.apiPath,
+        // @ts-ignore
+        publicPath: join(this.options.router.base, publicPath),
         count: options.count,
       },
     })
