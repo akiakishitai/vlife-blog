@@ -62,7 +62,8 @@ export default function plugin(ctx, inject) {
     String.raw`<%= JSON.stringify(options.itemsApi) %>`
   )
 
+  const publicPath = '<%= options.publicPath %>'
   const count = parseInt('<%= options.count %>', 10)
 
-  ctx.app.$asciidoc = new PluginClient(count, itemsApi)
+  ctx.app.$asciidoc = new PluginClient(count, itemsApi, publicPath)
 }
