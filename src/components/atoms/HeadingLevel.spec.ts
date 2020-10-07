@@ -13,7 +13,7 @@ describe('HeadingLevel', () => {
     const value: HeadingLevelType = { text: 'hogehoge', level: 1 }
 
     let wrapper = factoryWrapper(value)
-    expect(wrapper.contains('h1')).toBeTruthy()
+    expect(wrapper.find('h1').exists()).toBeTruthy()
     expect(wrapper.find('h1').text()).toBe(value.text)
     expect(wrapper.findAll('*').length).toBe(1)
 
@@ -21,7 +21,7 @@ describe('HeadingLevel', () => {
     levels.forEach((x) => {
       wrapper = factoryWrapper({ ...value, level: x })
       expect(wrapper.findAll('*').length).toBe(1)
-      expect(wrapper.contains(`h${x}`)).toBeTruthy()
+      expect(wrapper.find(`h${x}`).exists()).toBeTruthy()
       expect(wrapper.find(`h${x}`).text()).toBe(value.text)
     })
   })

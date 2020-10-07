@@ -8,7 +8,7 @@ describe('TopAppBar', () => {
       stubs: { NuxtLink: true },
     })
 
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent(TopAppBar).vm).toBeTruthy()
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect((wrapper.vm as any).routePath).toBe('/')
   })

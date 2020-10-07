@@ -15,6 +15,6 @@ describe('Concrete SvgImage', () => {
     ['SvgISvgImageFacebook', SvgImageFacebook],
     ['SvgISvgImagePocket', SvgImagePocket],
   ])('%s is a <svg> element', (name, vue) => {
-    expect(createWrapper(vue).is('svg')).toBeTruthy()
+    expect(createWrapper(vue).find('svg').exists()).toBeTruthy()
   })
 })

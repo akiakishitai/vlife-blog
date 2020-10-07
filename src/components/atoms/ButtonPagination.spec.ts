@@ -15,33 +15,33 @@ describe('ButtonPagination', () => {
 
   test('is button or icon', () => {
     let wrapper = createWrapper({ isDisabled: false, page: 4 })
-    expect(wrapper.contains('.pagination-btn')).toBeTruthy()
-    expect(wrapper.contains('.pagination-icon')).toBeFalsy()
+    expect(wrapper.find('.pagination-btn').exists()).toBeTruthy()
+    expect(wrapper.find('.pagination-icon').exists()).toBeFalsy()
 
     wrapper = createWrapper({ isDisabled: false, icon: 'done' })
-    expect(wrapper.contains('.pagination-btn')).toBeFalsy()
-    expect(wrapper.contains('.pagination-icon')).toBeTruthy()
+    expect(wrapper.find('.pagination-btn').exists()).toBeFalsy()
+    expect(wrapper.find('.pagination-icon').exists()).toBeTruthy()
 
     wrapper = createWrapper({ isDisabled: false })
-    expect(wrapper.contains('.pagination-btn')).toBeTruthy()
-    expect(wrapper.contains('.pagination-icon')).toBeFalsy()
+    expect(wrapper.find('.pagination-btn').exists()).toBeTruthy()
+    expect(wrapper.find('.pagination-icon').exists()).toBeFalsy()
 
     wrapper = createWrapper({ isDisabled: false, page: 4, icon: 'done' })
-    expect(wrapper.contains('.pagination-btn')).toBeFalsy()
-    expect(wrapper.contains('.pagination-icon')).toBeTruthy()
+    expect(wrapper.find('.pagination-btn').exists()).toBeFalsy()
+    expect(wrapper.find('.pagination-icon').exists()).toBeTruthy()
   })
 
   test('is disabled', () => {
     expect(
-      createWrapper({ isDisabled: true, page: 1 }).contains(
-        '.pagination-btn.disabled'
-      )
+      createWrapper({ isDisabled: true, page: 1 })
+        .find('.pagination-btn.disabled')
+        .exists()
     ).toBeTruthy()
 
     expect(
-      createWrapper({ isDisabled: true, icon: 'done' }).contains(
-        '.pagination-icon.disabled'
-      )
+      createWrapper({ isDisabled: true, icon: 'done' })
+        .find('.pagination-icon.disabled')
+        .exists()
     ).toBeTruthy()
   })
 })

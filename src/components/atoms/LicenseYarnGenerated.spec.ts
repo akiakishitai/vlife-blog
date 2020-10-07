@@ -76,7 +76,7 @@ describe('LicenseYarnGenerated', () => {
     expect(
       shallowMount(LicenseYarnGenerated, {
         propsData: { licenses: [] },
-      }).isEmpty()
-    ).toBeTruthy()
+      }).findComponent(LicenseYarnGenerated).vm
+    ).toBeUndefined()
   })
 })

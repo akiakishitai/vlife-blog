@@ -4,6 +4,6 @@ import Logo from '@/components/atoms/LogoNuxt.vue'
 describe('Logo', () => {
   test('is a Vue instance', () => {
     const wrapper = shallowMount(Logo)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent(Logo).exists()).toBeTruthy()
   })
 })

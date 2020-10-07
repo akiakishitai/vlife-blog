@@ -9,7 +9,7 @@ describe('ButtonMaterialIcon', () => {
       },
     })
 
-    expect(wrapper.contains('.mdc-icon-button')).toBeTruthy()
+    expect(wrapper.find('.mdc-icon-button').exists()).toBeTruthy()
     expect(wrapper.find('svg').exists()).toBeTruthy()
   })
 
@@ -31,7 +31,7 @@ describe('ButtonMaterialIcon', () => {
 
     //console.log(w.html())
 
-    expect(w.contains(tag)).toBeTruthy()
+    expect(w.find(tag).exists()).toBeTruthy()
     expect(w.find('.disabled').exists()).toBe(isDisabled)
   })
 

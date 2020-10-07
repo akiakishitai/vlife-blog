@@ -35,7 +35,7 @@ describe('TopPage', () => {
 
     //console.log(wrapper.html())
 
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent(TopPage).exists()).toBeTruthy()
   })
 
   test('does notDebugContents', () => {
