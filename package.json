@@ -11,7 +11,7 @@
     "dev": "nuxt-ts",
     "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "NODE_ENV=production nuxt-ts generate",
-    "license-file": "yarn licenses generate-disclaimer --ignore-platform > src/static/txt/thirdparty_license.txt",
+    "license-file": "mkdir -p src/static/txt && yarn licenses generate-disclaimer --ignore-platform > src/static/txt/thirdparty_license.txt",
     "sass-build": "sass -I ./node_modules src/assets/css/scss/",
     "start": "nuxt start",
     "test": "jest",
