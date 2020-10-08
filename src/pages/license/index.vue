@@ -5,9 +5,9 @@
         <ul class="list-disc ml-6">
           <li class="mt-8">
             Material Design icons: Licensed under
-            <LinkWrapper
-              href="https://www.apache.org/licenses/LICENSE-2.0"
-            >Apache license version 2.0</LinkWrapper>.
+            <LinkWrapper href="https://www.apache.org/licenses/LICENSE-2.0"
+              >Apache license version 2.0</LinkWrapper
+            >.
           </li>
         </ul>
       </template>
@@ -15,7 +15,10 @@
         <ul class="list-disc ml-6">
           <li class="mt-8">
             Simple Icons: Licensed under
-            <LinkWrapper href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</LinkWrapper>.
+            <LinkWrapper
+              href="https://creativecommons.org/publicdomain/zero/1.0/"
+              >CC0 1.0 Universal</LinkWrapper
+            >.
           </li>
         </ul>
       </template>
@@ -30,11 +33,13 @@ import LinkWrapper from '@/components/atoms/LinkWrapper.vue'
 
 @Component({
   async asyncData(ctx) {
-    const license = await import('@/assets/thirdparty_license.txt')
+    const $http: import('@nuxt/http').NuxtHTTPInstance = ctx.$http
+    const res = await $http.get('/txt/thirdparty_license.txt')
+    const license = await res.text()
 
     return {
       license: {
-        library: license.default,
+        library: license,
       },
     }
   },

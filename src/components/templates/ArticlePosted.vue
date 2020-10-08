@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import { Component, mixins, Prop, Vue } from 'nuxt-property-decorator'
-import moment from 'moment'
+import dayjs from 'dayjs'
 import {
   Article,
   ArticleNavigation,
@@ -89,16 +89,17 @@ import { AsciidocParsed } from '~/modules/asciidocPresenter'
   filters: {
     dateFormats: function (pickDate: Pick<Article, 'createdAt' | 'updatedAt'>) {
       return {
-        createdAt: moment(pickDate.createdAt).format('YYYY年MM月DD日'),
+        createdAt: dayjs(pickDate.createdAt).format('YYYY年MM月DD日'),
         updatedAt:
           pickDate.updatedAt != null
-            ? moment(pickDate.updatedAt).format('YYYY年MM月DD日')
+            ? dayjs(pickDate.updatedAt).format('YYYY年MM月DD日')
             : '',
       }
     },
   },
 })
-export default class ArticlePosted extends mixins(DebugMixin)
+export default class ArticlePosted
+  extends mixins(DebugMixin)
   implements ArticlePageProps.NavigationProp {
   /**
    * 投稿記事のソースファイルの内容。

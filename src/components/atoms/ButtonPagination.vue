@@ -15,7 +15,9 @@
     v-else
     class="mdc-icon-button material-icons pagination-icon"
     v-bind:class="{ disabled: props.property.isDisabled }"
-  >{{ props.property.icon }}</div>
+  >
+    {{ props.property.icon }}
+  </div>
 </template>
 
 <script lang="ts">
@@ -53,7 +55,7 @@ export default class ButtonPagination extends Vue {
 
 .pagination-btn,
 .pagination-icon {
-  --mdc-theme-primary: var(--md-dark-text-primary);
+  --mdc-theme-primary: var(--mdc-theme-text-primary-on-light);
 }
 
 .pagination-btn {
@@ -62,7 +64,7 @@ export default class ButtonPagination extends Vue {
 
   &.disabled {
     @apply bg-grey-400 bg-opacity-54;
-    color: var(--md-dark-text-secondary);
+    color: var(--mdc-theme-text-secondary-on-light);
   }
 }
 
@@ -71,7 +73,7 @@ export default class ButtonPagination extends Vue {
 
   &.disabled {
     //@include icon.ink-color(rgba(var.$md-grey-600, 0.87));
-    color: var(--md-dark-text-secondary);
+    color: var(--mdc-theme-text-secondary-on-light);
   }
 }
 </style>

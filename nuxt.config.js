@@ -70,7 +70,14 @@ const conf = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxt/http'],
+  /**
+   * @nuxt/http option
+   * https://http.nuxtjs.org/api/
+   */
+  http: {
+    prefix: routerBase,
+  },
   /*
    ** Build configuration
    */
@@ -79,13 +86,7 @@ const conf = {
      ** You can extend webpack config here
      */
     // eslint-disable-next-line no-unused-vars
-    extend(config, ctx) {
-      config.module.rules.push({
-        test: /\.txt$/i,
-        loader: 'raw-loader',
-        exclude: /(node_modules)/,
-      })
-    },
+    extend(config, ctx) {},
     /**
      * Webpack loaders options
      */

@@ -7,36 +7,3 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
-
-/* Markdownのコードブロック */
-.code-note {
-  @apply relative rounded mt-4;
-}
-
-.code-note:not([data-lang]) {
-  @apply py-4 px-6;
-}
-
-.code-note[data-lang] {
-  @apply pb-4;
-}
-
-.code-note[data-lang]::before {
-  @apply text-primary-light text-opacity-54;
-  @apply border-b border-dashed border-opacity-50;
-  @apply -mt-2 mb-4 -ml-3;
-
-  content: attr(data-lang);
-  display: block;
-}
-
-/* Simples Icons in markdown */
-.markdown-body img[src^="https://cdn.jsdelivr.net/npm/simple-icons"]
-{
-  @apply inline;
-  @apply w-5;
-  @apply align-baseline;
-  @apply opacity-87;
-
-  /* filter: invert(1); */
-}

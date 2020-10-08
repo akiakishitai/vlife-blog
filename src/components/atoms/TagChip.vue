@@ -6,7 +6,9 @@
     v-on:click="$options.methods.maybeDo(listeners.click, props.value)"
   >
     <div class="mdc-chip__ripple"></div>
-    <i class="material-icons mdc-chip__icon mdc-chip__icon--leading" role="cell">local_offer</i>
+    <i class="material-icons mdc-chip__icon mdc-chip__icon--leading" role="cell"
+      >local_offer</i
+    >
     <span role="cell">
       <span role="button" tabindex="0" class="mdc-chip__primary-action">
         <span class="mdc-chip__text">{{ props.tag }}</span>
@@ -58,10 +60,12 @@ export default class TagChip extends Vue {
 <style lang="scss" scoped>
 @use "@material/chips/mdc-chips";
 @use "@material/chips";
+@use "material-colors/dist/colors.scss";
+@use "../../assets/css/scss/functions" as f;
 
 .mdc-chip {
   @include chips.fill-color(transparent);
-  @include chips.outline(2px, solid, var(--color-primary-dark));
-  @include chips.leading-icon-color(var(--md-grey-700-rgb), 0.87);
+  @include chips.outline(2px, solid, var(--mdc-theme-primary-dark));
+  @include chips.leading-icon-color(colors.$md-grey-700, 0.87);
 }
 </style>

@@ -12,17 +12,6 @@ const { opacity } = require('tailwindcss/defaultTheme')
 /** @type {import('material-colors/dist/colors.json')} */
 const palette = require('material-colors/dist/colors.json')
 
-function customColorProperty(type, colorName) {
-  const propertyMap = new Map([
-    ['background', `rgba(var(--color-${colorName}-rgb), var(--bg-opacity, 1))`],
-    ['text', `rgba(var(--color-${colorName}-rgb), var(--text-opacity, 1))`],
-    ['border', `rgba(var(--color-${colorName}-rgb), var(--border-opacity, 1))`],
-    ['divide', `rgba(var(--color-${colorName}-rgb), var(--divide-opacity, 1))`],
-  ])
-
-  return propertyMap.get(type)
-}
-
 module.exports = {
   theme: {
     extend: {
@@ -40,20 +29,16 @@ module.exports = {
         },
       },
       backgroundColor: {
-        background: customColorProperty('background', 'background'),
-        surface: customColorProperty('background', 'surface'),
-        error: customColorProperty('background', 'error'),
-      },
-      textColor: {
-        'on-surface': customColorProperty('text', 'on-surface'),
-        'on-error': customColorProperty('text', 'on-error'),
+        background: 'var(--mdc-theme-background)',
+        surface: 'var(--mdc-theme-surface)',
+        error: 'var(--mdc-theme-error)',
       },
       opacity: {
         ...opacity,
-        '15': '0.15',
-        '38': '0.38',
-        '54': '0.54',
-        '87': '0.87',
+        15: '0.15',
+        38: '0.38',
+        54: '0.54',
+        87: '0.87',
       },
     },
   },

@@ -137,7 +137,7 @@ table.tableblock,
   @apply bg-grey-300 bg-opacity-50;
 
   > .title {
-    @apply bg-background bg-opacity-100;
+    @apply bg-background;
   }
 
   blockquote {
@@ -164,7 +164,7 @@ table.tableblock,
 
 /* Example content */
 .exampleblock {
-  @include mixin.title-icon-prefix('subject', var(--color-primary-dark));
+  @include mixin.title-icon-prefix('subject', var(--mdc-theme-primary-dark));
 
   > .content {
     @apply border border-grey-500;

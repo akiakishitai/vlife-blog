@@ -22,8 +22,11 @@
       v-if="props.property.icon != null"
       class="material-icons mdc-button__icon"
       aria-hidden="true"
-    >{{ $options.methods.updateProperty(props).icon }}</i>
-    <span class="mdc-button__label">{{ $options.methods.updateProperty(props).label }}</span>
+      >{{ $options.methods.updateProperty(props).icon }}</i
+    >
+    <span class="mdc-button__label">{{
+      $options.methods.updateProperty(props).label
+    }}</span>
   </button>
 </template>
 
@@ -76,7 +79,7 @@ export default class ButtonMaterial extends Vue {
 @use '@material/button';
 
 .mdc-button {
-  --mdc-theme-on-primary: var(--md-dark-text-primary);
+  --mdc-theme-on-primary: var(--mdc-theme-text-primary-on-light);
 
   @apply font-semibold;
 }
@@ -85,7 +88,7 @@ export default class ButtonMaterial extends Vue {
 // --mdc-theme-primary プロパティを変更することで色変更可能。
 .button-outlined-color:not(:disabled) {
   //@include button.outline-color(var.$color-primary);
-  --mdc-theme-primary: var(--color-primary-dark);
+  --mdc-theme-primary: var(--mdc-theme-primary-dark);
   border-color: var(--mdc-theme-primary);
 
   @apply border-2;
