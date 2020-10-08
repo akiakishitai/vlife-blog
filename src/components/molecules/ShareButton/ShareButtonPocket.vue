@@ -23,7 +23,7 @@ export default class ShareButtonPocket
 
 <style lang="scss" scoped>
 .share-button {
-  --mdc-theme-text-primary-on-background: var(--md-white);
+  --mdc-theme-text-primary-on-background: var(--mdc-theme-white);
   background-color: #ef3f56;
 }
 </style>

@@ -1,17 +1,24 @@
+@use 'sass:map';
 @use 'material-colors/dist/colors.scss';
-@use './functions' as f;
-
-@forward 'material-colors/dist/colors.scss';
 
 // テーマカラー変数
-$color-primary: colors.$md-amber-500;
-$color-primary-dark: colors.$md-amber-700;
-$color-primary-light: colors.$md-amber-300;
-$color-secondary: colors.$md-cyan-500;
-$color-secondary-dark: colors.$md-cyan-700;
-$color-secondary-light: colors.$md-cyan-300;
-$color-background: colors.$md-grey-200;
-$color-surface: colors.$md-grey-200;
-$color-on-surface: colors.$md-dark-text-primary;
-$color-error: colors.$md-red-900;
-$color-on-error: colors.$md-light-text-primary;
+$primary: colors.$md-amber-500;
+$primary-dark: colors.$md-amber-700;
+$primary-light: colors.$md-amber-300;
+$secondary: colors.$md-cyan-500;
+$secondary-dark: colors.$md-cyan-700;
+$secondary-light: colors.$md-cyan-300;
+$background: colors.$md-grey-200;
+$surface: colors.$md-grey-200;
+$on-surface: colors.$md-dark-text-primary;
+$error: colors.$md-red-900;
+$on-error: colors.$md-light-text-primary;
+
+$properties: (
+  primary-dark: $primary-dark,
+  primary-light: $primary-light,
+  secondary-dark: $secondary-dark,
+  secondary-light: $secondary-light,
+  white: colors.$md-white,
+  black: colors.$md-black,
+);

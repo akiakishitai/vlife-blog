@@ -90,7 +90,7 @@ code {
   @apply rounded-sm bg-grey-400 bg-opacity-38;
   @apply px-1;
 
-  color: rgb(var(--md-dark-text-primary-rgb));
+  color: var(--mdc-theme-on-surface);
 }
 
 /* Code Block */

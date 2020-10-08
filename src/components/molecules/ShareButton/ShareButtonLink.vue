@@ -42,8 +42,10 @@ export default class ShareButtonTwitter
 </script>
 
 <style lang="scss" scoped>
+@use "material-colors/dist/colors.scss";
+
 .share-button {
-  --mdc-theme-text-primary-on-background: var(--md-white);
-  background-color: var(--md-grey-700);
+  --mdc-theme-text-primary-on-background: var(--mdc-theme-white);
+  background-color: colors.$md-grey-700;
 }
 </style>
