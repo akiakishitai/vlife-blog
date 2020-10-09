@@ -1,0 +1,30 @@
+= ブログサイト作ってみた
+akiakiS
+v1.1, 2020-10-05
+:created_at: 2020-07-19
+:tags: 日記
+:toc: left
+:toc-title: 目次
+:toclevels: 3
+include::commons/attrs.adoc[tags=images;admonitions]
+
+== 🖊 書きたいもの
+
+Vtuber さんの感想とかプログラミング情報メモとか書きます。
+
+== 💪 作った動機
+
+技術情報についてはちょいちょい Qiita に投稿してたんですが、3月末頃のアップデートでぴえんした。
+
+なので避難場所を考え出して、せっかくならサイト自作してみるか！ってなった次第。
+
+== 📦 使ったフレームワーク
+
+* image:https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/nuxt-dot-js.svg[nuxt.js, 20, role="align-baseline"] NuxtJS
+* image:https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/tailwindcss.svg[tailwindcss, 20, role="align-baseline"] Tailwind CSS
+* image:https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/materialdesign.svg[materialcomponents, 20, role="align-baseline"] Material Components for the web
+
+'''''
+
+This project source:
+image:https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/github.svg[Github source, 20] https://github.com/akiakishitai/vlife-blog[akiakishitai/vlife-blog]

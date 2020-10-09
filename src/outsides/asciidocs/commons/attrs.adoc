@@ -1,0 +1,18 @@
+:hardbreaks:
+
+// tag::images[]
+:imagesdir: ../../static/images
+ifdef::env-nuxt[]
+:imagesdir: images
+endif::[]
+// end::images[]
+
+// tag::admonitions[]
+:md-class: class="material-icons cursor-default"
+:note-caption: pass:a[<span {md-class} alt="Note" title="Note">create</span>]
+:tip-caption: pass:a[<span {md-class} alt="Tip" title="Tip">info</span>]
+:important-caption: pass:a[<span {md-class} alt="Important" title="Important">stars</span>]
+:caution-caption: pass:a[<span {md-class} alt="Caution" title="Caution">local_fire_department</span>]
+:warning-caption: pass:a[<span {md-class} alt="Warning" title="Warning">warning</span>]
+:!md-class:
+// end::admonitions[]
