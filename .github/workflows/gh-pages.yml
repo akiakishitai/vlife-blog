@@ -25,7 +25,7 @@ jobs:
         run: git lfs checkout
 
       - name: update submodules
-        run: git submodules update --remote --merge
+        run: git submodule update --remote --merge
 
       - name: setup node
         uses: actions/setup-node@v1
