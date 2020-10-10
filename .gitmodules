@@ -1,4 +1,0 @@
-[submodule "src/outsides/asciidocs"]
-	path = src/outsides/asciidocs
-	url = https://github.com/akiakishitai/vlife-blog.git
-	branch = orphan/article
