@@ -63,6 +63,7 @@ const conf = {
     [
       '@/modules/asciidocPresenter',
       {
+        source: 'outsides/asciidocs/source',
         processorOptions: { safe: 'server', attributes: { 'env-nuxt': true } },
       },
     ],
@@ -119,7 +120,7 @@ const conf = {
   /**
    * Watch custom files
    */
-  watch: ['~/outsides/asciidocs/*.adoc'],
+  watch: ['~/outsides/asciidocs/**/*.adoc'],
 }
 
 export default conf

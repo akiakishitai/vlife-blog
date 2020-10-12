@@ -1,0 +1,2 @@
+# .actrc runnerイメージを変更
+-P ubuntu-18.04=node:12-buster
