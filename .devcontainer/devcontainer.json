@@ -10,7 +10,6 @@
     "dbaeumer.vscode-eslint",
     "mhutchie.git-graph",
     "eamodio.gitlens",
-    "patricklee.vsnotes",
     "esbenp.prettier-vscode",
     "pmneo.tsimporter",
     "quicktype.quicktype",
@@ -21,7 +20,11 @@
     "formulahendry.code-runner",
     "octref.vetur",
     "dariofuzinato.vue-peek",
-    "titiaiev.vue-docs"
+    "titiaiev.vue-docs",
+    "orta.vscode-jest",
+    "editorconfig.editorconfig",
+    "ms-ceintl.vscode-language-pack-ja",
+    "github.vscode-pull-request-github"
   ],
   "settings": {
     // powerline font
@@ -96,6 +99,7 @@
       "NOTES_ROOT": "/workspaces/notes"
     }
   },
+  "runArgs": ["--group-add=0"],
   // Use a named volume for your entire source tree
   // https://code.visualstudio.com/docs/remote/containers-advanced#_use-a-named-volume-for-your-entire-source-tree
   "workspaceMount": "type=volume,src=vlife-blog,dst=/workspaces/vlife-blog",
@@ -103,7 +107,7 @@
   "mounts": [
     // volume trick: .vscode-server
     "type=volume,src=vscode-extension-vlife,dst=/home/node/.vscode-server",
-    // root dir of VSNotes
-    "type=volume,src=notes-store,dst=/workspaces/notes"
+    // docker.sock for docker in docker
+    "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock"
   ]
 }
