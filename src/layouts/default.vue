@@ -4,15 +4,18 @@
     <main class="container flex-grow text-black text-opacity-87 px-4">
       <nuxt class="mt-6" />
     </main>
+    <footer-bar class="mt-8" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import FooterBar from '../components/organisms/FooterBar.vue'
 import TopAppBar from '../components/organisms/TopAppBar.vue'
 
 export default Vue.extend({
   components: {
+    FooterBar,
     TopAppBar,
   },
 })

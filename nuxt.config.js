@@ -60,6 +60,7 @@ const conf = {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics',
     [
       '@/modules/asciidocPresenter',
       {
@@ -78,6 +79,13 @@ const conf = {
    */
   http: {
     prefix: routerBase,
+  },
+  /**
+   * @nuxtjs/google-analytics oprion
+   * https://google-analytics.nuxtjs.org/options
+   */
+  googleAnalytics: {
+    id: 'UA-180745818-1',
   },
   /*
    ** Build configuration

@@ -34,6 +34,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.0",
+    "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/tailwindcss": "^3.0.0",
     "@types/jest": "^26.0.0",
     "@types/prismjs": "^1.16.1",
