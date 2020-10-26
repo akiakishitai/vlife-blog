@@ -10,6 +10,11 @@ import PrivacyPolicy from '../../components/templates/PrivacyPolicy.vue'
   components: {
     PrivacyPolicy,
   },
+  head: () => {
+    return {
+      title: 'プライバシーポリシー',
+    }
+  },
 })
 export default class index extends Vue {}
 </script>

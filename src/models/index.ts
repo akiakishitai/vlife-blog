@@ -1,6 +1,7 @@
 export * from './article'
 export * from './buttonAttribute'
 export * from './headingLevelType'
+export * from './inputAttribute'
 export * from './licensesObject'
 export * from './paging'
 export * from './postFile'

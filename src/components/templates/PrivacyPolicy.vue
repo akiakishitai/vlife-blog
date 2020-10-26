@@ -86,15 +86,14 @@
       </policy-section>
       <policy-section title="お問い合わせ">
         <p>
-          お客様の情報の開示、情報の訂正、利用停止、削除をご希望の場合は、以下のお問合せ先にご連絡ください。
+          お客様の情報の開示、情報の訂正、利用停止、削除をご希望の場合は、以下のお問合せ先からご連絡ください。
         </p>
         <dl class="ml-4 mt-4">
           <dt class="font-semibold">運営者</dt>
-          <dd class="ml-10">akiakiS</dd>
-          <dt class="font-semibold mt-2">e-mail</dt>
-          <dd class="ml-10">akiakis.101v+privacy📧gmail.com</dd>
+          <dd class="ml-10">秋々すすき</dd>
+          <dt class="font-semibold mt-2">お問い合わせ</dt>
           <dd class="ml-10">
-            （上記「📧」記号を「@」記号に置き換えてください）
+            <link-wrapper href="/contact">お問い合わせフォーム</link-wrapper>
           </dd>
         </dl>
         <p>
@@ -104,7 +103,7 @@
       </policy-section>
       <div class="mt-12">
         <div>制定日: 2020年10月18日</div>
-        <div>最終改定日: 2020年10月18日</div>
+        <div>最終改定日: 2020年10月31日</div>
       </div>
 
       <div class="generated text-right mt-6">
