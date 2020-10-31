@@ -9,7 +9,7 @@ describe('FooterBar', () => {
       },
     })
 
-    expect(wrapper.findAll('li > nuxt-link-stub').length).toBe(2)
+    expect(wrapper.findAll('li > nuxt-link-stub').length).toBe(3)
     expect(wrapper.find('nuxt-link-stub[to="/"]').text()).toBe('Home')
     expect(wrapper.find('nuxt-link-stub[to="/privacy-policy"]').text()).toBe(
       'プライバシーポリシー'

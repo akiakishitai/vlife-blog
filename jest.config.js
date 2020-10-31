@@ -1,5 +1,6 @@
 /* eslint-env commonjs */
 
+/** @type {import('@jest/types').Config.InitialOptions}} */
 module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
@@ -19,4 +20,5 @@ module.exports = {
     //'<rootDir>/src/pages/**/*.vue',
     '<rootDir>/src/mixins/**/*.ts',
   ],
+  roots: ['<rootDir>/src'],
 }

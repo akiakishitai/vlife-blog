@@ -3,6 +3,9 @@
     <ul class="flex justify-center">
       <li><nuxt-link class="p-2 block" to="/">Home</nuxt-link></li>
       <li>
+        <nuxt-link class="p-2 block" to="/contact">お問い合わせ</nuxt-link>
+      </li>
+      <li>
         <nuxt-link class="p-2 block" to="/privacy-policy"
           >プライバシーポリシー</nuxt-link
         >

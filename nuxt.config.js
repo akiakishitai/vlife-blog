@@ -52,7 +52,10 @@ const conf = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '@/plugins/prism', mode: 'client' }],
+  plugins: [
+    { src: '@/plugins/prism', mode: 'client' },
+    '@/plugins/vee-validate',
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -108,6 +111,8 @@ const conf = {
         webpackImporter: false,
       },
     },
+
+    transpile: ['vee-validate/dist/rules'],
   },
   /*
    ** Router
