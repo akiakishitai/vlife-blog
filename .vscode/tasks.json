@@ -36,6 +36,11 @@
     {
       "label": "build vscode asciidoc preview theme",
       "dependsOn": ["tailwind build sass of asciidoc preview theme"]
+    },
+    {
+      "label": "import article sources",
+      "type": "shell",
+      "command": "git worktree add src/outsides/asciidocs orphan/article"
     }
   ],
   "inputs": [

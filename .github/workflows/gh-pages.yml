@@ -4,20 +4,38 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'src/**'
-      - '.github/**'
-      - '.babelrc'
-      - 'nuxt.config.js'
-      - 'package.json'
+      - orphan/article
+    paths-ignore:
+      - '.vscode/**'
+      - 'docs/**'
+      - 'test/**'
 
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
+      - name: check git lfs
+        id: check-git-lfs
+        run: echo "::set-output name=key::$(git lfs install)"
+
+      - name: install git-lfs
+        if: ${{ steps.check-git-lfs.outputs.key == '' }}
+        run: |
+          pushd . > /dev/null
+          cd /tmp
+          curl -sSLO https://github.com/git-lfs/git-lfs/releases/download/v2.12.0/git-lfs-linux-amd64-v2.12.0.tar.gz
+          mkdir git-lfs
+          cd git-lfs
+          tar -xf ../git-lfs-linux-amd64-v2.12.0.tar.gz
+          ./install.sh
+          popd > /dev/null
+
       - uses: actions/checkout@v2
         with:
           lfs: true
+
+      - name: pull article branche
+        run: git clone -b orphan/article --depth 1 https://github.com/akiakishitai/vlife-blog.git src/outsides/asciidocs
 
       - name: checkout lfs objects
         run: git lfs checkout
@@ -41,11 +59,11 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
         run: yarn install
 
       - name: install offline
-        if: steps.yarn-cache.outputs.cache-hit == 'true'
+        if: ${{ steps.yarn-cache.outputs.cache-hit == 'true' }}
         run: yarn install --offline
 
       - name: compile scss
