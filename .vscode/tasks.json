@@ -41,6 +41,24 @@
       "label": "import article sources",
       "type": "shell",
       "command": "git worktree add src/outsides/asciidocs orphan/article"
+    },
+    {
+      "label": "create spec.ts file",
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        {
+          "value": "import { shallowMount } from '@vue/test-utils'\nimport ${fileBasenameNoExtension} from './${fileBasenameNoExtension}.vue'\n\ndescribe('${fileBasenameNoExtension}', () => {\nfunction factory() {\nreturn shallowMount(${fileBasenameNoExtension}, {\npropsData: {}\n})\n}})\n",
+          "quoting": "weak"
+        },
+        ">",
+        "${fileDirname}/${fileBasenameNoExtension}.spec.ts"
+      ]
+    },
+    {
+      "label": "test current file",
+      "type": "shell",
+      "command": "yarn test ${file}"
     }
   ],
   "inputs": [

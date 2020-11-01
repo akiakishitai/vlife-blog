@@ -14,8 +14,8 @@
     "license-file": "mkdir -p src/static/txt && yarn licenses generate-disclaimer --ignore-platform > src/static/txt/thirdparty_license.txt",
     "sass-build": "sass -I ./node_modules src/assets/css/scss/",
     "start": "nuxt start",
-    "test": "jest",
-    "test-ci": "jest --coverage false"
+    "test": "jest --runInBand",
+    "test-ci": "jest --runInBand --coverage false"
   },
   "dependencies": {
     "@asciidoctor/core": "^2.2.0",
@@ -29,11 +29,13 @@
     "nuxt-property-decorator": "^2.5.1",
     "prism-themes": "^1.4.0",
     "prismjs": "^1.21.0",
-    "simple-icons": "^3.0.1"
+    "simple-icons": "^3.0.1",
+    "vee-validate": "^3.4.3"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.0",
+    "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/tailwindcss": "^3.0.0",
     "@types/jest": "^26.0.0",
     "@types/prismjs": "^1.16.1",

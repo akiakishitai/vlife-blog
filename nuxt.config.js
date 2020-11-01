@@ -52,7 +52,10 @@ const conf = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '@/plugins/prism', mode: 'client' }],
+  plugins: [
+    { src: '@/plugins/prism', mode: 'client' },
+    '@/plugins/vee-validate',
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -60,6 +63,7 @@ const conf = {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics',
     [
       '@/modules/asciidocPresenter',
       {
@@ -78,6 +82,13 @@ const conf = {
    */
   http: {
     prefix: routerBase,
+  },
+  /**
+   * @nuxtjs/google-analytics oprion
+   * https://google-analytics.nuxtjs.org/options
+   */
+  googleAnalytics: {
+    id: 'UA-180745818-1',
   },
   /*
    ** Build configuration
@@ -100,6 +111,8 @@ const conf = {
         webpackImporter: false,
       },
     },
+
+    transpile: ['vee-validate/dist/rules'],
   },
   /*
    ** Router
