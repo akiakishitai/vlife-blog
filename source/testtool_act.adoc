@@ -1,0 +1,217 @@
+= GitHub Actions をローカルテストする
+秋々すすき
+v1.0, 2020-11-02
+:created_at: 2020-11-02
+:tags: github, github-actions
+:toc: left
+:toc-title: 目次
+:toclevels: 3
+include::commons/attrs.adoc[]
+
+== はじめに
+
+https://github.co.jp/features/actions[_GitHub Actions_] は便利。
+だけど書いたワークフローが実際どう動くか試すため、実際に GitHub リポジトリへプッシュやマージしてコミット履歴を汚くするのはつらい。
+
+できればローカル上で _GitHub Actions_ をテストしたい！
+
+ということで `act` を導入してローカル上でテストできるようにする。
+
+[cols=",", options="header"]
+|===
+|App
+|Version
+
+|Windows10 Pro
+|1903
+
+|Docker Desktop
+|2.4.0.0
+
+|act
+|0.2.16
+|===
+
+
+== act とは🚀
+
+_GitHub Actions_ をローカルで実行するコマンドツール。
+利用するには _Docker_ が必要。
+
+プロジェクト配下の `.github/workflows/` を読み込み、_Docker API_ を使って必要なイメージをプル・ビルドする。
+そして各アクションはコンテナ内で実行される。
+
+.特徴
+* 環境変数やファイルシステムは GitHub が提供しているものに対応
+* _GitHub Actions_ ワークフローをタスクランナー代わりとして使用可能
+** `Makefile` の代替
+* GitHub が提供しているコマンドツールについてデフォルトでは一部のみ対応
+** すべてのコマンドツールに対応させると Docker イメージのサイズが巨大マックス
+** 全部込みこみのイメージとして https://hub.docker.com/r/nektos/act-environments-ubuntu/tags[nektos/act-environments-ubuntu:18.04] が用意されているが 18GB 超え……
+* Rnners は ubuntu のみ対応
++
+[cols=",",options="header",]
+|===
+|GitHub Runner
+|actが使用するDockerイメージ
+
+|ubuntu-latest
+|node:12.6-buster-slim
+
+|ubuntu-18.04
+|node:12.6-buster-slim
+
+|ubuntu-16.04
+|node:12.6-stretch-slim
+|===
+
+=== インストール
+
+今回はDebian ベースの Docker コンテナ内で使うのでシェルスクリプトからインストールした。
+他ディストリビューションのインストール方法は https://github.com/nektos/act#installation[公式のREADME] を参照。
+
+
+.rootユーザーでインストール
+[source,bash]
+----
+curl https://raw.githubusercontent.com/nektos/act/master/install.sh | bash
+----
+
+== 使い方🍣
+
+`act [event name to run] [flags]` で実行する。
+以下コマンド例。
+
+.デフォルトイベントでのアクション一覧
+[source,bash]
+----
+act -l
+----
+
+.特定イベントのアクション一覧
+[source,bash]
+----
+act pull_request -l
+----
+
+.DryRun
+[source,bash]
+----
+act -n
+----
+
+.テスト実行
+[source,bash]
+----
+act
+----
+
+.ジョブ名を指定して実行
+[source,bash]
+----
+act -j testjob
+----
+
+.Secret変数を指定して実行
+[source,bash]
+----
+act -s MY_SECRET=something
+----
+
+他コマンドオプションについては `act -h` または https://github.com/nektos/act/blob/master/README.md[README] を参照。
+
+=== act の設定ファイル
+
+* コマンドオプション
++
+オプションは `./.actrc` または `~/.actrc` 設定ファイルに記述しておくことができる。
++
+.`.actrc` ファイルの例
+[source,ini]
+----
+# runnerイメージを変更
+-P ubuntu-18.04=node:12-buster
+----
+
+* 環境変数
++
+環境変数はデフォルトで `.env` ファイルを参照する。
+別ファイルで参照させたいときは `--env-file <ENV_FILE>` オプションを追加。
+
+=== Dockerコンテナ内で実行したい
+
+Docker コンテナ内でやる場合は _DooD（Docker outside of Docker）_ のように、ホスト側の `docker.sock` をバインドしておく。
+（コンテナ内でのdockerパッケージは不要）
+
+.docker.sockをバインドしておく
+[source,bash]
+----
+docker run --rm -it \
+    --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+    debian:buster-slim \
+    bash
+----
+
+.コンテナユーザーが `root` 以外
+[TIP]
+====
+`docker.sock` のパーミッションのため、コンテナ起動時に `root` グループへ所属させておく（`--group-add 0`）。
+セキュリティは低下するが、開発用でしか使わないなら許容できる。
+
+[source,bash]
+----
+docker run --group-add 0 ...
+----
+
+====
+
+.Windowsホストの場合
+[IMPORTANT]
+====
+バインドした `/var/run/docker.sock` は所有者 `root:root` でパーミッションが `755` になっている。
+よってコンテナ内のユーザーが `root` 以外の場合はパーミッションを修正する必要がある。
+
+.Windowsホストからパーミッションを修正
+[source,powershell]
+----
+docker exec CONTAINER_NAME chmod 660 /var/run/docker.sock
+----
+====
+
+== トラブルシューティング🔨
+
+=== ○✕コマンドがない
+
+`act` がデフォルトで使う Runner のイメージ（_node:12.6-buster-slim_）ではインストールされているコマンドが少ないため。
+`git` コマンドもない。
+
+代替として、一通りのコマンドが揃っている _node:12-buster_ イメージを使うといい。
+
+[source,bash]
+----
+act -P ubuntu-18.04=node:12-buster
+----
+
+=== if文が期待する動作をしない
+
+条件式を `${{ }}` で囲むといい。
+実際の _GitHub Actions_ では省略しても大丈夫だが、`act` で省略すると判定してくれない場合があるっぽい。
+
+.`act` で動作するif文の例
+[source,yaml]
+----
+- name: install
+  if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
+  run: yarn install
+----
+
+== おわりに🐾
+
+`act` により _GitHub Actions_ のテストと修正が簡単にできるようになったので満足。
+ただし、実際にGitHubリポジトリで動作させるとバグが見つかる場合があるので注意する。
+
+== 参考
+
+* https://github.com/nektos/act[nektos/act]
+* https://dev.classmethod.jp/articles/act-for-github-actions-local-execution-tool/[GitHub Actions のローカル実行ツール「act」を使う事で CI/CD コンフィグとローカルでのタスクランナーを 1 つにする | Developers.IO]
+* https://tomgregory.com/running-docker-in-docker-on-windows/[Running Docker in Docker on Windows (Linux containers) – Tom Gregory]
