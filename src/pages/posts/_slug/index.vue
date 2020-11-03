@@ -34,10 +34,8 @@ export default Vue.extend({
   async asyncData(ctx): Promise<Property> {
     const asciidoc = ctx.app.$asciidoc
 
-    // ドメインホスト
-    const host = process.server
-      ? ctx.req?.headers?.host ?? process.env.NUXT_ENV_DOMAIN
-      : window.location.host
+    // base URL
+    const baseUrl = process.env.NUXT_ENV_BASEURL ?? 'http://localhost:3000'
 
     return {
       posted: await asciidoc.content(ctx.params.slug),
@@ -45,10 +43,7 @@ export default Vue.extend({
         (await asciidoc.filesByPage()).overviews,
         ctx.route.path
       ),
-      currentPath: new URL(
-        ctx.route.path,
-        `${process.env.NUXT_ENV_SCHEME}${host}`
-      ),
+      currentPath: new URL(ctx.route.path, baseUrl),
     }
   },
   mounted() {
