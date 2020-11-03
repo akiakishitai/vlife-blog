@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - master
-      paths-ignore:
-        - '.vscode/**'
-        - 'docs/**'
-        - 'test/**'
+    paths-ignore:
+      - '.vscode/**'
+      - 'docs/**'
+      - 'test/**'
   workflow_dispatch:
     branches:
       - master
