@@ -2,9 +2,9 @@ name: github pages
 
 on:
   push:
+  workflow_dispatch:
     branches:
       - master
-      - orphan/article
     paths-ignore:
       - '.vscode/**'
       - 'docs/**'
