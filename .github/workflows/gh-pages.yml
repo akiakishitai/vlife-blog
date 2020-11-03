@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - master
-      - orphan/article
-    paths-ignore:
-      - '.vscode/**'
-      - 'docs/**'
-      - 'test/**'
+      paths-ignore:
+        - '.vscode/**'
+        - 'docs/**'
+        - 'test/**'
+  workflow_dispatch:
+    branches:
+      - master
 
 jobs:
   build-deploy:
