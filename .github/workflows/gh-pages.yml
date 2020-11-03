@@ -2,13 +2,15 @@ name: github pages
 
 on:
   push:
+    branches:
+      - master
+      paths-ignore:
+        - '.vscode/**'
+        - 'docs/**'
+        - 'test/**'
   workflow_dispatch:
     branches:
       - master
-    paths-ignore:
-      - '.vscode/**'
-      - 'docs/**'
-      - 'test/**'
 
 jobs:
   build-deploy:
