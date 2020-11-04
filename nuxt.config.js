@@ -1,8 +1,10 @@
 /* eslint-env node */
+import { join } from 'path'
 
-// If github branch is 'gh-pages'
+// <base> 要素の基準URIを設定
+const routerBase =
+  process.env.ROUTER_BASE != null ? process.env.ROUTER_BASE : '/'
 const isDeploy = process.env.DEPLOY_ENV === 'GH_PAGES'
-const routerBase = isDeploy ? '/vlife-blog/' : '/'
 
 /** @type {import('@nuxt/types').NuxtConfig} */
 const conf = {
@@ -10,8 +12,10 @@ const conf = {
    * Environment variables
    */
   env: {
-    NUXT_ENV_SCHEME: isDeploy ? 'https://' : 'http://',
-    NUXT_ENV_DOMAIN: isDeploy ? 'akiakishitai.github.io' : 'localhost:3000',
+    NUXT_ENV_BASEURL: join(
+      isDeploy ? 'https://akiakishitai.github.io' : 'http://localhost:3000',
+      routerBase
+    ),
   },
   ssr: true,
   target: 'static',

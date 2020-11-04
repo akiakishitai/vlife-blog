@@ -1,11 +1,16 @@
 <template>
   <ul class="flex">
-    <li class="share-button ml-4 first:ml-0" v-for="item of components" v-bind:key="item.id">
+    <li
+      class="share-button ml-4 first:ml-0"
+      v-for="item of components"
+      v-bind:key="item.id"
+    >
       <component
         v-bind:is="item.component"
         class="rounded-md w-10 h-10 p-2"
         v-bind:url="url"
         v-bind:text="text"
+        v-bind:title="item.title"
       />
     </li>
   </ul>
@@ -21,8 +26,16 @@ import {
   ShareButtonTwitter,
 } from '../molecules/ShareButton'
 
+/** シェアボタン用のプロパティ */
+interface ShareProperties {
+  id: number
+  component: typeof Vue
+  title: string
+}
+
 @Component
-export default class ShareButtonsBar extends Vue
+export default class ShareButtonsBar
+  extends Vue
   implements Omit<ShareButtonInterface, 'shareFullURL'> {
   @Prop({ required: true }) url!: string
   @Prop({ required: false }) text?: string
@@ -30,12 +43,12 @@ export default class ShareButtonsBar extends Vue
   /**
    * 利用するシェアボタンのコンポーネント連想配列を返す。
    */
-  get components(): { id: number; component: typeof Vue; selector: string }[] {
+  get components(): ShareProperties[] {
     return [
-      { id: 0, component: ShareButtonTwitter, selector: '' },
-      { id: 1, component: ShareButtonFacebook, selector: '' },
-      { id: 2, component: ShareButtonPocket, selector: '' },
-      { id: 3, component: ShareButtonLink, selector: '' },
+      { id: 0, component: ShareButtonTwitter, title: 'Twitter' },
+      { id: 1, component: ShareButtonFacebook, title: 'Facebook' },
+      { id: 2, component: ShareButtonPocket, title: 'Pocket' },
+      { id: 3, component: ShareButtonLink, title: 'Copy URL' },
     ]
   }
 }
