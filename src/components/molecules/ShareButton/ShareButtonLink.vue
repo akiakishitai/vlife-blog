@@ -23,7 +23,7 @@ const SvgIcon = Vue.extend({
 })
 
 @Component
-export default class ShareButtonTwitter
+export default class ShareButtonLink
   extends mixins(shareButtonFactory('url'), copyClipboardMixin)
   implements ShareButtonInterface {
   /**
