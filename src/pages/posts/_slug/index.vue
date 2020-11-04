@@ -12,11 +12,12 @@ import ArticlePosted from '@/components/templates/ArticlePosted.vue'
 import { ArticleNavigation } from '../../../models'
 import { naviFrontBack } from './asyncData'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
+import { join } from 'path'
 
 type Property = {
   posted: AsciidocParsed
   navi: ArticleNavigation
-  currentPath: URL
+  currentPath: string
 }
 
 export default Vue.extend({
@@ -43,7 +44,7 @@ export default Vue.extend({
         (await asciidoc.filesByPage()).overviews,
         ctx.route.path
       ),
-      currentPath: new URL(ctx.route.path, baseUrl),
+      currentPath: join(baseUrl, ctx.route.path),
     }
   },
   mounted() {

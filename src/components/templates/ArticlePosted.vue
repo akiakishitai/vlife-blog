@@ -30,7 +30,7 @@
     <div class="share-buttons mt-8">
       <ShareButtonsBar
         class="items-center justify-center"
-        v-bind:url="currentFullPath.href"
+        v-bind:url="currentFullPath"
         v-bind:text="article.title"
       />
     </div>
@@ -111,7 +111,7 @@ export default class ArticlePosted
   /**
    * 現在ページのフルパス。
    */
-  @Prop({ required: true }) currentFullPath!: URL
+  @Prop({ required: true }) currentFullPath!: string
 
   /**
    * `props` の `posted` を `Article` 型へ変換する。
@@ -165,7 +165,7 @@ export default class ArticlePosted
    */
   get fixInternalLink() {
     // URL のプロパティがブラウザ側で使えない…？
-    const url = this.currentFullPath.toString().split('/')
+    const url = this.currentFullPath.split('/')
     const parent = url[0] + '//' + url.slice(2, -1).join('/')
 
     // ページ内遷移
