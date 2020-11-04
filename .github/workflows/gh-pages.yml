@@ -12,6 +12,10 @@ on:
     branches:
       - master
 
+env:
+  DEPLOY_ENV: GH_PAGES
+  ROUTER_BASE: /vlife-blog/
+
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
@@ -36,7 +40,10 @@ jobs:
         with:
           lfs: true
 
+      - run: test -d src/outsides/asciidocs/source
+        continue-on-error: true
       - name: pull article branche
+        if: failure()
         run: git clone -b orphan/article --depth 1 https://github.com/akiakishitai/vlife-blog.git src/outsides/asciidocs
 
       - name: checkout lfs objects
@@ -71,8 +78,13 @@ jobs:
       - name: compile scss
         run: yarn sass-build
 
+      - name: output licences
+        run: yarn license-file
+
       - name: generate
-        run: yarn deploy
+        run: yarn generate
+        env:
+          NODE_ENV: production
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
