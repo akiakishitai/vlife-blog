@@ -164,7 +164,6 @@ export default class ArticlePosted
    * よってこれを修正する。
    */
   get fixInternalLink() {
-    // URL のプロパティがブラウザ側で使えない…？
     const url = this.currentFullPath.split('/')
     const parent = url[0] + '//' + url.slice(2, -1).join('/')
 
@@ -172,7 +171,7 @@ export default class ArticlePosted
     const hashPattern = new RegExp('(<a [^>]*href=")(#[^"]*)("[^>]*>)', 'g')
     const ast = this.posted.rendered.replace(
       hashPattern,
-      `$1${this.currentFullPath}$2$3`
+      `$1${new URL(this.currentFullPath).pathname}$2$3`
     )
 
     // サイト内遷移
