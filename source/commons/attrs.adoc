@@ -3,7 +3,7 @@
 // tag::images[]
 :imagesdir: ../../../static/images
 ifdef::env-nuxt[]
-:imagesdir: /images
+:imagesdir: images
 endif::[]
 // end::images[]
 
