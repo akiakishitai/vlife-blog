@@ -1,8 +1,8 @@
-= GitHub Actions をローカルテストする
+= GitHub Actions を act でローカルテストする
 秋々すすき
-v1.0, 2020-11-02
+v1.1, 2020-11-05
 :created_at: 2020-11-02
-:tags: github, github-actions
+:tags: github, github-actions, act
 :toc: left
 :toc-title: 目次
 :toclevels: 3
@@ -15,8 +15,9 @@ https://github.co.jp/features/actions[_GitHub Actions_] は便利。
 
 できればローカル上で _GitHub Actions_ をテストしたい！
 
-ということで `act` を導入してローカル上でテストできるようにする。
+ということで https://github.com/nektos/act[act] を導入してローカル上でテストできるようにする。
 
+.環境
 [cols=",", options="header"]
 |===
 |App
@@ -31,7 +32,6 @@ https://github.co.jp/features/actions[_GitHub Actions_] は便利。
 |act
 |0.2.16
 |===
-
 
 == act とは🚀
 
@@ -80,9 +80,15 @@ curl https://raw.githubusercontent.com/nektos/act/master/install.sh | bash
 == 使い方🍣
 
 `act [event name to run] [flags]` で実行する。
-以下コマンド例。
 
-.デフォルトイベントでのアクション一覧
+=== コマンドの一例
+
+他コマンドオプションについては `act -h` または https://github.com/nektos/act/blob/master/README.md[README] を参照。
+
+.ワークフローの確認
+====
+
+.アクション一覧
 [source,bash]
 ----
 act -l
@@ -100,25 +106,42 @@ act pull_request -l
 act -n
 ----
 
+====
+
+.テストを実行
+====
+
 .テスト実行
 [source,bash]
 ----
 act
 ----
 
-.ジョブ名を指定して実行
+.コンテナを再利用してテスト
 [source,bash]
 ----
-act -j testjob
+act -r
 ----
 
-.Secret変数を指定して実行
+.イベントを指定してテスト
+[source,bash]
+----
+act workflow_dispatch
+----
+
+.ジョブ名を指定してテスト
+[source,bash]
+----
+act -j JOB_NAME
+----
+
+.Secret変数を指定してテスト
 [source,bash]
 ----
 act -s MY_SECRET=something
 ----
 
-他コマンドオプションについては `act -h` または https://github.com/nektos/act/blob/master/README.md[README] を参照。
+====
 
 === act の設定ファイル
 
@@ -127,11 +150,13 @@ act -s MY_SECRET=something
 オプションは `./.actrc` または `~/.actrc` 設定ファイルに記述しておくことができる。
 +
 .`.actrc` ファイルの例
+====
 [source,ini]
 ----
 # runnerイメージを変更
 -P ubuntu-18.04=node:12-buster
 ----
+====
 
 * 環境変数
 +
@@ -198,12 +223,14 @@ act -P ubuntu-18.04=node:12-buster
 実際の _GitHub Actions_ では省略しても大丈夫だが、`act` で省略すると判定してくれない場合があるっぽい。
 
 .`act` で動作するif文の例
+====
 [source,yaml]
 ----
 - name: install
   if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
   run: yarn install
 ----
+====
 
 == おわりに🐾
 
