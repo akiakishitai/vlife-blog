@@ -10,7 +10,7 @@
 
       <text-field
         class="mt-6"
-        label="e-mail（送信用）"
+        label="e-mail"
         rules="required|email|max:255"
         :inputData.sync="contactData.email"
         :inputAttrs="{ name: 'e-mail', placeholder: 'example@mail.com' }"
