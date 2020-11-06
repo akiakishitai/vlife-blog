@@ -1,5 +1,12 @@
 :hardbreaks:
 
+// tag::kroki[]
+//:kroki-server-url: https://kroki.io
+ifdef::env-nuxt[]
+:kroki-default-options: inline
+endif::[]
+// end::kroki[]
+
 // tag::images[]
 :imagesdir: ../../../static/images
 ifdef::env-nuxt[]
