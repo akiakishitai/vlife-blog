@@ -73,6 +73,9 @@ table.tableblock,
     @apply text-primary-dark;
   }
 }
+.ulist > .title {
+  @apply mt-4;
+}
 
 /* Table of Contents */
 @media screen and (max-width: 47.999rem) {
@@ -182,7 +185,8 @@ table.tableblock,
   @apply flex justify-center;
 
   table {
-    @apply w-11/12;
+    @apply w-full;
+    @apply table-fixed;
     @apply shadow-md;
   }
 
@@ -190,7 +194,7 @@ table.tableblock,
     @apply border-l-4;
     @apply font-semibold;
     @apply px-2;
-    @apply w-16;
+    @apply w-12;
 
     .title {
       @extend %material-icon-prefix;
@@ -269,6 +273,13 @@ span.image > img {
   &[src^="https://cdn.jsdelivr.net/npm/simple-icons"]
   {
     @apply align-baseline;
+  }
+}
+
+/* Imageblock with kroki */
+.imageblock.kroki {
+  svg {
+    @apply max-w-full;
   }
 }
 

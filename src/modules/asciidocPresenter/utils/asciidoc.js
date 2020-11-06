@@ -2,11 +2,14 @@
 
 import { basename } from 'path'
 import Processor from '@asciidoctor/core'
+import kroki from 'asciidoctor-kroki'
 
 /**
  * @type {import('@asciidoctor/core').Asciidoctor} Asciidoctor API
  */
 const processor = Processor()
+// kroki拡張機能
+kroki.register(processor.Extensions)
 
 /**
  * AsciiDoc を解析して {@link import('./models').AsciidocParsed} に変換した値について、必須の値が設定されているかどうかを検証。
