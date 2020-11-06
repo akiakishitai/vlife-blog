@@ -72,7 +72,10 @@ const conf = {
       '@/modules/asciidocPresenter',
       {
         source: 'outsides/asciidocs/source',
-        processorOptions: { safe: 'server', attributes: { 'env-nuxt': true } },
+        processorOptions: {
+          safe: 'server',
+          attributes: { 'env-nuxt': true, 'allow-uri-read': '' },
+        },
       },
     ],
   ],

@@ -276,6 +276,13 @@ span.image > img {
   }
 }
 
+/* Imageblock with kroki */
+.imageblock.kroki {
+  svg {
+    @apply max-w-full;
+  }
+}
+
 /* Video Block */
 .videoblock {
   > .content {
