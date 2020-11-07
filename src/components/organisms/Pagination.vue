@@ -12,12 +12,14 @@
       <component
         v-bind:is="injections.components.LinkButtonPagination"
         v-bind:disabled="props.paging.current == 1"
-        v-bind:href="$options.methods.pager(props.route, props.paging.current - 1)"
+        v-bind:href="
+          $options.methods.pager(props.route, props.paging.current - 1)
+        "
         mode="prev"
       />
     </li>
     <li
-      v-for="(item, index) in (props.paging.pages)"
+      v-for="(item, index) in props.paging.pages"
       v-bind:key="index"
       class="ml-2"
       v-bind:data-action="`move-${item}`"
@@ -26,14 +28,16 @@
         v-bind:is="injections.components.LinkButtonPagination"
         v-bind:disabled="props.paging.current == item"
         v-bind:href="$options.methods.pager(props.route, item)"
-        v-bind:mode="{page: item}"
+        v-bind:mode="{ page: item }"
       />
     </li>
     <li class="flex ml-2" data-action="next">
       <component
         v-bind:is="injections.components.LinkButtonPagination"
         v-bind:disabled="props.paging.current == props.paging.pages.length"
-        v-bind:href="$options.methods.pager(props.route, props.paging.current + 1)"
+        v-bind:href="
+          $options.methods.pager(props.route, props.paging.current + 1)
+        "
         mode="next"
       />
     </li>
@@ -41,7 +45,9 @@
       <component
         v-bind:is="injections.components.LinkButtonPagination"
         v-bind:disabled="props.paging.current == props.paging.pages.length"
-        v-bind:href="$options.methods.pager(props.route, props.paging.pages.length)"
+        v-bind:href="
+          $options.methods.pager(props.route, props.paging.pages.length)
+        "
         mode="last"
       />
     </li>
@@ -52,6 +58,7 @@
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { Paging } from '@/models'
 import LinkButtonPagination from '../molecules/LinkButtonPagination.vue'
+import { encodePathURI } from '~/helpers/functions'
 
 @Component({
   inject: {
@@ -77,10 +84,21 @@ export default class Pagination extends Vue {
    * ページ移動先URLを返す。
    */
   pager(route: string, page: number): string {
-    return `${route}?page=${page}`
+    // クエリパラメータを考慮する
+    const spliting = route.split('?')
+    const path = spliting[0]
+    const query = spliting[1]?.replace(/\s+/, '+')
+
+    const params = new URLSearchParams(query)
+    // 既存の page クエリは削除して置き換える
+    if (params.has('page')) {
+      params.delete('page')
+    }
+    params.append('page', page.toString())
+
+    return `${path}?${params.toString()}`
   }
 }
 </script>
 
-<style>
-</style>
+<style></style>

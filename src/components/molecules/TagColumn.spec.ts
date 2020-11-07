@@ -23,6 +23,9 @@ describe('TagColumn', () => {
           },
         },
       },
+      stubs: {
+        NuxtLink: true,
+      },
     })
 
   test('display tags to list', () => {

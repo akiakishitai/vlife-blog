@@ -9,11 +9,11 @@
         v-for="(item, index) in notDebugContents"
         v-bind:key="index"
       >
-        <OverviewArticle v-bind:content="item" v-bind:route="postRoute" />
+        <OverviewArticle v-bind:content="item" v-bind:route="route.post" />
       </li>
     </ul>
     <div class="opacity-75 hover:opacity-100 sticky bottom-0 py-4 mt-6">
-      <Pagination v-bind:paging="paging" v-bind:route="postRoute" />
+      <Pagination v-bind:paging="pager" v-bind:route="route.pagination" />
     </div>
   </div>
 </template>
@@ -35,19 +35,28 @@ type PostOverview = TopPageProps.PostOverview
     Pagination,
   },
 })
-export default class TopPage extends mixins(DebugMixin)
+export default class TopPage
+  extends mixins(DebugMixin)
   implements TopPageProps.ContentsProp, TopPageProps.PaginationProp {
   @Prop({ required: true }) contents!: PostOverview[]
 
-  @Prop({ required: true }) paging!: Paging
+  @Prop({ required: true }) pageIndex!: { num: number; total: number }
 
-  @Prop({ required: true }) postRoute!: string
+  @Prop({ required: true }) route!: { pagination: string; post: string }
 
   /**
    * デバッグ用以外の `contents` を返す。
    */
   get notDebugContents(): PostOverview[] {
     return this.contents.filter((x) => !this.isDebug(x.tags))
+  }
+
+  get pager(): Paging {
+    return {
+      // 1 以上 total 以下の数値
+      current: Math.min(Math.max(this.pageIndex.num, 1), this.pageIndex.total),
+      pages: [...new Array(this.pageIndex.total)].map((_, i) => i + 1),
+    }
   }
 }
 </script>

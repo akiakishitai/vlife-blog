@@ -2,7 +2,7 @@
   <div class="pb-6">
     <HeadingLevel v-bind:value="headingLevel" />
     <div class="mt-4">
-      <TagColumn v-bind:tags="tags" v-on:click="onClickTag" />
+      <TagColumn v-bind:tags="tags" />
       <DatesDisplay
         class="flex justify-end"
         v-bind:item="article | dateFormats"
@@ -153,7 +153,7 @@ export default class ArticlePosted
   get tags(): ArticleTag[] {
     return this.article.tags.map((tag) => ({
       name: tag,
-      value: `/search/${tag}`,
+      value: tag,
     }))
   }
 
@@ -182,19 +182,6 @@ export default class ArticlePosted
     const body = ast.replace(internal, `$1${parent}/$2$3`)
 
     return body
-  }
-
-  /**
-   * タグをクリックしたときに実行する関数。
-   *
-   * タグ検索のページに移動させる。
-   *
-   * ToDo
-   */
-  onClickTag(value: any) {
-    //this.$router.push(value)
-
-    console.log('Sorry, not implements.')
   }
 }
 </script>

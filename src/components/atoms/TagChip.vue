@@ -3,7 +3,6 @@
     class="mdc-chip"
     v-bind:class="[data.class, data.staticClass]"
     role="row"
-    v-on:click="$options.methods.maybeDo(listeners.click, props.value)"
   >
     <div class="mdc-chip__ripple"></div>
     <i class="material-icons mdc-chip__icon mdc-chip__icon--leading" role="cell"
