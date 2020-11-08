@@ -99,7 +99,12 @@
       "NOTES_ROOT": "/workspaces/notes"
     }
   },
-  "runArgs": ["--group-add=0"],
+  "runArgs": [
+    "--name=dev_vlife",
+    "--group-add=0",
+    "--memory=2560m",
+    "--memory-swap=2560m"
+  ],
   // Use a named volume for your entire source tree
   // https://code.visualstudio.com/docs/remote/containers-advanced#_use-a-named-volume-for-your-entire-source-tree
   "workspaceMount": "type=volume,src=vlife-blog,dst=/workspaces/vlife-blog",
