@@ -1,0 +1,242 @@
+= Github Actions を手動実行するための workflow_dispatch イベント
+秋々すすき
+v1.0, 2020-11-13
+:created_at: 2020-11-13
+:tags: github, github-actions
+:toc: left
+:toc-title: 目次
+:toclevels: 3
+include::commons/attrs.adoc[]
+
+== はじめに
+
+=== やりたいこと💭
+
+`orphan` ブランチの更新に合わせて `main` ブランチのワークフローを実行させたい。
+
+.やりたいことのイメージ
+[plantuml,wish]
+....
+actor User
+
+User -x GitHub: push orphan branch
+activate GitHub
+  GitHub -> OrphanAction: "push" event
+  activate OrphanAction
+    OrphanAction -x MainAction: trigger event
+    activate MainAction
+    GitHub <-- OrphanAction : exit
+  deactivate OrphanAction
+
+  MainAction -> MainAction: working...
+  MainAction --> GitHub: exit
+  deactivate MainAction
+deactivate GitHub
+....
+
+=== やったこと💪
+
+[plantuml, doit, svg]
+....
+@startuml
+|mainブランチ|
+start
+
+fork
+  :ワークフローで
+  workflow_dispatchイベント
+  をトリガーするよう追記;
+  note right
+  on:
+    workflow_dispatch:
+  end note
+  :リポジトリにpush;
+fork again
+  :個人アクセストークンを作成;
+  :Secretに登録;
+end fork
+
+|orphanブランチ|
+:ワークフロー・ファイル作成;
+:main.yamlに
+workflow_dispatchイベントを
+送信するstepを作成;
+note right
+steps:
+  - run: curl -X POST ...
+end note
+:リポジトリにpush;
+
+stop
+@enduml
+....
+
+簡単にできた😊。
+
+== 方法について🍣
+
+=== ワークフローの手動実行
+
+ここでの手動実行とは、_GitHub_ 上から実行したり _REST API_ から実行したりすること。
+今回は他ワークフローを呼び出したいので、_REST API_ から実行することを目指す。
+
+ワークフロー・イベントを次のどちらかに指定しておけば _REST API_ からそのイベントを受信できる。
+
+.手動実行が可能となるイベント
+[cols="1,2"]
+|===
+|イベント |特徴
+
+| **`workflow_dispatch`**
+|特定（単一）のワークフローを実行する
+ブランチやタグの指定も可能
+
+|`repository_dispatch`
+|複数のワークフローを実行する
+カスタムイベントやイベント型を作成可能
+|===
+
+他のワークフローを呼び出す目的には `workflow_dispatch` イベントが必要十分。
+
+=== `workflow_dispatch` イベント
+
+特定のワークフローを実行するために使われるイベント。
+イベント発行時にブランチやタグの指定が可能。
+
+デフォルト入力値やプロパティの定義は `github.event.inputs` コンテキストで設定可能。
+
+**_REST API_ から呼び出される** ワークフローがこのイベントをトリガーとするように指定する（今回だと `main` ブランチのワークフローに設定）。
+
+.mainブランチのワークフロー例
+====
+..github/workflows/main.yaml
+[source,yaml]
+----
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # <1>
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - run: ...
+----
+<1> `workflow_dispatch` イベントをトリガー
+====
+
+=== REST API からイベント発行
+
+上記で編集したワークフローが手動実行できるかどうか、ローカルのシェルから試してみる。
+
+.ローカル端末からワークフローを実行
+[source,bash]
+----
+curl -X POST \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/dispatches \
+  -d '{"ref": "main"}'
+----
+
+[cols="1,4"]
+|===
+|プロパティ |説明
+
+|GITHUB_TOKEN
+|個人アクセストークン（_Personal Access Token_）。
+`repo` スコープ（プライベートリポジトリを含む）ないし
+`public_repo` スコープの許可が必要。
+
+|owner
+|リポジトリの所有者名
+
+|repo
+|リポジトリ名
+
+|workflow_id
+|イベント送信先の ワークフローID または
+ワークフローの拡張子つきファイル名（例えば `main.yaml` ）
+
+|{"ref": "..."}
+|ブランチやタグを指定する
+|===
+
+NOTE: ワークフローIDは _REST API_ から取得する必要があるため、ファイル名を指定するほうが簡単。
+
+WARNING: 個人アクセストークンは直書きせず、環境変数やパスワードマネージャーで設定する。
+
+==== 個人アクセストークン（ _Personal Access Token_ ）の作成
+:create-token: https://docs.github.com/ja/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
+:create-secret: https://docs.github.com/ja/free-pro-team@latest/actions/reference/encrypted-secrets
+
+_REST API_ を使うために作成。
+以前に作成して _Secrets_ 登録したやつがあったのでそれを使った。
+
+新規作成する場合は、下記ドキュメントを参考にする。
+
+. {create-token}[個人アクセストークンを使用する^] を参考に作成
+  * `repo` または `public_repo` スコープを許可する
+. 作成したトークンは {create-secret}[暗号化されたシークレット^] を参考にリポジトリの _Secrets_ に登録
+
+登録した _Secrets_ はワークフローにおいて `${{ secrets.XXX }}` という形で参照できる。
+
+=== 別ワークフローからイベント発行
+
+上記の `curl` コマンドをワークフロー内で実行すればいい。
+
+.`orphan` ブランチのワークフロー例
+====
+..github/workflows/orphan.yaml
+[source,yaml]
+----
+on:
+  push:
+    branches:
+      - orphan-branch
+
+env:  # <1>
+  WORKFLOW_ID: main.yml
+  DISPATCH_API: https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/$WORKFLOW_ID/dispatches
+
+jobs:
+  trigger:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: logger
+        run: echo "::debug::POST to ${{ env.DISPATCH_API }}"
+
+      - name: publish the event  # <2>
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.PERSONAL_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            ${{ env.DISPATCH_API }} \
+            -d '{"ref": "main"}'
+----
+<1> 環境変数としてURLを設定
+<2> _REST API_ から `workflow_dispatch` イベントを発行
+
+NOTE: `GITHUB_REPOSITORY` はデフォルト環境変数で、 `オーナー名/リポジトリ名` が設定されている。
+
+NOTE: `env` の変数で他の環境変数を使った場合に `steps` 内で参照するときは、
+`${{ env.XXX }}` としないとうまく環境変数を展開してくれなかった。
+
+====
+
+== おわりに😎
+
+以上で `orphan` ブランチを更新すれば `main` ブランチの _GitHub Actions_ が実行するようにできた。
+
+これで _Nuxt_ プログラムコードと記事ソースのブランチを分けて、記事だけを更新しても自動的にデプロイ用ワークフローを実行してくれるようにできた。
+おかげでブログ更新も捗る……といいな！🙄[.line-through]#進捗どうですか#。
+
+== 参考📖
+
+* https://docs.github.com/ja/free-pro-team@latest/actions/reference/events-that-trigger-workflows[ワークフローをトリガーするイベント - GitHub Docs^]
+* https://docs.github.com/en/free-pro-team@latest/rest/reference/actions#workflows[Actions#workflows - GitHub Docs^]
+* https://docs.github.com/ja/free-pro-team@latest/rest/guides/getting-started-with-the-rest-api[REST API を使ってみる - GitHub Docs^]
