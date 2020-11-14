@@ -118,15 +118,20 @@ describe('SearchPage', () => {
     })
   })
 
-  test('pageIndex', () => {
+  describe('pageIndex', () => {
     const views = new Array(41).fill({ tags: 'hoge' })
 
-    const w = factory(views, '/?page=1')
-    assertSeachPage(w.vm)
+    test.each([
+      ['/?page=1', 1, 3],
+      ['/?tags=foo&page=3', 1, 1],
+    ])('path: %s', (path, num, total) => {
+      const w = factory(views, path)
+      assertSeachPage(w.vm)
 
-    const index = w.vm.pageIndex
-    expect(index.num).toBe(1)
-    expect(index.total).toBe(3)
+      const index = w.vm.pageIndex
+      expect(index.num).toBe(num)
+      expect(index.total).toBe(total)
+    })
   })
 
   test('contentsByPage', () => {
