@@ -1,4 +1,4 @@
-name: github pages
+name: deploy
 
 on:
   push:
@@ -94,6 +94,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_branch: deploy
           publish_dir: ./dist
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'

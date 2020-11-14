@@ -1,6 +1,6 @@
 # vlife-blog
 
-![deploy](https://github.com/akiakishitai/vlife-blog/workflows/github%20pages/badge.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/189e1279-c25a-46d0-956d-27f785d3d88d/deploy-status)](https://app.netlify.com/sites/vlike-vlife/deploys)
+![deploy](https://github.com/akiakishitai/vlife-blog/workflows/deploy/badge.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/189e1279-c25a-46d0-956d-27f785d3d88d/deploy-status)](https://app.netlify.com/sites/vlike-vlife/deploys)
 
 > Generate a static site with Nuxt.js
 
