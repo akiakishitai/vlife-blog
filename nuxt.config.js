@@ -13,7 +13,7 @@ const conf = {
    */
   env: {
     NUXT_ENV_BASEURL: join(
-      isDeploy ? 'https://akiakishitai.github.io' : 'http://localhost:3000',
+      isDeploy ? 'https://vlike-vlife.netlify.app' : 'http://localhost:3000',
       routerBase
     ),
   },
@@ -24,7 +24,7 @@ const conf = {
    */
   head: {
     title: process.env.npm_package_name || '',
-    titleTemplate: '%s - Vがある生活',
+    titleTemplate: '%s - Vがいる日々',
     htmlAttrs: {
       lang: 'ja',
     },
