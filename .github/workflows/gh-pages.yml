@@ -14,7 +14,6 @@ on:
 
 env:
   DEPLOY_ENV: GH_PAGES
-  ROUTER_BASE: /vlife-blog/
 
 jobs:
   build-deploy:

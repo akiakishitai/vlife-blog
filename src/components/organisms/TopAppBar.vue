@@ -4,7 +4,7 @@
       <div
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
       >
-        <nuxt-link class="mdc-top-app-bar__title" to="/">Vがある生活</nuxt-link>
+        <nuxt-link class="mdc-top-app-bar__title" to="/">Vがいる日々</nuxt-link>
       </div>
       <nav class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
         <ul class="flex">

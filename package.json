@@ -8,7 +8,7 @@
     "analyze": "yarn build --analyze && yarn run webpack-bundle-analyzer .nuxt/stats/client.json .nuxt/dist/client --port 8888 --report .nuxt/stats/client.html --no-open",
     "build": "nuxt-ts build",
     "deploy": "yarn license-file && env DEPLOY_ENV=GH_PAGES NODE_ENV=production nuxt-ts generate",
-    "dev": "env ROUTER_BASE=/vlife-blog/ nuxt-ts",
+    "dev": "nuxt-ts",
     "fmt": "yarn prettier --config .prettierrc.yml --write '**/*.{js,ts,vue,json}'",
     "generate": "NODE_ENV=production nuxt-ts generate",
     "license-file": "mkdir -p src/static/txt && yarn licenses generate-disclaimer --ignore-platform > src/static/txt/thirdparty_license.txt",
