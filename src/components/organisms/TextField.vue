@@ -85,7 +85,7 @@ export default class TextField extends Vue {
   /**
    * ValidationProvider のルール
    */
-  @Prop({ required: true }) rules!: string
+  @Prop({ required: false }) rules?: string
 
   /**
    * 入力値

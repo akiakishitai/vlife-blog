@@ -1,4 +1,3 @@
-import { Paging } from '../paging'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
 
 /**
@@ -28,12 +27,15 @@ export interface ContentsProp {
  */
 export interface PaginationProp {
   /**
-   * 現在ページとすべてのページ番号を格納。
+   * 現在ページと全ページ総数を格納。
    */
-  paging: Paging
+  pageIndex: { num: number; total: number }
 
-  /**
-   * 記事ページのルートパス。
-   */
-  postRoute: string
+  /** URLパス */
+  route: {
+    /** ページネーション用のbase相対パス */
+    pagination: string
+    /** 記事ページのbase相対パス */
+    post: string
+  }
 }
