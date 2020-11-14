@@ -7,7 +7,7 @@
         title="お客様から取得する情報"
         v-bind:items="items.collection"
       >
-        <p>Vがある生活（以下当サイト）は、お客様から以下の情報を取得します。</p>
+        <p>Vがいる日々（以下当サイト）は、お客様から以下の情報を取得します。</p>
       </policy-section>
       <policy-section
         class="purpose-of-use"
@@ -103,7 +103,7 @@
       </policy-section>
       <div class="mt-12">
         <div>制定日: 2020年10月18日</div>
-        <div>最終改定日: 2020年10月31日</div>
+        <div>改定日: 2020年10月31日 - 問い合わせ先の変更</div>
       </div>
 
       <div class="generated text-right mt-6">
