@@ -19,7 +19,7 @@
 
     <!-- タグ一覧 -->
     <div class="inline-flex relative z-10 mt-4">
-      <TagColumn v-bind:tags="propTags(content)" />
+      <tag-column v-bind:tags="propTags(content)" />
     </div>
   </div>
 </template>

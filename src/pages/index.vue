@@ -1,22 +1,18 @@
 <template>
-  <TopPage
-    v-bind:contents="contents"
-    v-bind:paging="paging"
-    v-bind:postRoute="route"
-  >
+  <top-page :contents="contents" :pageIndex="pageIndex" :route="route">
     <template v-slot:preamble>
-      <div v-if="paging.current === 1" class="mb-6">
+      <div v-if="isFirstPage" class="mb-6">
         <span>Vtuberさんの感想とかプログラミングのメモとか書くブログ。</span>
       </div>
     </template>
-  </TopPage>
+  </top-page>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { join } from 'path'
 import TopPage from '../components/templates/TopPage.vue'
-import { PagingContent, PostFile } from '@/models'
+import { PagingContent, PostFile, TopPageProps } from '@/models'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
 
 @Component({
@@ -24,20 +20,21 @@ import { AsciidocParsed } from '~/modules/asciidocPresenter'
   // クエリパラメータでページネーション
   async asyncData(
     ctx
-  ): Promise<PagingContent<Omit<AsciidocParsed, 'rendered'>>> {
-    // 1ページあたりの表示件数
-    const count = 20
-
-    const page = ctx.query.page?.toString() ?? '1'
-    const contents = await ctx.app.$asciidoc.filesByPage(parseInt(page, 10))
+  ): Promise<TopPageProps.ContentsProp & TopPageProps.PaginationProp> {
+    const page = parseInt(ctx.query.page?.toString() ?? '1', 10)
+    const contents = await ctx.app.$asciidoc.filesByPage(page)
+    const postRoute = join(ctx.route.path, 'posts')
 
     return {
       contents: contents.overviews,
-      paging: {
-        current: contents.paging.current,
-        pages: [...new Array(contents.paging.total)].map((_, i) => i + 1),
+      pageIndex: {
+        num: contents.paging.current,
+        total: contents.paging.total,
       },
-      route: join(ctx.route.path, 'posts'),
+      route: {
+        pagination: postRoute,
+        post: postRoute,
+      },
     }
   },
   components: {
@@ -49,7 +46,13 @@ import { AsciidocParsed } from '~/modules/asciidocPresenter'
     }
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  pageIndex = { num: 1, total: 1 }
+
+  get isFirstPage() {
+    return this.pageIndex.num === 1
+  }
+}
 </script>
 
 <style lang="scss">

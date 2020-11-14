@@ -3,9 +3,8 @@ import TopPage from './TopPage.vue'
 import { TopPageProps } from '../../models'
 
 describe('TopPage', () => {
-  const createProps = (
-    content?: Record<string, unknown>
-  ): TopPageProps.ContentsProp & TopPageProps.PaginationProp => {
+  type TopPageProperty = TopPageProps.ContentsProp & TopPageProps.PaginationProp
+  const createProps = (content?: Record<string, unknown>): TopPageProperty => {
     return {
       contents: [
         {
@@ -16,11 +15,14 @@ describe('TopPage', () => {
           ...content,
         },
       ],
-      paging: {
-        current: 2,
-        pages: [1, 2, 3, 4, 5, 6],
+      pageIndex: {
+        num: 2,
+        total: 6,
       },
-      postRoute: '/posts',
+      route: {
+        pagination: '/hoge/foo',
+        post: '/posts',
+      },
     }
   }
 
@@ -49,5 +51,55 @@ describe('TopPage', () => {
       propsData: createProps({ tags: ['draft', 'hoge', 'foo'] }),
     })
     expect(instance.notDebugContents.length).toBe(0)
+  })
+
+  test('route path', () => {
+    const prop = createProps()
+    const w = shallowMount(TopPage, {
+      propsData: prop,
+      stubs: {
+        OverviewArticle: true,
+        Pagination: true,
+      },
+    })
+
+    expect(w.find('overviewarticle-stub').attributes().route).toBe(
+      prop.route.post
+    )
+    expect(w.find('pagination-stub').attributes().route).toBe(
+      prop.route.pagination
+    )
+  })
+
+  describe('pager', () => {
+    function pagerFactory(props: TopPageProperty) {
+      const w = shallowMount(TopPage, {
+        propsData: props,
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return (w.vm as any).pager
+    }
+
+    test('normal', () => {
+      expect(pagerFactory(createProps())).toEqual({
+        current: 2,
+        pages: [1, 2, 3, 4, 5, 6],
+      })
+    })
+
+    test.each([
+      [
+        { num: 7, total: 2 },
+        { current: 2, pages: [1, 2] },
+      ],
+      [
+        { num: -3, total: 5 },
+        { current: 1, pages: [1, 2, 3, 4, 5] },
+      ],
+    ])('irregular', (obj, expected) => {
+      expect(pagerFactory({ ...createProps(), pageIndex: obj })).toEqual(
+        expected
+      )
+    })
   })
 })
