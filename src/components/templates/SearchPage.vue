@@ -63,9 +63,11 @@ export default class SearchPage extends Vue implements search.SearchProp {
   }
 
   get pageIndex(): { num: number; total: number } {
+    const total = Math.ceil(Math.max(this.matchPages.length, 1) / pagePostCount)
+
     return {
-      num: pageNumber(this.$route.query.page?.toString()),
-      total: Math.ceil(this.matchPages.length / pagePostCount),
+      num: Math.min(pageNumber(this.$route.query.page?.toString()), total),
+      total,
     }
   }
 
