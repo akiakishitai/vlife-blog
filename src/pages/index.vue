@@ -43,6 +43,13 @@ import { AsciidocParsed } from '~/modules/asciidocPresenter'
   head: () => {
     return {
       title: 'Home',
+      meta: [
+        {
+          name: 'google-site-verification',
+          content: 'kvmP84hGKCFAytrygXPyfzJ_V9LGD0N2t4O8UVMBsBw',
+          hid: 'google-site-verification',
+        },
+      ],
     }
   },
 })

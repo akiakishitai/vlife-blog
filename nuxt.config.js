@@ -6,16 +6,19 @@ const routerBase =
   process.env.ROUTER_BASE != null ? process.env.ROUTER_BASE : '/'
 const isDeploy = process.env.DEPLOY_ENV === 'GH_PAGES'
 
+/** デプロイ先のホスト */
+const host = join(
+  isDeploy ? 'https://vlike-vlife.netlify.app' : 'http://localhost:3000',
+  routerBase
+)
+
 /** @type {import('@nuxt/types').NuxtConfig} */
 const conf = {
   /**
    * Environment variables
    */
   env: {
-    NUXT_ENV_BASEURL: join(
-      isDeploy ? 'https://vlike-vlife.netlify.app' : 'http://localhost:3000',
-      routerBase
-    ),
+    NUXT_ENV_BASEURL: host,
   },
   ssr: true,
   target: 'static',
@@ -78,11 +81,21 @@ const conf = {
         },
       },
     ],
+    [
+      '@/modules/routesGenerator',
+      {
+        dynamicRoot: ['/posts'],
+        excludes: ['/posts', '/posts/demo'],
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/http'],
+  modules: [
+    '@nuxt/http',
+    '@nuxtjs/sitemap', // 最後に追加する
+  ],
   /**
    * @nuxt/http option
    * https://http.nuxtjs.org/api/
@@ -96,6 +109,15 @@ const conf = {
    */
   googleAnalytics: {
     id: 'UA-180745818-1',
+  },
+  /**
+   * @nuxtjs/sitemap option
+   * https://github.com/nuxt-community/sitemap-module
+   */
+  sitemap: {
+    hostname: host,
+    gzip: true,
+    exclude: ['/secret', '/admin/**', '/license'],
   },
   /*
    ** Build configuration
