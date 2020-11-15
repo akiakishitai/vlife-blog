@@ -545,7 +545,7 @@ SOFTWARE.
 
 -----
 
-The following software may be included in this product: @nuxt/http, @nuxtjs/google-analytics, @nuxtjs/proxy. A copy of the source code may be downloaded from https://github.com/nuxt/http.git (@nuxt/http), https://github.com/nuxt-community/analytics-module.git (@nuxtjs/google-analytics), https://github.com/nuxt-community/proxy-module.git (@nuxtjs/proxy). This software contains the following license and notice below:
+The following software may be included in this product: @nuxt/http, @nuxtjs/google-analytics, @nuxtjs/proxy, @nuxtjs/sitemap. A copy of the source code may be downloaded from https://github.com/nuxt/http.git (@nuxt/http), https://github.com/nuxt-community/analytics-module.git (@nuxtjs/google-analytics), https://github.com/nuxt-community/proxy-module.git (@nuxtjs/proxy), https://github.com/nuxt-community/sitemap-module (@nuxtjs/sitemap). This software contains the following license and notice below:
 
 MIT License
 
@@ -699,7 +699,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 -----
 
-The following software may be included in this product: @types/anymatch, @types/autoprefixer, @types/body-parser, @types/browserslist, @types/compression, @types/connect, @types/etag, @types/file-loader, @types/graceful-fs, @types/http-proxy, @types/istanbul-lib-report, @types/less, @types/memory-fs, @types/normalize-package-data, @types/optimize-css-assets-webpack-plugin, @types/parse-json, @types/range-parser, @types/simple-icons, @types/source-list-map, @types/yargs-parser. A copy of the source code may be downloaded from https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/anymatch), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/autoprefixer), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/body-parser), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/browserslist), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/compression), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/connect), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/etag), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/file-loader), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/graceful-fs), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/http-proxy), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/istanbul-lib-report), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/less), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/memory-fs), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/normalize-package-data), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/optimize-css-assets-webpack-plugin), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/parse-json), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/range-parser), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/simple-icons), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/source-list-map), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/yargs-parser). This software contains the following license and notice below:
+The following software may be included in this product: @types/anymatch, @types/autoprefixer, @types/body-parser, @types/browserslist, @types/compression, @types/connect, @types/etag, @types/file-loader, @types/graceful-fs, @types/http-proxy, @types/istanbul-lib-report, @types/less, @types/memory-fs, @types/normalize-package-data, @types/optimize-css-assets-webpack-plugin, @types/parse-json, @types/range-parser, @types/sax, @types/simple-icons, @types/source-list-map, @types/yargs-parser. A copy of the source code may be downloaded from https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/anymatch), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/autoprefixer), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/body-parser), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/browserslist), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/compression), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/connect), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/etag), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/file-loader), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/graceful-fs), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/http-proxy), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/istanbul-lib-report), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/less), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/memory-fs), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/normalize-package-data), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/optimize-css-assets-webpack-plugin), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/parse-json), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/range-parser), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/sax), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/simple-icons), https://www.github.com/DefinitelyTyped/DefinitelyTyped.git (@types/source-list-map), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/yargs-parser). This software contains the following license and notice below:
 
 MIT License
 
@@ -2457,6 +2457,26 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----
+
+The following software may be included in this product: async-cache, inflight. A copy of the source code may be downloaded from git://github.com/isaacs/async-cache (async-cache), https://github.com/npm/inflight.git (inflight). This software contains the following license and notice below:
+
+The ISC License
+
+Copyright (c) Isaac Z. Schlueter
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -----
 
@@ -8194,7 +8214,7 @@ SOFTWARE.
 
 -----
 
-The following software may be included in this product: get-port-please. A copy of the source code may be downloaded from https://github.com/nuxt-contrib/get-port-please.git. This software contains the following license and notice below:
+The following software may be included in this product: get-port-please, is-https. A copy of the source code may be downloaded from https://github.com/nuxt-contrib/get-port-please.git (get-port-please), https://github.com/nuxt-contrib/is-https.git (is-https). This software contains the following license and notice below:
 
 MIT License
 
@@ -9207,26 +9227,6 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 -----
 
-The following software may be included in this product: inflight. A copy of the source code may be downloaded from https://github.com/npm/inflight.git. This software contains the following license and notice below:
-
-The ISC License
-
-Copyright (c) Isaac Z. Schlueter
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
-IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
------
-
 The following software may be included in this product: inherits. A copy of the source code may be downloaded from git://github.com/isaacs/inherits. This software contains the following license and notice below:
 
 The ISC License
@@ -10054,7 +10054,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -----
 
-The following software may be included in this product: lodash.kebabcase, lodash.memoize, lodash.sortby, lodash.toarray, lodash.uniq. A copy of the source code may be downloaded from https://github.com/lodash/lodash.git (lodash.kebabcase), https://github.com/lodash/lodash.git (lodash.memoize), https://github.com/lodash/lodash.git (lodash.sortby), https://github.com/lodash/lodash.git (lodash.toarray), https://github.com/lodash/lodash.git (lodash.uniq). This software contains the following license and notice below:
+The following software may be included in this product: lodash.kebabcase, lodash.memoize, lodash.sortby, lodash.toarray, lodash.unionby, lodash.uniq. A copy of the source code may be downloaded from https://github.com/lodash/lodash.git (lodash.kebabcase), https://github.com/lodash/lodash.git (lodash.memoize), https://github.com/lodash/lodash.git (lodash.sortby), https://github.com/lodash/lodash.git (lodash.toarray), https://github.com/lodash/lodash.git (lodash.unionby), https://github.com/lodash/lodash.git (lodash.uniq). This software contains the following license and notice below:
 
 Copyright jQuery Foundation and other contributors <https://jquery.org/>
 
@@ -15035,6 +15035,33 @@ THE SOFTWARE.
 
 -----
 
+The following software may be included in this product: sitemap. A copy of the source code may be downloaded from git://github.com/ekalinin/sitemap.js.git. This software contains the following license and notice below:
+
+(The MIT License)
+
+Copyright (c) 2011 Eugene Kalinin
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----
+
 The following software may be included in this product: slice-ansi. A copy of the source code may be downloaded from https://github.com/chalk/slice-ansi.git. This software contains the following license and notice below:
 
 MIT License
@@ -17690,6 +17717,32 @@ Apache License
       of your accepting any such warranty or additional liability.
 
    END OF TERMS AND CONDITIONS
+
+-----
+
+The following software may be included in this product: xmlbuilder. A copy of the source code may be downloaded from git://github.com/oozcitak/xmlbuilder-js.git. This software contains the following license and notice below:
+
+The MIT License (MIT)
+
+Copyright (c) 2013 Ozgur Ozcitak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 -----
 
