@@ -1,0 +1,39 @@
+= Templates Test
+
+テンプレートファイルのテスト。
+
+== タイトル2
+
+=== タイトル3
+
+==== タイトル４
+
+== listing
+
+.カスタムデータ属性
+[#listing-1.command-line]
+[source,js,data-hoge="hoge"]
+----
+const foo = "foo"
+function hoge() {
+  return 'hoge'
+}
+----
+
+[#listing-2.bash.cli]
+[source,bash,data-foo="foo",data-bar="bar"]
+----
+echo "no title"
+----
+
+[#listing-3.hoge.foo]
+----
+not source.
+----
+
+== example
+
+[attributes]
+====
+example text
+====
