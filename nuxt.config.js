@@ -119,6 +119,7 @@ const conf = {
     hostname: host,
     gzip: true,
     exclude: ['/secret', '/admin/**', '/license'],
+    xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
   },
   /*
    ** Build configuration
