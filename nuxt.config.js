@@ -1,5 +1,5 @@
 /* eslint-env node */
-import { join } from 'path'
+import { join, resolve } from 'path'
 
 // <base> 要素の基準URIを設定
 const routerBase =
@@ -77,6 +77,7 @@ const conf = {
         source: 'outsides/asciidocs/source',
         processorOptions: {
           safe: 'server',
+          template_dirs: [resolve(__dirname, 'src/helpers/asciidocTemplates')],
           attributes: { 'env-nuxt': true, 'allow-uri-read': '' },
         },
       },
@@ -118,6 +119,7 @@ const conf = {
     hostname: host,
     gzip: true,
     exclude: ['/secret', '/admin/**', '/license'],
+    xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
   },
   /*
    ** Build configuration

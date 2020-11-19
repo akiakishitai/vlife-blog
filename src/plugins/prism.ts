@@ -4,6 +4,8 @@ import { highlightAll } from 'prismjs'
 import 'prism-themes/themes/prism-material-dark.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import 'prismjs/plugins/command-line/prism-command-line'
+import 'prismjs/plugins/command-line/prism-command-line.css'
 // languages
 //import 'prismjs/components/prism-core'
 import 'prismjs/components/prism-bash'
