@@ -1,21 +1,22 @@
 = git rebase 時に "cannot lock ref 'HEAD'" エラー
-akiakiS
-v1.1, 2020-10-05
+秋々すすき
+v1.2, 2020-11-19
 :created_at: 2020-08-01
 :tags: git
 :toc: left
 :toc-title: 目次
 :toclevels: 3
-include::commons/attrs.adoc[tags=images;admonitions]
+include::commons/attrs.adoc[]
 
 == 💣 問題
 
 _fixup_ や _squash_ なコミットをまとめようと `git rebase` したときにエラー発生。
 
 .Error!
-[source,shell]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="2-4"]
 ----
-$ git rebase -i –autosquash develop
+git rebase -i –autosquash develop
 
 fatal: cannot lock ref 'HEAD': is at 5b41137 but expected c3b1c26
 Could not apply c3b1c26… COMMIT_MESSAGE
@@ -32,12 +33,13 @@ image::codepen/example.png[Git Graph]
 （例では `akiakishitai/` ）
 
 ..git/refs/heads/ 以下を探索
-[source,shell,options="data-user"]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="2-3, 5"]
 ----
-$ ls .git/refs/heads/
+ls .git/refs/heads/
 akiakishitai/  master
 
-$ ls -Al .git/refs/heads/akiakishitai/
+ls -Al .git/refs/heads/akiakishitai/
 total 0
 ----
 
@@ -48,10 +50,11 @@ total 0
 とりあえず上記の不必要な空ディレクトリを削除してから再度 `git rebase` 実行。
 
 .空ディレクトリ削除で成功
-[source,shell]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="3-7"]
 ----
-$ rmdir .git/refs/heads/akiakishitai/
-$ git rebase -i –autosquash develop
+rmdir .git/refs/heads/akiakishitai/
+git rebase -i –autosquash develop
 
 [detached HEAD 15204bc] ...
 ...

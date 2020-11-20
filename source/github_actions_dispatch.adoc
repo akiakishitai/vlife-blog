@@ -1,6 +1,6 @@
 = Github Actions を手動実行するための workflow_dispatch イベント
 秋々すすき
-v1.0, 2020-11-13
+v1.1, 2020-11-19
 :created_at: 2020-11-13
 :tags: github, github-actions
 :toc: left
@@ -134,7 +134,8 @@ jobs:
 上記で編集したワークフローが手動実行できるかどうか、ローカルのシェルから試してみる。
 
 .ローカル端末からワークフローを実行
-[source,bash]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local"]
 ----
 curl -X POST \
   -H "Authorization: token ${GITHUB_TOKEN}" \

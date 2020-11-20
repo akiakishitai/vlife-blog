@@ -1,6 +1,6 @@
 = GitHub Actions を act でローカルテストする
 秋々すすき
-v1.1, 2020-11-05
+v1.2, 2020-11-19
 :created_at: 2020-11-02
 :tags: github, github-actions, act
 :toc: left
@@ -72,7 +72,8 @@ _GitHub Actions_ をローカルで実行するコマンドツール。
 
 
 .rootユーザーでインストール
-[source,bash]
+[.no-line-numbers.command-line]
+[source,bash,data-user="root",data-host="container"]
 ----
 curl https://raw.githubusercontent.com/nektos/act/master/install.sh | bash
 ----
@@ -88,21 +89,16 @@ curl https://raw.githubusercontent.com/nektos/act/master/install.sh | bash
 .ワークフローの確認
 ====
 
-.アクション一覧
-[source,bash]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="3,6"]
 ----
+# アクション一覧
 act -l
-----
 
-.特定イベントのアクション一覧
-[source,bash]
-----
+# 特定イベントのアクション一覧
 act pull_request -l
-----
 
-.DryRun
-[source,bash]
-----
+# DryRun
 act -n
 ----
 
@@ -111,33 +107,22 @@ act -n
 .テストを実行
 ====
 
-.テスト実行
-[source,bash]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="3,6,9,12"]
 ----
+# テスト実行
 act
-----
 
-.コンテナを再利用してテスト
-[source,bash]
-----
+# コンテナを再利用してテスト
 act -r
-----
 
-.イベントを指定してテスト
-[source,bash]
-----
+# イベントを指定してテスト
 act workflow_dispatch
-----
 
-.ジョブ名を指定してテスト
-[source,bash]
-----
+# ジョブ名を指定してテスト
 act -j JOB_NAME
-----
 
-.Secret変数を指定してテスト
-[source,bash]
-----
+# Secret変数を指定してテスト
 act -s MY_SECRET=something
 ----
 
@@ -169,7 +154,8 @@ Docker コンテナ内でやる場合は _DooD（Docker outside of Docker）_ �
 （コンテナ内でのdockerパッケージは不要）
 
 .docker.sockをバインドしておく
-[source,bash]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local"]
 ----
 docker run --rm -it \
     --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
@@ -183,7 +169,8 @@ docker run --rm -it \
 `docker.sock` のパーミッションのため、コンテナ起動時に `root` グループへ所属させておく（`--group-add 0`）。
 セキュリティは低下するが、開発用でしか使わないなら許容できる。
 
-[source,bash]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local"]
 ----
 docker run --group-add 0 ...
 ----
@@ -197,7 +184,8 @@ docker run --group-add 0 ...
 よってコンテナ内のユーザーが `root` 以外の場合はパーミッションを修正する必要がある。
 
 .Windowsホストからパーミッションを修正
-[source,powershell]
+[.no-line-numbers.command-line]
+[source,powershell,data-prompt="PS >"]
 ----
 docker exec CONTAINER_NAME chmod 660 /var/run/docker.sock
 ----
@@ -212,7 +200,8 @@ docker exec CONTAINER_NAME chmod 660 /var/run/docker.sock
 
 代替として、一通りのコマンドが揃っている _node:12-buster_ イメージを使うといい。
 
-[source,bash]
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local"]
 ----
 act -P ubuntu-18.04=node:12-buster
 ----
