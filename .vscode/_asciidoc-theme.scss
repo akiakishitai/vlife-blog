@@ -1,2 +1,14 @@
-@use '../src/assets/css/post/post-body';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+@import '../src/assets/css/post/post-body';
+
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/line-numbers/prism-line-numbers.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/command-line/prism-command-line.min.css');
+
+body {
+  background-color: whitesmoke;
+  color: rgba($color: black, $alpha: 0.87);
+}
