@@ -1,0 +1,45 @@
+{%- macro generateId(id) -%}
+  tag:{{ id.domain }},{{ id.date }}:{{ id.uri }}
+{%- endmacro -%}
+
+{# atom:author 要素 #}
+{% macro author(item) -%}
+  <author><name>{{ item.name }}</name>
+    {%- if item.uri != null -%}
+      <uri>{{ item.uri }}</uri>
+    {%- endif -%}
+    {%- if item.email != null -%}
+      <email>{{ item.email }}</email>
+    {%- endif -%}
+  </author>
+{%- endmacro %}
+
+{# Atomフィードのテンプレート #}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
+
+  <title>{{ feed.title }}</title>
+  <link rel="self" href="{{ feed.url }}" />
+  <updated>{{ feed.updated }}</updated>
+  <id>{{ generateId(feed.id) }}</id>
+  {{ author(feed.author) if feed.author != null }}
+
+{%- for item in feed.entries %}
+  <entry>
+    <title>{{ item.title }}</title>
+    <link rel="alternate" href="{{ item.url }}" />
+    <updated>{{ item.updated }}</updated>
+    <id>{{ generateId(item.id) }}</id>
+    {{ author(item.author) if item.author != null }}
+
+    {% if item.summary != null -%}
+      <summary>{{ item.summary }}</summary>
+    {%- endif %}
+
+    {% if item.published != null -%}
+      <published>{{ item.published }}</published>
+    {%- endif %}
+  </entry>
+{%- endfor %}
+
+</feed>

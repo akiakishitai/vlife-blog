@@ -1,6 +1,6 @@
 <template>
   <footer class="footerbar">
-    <ul class="flex justify-center">
+    <ul class="flex justify-center items-center">
       <li><nuxt-link class="p-2 block" to="/">Home</nuxt-link></li>
       <li>
         <nuxt-link class="p-2 block" to="/contact">お問い合わせ</nuxt-link>
@@ -9,6 +9,11 @@
         <nuxt-link class="p-2 block" to="/privacy-policy"
           >プライバシーポリシー</nuxt-link
         >
+      </li>
+      <li class="mx-4 absolute right-0">
+        <a class="p-2 block" href="/feeds/atom.xml" title="atom 1.0">
+          <span class="material-icons">rss_feed</span>
+        </a>
       </li>
     </ul>
   </footer>
