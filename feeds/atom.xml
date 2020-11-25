@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
+  <title>Vがいる生活</title>
+  <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
+  <updated>2020-11-25T09:25:35+00:00</updated>
+  <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
+  <author><name>秋々すすき</name></author>
+  <entry>
+    <title>Git LFS での管理を停止する</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/stop_gitlfs" />
+    <updated>2020-11-20T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2020-11-20:posts/stop_gitlfs</id>
+    <author><name>秋々すすき</name></author>
+    <published>2020-11-20T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <title>Github Actions を手動実行するための workflow_dispatch イベント</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/github_actions_dispatch" />
+    <updated>2020-11-19T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2020-11-13:posts/github_actions_dispatch</id>
+    <author><name>秋々すすき</name></author>
+    <published>2020-11-13T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <title>GitHub Actions を act でローカルテストする</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/testtool_act" />
+    <updated>2020-11-19T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2020-11-02:posts/testtool_act</id>
+    <author><name>秋々すすき</name></author>
+    <published>2020-11-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <title>git rebase 時に &quot;cannot lock ref &#39;HEAD&#39;&quot; エラー</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/fatal_cannot_lock_ref_HEAD_when_git_rebase" />
+    <updated>2020-11-19T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2020-08-01:posts/fatal_cannot_lock_ref_HEAD_when_git_rebase</id>
+    <author><name>秋々すすき</name></author>
+    <published>2020-08-01T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <title>ブログサイト作ってみた</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/introduction" />
+    <updated>2020-10-05T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2020-07-19:posts/introduction</id>
+    <author><name>akiakiS</name></author>
+    <published>2020-07-19T00:00:00+00:00</published>
+  </entry>
+</feed>
