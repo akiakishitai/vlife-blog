@@ -14,5 +14,8 @@ describe('FooterBar', () => {
     expect(wrapper.find('nuxt-link-stub[to="/privacy-policy"]').text()).toBe(
       'プライバシーポリシー'
     )
+    expect(
+      wrapper.find('li > a[href*="atom.xml"] > .material-icons').exists()
+    ).toBeTruthy()
   })
 })

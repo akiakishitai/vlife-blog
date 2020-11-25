@@ -64,6 +64,14 @@ export default Vue.extend({
           content: prop.tags.join(','),
         },
       ],
+      link: [
+        {
+          rel: 'alternate',
+          type: 'application/atom+xml',
+          href: '/feeds/atom.xml',
+          title: 'Atom 1.0',
+        },
+      ],
     }
   },
 })
