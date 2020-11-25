@@ -36,7 +36,9 @@ export default Vue.extend({
     const asciidoc = ctx.app.$asciidoc
 
     // base URL
-    const baseUrl = process.env.NUXT_ENV_BASEURL ?? 'http://localhost:3000'
+    const baseUrl = new URL(
+      process.env.NUXT_ENV_BASEURL ?? 'http://localhost:3000'
+    )
 
     return {
       posted: await asciidoc.content(ctx.params.slug),
@@ -44,7 +46,7 @@ export default Vue.extend({
         (await asciidoc.filesByPage()).overviews,
         ctx.route.path
       ),
-      currentPath: join(baseUrl, ctx.route.path),
+      currentPath: new URL(ctx.route.path.replace(/^\//, ''), baseUrl).href,
     }
   },
   mounted() {
