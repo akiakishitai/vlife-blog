@@ -7,10 +7,10 @@ const routerBase =
 const isDeploy = process.env.DEPLOY_ENV === 'GH_PAGES'
 
 /** デプロイ先のホスト */
-const host = join(
-  isDeploy ? 'https://vlike-vlife.netlify.app' : 'http://localhost:3000',
-  routerBase
-)
+const host = new URL(
+  routerBase,
+  isDeploy ? 'https://vlike-vlife.netlify.app' : 'http://localhost:3000'
+).toString()
 
 /** @type {import('@nuxt/types').NuxtConfig} */
 const conf = {
@@ -87,6 +87,23 @@ const conf = {
       {
         dynamicRoot: ['/posts'],
         excludes: ['/posts', '/posts/demo'],
+      },
+    ],
+    [
+      '@/modules/feedGenerator',
+      {
+        includes: ['/posts'],
+        excludes: ['/posts', '/posts/demo'],
+        asciidocDir: join(__dirname, 'src/outsides/asciidocs/source'),
+        feedOptions: {
+          title: 'Vがいる生活',
+          siteUrl: host,
+          domain: new URL(host).hostname,
+          domainDate: '2020-11',
+          author: {
+            name: '秋々すすき',
+          },
+        },
       },
     ],
   ],
