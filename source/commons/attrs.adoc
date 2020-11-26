@@ -8,9 +8,9 @@ endif::[]
 // end::kroki[]
 
 // tag::images[]
-:imagesdir: ../../../static/images
+:imagesdir: ../images
 ifdef::env-nuxt[]
-:imagesdir: images
+:imagesdir: _images
 endif::[]
 // end::images[]
 
