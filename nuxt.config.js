@@ -90,6 +90,13 @@ const conf = {
       },
     ],
     [
+      '@/modules/copyToDist',
+      {
+        api: '/_images',
+        dirpath: join(__dirname, 'src/outsides/asciidocs/images'),
+      },
+    ],
+    [
       '@/modules/feedGenerator',
       {
         includes: ['/posts'],
