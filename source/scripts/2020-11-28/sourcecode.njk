@@ -1,0 +1,26 @@
+{# set id and class attributes #}
+{%- macro roles(node) -%}
+  {% if node.getId() -%}
+    id="{{ node.getId() }}"
+  {%- endif %}
+    class="{{ ['listingblock', node.getRole()] | join(' ') | trim }}"
+{%- endmacro -%}
+
+{# <code> language class and attribute #}
+{%- macro language(node) -%}
+  {%- set lang = node.getAttribute('language') -%}
+  {%- if lang -%}
+    class="language-{{ lang }}"
+    data-lang="{{ lang }}"
+  {%- endif -%}
+{%- endmacro -%}
+
+{# custom data attributes #}
+{% macro customdata(attrs) -%}
+  {%- set regExp = r/^data-.*/ -%}
+  {% for key, value in attrs -%}
+    {% if regExp.test(key) -%}
+      {{ key }}="{{ value }}"
+    {% endif %}
+  {%- endfor %}
+{%- endmacro %}

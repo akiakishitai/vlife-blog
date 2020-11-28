@@ -1,0 +1,178 @@
+= AsciiDoc のテンプレートコンバーターを使ってHTML出力をカスタマイズする
+秋々すすき
+v1.0, 2020-11-28
+:created_at: 2020-11-28
+:tags: asciidoc, asciidoctor.js, nunjucks
+:toc:
+:toc-title: 目次
+:toclevels: 3
+include::commons/attrs.adoc[]
+
+== 動機🤔
+:custom-converter: link:https://asciidoctor-docs.netlify.app/asciidoctor.js/current/extend/converter/custom-converter/[カスタムコンバーター^]
+
+_AsciiDoc_ で `prism.js` の https://prismjs.com/plugins/command-line/[Command Line プラグイン^] を使ってみたかった。
+上記プラグインではカスタムデータ属性の指定が必要だが、標準の `Asciidoctor.js` では任意のカスタムデータ属性に対応していない。
+
+よって、link:https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/[テンプレートコンバーター^]を使ってカスタムデータ属性に対応したHTML出力をさせてみる。
+
+……やってみた結果としては、{custom-converter}を使うほうがよさそうだった🥺。
+
+.開発環境
+[%autowidth]
+|===
+|ツール |バージョン
+
+|Node
+|12.19.0
+
+|@asciidoctor/core
+|2.2.0
+|===
+
+=== 本記事でやったこと
+
+[plantuml, AsciidocTemplate, svg]
+....
+@startuml Asciidoc Template sample
+|shell|
+start
+
+if (テンプレートエンジン) then (無し)
+  :テンプレートエンジン
+  をインストール;
+  -> EJS,
+  Handlebars,
+  Nunjucks,
+  Pug;
+else (有り)
+endif
+
+|filesystem|
+:上書きしたいノード名の確認;
+-> seciton, image, listing,
+table, ulist, ...etc.;
+:上書するノードと同名の
+テンプレートを作成;
+
+|javascript|
+:template_dirs
+オプションを指定;
+
+:asciidoctorで
+HTML出力;
+
+stop
+@enduml
+....
+
+NOTE: _JavaScript_ の関数でもテンプレート作成できるが、今回は割愛。
+
+== テンプレート🥪
+
+HTMLコードを生成するJSテンプレートエンジン用のソースファイルを指す。
+`asciidoctor.js` の各ノード（_paragraph_ ブロックとか _table_ ブロックとか）ごとのHTML出力を、このテンプレートから生成されるHTMLコードで置き換える。
+
+[.flex.items-center.text-green-500]#pass:[<span class="material-icons">check</span>]メリット#::
+* 各ノードの出力をファイル単位で独立して記述できるので、上書きしたいノードに対してのみテンプレートを作成すればよい
+* 適用するファイルまたはディレクトリを変更するだけでHTML出力を変更できる
+
+[.flex.items-center.text-red-500]#pass:[<span class="material-icons">close</span>]デメリット#::
+* テンプレートエンジンの使い方を学習する必要がある
+* ブラウザ環境では使えない（はず）
+
+=== JSテンプレートエンジン
+
+`Asciidoctor.js` がサポートするテンプレートエンジンには `pug` や `EJS` などlink:https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/#built-in-template-engines[いくつかある^]。
+今回はそのうちの https://mozilla.github.io/nunjucks/[nunjucks^] を使ってみた。
+
+.nunjucksインストール
+[.command-line.no-line-numbers]
+[source,bash,data-user="user",data-host="local"]
+----
+yarn add nunjucks
+----
+
+ライブラリをインストールすれば、あとは自動的に `Asciidoctor.js` の方で読み込まれる。
+
+=== テンプレートの作成
+
+. テンプレートを配置するディレクトリを作成（出力時に `template_dirs` で指定）
+
+. **置き換えたいノード名と一致する名前でファイル作成**
+  ノード名の一覧は https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/#naming-convention[こちら] を参照。
++
+NOTE: たとえば置き換えたいノード名が `listing` ならば、作成するテンプレートは `listing.njk` というように同じ名前にする。
+
+. テンプレートのコードを書く
+
+***
+
+ノード名とテンプレート名を同じにすることだけ注意すれば、あとはがんばってテンプレートを書くだけ。
+
+以下はその一例で、`prism.js` の _Command Line_ プラグインに対応させるためにカスタムデータ属性の出力などを行っている。
+
+.テンプレートのサンプル
+[%collapsible]
+====
+
+.listing.njk
+[source,markup,attributes]
+----
+include::scripts/2020-11-28/listing.njk[]
+----
+
+.macros/sourcecode.njk (マクロ用ソース)
+[source,markup,attributes]
+----
+include::scripts/2020-11-28/sourcecode.njk[]
+----
+
+.safe フィルター
+NOTE: `nunjucks` では文字列を自動エスケープするが、エスケープ処理は `asciidoctor` で行いたいので停止しておく。
+
+====
+
+.node オブジェクト
+TIP: テンプレートには https://asciidoctor.github.io/asciidoctor.js/master/#abstractnode[AbstractNode^] 型の `node` オブジェクトが引数として渡される。
+テンプレート内ではこの `node` からノードのクラスや属性、テキストなどを参照する。
+
+== テンプレートを適用して出力💻
+
+CLIまたはAPIにおいて、先ほど作成したテンプレートファイルのあるディレクトリを `template_dirs` オプションで指定して呼び出す。
+
+.main.ts
+[source,ts,attributes]
+----
+import Processor from '@asciidoctor/core'
+
+const processor = Processor()
+const doc = processor.loadFile(
+  'path/to/adoc_file', { template_dirs: ['path/to/template/dir'] })
+
+console.log(doc.convert())
+----
+
+[mermaid, templateフローチャート, svg]
+....
+graph LR
+main.ts -->|call| A[asciidoctor] --> B{has template_dirs ?}
+B -->|yes| C{has template ?} -->|yes| E(template convert)
+C -->|no| D(default convert)
+
+B -->|no| D --> A
+E --> A
+A -->|convert| main.ts
+....
+
+== おわりに😎
+
+テンプレートコンバーターの使い方についてあまり情報がなくて戦々恐々としてたけど、やってみたら簡単だった。
+
+ただテンプレートエンジンの使い方も学習する必要があるのが難点。
+_JavaScript_ コードで完結する{custom-converter}のほうを使ったほうがいいかもしれない。
+
+== 参考📖
+
+* https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/[Template Converter | The Docks @ Asciidoctor^]
+* https://mozilla.github.io/nunjucks/getting-started.html[Nunjucks^]
