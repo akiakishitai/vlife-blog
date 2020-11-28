@@ -1,0 +1,14 @@
+{%- import "macros/sourcecode.njk" as func -%}
+
+<div {{ func.roles(node) }}>
+{% if node.getTitle() -%}
+  <div class="title">{{ node.getTitle() }}</div>
+{%- endif %}
+  <div class="content">
+  {% if node.getStyle() === 'source' -%}
+    <pre class="highlight {{ 'command-line' if node.getRoles().includes('command-line') -}}" {{ func.customdata(node.getAttributes()) }}><code {{ func.language(node) }}>{{ node.getContent() | safe }}</code></pre>
+  {% else -%}
+    <pre {{- func.customdata(node.getAttributes()) }}>{{ node.getContent() | safe }}</pre>
+  {%- endif -%}
+  </div>
+</div>
