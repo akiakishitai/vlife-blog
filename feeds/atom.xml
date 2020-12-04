@@ -2,9 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2020-11-28T08:03:25+00:00</updated>
+  <updated>2020-12-04T14:36:00+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>Atomフィードの書式についてのメモ</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/atomfeed_format" />
+    <updated>2020-12-04T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2020-12-04:posts/atomfeed_format</id>
+    <author><name>秋々すすき</name></author>
+    <summary>Atomフィードの書式について調べたことの備忘録。</summary>
+    <published>2020-12-04T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>AsciiDoc のテンプレートコンバーターを使ってHTML出力をカスタマイズする</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/template_converter_in_asciidoc" />
