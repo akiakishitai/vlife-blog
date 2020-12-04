@@ -1,0 +1,231 @@
+= Atomフィードの書式についてのメモ
+秋々すすき
+v1.0, 2020-12-04
+:created_at: 2020-12-04
+:tags: rss,atom,備忘録
+:toc: left
+:toc-title: 目次
+:toclevels: 3
+:summary: Atomフィードの書式について調べたことの備忘録。
+include::commons/attrs.adoc[]
+
+== はじめに📝
+
+_Google Search Console_ 登録のために調べた _Atom_ フィードの書式についての備忘録。
+
+== Atomフィードの書式例🧪
+
+[quote, 'https://www.ietf.org/rfc/rfc4287.txt[RFC 4287^]']
+____
+[source,xml,attributes]
+------
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Example Feed</title>
+  <link href="http://example.org/"/>
+  <updated>2003-12-13T18:30:02Z</updated>
+  <author>
+    <name>John Doe</name>
+  </author>
+  <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
+
+  <entry>
+    <title>Atom-Powered Robots Run Amok</title>
+    <link href="http://example.org/2003/12/13/atom03"/>
+    <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
+    <updated>2003-12-13T18:30:02Z</updated>
+    <summary>Some text.</summary>
+  </entry>
+
+</feed>
+------
+____
+
+== Atomフィードの要素について🧩
+:check: pass:[<span class="material-icons text-green-500">check</span>]
+:block: pass:[<span class="material-icons">block</span>]
+
+:atom_link: `feed` 要素において、自身のAtomフィードを表すURLリンクを1つ持つ。
+
+要素の記載順序は仕様として定義されていない。任意の順序でOK。
+
+下記はよく使いそうな要素の抜粋。
+詳細は https://tools.ietf.org/html/rfc4287[RFC 4287^] や https://www.futomi.com/lecture/japanese/rfc4287.html[日本語訳^] を参照してください。
+
+.Atomメタデータ要素
+[%autowidth,cols="<,^,^,<"]
+|===
+|要素 |feed |entry |説明
+
+|**title**
+|必須
+|必須
+|フィードやエントリの人間が読めるタイトル
+
+|**id**
+|必須
+|必須
+|永久的で完全に一意的な識別子
+
+|**updated**
+|必須
+|必須
+|フィードやエントリの（重要な）最終更新日
+_RFC 3339_ の `date-time` 形式で表記
+（例 `2020-11-22T12:30:00+09:00` ）
+
+|**author**
+|必須footnote:[子要素 `entry` の全てに設定されている場合は省略可能。]
+|必須footnote:[親要素 `feed` に設定されていれば省略可能。]
+|作成者の情報。`name` 子要素の指定が必須。
+詳細は後述。
+
+|**link**
+|推奨footnote:[{atom_link}]
+|必須
+|`href` 属性値にてWebリソースへの参照を指定
+`entry` 要素において `rel` 属性値が `alternate` のリンクが必須footnote:[`atom:content` 要素を含まない場合]
+
+|**summary**
+|{block}
+|推奨footnote:[`atom:content` 要素が無い場合は含むべき。ただし、無くてもエラーにはならない。]
+|エントリの要約や抜粋
+
+|category
+|任意
+|任意
+|フィードやエントリのカテゴリ情報
+
+|rights
+|任意
+|任意
+|権利情報
+ただし、機械的に読み取り可能なライセンス情報を伝えるために使うべきではない
+
+|icon
+|任意
+|{block}
+|フィードを象徴するアイコンへのURI
+アスペクト比1:1の小さいサイズであることが求められる
+
+|published
+|{block}
+|任意
+|エントリの作成日や利用開始日
+
+|===
+
+=== atom:id 要素について
+
+一度生成したら永久に変化しない値であることが要求される。難しい。
+https://tex2e.github.io/rfc-translater/html/rfc4151.html[The 'tag' URI Scheme^] を利用するのがよさそう。
+
+`tag:<DNS or email>,<YYYY[-MM[-DD]]>:<URI文字列>`
+
+.idの書式例
+====
+tag:example.com,2020-12-04:/blog/entry/123
+====
+
+
+=== atom:link 要素について
+
+リンクの分類によって `rel` 属性値を指定する。
+
+.よく使いそうな `rel` 属性値
+[%autowidth]
+|===
+|値 |リンク分類
+
+|`self`
+|自身のフィード・エントリと同等のリソースへのリンクである場合
+
+|`alternate`
+|自身のフィード・エントリと別バージョンのリソースへのリンクである場合。
+主にWebブラウザで表示させるコンテンツへのリンクに使われる。
+
+|`related`
+|そのフィード・エントリに関するリンクならば何でも
+|===
+
+=== atom:author 要素について
+
+.atom:author 要素の例
+[attributes]
+====
+[source,xml,attributes]
+----
+<author>
+  <name>Alice</name>
+  <uri>https://alice.blog.com</uri>
+  <email>alice@sample.mail.com</email>
+<author>
+----
+====
+
+[%autowidth,cols="^,^,<"]
+|===
+|必須 |子要素 |説明
+
+|pass:[<span class="material-icons">check</span>]
+|**name**
+|作成者名
+
+|
+|uri
+|作成者に関連したURI
+
+|
+|email
+|作成者のe-mailアドレス
+|===
+
+=== atom:updated, published 要素の日時形式について
+
+だいたい _ISO 8601_ 形式と同じ。
+
+`<YYYY-MM-DD>T<hh:mm:ss>+<hh:mm>`
+
+.日時の例
+====
+2020-12-04T12:34:56+09:00
+====
+
+
+== Atomフィードの検証🔍
+
+https://validator.w3.org/feed/[W3C Feed Validation Service^] を利用する。
+URLを指定したり直接ソースをコピペして検証できる。
+
+image:atomfeed/validation-success.png[Validation result,title="警告メッセージがまだあるけれど、エラーではないのでヨシ！"]
+
+直接ソースを書いて検証する場合、`atom:feed` 要素の `<link rel="self" href="..." />` はドキュメント自身を指定できないので必ずエラーメッセージが表示されるっぽい。
+
+== フィード配信対象のページ🏠
+
+`<head>` セクションで作成したフィードへのリンクを指定しておくと利用者にフレンドリーでいいらしい。
+（拡張機能などで簡単に購読できるようになるため）
+
+.配信対象のページ
+[source,html,attributes]
+----
+<head>
+  <link rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Your Site Name" />
+  ...
+</head>
+----
+
+== 終わりに😎
+
+以上でとりあえず _Atom_ フィードが書けるはず。
+
+`atom:id` については難しくてどうするのがベストプラクティスなのかわかんない。
+まあ、動けばいいやろの精神。_Google Search Console_ では動いた。
+
+== 参考📖
+
+* https://www.futomi.com/lecture/japanese/rfc4287.html[RFC 4287 The Atom Syndication Format 日本語訳^]
+* https://gihyo.jp/dev/feature/01/atompub/0002[第2回　AtomPubにおけるリソース操作 - CRUD：Web APIの次世代標準プロトコル「Atom Publishing Protocol」｜gihyo.jp … 技術評論社^]
+* https://tex2e.github.io/rfc-translater/html/rfc4151.html[RFC 4151 - The 'tag' URI Scheme 日本語訳^]
+* https://validator.w3.org/feed/docs/atom.html[Introduction to Atom^]
