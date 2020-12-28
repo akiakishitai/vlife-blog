@@ -1,0 +1,175 @@
+= GitHubのSuper Linterを使ってみる
+秋々すすき
+v1.0, 2020-12-28
+:created_at: 2020-12-28
+:tags: github,github-actions,linter,備忘録
+:toc: left
+:toc-title: 目次
+:toclevels: 3
+include::commons/attrs.adoc[]
+
+== はじめに📝
+
+GitHub公式の全部のせ _linter_ アクションである https://github.com/github/super-linter[_Super Linter_^] を使ってみたときのメモ。
+
+.環境
+[%autowidth]
+|===
+|Name |Version
+
+|Super Linter
+|3.14.3
+|===
+
+== 使ってみた感想🤗
+
+{advantage}::
+様々なリンターが全部つめ込まれて設定済みなので、リンターを利用するまでにかかる手間が少ない。
+迷ったらとりあえず _Super Linter_ を使ってみたらいい。
+
+{disadvantage}::
+Dockerイメージのサイズがかなり大きいため、実行開始までの時間が長い（2~3分）。
+実行結果のログ（レポート）の確認がしづらい。リポジトリの _Actions_ タブからコンソールログを見に行くか、アーティファクトとして保存したレポートを取得するか。
+
+== 設定🧪
+
+よく使いそうな設定について抜粋。
+
+.Super Linter ワークフローのサンプル
+[%collapsible]
+====
+
+[source,yaml,attributes]
+----
+name: Super-Linter
+
+on:
+  pull_request:
+
+jobs:
+  linter:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: lint
+        # ref: https://github.com/github/super-linter
+        uses: docker://github/super-linter:v3.14.3  #<1>
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # ACTIONS_RUNNER_DEBUG: true
+          DEFAULT_BRANCH: main
+          OUTPUT_FORMAT: tap
+          OUTPUT_DETAILS: detailed
+          DISABLE_ERRORS: true
+          VALIDATE_ALL_CODEBASE: true
+          # use standard.js
+          VALIDATE_JAVASCRIPT_ES: false
+          VALIDATE_TYPESCRIPT_ES: false
+
+      - name: upload reports  #<2>
+        uses: actions/upload-artifact@v2
+        with:
+          name: super-linter
+          path: super-linter.report/
+----
+<1> 時間短縮のためにビルド済みDockerイメージを利用。
+パブリックアクションを利用すると処理がDockerイメージのビルドから行われてしまう。
+<2> 出力されたレポートをアーティファクトとして保存。
+====
+
+=== 各リンターの規約設定
+
+_Super Linter_ によってデフォルト設定されているので特に設定しなくても動作する。
+
+カスタマイズしたい場合は `.github/linters/` ディレクトリ以下に各設定ファイルを配置する（ディレクトリやファイルパスは環境変数で変更可能）。
+
+.Super Linter のデフォルト設定
+NOTE: link:https://github.com/github/super-linter/tree/master/TEMPLATES[_Super Linter_ リポジトリの TEMPLATES ディレクトリ]に各設定ファイルが存在する。
+
+=== チェックする言語の選択
+
+_Super Linter_ でチェックする言語の選択には `VALIDATE_[language]` 変数を使用して制御する。
+以下のように、ちょっと特殊な動作をする。
+
+[%autowidth]
+|===
+|VALIDATE_[language] 変数 |動作
+
+|すべて指定してない（デフォルト）
+|すべての言語が有効となる。
+
+|いずれかの変数が `true`
+|**`true` に設定した言語のみが有効。**
+他の言語は無効となる。
+
+|いずれかの変数が `false`
+|**`false` に設定した言語のみが無効。**
+他の言語は有効となる。
+
+|`true` と `false` 設定が混在
+|エラー。
+|===
+
+=== レポートの出力
+
+出力させるには `OUTPUT_FORMAT` オプションを設定しておく必要があることに注意する（link:https://github.com/github/super-linter/issues/584#issuecomment-680083356[参考^]）。
+
+.レポートを出力する設定例
+[source,yaml,attributes]
+----
+- uses: docker://github/super-linter:v3.14.3
+  env:
+    OUTPUT_FORMAT: tap  #<1>
+    OUTPUT_FOLDER: super-linter.report  #<2>
+    OUTPUT_DETAILS: detailed  #<3>
+
+- uses: actions/upload-artifact@v2  #<4>
+  with:
+    name: super-linter
+    path: super-linter.report/
+----
+<1> 出力する場合には指定が**必須**。現状では指定できる値は `tap` のみ。
+<2> 出力先ディレクトリ。
+デフォルトは `super-linter.report` ディレクトリが指定されている。
+<3> レポートの詳細度。`simpler` （デフォルト）または `detailed` が指定可能。
+<4> 必要ならレポートをアーティファクトとして保存。
+
+NOTE: 出力されるレポートのファイル名は `super-linter-<LANGUAGE>.tap` となる。
+
+==== レポートについて
+
+_Super Linter_ のレポートは _tap_ (https://testanything.org[Test Anything Protocol^])形式で出力される。
+そして `message` プロパティに各 _linter_ からの出力メッセージをそのまま記述しているみたい。
+
+.出力ログの例
+[%collapsible]
+======
+[source,text,attributes]
+----
+include::scripts/github-actions/super-linter-sample.tap[]
+----
+======
+
+== トラブルシューティング🛠️
+
+=== 新規ファイルが認識されない
+
+変更ファイルのみを対象にしようとして `VALIDATE_ALL_CODEBASE: false` にした場合に発生。
+
+原因::
+_Super Linter_ は `DEFAULT_BRANCH` にチェックアウトするため、このとき新規追加ファイルはファイルシステム上から削除されてしまう。
+これにより検証がスキップされる。
+
+対策::
+新規追加ファイルも検証したいなら `VALIDATE_ALL_CODEBASE: true` にしておく。
++
+ファイルが多すぎる場合は `FILTER_REGEX_EXCLUDE` 変数や `FILTER_REGEX_INCLUDE` 変数で検証するファイルを制限する。
+もしくは _Super Linter_ を諦めて個別の _linter_ の導入を考える。
+
+== 参考📖
+
+* https://github.com/github/super-linter[github/super-linter^]
