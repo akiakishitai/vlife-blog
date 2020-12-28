@@ -23,3 +23,8 @@ endif::[]
 :warning-caption: pass:a[<span {md-class} alt="Warning" title="Warning">warning</span>]
 :!md-class:
 // end::admonitions[]
+
+// tag::words[]
+:advantage: pass:[<span class="flex items-center text-green-500"><span class="material-icons">check</span>メリット</span>]
+:disadvantage: pass:[<span class="flex items-center text-red-500"><span class="material-icons">close</span>デメリット</span>]
+// end::words[]
