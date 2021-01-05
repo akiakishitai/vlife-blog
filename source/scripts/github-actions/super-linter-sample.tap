@@ -1,0 +1,25 @@
+TAP version 13
+1..8
+ok 1 - labels.yml
+ok 2 - semantic.yml
+ok 3 - automerge.yml
+ok 4 - ci.yml
+ok 5 - create-pr.yml
+ok 6 - label-manager.yml
+ok 7 - labeler.yml
+ok 8 - linter.yml
+
+TAP version 13
+1..2
+not ok 1 - pull_request_template.md
+  ---
+  message: /github/workspace/.github/pull_request_template.md 1 MD041/first-line-heading/first-line-h1 First line in file should be a top level heading [Context  "## Proposed Changes - 変更点の要約"]\n
+  ...
+ok 2 - README.md
+
+TAP version 13
+1..1
+not ok 1 - wrong.js
+  ---
+  message: standard  Use JavaScript Standard Style (https //standardjs.com)\nstandard  Run `standard --fix` to automatically fix some problems.\n  /github/workspace/test/wrong.js  'wrong' is defined but never used.\n  /github/workspace/test/wrong.js  Missing space before function parentheses.\n  /github/workspace/test/wrong.js  Opening curly brace does not appear on the same line as controlling statement.\n  /github/workspace/test/wrong.js  Expected indentation of 2 spaces but found 16.\n  /github/workspace/test/wrong.js  'miss' is assigned a value but never used.\n  /github/workspace/test/wrong.js  Extra semicolon.\n  /github/workspace/test/wrong.js  Expected indentation of 2 spaces but found 0.\n  /github/workspace/test/wrong.js  Extra semicolon.\n  /github/workspace/test/wrong.js  Missing whitespace after semicolon.\n
+  ...
