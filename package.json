@@ -15,7 +15,8 @@
     "sass-build": "sass -I ./node_modules src/assets/css/scss/",
     "start": "nuxt start",
     "test": "jest --runInBand",
-    "test-ci": "jest --runInBand --coverage false"
+    "test-ci": "jest --runInBand --coverage false",
+    "update-articles": "git submodule update --remote --merge"
   },
   "dependencies": {
     "@asciidoctor/core": "^2.2.0",
