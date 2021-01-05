@@ -1,0 +1,114 @@
+= 「ななしふぇす どぅーいっと！」がよかったと言いたいだけの感想
+秋々すすき
+v1.0, 2020-12-21
+:created_at: 2020-12-21
+:tags: vtuber,あにまーれ,ブイアパ,シュガーリリック,ハニーストラップ,日記
+:toc: left
+:toc-title: 目次
+:toclevels: 3
+include::commons/attrs.adoc[]
+
+:774fes: link:https://774fes-doit.com[ななしふぇす どぅーいっと！^]
+
+[.text-4xl.bold]
+774inc.最高ぉぉおおおおおお！！！！
+
+.冒頭30分は無料！
+video::b-x8EhxHrEw[youtube,start=1777]
+
+2020年12月19日開催の音楽フェス「{774fes}」を見た感想ですほんとよかった。
+語彙力ないなったのでよかったとしか言わないです。よかった。
+もうほんとよかった。すき。
+
+スクリーンショットOKとのことなのでありがたく使わせていただいてます。
+
+[.quoteblock]
+--
+++++
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="ja" dir="ltr">イベントのスクショ撮影はOKでございます！！<br>たくさんツイートお願いします！！<a href="https://twitter.com/hashtag/%E3%81%AA%E3%81%AA%E3%81%97%E3%81%B5%E3%81%87%E3%81%99%E3%81%A9%E3%81%85%E3%83%BC%E3%81%84%E3%81%A3%E3%81%A8?src=hash&amp;ref_src=twsrc%5Etfw">#ななしふぇすどぅーいっと</a> <a href="https://twitter.com/hashtag/%E3%81%82%E3%81%AB%E3%81%BE%E3%83%BC%E3%82%8C%E3%81%A8%E3%81%A9%E3%81%85%E3%83%BC%E3%81%84%E3%81%A3%E3%81%A8?src=hash&amp;ref_src=twsrc%5Etfw">#あにまーれとどぅーいっと</a></p>&mdash; あにまーれ公式🍩黒猫ななし (@AniMare_cafe) <a href="https://twitter.com/AniMare_cafe/status/1340144566632996865?ref_src=twsrc%5Etfw">December 19, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+++++
+--
+
+== あにまーれと どぅーいっと！
+
+9人！
+あにまーれが！9人いて！みんなキラキラ！アイドル！！
+**あにまーれはアイドル！！！**
+
+.{774fes}
+image:vtuber/774fes-doit/animare.png[あにまーれ,width="720"]
+
+心臓止まった。
+
+== ブイアパと どぅーいっと！
+
+ゲームも歌もダンスもみんな何でもできるじゃん。
+はーいいぞもっとやれ。
+裏方にいるかのんちゃんも見える、見えるぞ！
+
+.{774fes}
+image:vtuber/774fes-doit/vapart.png[ブイアパ,width="720"]
+
+心臓止まった。
+
+== シュガリリと どぅーいっと！
+
+3人揃ってステージに立っているのを見れて嬉しい！
+かっこかわいい！
+
+.{774fes}
+image:vtuber/774fes-doit/sugarlyric.png[シュガーリリック,width="720"]
+
+心臓止まった。
+
+== ハニストと どぅーいっと！
+
+実家のような安心感。
+これが見たかったのを見れて嬉しい楽しい。
+
+.{774fes}
+image:vtuber/774fes-doit/honeystrap.png[ハニーストラップ,width="720"]
+
+心臓止まった。
+
+== スタッフさん
+
+出演者のステージを支えてくれたななしさんなどスタッフの方々もありがとうございました。
+8時間以上の長丁場、20人にも上る出演者を揃えて放送事故なしでやりきったのはすごい！
+お疲れさまでした！
+
+== 総評
+
+ほんとありがとう！Vtuberのオタクでよかった！！
+774inc.推しててよかった！！
+
+上記感想ではグループで分けてるけど、シャッフルユニットとかもあるのでこれがまたいい！
+その組み合わせ！それそれそれ！
+
+そしてMCで一息つかさずにリスナーの腹筋破壊してくるのやめてくだち！
+感動と笑いの揺れ幅大きい！
+
+あとグランドフィナーレにおける締めの挨拶の中で、あにまーれはいろいろ山あり谷ありだったのでちょっと湿っぽくなるんですけど、そこで付き合いの長いフレッシュな3人のやり取りが
+
+[.text-2xl]
+あ”っっっ
+あにまーれ好きぃいい！！！
+
+.{774fes}
+image:vtuber/774fes-doit/animare2.png[あにまーれ, width="720"]
+
+2019年のバーソーすすってた俺見てるか、これが2020年のあにまーれだ！
+
+== そしてなんと
+
+2020年12月19日の{774fes}のライブ映像がlink:https://774inc.spwn.jp/events/AniMare/goods/%E3%80%90%E6%9C%9F%E9%96%93%E9%99%90%E5%AE%9A%E5%8F%97%E6%B3%A8%E3%80%91%E3%81%AA%E3%81%AA%E3%81%97%E3%81%B5%E3%81%87%E3%81%99%20%E3%81%A9%E3%81%85%E3%83%BC%E3%81%84%E3%81%A3%E3%81%A8%EF%BC%81%20LIVE%20BD%20COMPLETE%20BOX[BDになって受注販売^]してるだって～！？
+しかも各出演者の記念グッズも販売してるんだ！！
+
+注文は2021年1月3日までに [.text-xl]#Do it!#
+
+.記念グッズの受注期間は1/3まで！
+* https://774inc.spwn.jp/events/AniMare/goods[あにまーれ^]
+* https://774inc.spwn.jp/events/HoneyStrap/goods[ハニーストラップ^]
+* https://774inc.spwn.jp/events/200415-VApArt/goods[ブイアパ^]
+* https://774inc.spwn.jp/events/SugarLyric/goods[シュガーリリック^]

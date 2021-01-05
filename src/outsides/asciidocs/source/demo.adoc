@@ -1,0 +1,490 @@
+= AsciiDoc サンプル
+akiakiS
+v1.3, 2020-08-25
+:created_at: 2020-04-11
+:tags: demo, sample, draft
+:toc:
+:toc-title: 目次
+:toclevels: 3
+
+include::commons/attrs.adoc[]
+
+ここが序文。
+
+ifdef::env-nuxt[]
+Attribute `env-nuxt` を変換オプションとして設定。
+endif::[]
+
+== 見出しレベル 2
+
+=== 見出しレベル 3
+
+==== 見出しレベル 4
+
+===== 見出しレベル 5
+
+====== 見出しレベル 6
+
+== Blocks
+
+.コメントブロック
+[]
+====
+----
+////
+コメントブロック
+////
+----
+====
+
+[pass]
+.example
+======
+----
+[example]
+====
+example here
+====
+----
+======
+
+.Quote
+[example,subs=none]
+====
+------
+[quote, attribution, cite title]
+____
+hoge
+____
+------
+====
+
+Exampleブロック内にAsciidocソースそのままを書いて表示させたい場合は、Listingブロック（`+----+`）を中で挟めばいい。
+
+.Asciidocソース表示
+[example]
+======
+------
+[example]
+====
+----
+....
+literal block
+....
+----
+====
+------
+======
+
+
+=== Code ブロック
+
+[source,ts]
+----
+const fuga = 'without filename'
+----
+
+言語名なし。
+
+[source]
+----
+const code_block;
+----
+
+==== ファイル名付き
+
+.test
+[source,ts]
+----
+const hoge = 'hoge'
+----
+
+.test2
+[data-lang="testhoge"]
+[source,ts]
+----
+const foo = 'foo'
+const fuga = 'fuga'
+----
+
+.javascript
+[source,js]
+----
+var hogehoge = '日本語test'
+console.log(hogehoge)
+----
+
+==== インライン
+
+`` ` `` で囲むと等幅テキストとなる。
+ただし通常テキストと同様の扱いのままなのでAsciiDocによって解釈される。
+
+this is `inline codde` .
+`**bold inline**`.
+
+入力そのままを出力表示するリテラルインラインコードは `` ` `` と `+` を組み合わせて使う。
+
+`+**bold inline**+`
+
+`+` を含めたい場合は `++pass:[]++` を利用。
+
+`pass:[++]`
+
+=== Substitutions
+
+ブロックや `++pass:[]++` マクロでは以下の特殊文字の置換方法を指定できる。
+
+.置換オプション
+[cols="^1s,<4"]
+|===
+|Name |Desc
+
+|none
+|Disables substitutions
+
+|normal
+|Performs all substitutions except for callouts
+
+|verbatim
+|Replaces special characters and processes callouts
+
+|specialchars, specialcharacters
+|Replaces <, >, and & with their corresponding entities
+
+|quotes
+|Applies text formatting
+
+|attributes
+|Replaces attribute references
+
+|replacements
+|Substitutes textual and character reference replacements
+
+|macros
+|Processes macros
+
+|post_replacements
+|Replaces the line break character (+)
+
+|===
+
+.ブロックでの指定
+[example]
+====
+[subs=verbatim]
+------
+[source,javascript,subs="verbatim,quotes"] // <1>
+----
+const hello = *"Hello, World!"* // <2>
+console.log(hello)
+----
+------
+<1> 特定の文字と吹き出しの置換およびテキストフォーマットを適用
+<2> `quotes` により太字に置換される
+====
+
+.Result
+[source,javascript,subs="verbatim,quotes"]
+----
+const hello = *"Hello, World!"*
+console.log(hello)
+----
+
+== 引用
+
+.Quote block syntax
+[quote, cite title]
+____
+Bob: Hey, guys!
+
+Alice: Realy?
+
+Bob: Hummn...
+
+[quote, nesting blockquote]
+______
+C: This is nesting.
+______
+
+____
+
+pass:[<br>]
+Single paragraph syntax
+
+.Asciidoc Style
+"Quated paragraph"
+-- Jhon Do, Nanika: Volume 1
+
+pass:[<br>]
+
+.Markdown Style
+> test
+> hoge
+> hogehoge
+>
+> > fuga
+> > barbar
+
+== List
+
+=== Unorder
+
+* hoge
+* foo
+** foo.1
+*** foo.2
+* fuga
+
+=== Order
+
+[arabic]
+. hoge
+. bar
+[arabic]
+.. bar.1
+[arabic]
+... bar.2
+. foo
+
+=== Description
+
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+
+[horizontal]
+.Horizontal description list
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+
+[qanda]
+.Q&A
+Q&Aの書き方は？:: これ。
+回答文を複数行でかけるの？::
+  できるよ。
+
+== Table
+
+https://asciidoctor.org/docs/user-manual/#tables[参考]
+
+[cols="<,^,>",options="header",]
+|===
+|a |b |c
+|left |center |right
+|hoge |fuga |bar
+|===
+
+== 水平線
+
+'''''
+
+[#_linked]
+== Link
+
+=== External link
+
+http://xxx.yyy.zzz.sample.com
+
+http://example.com[example]
+
+=== Internal link
+
+推奨書式: <<_linked, internal link to _linked>>
+
+Nuxt.jsの `RouterOptions.base` が HTMLの `<base>` タグを設定するため、ページ内リンクがうまく機能しない（`<base>` タグの上書きはできない）。
+Nuxt側で処理する必要がある。
+うまく処理するカスタムディレクティブを作成することを検討。
+
+=== サイト内
+
+link:/[Relative link: Top]
+
+link:page/sample.md[]
+
+== メディア
+
+=== 画像
+
+https://asciidoctor.org/docs/user-manual/#summary-2[参考]
+
+[example]
+====
+++image::photo.jpg[]++
+++image::photo.jpg[Alt text]++
+====
+
+画像ファイルのパスはドキュメントの `imagesdir` 属性を親ディレクトリとして相対パス指定。
+URLパスによる指定も可能。
+
+.画像サンプル
+[data-tooltip="サンプル画像 by GitGraph.js"]
+image::codepen/example.png[sample]
+
+=== Video
+
+video::BoZ0Zwab6Oc[youtube]
+
+== テキスト
+
+これは文章のテストです。
+
+2 行に分けて書いた場合、 このように表示されます。
+
+改行 +
+したとき
+
+=== 強調
+
+_斜体: em_
+
+*太字: strong*
+
+*_斜体＋太字_*
+
+=== 打ち消し
+
+[.line-through]*禁則事項です*
+
+=== 上付き/下付き文字
+
+`^` で囲むと上付き、`~` で囲むと下付き文字になる。
+
+[horizontal]
+上付き文字:: E = mc^2^
+下付き文字:: H~2~O
+
+=== クォーテーションマーク
+
+`'` や `"` と一緒に `` ` `` を使うと次のようになる。
+
+"`Curved quotation mark`"
+
+=== パススルー・マクロ
+
+https://asciidoctor.org/docs/user-manual/#passthroughs[参考]
+
+.パススルー
+`++pass:[]++`:: インラインマクロ。明示的に置換するオプションを指定できる。
+
+`+`:: 特殊文字のエスケープのみを行う。置換はサポートしない。
+
+`++`:: 置換はサポートしない。
+
+パススルーマクロ `pass` について、Asciidocが処理する置換オプションの指定は https://asciidoctor.org/docs/user-manual/#applying-substitutions を参考。
+
+[example]
+====
+++direct pass:none[_italic_]++
+++replace pass:q[_italic_]++
+====
+
+direct pass:none[_italic_]
+replace pass:q[_italic_]
+
+=== 数式
+
+stem:[sqrt(4) = 2]
+
+Water (stem:[H_2O]) is a critical component.
+
+== Admonitions
+
+NOTE: note
+
+TIP: tips
+
+IMPORTANT: important
+
+CAUTION: caution!
+
+WARNING: warning!
+
+[TIP]
+.Admonition block
+====
+Admonition with a caption.
+====
+
+== Callouts（吹き出し）
+
+.Asciidoc source
+[source,asciidoc]
+--
+[source,ruby]
+----
+require 'sinatra' <1>
+
+get '/hi' do <2> <3>
+  "Hello World!"
+end
+----
+<1> Library import
+<2> URL mapping
+<3> Response block
+--
+
+.Result
+[example]
+====
+[source,asciidoc]
+----
+require 'sinatra' <1>
+
+get '/hi' do <2> <3>
+  "Hello World!"
+end
+----
+<1> Library import
+<2> URL mapping
+<3> Response block
+====
+
+.Comment
+[source,asciidoc]
+----
+line of code  // <1>
+line of code  # <2> <3>
+----
+<1> Cライクなコメント
+<2> RubyやPythonなど
+<3> 他のコメント書式は https://asciidoctor.org/docs/user-manual/#copy-and-paste-friendly-callouts[リファレンス] を参照。
+
+== Sidebar
+
+.Sidebar Example
+****
+hoge
+****
+
+== 脚注
+
+hogehoge.footnote:[fuga]
+foo footnote:foo[foo id]
+
+bar footnote:foo[]
+
+== Include file
+
+.ファイル読み込み
+[example]
+====
+++include::src/sample.adoc[]++
+====
+
+.タグを指定して読み込み
+[example]
+====
+++include::src/sample.adoc[tag=hoge]++
+
+++include::src/sample.adoc[tags=foo;bar]++
+====
+
+.タグの書式
+[subs=none]
+====
+++// tag::tagname[]++
+text
+++// end::tagname[]++
+====
+

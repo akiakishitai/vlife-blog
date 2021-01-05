@@ -1,0 +1,30 @@
+:hardbreaks:
+
+// tag::kroki[]
+//:kroki-server-url: https://kroki.io
+ifdef::env-nuxt[]
+:kroki-default-options: inline
+endif::[]
+// end::kroki[]
+
+// tag::images[]
+:imagesdir: ../images
+ifdef::env-nuxt[]
+:imagesdir: _images
+endif::[]
+// end::images[]
+
+// tag::admonitions[]
+:md-class: class="material-icons cursor-default"
+:note-caption: pass:a[<span {md-class} alt="Note" title="Note">create</span>]
+:tip-caption: pass:a[<span {md-class} alt="Tip" title="Tip">info</span>]
+:important-caption: pass:a[<span {md-class} alt="Important" title="Important">stars</span>]
+:caution-caption: pass:a[<span {md-class} alt="Caution" title="Caution">local_fire_department</span>]
+:warning-caption: pass:a[<span {md-class} alt="Warning" title="Warning">warning</span>]
+:!md-class:
+// end::admonitions[]
+
+// tag::words[]
+:advantage: pass:[<span class="flex items-center text-green-500"><span class="material-icons">check</span>メリット</span>]
+:disadvantage: pass:[<span class="flex items-center text-red-500"><span class="material-icons">close</span>デメリット</span>]
+// end::words[]

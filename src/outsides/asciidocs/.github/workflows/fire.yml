@@ -1,0 +1,24 @@
+name: fire deploy event
+
+on:
+  push:
+    branches:
+      - orphan/article
+
+env:
+  WORKFLOW_ID: gh-pages.yml
+  DISPATCH_API: https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/$WORKFLOW_ID/dispatches
+
+jobs:
+  trigger:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: logger
+        run: echo "::debug::POST to ${{ env.DISPATCH_API }}"
+      - name: fire deploy event
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.PERSONAL_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            ${{ env.DISPATCH_API }} \
+            -d '{"ref": "master"}'

@@ -1,0 +1,65 @@
+= git rebase 時に "cannot lock ref 'HEAD'" エラー
+秋々すすき
+v1.2, 2020-11-19
+:created_at: 2020-08-01
+:tags: git
+:toc: left
+:toc-title: 目次
+:toclevels: 3
+include::commons/attrs.adoc[]
+
+== 💣 問題
+
+_fixup_ や _squash_ なコミットをまとめようと `git rebase` したときにエラー発生。
+
+.Error!
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="2-4"]
+----
+git rebase -i –autosquash develop
+
+fatal: cannot lock ref 'HEAD': is at 5b41137 but expected c3b1c26
+Could not apply c3b1c26… COMMIT_MESSAGE
+----
+
+ブランチのツリーは次のような状態。
+
+.ブランチツリー例
+image::codepen/example.png[Git Graph]
+
+## 🔍 原因（たぶん）
+
+なんか `.git/refs/heads/` 直下に空ディレクトリが生成されている。
+（例では `akiakishitai/` ）
+
+..git/refs/heads/ 以下を探索
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="2-3, 5"]
+----
+ls .git/refs/heads/
+akiakishitai/  master
+
+ls -Al .git/refs/heads/akiakishitai/
+total 0
+----
+
+この空ディレクトリが `HEAD` を参照するときに使われて、でも空なので代わりに `master` の方が使われる、のかなぁ？
+
+== 💪 解決
+
+とりあえず上記の不必要な空ディレクトリを削除してから再度 `git rebase` 実行。
+
+.空ディレクトリ削除で成功
+[.no-line-numbers.command-line]
+[source,bash,data-user="user",data-host="local",data-output="3-7"]
+----
+rmdir .git/refs/heads/akiakishitai/
+git rebase -i –autosquash develop
+
+[detached HEAD 15204bc] ...
+...
+ 3 files changed, 24 insertions(+), 7deletions(-)
+Successfully rebased and updated refs/heads/akiakishitai/issue123.
+----
+
+無事成功！👏
