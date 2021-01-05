@@ -1,5 +1,5 @@
 /*!
-  * vue-router v3.4.6
+  * vue-router v3.4.9
   * (c) 2020 Evan You
   * @license MIT
   */
@@ -30,7 +30,7 @@
  */
 
 /*!
- * vuex v3.5.1
+ * vuex v3.6.0
  * (c) 2020 Evan You
  * @license MIT
  */
@@ -52,8 +52,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! MIT License © Sindre Sorhus */
 
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
 /**
-  * vee-validate v3.4.3
+  * vee-validate v3.4.5
   * (c) 2020 Abdelrahman Awad
   * @license MIT
   */
