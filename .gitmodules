@@ -1,0 +1,3 @@
+[submodule "vlife-articles"]
+	path = src/outsides/asciidocs
+	url = https://github.com/akiakishitai/vlife-blog-articles
