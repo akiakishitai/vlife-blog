@@ -18,19 +18,28 @@ env:
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
+    env:
+      ARTICLE_DIR: src/outsides/asciidocs
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          token: ${{ secrets.PERSONAL_TOKEN }} # For private repository of submodules
 
-      - name: check article directory
-        id: check-article-branch
+      - name: update to latest submodules
         run: |
-          test -d src/outsides/asciidocs/source \
-            && echo "::set-output name=exist::success" \
-            || echo "::set-output name=exist::failure"
+          # echo "$CREDENTIAL_HELPER_PATH" >> $GITHUB_PATH
+          git config --global credential.helper "$CREDENTIAL_HELPER_PATH/git-credential-github-token"
+          yarn run update-articles
+        env:
+          CREDENTIAL_HELPER_PATH: ${{ env.GITHUB_WORKSPACE }}/.github/bin
+          CREDENTIAL_USERNAME: ${{ github.actor }}
+          CREDENTIAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
 
-      - name: pull article branche
-        if: ${{ steps.check-article-branch.outputs.exist == 'failure' }}
-        run: git clone -b orphan/article --depth 1 https://github.com/akiakishitai/vlife-blog.git src/outsides/asciidocs
+      #- name: check article sources
+      #  if: ${{ env.ACT }}
+      #  run: ls -al $ARTICLE_DIR && exit 1
 
       - name: setup node
         uses: actions/setup-node@v1
@@ -71,8 +80,9 @@ jobs:
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: ${{ !env.ACT }}
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: deploy
           publish_dir: ./dist
           user_name: 'github-actions[bot]'
