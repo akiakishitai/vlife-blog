@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-01-05T17:42:39+00:00</updated>
+  <updated>2021-01-06T09:31:25+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>VSCode拡張機能 Remote Containers におけるpostCreateCommandなどの実行タイミングについて</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/vscode_remote_container_command" />
+    <updated>2021-01-06T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-01-06:posts/vscode_remote_container_command</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-01-06T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>GitHubのSuper Linterを使ってみる</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/github_actions_super_linter" />
