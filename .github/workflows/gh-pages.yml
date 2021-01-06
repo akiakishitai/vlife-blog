@@ -33,7 +33,7 @@ jobs:
           git config --global credential.helper "$CREDENTIAL_HELPER_PATH/git-credential-github-token"
           yarn run update-articles
         env:
-          CREDENTIAL_HELPER_PATH: ${{ env.GITHUB_WORKSPACE }}/.github/bin
+          CREDENTIAL_HELPER_PATH: ${{ github.workspace }}/.github/bin
           CREDENTIAL_USERNAME: ${{ github.actor }}
           CREDENTIAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
 
