@@ -16,7 +16,7 @@
     "start": "nuxt start",
     "test": "jest --runInBand",
     "test-ci": "jest --runInBand --coverage false",
-    "update-articles": "git submodule update --remote --merge"
+    "update-articles": "git submodule update --remote"
   },
   "dependencies": {
     "@asciidoctor/core": "^2.2.0",
