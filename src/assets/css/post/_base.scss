@@ -98,3 +98,17 @@ pre {
   @apply relative rounded;
   @apply py-4 px-6;
 }
+
+/* 折りたたみ */
+details {
+  @apply mt-4;
+
+  & > summary {
+    @apply cursor-pointer;
+  }
+
+  & > :not(summary) {
+    @apply pl-4;
+    @apply border-grey-500 border-l-2 border-opacity-54;
+  }
+}
