@@ -54,5 +54,5 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: ['./**/*.html', './**/*.vue'],
+  purge: ['./**/*.html', './**/*.vue', './**/*.adoc'],
 }
