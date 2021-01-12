@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-01-07T07:33:10+00:00</updated>
+  <updated>2021-01-12T08:19:03+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>dotfilesにおけるfisherプラグインの管理方法について</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/dotfiles_fish_fisher" />
+    <updated>2021-01-12T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-01-12:posts/dotfiles_fish_fisher</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-01-12T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>Gitにおけるパスワード入力を省略する（Windows編）</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/git_credential_windows" />
