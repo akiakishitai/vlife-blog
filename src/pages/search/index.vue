@@ -6,6 +6,7 @@
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { SearchProp } from '~/models/vueProperties/searchPageProps'
 import SearchPage from '../../components/templates/SearchPage.vue'
+import { fullUrl } from '~/helpers/functions'
 
 @Component({
   components: {
@@ -29,6 +30,12 @@ import SearchPage from '../../components/templates/SearchPage.vue'
   head() {
     return {
       title: '検索',
+      link: [
+        {
+          rel: 'canonical',
+          href: fullUrl(this.$route.path).replace(/\/$/, ''),
+        },
+      ],
     }
   },
 })

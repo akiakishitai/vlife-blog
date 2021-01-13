@@ -10,6 +10,22 @@ export function isObject(x: unknown): x is Record<string, unknown> {
 }
 
 /**
+ * 現在ページの完全URLを返す。クエリパラメータは含まれない。
+ * 環境変数 NUXT_ENV_BASEURL に HTTPプロトコルからの FQDN（ホスト名＋ドメイン） を入力しておく。
+ * 存在しない場合は `http://localhost:3000` がデフォルトとなる。
+ *
+ * @param routePath URLのパス。
+ * @param fallbackFQDN 環境変数 `NUXT_ENV_BASEURL` が存在しない場合のフォールバック。
+ */
+export function fullUrl(
+  routePath: string,
+  fallbackFQDN = 'http://localhost:3000'
+): string {
+  const baseUrl = new URL(process.env.NUXT_ENV_BASEURL ?? fallbackFQDN)
+  return new URL(routePath.replace(/^\//, ''), baseUrl).href
+}
+
+/**
  * パスに対してURIエンコード処理を行った結果を返す。
  * 完全なURIに対してのエンコード処理は未対応。
  *
