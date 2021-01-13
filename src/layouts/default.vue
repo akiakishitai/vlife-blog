@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { redirectFromTailSlash } from '../middleware/redirect'
 import FooterBar from '../components/organisms/FooterBar.vue'
 import TopAppBar from '../components/organisms/TopAppBar.vue'
 
@@ -18,6 +19,7 @@ export default Vue.extend({
     FooterBar,
     TopAppBar,
   },
+  middleware: [redirectFromTailSlash],
 })
 </script>
 
