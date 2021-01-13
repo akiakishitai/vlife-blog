@@ -4,15 +4,24 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Context } from '@nuxt/types'
+import { MetaInfo } from 'vue-meta'
 import { SearchProp } from '~/models/vueProperties/searchPageProps'
 import SearchPage from '../../components/templates/SearchPage.vue'
+import { fullUrl } from '~/helpers/functions'
+
+type PageUrl = { pageUrl: string }
 
 @Component({
   components: {
     SearchPage,
   },
   watchQuery: ['page', 'tags'],
-  async asyncData(ctx): Promise<Pick<SearchProp, 'contents'>> {
+})
+export default class Search extends Vue {
+  async asyncData(
+    ctx: Context
+  ): Promise<Pick<SearchProp, 'contents'> & PageUrl> {
     // 全ての概要ページ
     const contents = await ctx.app.$asciidoc.filesByPage(0)
 
@@ -24,15 +33,22 @@ import SearchPage from '../../components/templates/SearchPage.vue'
 
     return {
       contents,
+      pageUrl: fullUrl(ctx.route.path),
     }
-  },
-  head() {
+  }
+
+  head(): MetaInfo {
     return {
       title: '検索',
+      link: [
+        {
+          rel: 'canonical',
+          href: this.$data.pageUrl,
+        },
+      ],
     }
-  },
-})
-export default class Search extends Vue {}
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

@@ -7,12 +7,13 @@
 </template>
 
 <script lang="ts">
+import { join } from 'path'
 import Vue, { ComponentOptions } from 'vue'
 import ArticlePosted from '@/components/templates/ArticlePosted.vue'
 import { ArticleNavigation } from '../../../models'
 import { naviFrontBack } from './asyncData'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
-import { join } from 'path'
+import { fullUrl } from '~/helpers/functions'
 
 type Property = {
   posted: AsciidocParsed
@@ -35,18 +36,13 @@ export default Vue.extend({
   async asyncData(ctx): Promise<Property> {
     const asciidoc = ctx.app.$asciidoc
 
-    // base URL
-    const baseUrl = new URL(
-      process.env.NUXT_ENV_BASEURL ?? 'http://localhost:3000'
-    )
-
     return {
       posted: await asciidoc.content(ctx.params.slug),
       navi: naviFrontBack(
         (await asciidoc.filesByPage()).overviews,
         ctx.route.path
       ),
-      currentPath: new URL(ctx.route.path.replace(/^\//, ''), baseUrl).href,
+      currentPath: fullUrl(ctx.route.path),
     }
   },
   mounted() {

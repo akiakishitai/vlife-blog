@@ -174,12 +174,14 @@ const conf = {
    */
   router: {
     base: routerBase,
+    trailingSlash: false,
   },
   /**
    * Generate route
    */
   generate: {
     fallback: true,
+    subFolders: false,
   },
   /*
    ** Nuxt source directory
