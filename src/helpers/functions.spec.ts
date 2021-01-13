@@ -1,4 +1,9 @@
-import { isObject, encodePathURI, naviArticleFrontBack } from './functions'
+import {
+  isObject,
+  encodePathURI,
+  naviArticleFrontBack,
+  fullUrl,
+} from './functions'
 
 describe('Functions', () => {
   test('of isObject', () => {
@@ -67,5 +72,14 @@ describe('Functions', () => {
     ],
   ])('does naviArticleFrontBack(%s)', (route, names, expected) => {
     expect(naviArticleFrontBack(route, names)).toEqual(expected)
+  })
+
+  // fullUrl
+  test.each([
+    ['/hoge', undefined, 'http://localhost:3000/hoge'],
+    ['/foo/bar', undefined, 'http://localhost:3000/foo/bar'],
+    ['/hoge', 'https://www.example.com', 'https://www.example.com/hoge'],
+  ])('fullUrl', (path, fqdn, url) => {
+    expect(fullUrl(path, fqdn)).toEqual(url)
   })
 })

@@ -180,6 +180,7 @@ const conf = {
    */
   generate: {
     fallback: true,
+    subFolders: false,
   },
   /*
    ** Nuxt source directory

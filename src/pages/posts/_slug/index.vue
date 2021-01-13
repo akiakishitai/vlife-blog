@@ -7,12 +7,13 @@
 </template>
 
 <script lang="ts">
+import { join } from 'path'
 import Vue, { ComponentOptions } from 'vue'
 import ArticlePosted from '@/components/templates/ArticlePosted.vue'
 import { ArticleNavigation } from '../../../models'
 import { naviFrontBack } from './asyncData'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
-import { join } from 'path'
+import { fullUrl } from '~/helpers/functions'
 
 type Property = {
   posted: AsciidocParsed
@@ -46,7 +47,7 @@ export default Vue.extend({
         (await asciidoc.filesByPage()).overviews,
         ctx.route.path
       ),
-      currentPath: new URL(ctx.route.path.replace(/^\//, ''), baseUrl).href,
+      currentPath: fullUrl(ctx.route.path),
     }
   },
   mounted() {
@@ -72,6 +73,10 @@ export default Vue.extend({
           type: 'application/atom+xml',
           href: '/feeds/atom.xml',
           title: 'Atom 1.0',
+        },
+        {
+          rel: 'canonical',
+          href: fullUrl(this.$route.path).replace(/\/$/, ''),
         },
       ],
     }
