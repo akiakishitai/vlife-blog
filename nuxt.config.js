@@ -174,6 +174,7 @@ const conf = {
    */
   router: {
     base: routerBase,
+    trailingSlash: false,
   },
   /**
    * Generate route

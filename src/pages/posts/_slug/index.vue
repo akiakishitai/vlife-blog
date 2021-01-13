@@ -36,11 +36,6 @@ export default Vue.extend({
   async asyncData(ctx): Promise<Property> {
     const asciidoc = ctx.app.$asciidoc
 
-    // base URL
-    const baseUrl = new URL(
-      process.env.NUXT_ENV_BASEURL ?? 'http://localhost:3000'
-    )
-
     return {
       posted: await asciidoc.content(ctx.params.slug),
       navi: naviFrontBack(
@@ -73,10 +68,6 @@ export default Vue.extend({
           type: 'application/atom+xml',
           href: '/feeds/atom.xml',
           title: 'Atom 1.0',
-        },
-        {
-          rel: 'canonical',
-          href: fullUrl(this.$route.path).replace(/\/$/, ''),
         },
       ],
     }

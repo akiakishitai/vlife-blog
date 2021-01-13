@@ -10,17 +10,35 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { Context } from '@nuxt/types'
+import { MetaInfo } from 'vue-meta'
 import { join } from 'path'
 import TopPage from '../components/templates/TopPage.vue'
 import { PagingContent, PostFile, TopPageProps } from '@/models'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
+import { fullUrl } from '~/helpers/functions'
+
+type PageUrl = { pageUrl: string }
 
 @Component({
   watchQuery: ['page'],
+  components: {
+    TopPage,
+  },
+})
+export default class Home extends Vue {
+  pageIndex = { num: 1, total: 1 }
+
+  get isFirstPage() {
+    return this.pageIndex.num === 1
+  }
+
   // クエリパラメータでページネーション
   async asyncData(
-    ctx
-  ): Promise<TopPageProps.ContentsProp & TopPageProps.PaginationProp> {
+    ctx: Context
+  ): Promise<
+    TopPageProps.ContentsProp & TopPageProps.PaginationProp & PageUrl
+  > {
     const page = parseInt(ctx.query.page?.toString() ?? '1', 10)
     const contents = await ctx.app.$asciidoc.filesByPage(page)
     const postRoute = join(ctx.route.path, 'posts')
@@ -35,12 +53,11 @@ import { AsciidocParsed } from '~/modules/asciidocPresenter'
         pagination: postRoute,
         post: postRoute,
       },
+      pageUrl: fullUrl(ctx.route.path),
     }
-  },
-  components: {
-    TopPage,
-  },
-  head: () => {
+  }
+
+  head(): MetaInfo {
     return {
       title: 'Home',
       meta: [
@@ -50,14 +67,8 @@ import { AsciidocParsed } from '~/modules/asciidocPresenter'
           hid: 'google-site-verification',
         },
       ],
+      link: [{ rel: 'canonical', href: this.$data.pageUrl ?? 'failed' }],
     }
-  },
-})
-export default class Home extends Vue {
-  pageIndex = { num: 1, total: 1 }
-
-  get isFirstPage() {
-    return this.pageIndex.num === 1
   }
 }
 </script>
