@@ -9,9 +9,7 @@
     @apply border-#{$tailwind-color};
     @apply bg-#{$tailwind-color} bg-opacity-15;
 
-    .title {
-      @apply text-#{$tailwind-color};
-    }
+    @apply text-#{$tailwind-color};
   }
 }
 
