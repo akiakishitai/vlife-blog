@@ -200,6 +200,15 @@ table.tableblock,
       @extend %material-icon-prefix;
       @apply flex justify-center;
     }
+
+    .fa[data-md-icon]::before {
+      @extend %material-icon-font;
+
+      @apply block text-center;
+      @apply mr-0;
+
+      content: attr(data-md-icon);
+    }
   }
 
   .content .title {
@@ -217,7 +226,7 @@ table.tableblock,
     @include mixin.icon_prefix(teal-400);
   }
   &.important {
-    @include mixin.icon_prefix(green-600);
+    @include mixin.icon_prefix(purple-500);
   }
   &.caution {
     @include mixin.icon_prefix(orange-600);
@@ -280,6 +289,42 @@ table.tableblock,
       counter-increment: callout-num;
     }
   }
+}
+// Callouts in icon-font
+// 丸数字
+%callout-number {
+  @extend %monospace;
+  @apply inline-flex justify-center items-center;
+  @apply not-italic text-white text-opacity-87;
+  @apply rounded-full bg-secondary;
+}
+pre .conum[data-value] {
+  &::before {
+    @extend %callout-number;
+    @apply w-5 h-5;
+    @apply text-sm;
+
+    content: attr(data-value);
+  }
+}
+.colist {
+  > table {
+    @appy mt-0;
+
+    > tbody > tr > td:last-of-type {
+      @apply pl-0;
+    }
+  }
+
+  .conum[data-value]::before {
+    @extend %callout-number;
+    @apply w-6 h-6;
+
+    content: attr(data-value);
+  }
+}
+.conum + b {
+  display: none;
 }
 
 /* Image inline */

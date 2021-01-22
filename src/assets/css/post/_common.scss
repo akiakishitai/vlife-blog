@@ -19,6 +19,11 @@
   }
 }
 
+/** Monospace font */
+%monospace {
+  font-family: 'Roboto Mono', monospace;
+}
+
 %table-halign {
   &.halign-center {
     @apply text-center;
