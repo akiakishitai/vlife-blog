@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-01-22T12:33:01+00:00</updated>
+  <updated>2021-01-25T09:52:33+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>GitHub ワークフローにおいて発生したエラーを Problem Matcher でアノテーションする</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/github_actions_annotation" />
+    <updated>2021-01-25T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-01-25:posts/github_actions_annotation</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-01-25T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>GitHubのプルリクエストがConventional Commits規約に則っていることを自動で検証</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/github_actions_linter_pr_title" />
