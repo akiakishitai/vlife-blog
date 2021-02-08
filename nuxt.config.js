@@ -142,7 +142,7 @@ const conf = {
   sitemap: {
     hostname: host,
     gzip: true,
-    exclude: ['/secret', '/admin/**', '/license'],
+    exclude: ['/secret', '/admin/**', '/license', '/contact', '/search'],
     xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
   },
   /*

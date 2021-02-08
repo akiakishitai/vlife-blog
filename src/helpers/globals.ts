@@ -5,3 +5,6 @@ export const postRoute = '/posts'
 
 /** 1ページあたりの記事の表示件数 */
 export const pagePostCount = 20
+
+/** noindex メタタグ */
+export const noindex = { name: 'robots', content: 'noindex' }

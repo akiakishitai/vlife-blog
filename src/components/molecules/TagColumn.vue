@@ -1,16 +1,19 @@
 <template functional>
   <div class="mdc-chip-set" role="table">
-    <nuxt-link
+    <button
       v-for="(item, index) in $options.methods.skipEmpty(props.tags)"
       :key="index"
-      :to="$options.methods.searchTagsLink(item.value)"
+      type="button"
+      @click="
+        listeners['move-page']('/search', { page: '1', tags: item.value })
+      "
     >
       <component
         v-bind:is="injections.components.TagChip"
         v-bind:tag="item.name"
         v-bind:value="item.value"
       />
-    </nuxt-link>
+    </button>
   </div>
 </template>
 
