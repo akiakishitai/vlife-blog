@@ -9,6 +9,7 @@ import { MetaInfo } from 'vue-meta'
 import { SearchProp } from '~/models/vueProperties/searchPageProps'
 import SearchPage from '../../components/templates/SearchPage.vue'
 import { fullUrl } from '~/helpers/functions'
+import { noindex } from '~/helpers/globals'
 
 type PageUrl = { pageUrl: string }
 
@@ -45,6 +46,11 @@ export default class Search extends Vue {
           rel: 'canonical',
           href: this.$data.pageUrl,
         },
+      ],
+      meta: [
+        // canonical 属性がGoogleで期待通りの動作をしてくれないので
+        // 検索ページ自体の登録をブロック
+        noindex,
       ],
     }
   }

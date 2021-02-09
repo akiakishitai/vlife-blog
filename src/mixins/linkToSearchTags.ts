@@ -15,5 +15,15 @@ export const LinkToSearchTags = Vue.extend({
 
       return `${route}?${params.toString()}`
     },
+
+    /**
+     * ページ遷移を行うだけの関数。
+     *
+     * @param path URLルート相対パス
+     * @param query クエリパラメータ
+     */
+    movePage(path: string, query?: Record<string, string | (string | null)[]>) {
+      return this.$router.push({ path, query })
+    },
   },
 })
