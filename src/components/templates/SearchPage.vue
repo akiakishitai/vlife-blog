@@ -20,8 +20,6 @@ import * as search from '~/models/vueProperties/searchPageProps'
 import { pagePostCount, postRoute } from '~/helpers/globals'
 import '~/helpers/string.extension'
 import TopPage from './TopPage.vue'
-import { NavigationGuard } from 'vue-router'
-import { ComponentOptions } from 'vue'
 import InputSearch from '../organisms/InputSearch.vue'
 
 @Component({

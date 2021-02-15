@@ -12,11 +12,10 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import { MetaInfo } from 'vue-meta'
-import { join } from 'path'
 import TopPage from '../components/templates/TopPage.vue'
-import { PagingContent, PostFile, TopPageProps } from '@/models'
+import { PostFile, TopPageProps } from '@/models'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
-import { fullUrl } from '~/helpers/functions'
+import { noindex, postRoute } from '~/helpers/globals'
 
 type PageUrl = { pageUrl: string }
 
@@ -33,15 +32,17 @@ export default class Home extends Vue {
     return this.pageIndex.num === 1
   }
 
-  // クエリパラメータでページネーション
+  // ルートパラメータでページネーション
   async asyncData(
     ctx: Context
-  ): Promise<
-    TopPageProps.ContentsProp & TopPageProps.PaginationProp & PageUrl
-  > {
-    const page = parseInt(ctx.query.page?.toString() ?? '1', 10)
+  ): Promise<(TopPageProps.ContentsProp & TopPageProps.PaginationProp) | void> {
+    const id = ctx.route.params.id
+    if (id === '1') {
+      return ctx.redirect('/')
+    }
+
+    const page = parseInt(id ?? '1', 10)
     const contents = await ctx.app.$asciidoc.filesByPage(page)
-    const postRoute = join(ctx.route.path, 'posts')
 
     return {
       contents: contents.overviews,
@@ -50,10 +51,9 @@ export default class Home extends Vue {
         total: contents.paging.total,
       },
       route: {
-        pagination: postRoute,
+        pagination: '/page',
         post: postRoute,
       },
-      pageUrl: fullUrl(ctx.route.path),
     }
   }
 
@@ -67,7 +67,6 @@ export default class Home extends Vue {
           hid: 'google-site-verification',
         },
       ],
-      link: [{ rel: 'canonical', href: this.$data.pageUrl ?? 'failed' }],
     }
   }
 }
