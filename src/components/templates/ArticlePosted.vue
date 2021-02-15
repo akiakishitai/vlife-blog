@@ -1,12 +1,9 @@
 <template>
   <div class="pb-6">
-    <HeadingLevel v-bind:value="headingLevel" />
+    <HeadingLevel :value="headingLevel" />
     <div class="mt-4">
-      <TagColumn v-bind:tags="tags" />
-      <DatesDisplay
-        class="flex justify-end"
-        v-bind:item="article | dateFormats"
-      />
+      <TagColumn :tags="tags" @move-page="movePage" />
+      <DatesDisplay class="flex justify-end" :item="article | dateFormats" />
     </div>
 
     <hr class="mt-2 border-grey-500" />
@@ -14,24 +11,24 @@
     <!-- 要素テスト用 -->
     <div v-if="isDebug(article.tags)" class="flex mt-4">
       <ButtonMaterial />
-      <ButtonMaterial class="ml-4" v-bind:property="{ label: 'hoge' }" />
-      <ButtonMaterial class="ml-4" v-bind:property="{ type: 'outlined' }" />
+      <ButtonMaterial class="ml-4" :property="{ label: 'hoge' }" />
+      <ButtonMaterial class="ml-4" :property="{ type: 'outlined' }" />
       <ButtonMaterial
         class="ml-4"
-        v-bind:property="{ type: 'raised', icon: 'bookmark' }"
+        :property="{ type: 'raised', icon: 'bookmark' }"
       />
     </div>
     <!-- 要素テスト終了 -->
 
     <!-- Markdown記事本文 -->
-    <ArticleBody class="mt-6" v-bind:renderd="article.body" />
+    <ArticleBody class="mt-6" :renderd="article.body" />
 
     <!-- シェアボタン -->
     <div class="share-buttons mt-8">
       <ShareButtonsBar
         class="items-center justify-center"
-        v-bind:url="currentFullPath"
-        v-bind:text="article.title"
+        :url="currentFullPath"
+        :text="article.title"
       />
     </div>
 
@@ -42,7 +39,7 @@
     <ArticlePagination
       v-if="!isDebug(article.tags)"
       class="mt-6"
-      v-bind:navigation="navigation"
+      :navigation="navigation"
     />
   </div>
 </template>
@@ -67,6 +64,7 @@ import ButtonMaterial from '../atoms/ButtonMaterial.vue'
 import ArticlePagination from '../organisms/ArticlePagination.vue'
 import ShareButtonsBar from '../organisms/ShareButtonsBar.vue'
 import { AsciidocParsed } from '~/modules/asciidocPresenter'
+import { LinkToSearchTags } from '~/mixins/linkToSearchTags'
 
 /**
  * _Markdown_ 記事テンプレート。
@@ -99,7 +97,7 @@ import { AsciidocParsed } from '~/modules/asciidocPresenter'
   },
 })
 export default class ArticlePosted
-  extends mixins(DebugMixin)
+  extends mixins(DebugMixin, LinkToSearchTags)
   implements ArticlePageProps.NavigationProp {
   /**
    * 投稿記事のソースファイルの内容。

@@ -1,6 +1,6 @@
 <template>
   <div class="relative text-left">
-    <nuxt-link class="link-article" v-bind:to="linkToArticle">
+    <nuxt-link class="link-article" :to="linkToArticle">
       <div class="flex">
         <!-- 画像 -->
         <span
@@ -19,24 +19,25 @@
 
     <!-- タグ一覧 -->
     <div class="inline-flex relative z-10 mt-4">
-      <tag-column v-bind:tags="propTags(content)" />
+      <tag-column :tags="propTags(content)" @move-page="movePage" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Component, mixins, Prop, Vue } from 'nuxt-property-decorator'
 import { basename, extname, join } from 'path'
 import TagColumn from '../molecules/TagColumn.vue'
 import { ArticleTag, TopPageProps } from '@/models'
 import { encodePathURI } from '@/helpers/functions'
+import { LinkToSearchTags } from '~/mixins/linkToSearchTags'
 
 @Component({
   components: {
     TagColumn,
   },
 })
-export default class OverviewArticle extends Vue {
+export default class OverviewArticle extends mixins(LinkToSearchTags) {
   /**
    * 表示する概要としてMarkdownファイルの情報を用いる。
    */

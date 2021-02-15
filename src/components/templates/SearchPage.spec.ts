@@ -4,7 +4,7 @@ import SearchPage from './SearchPage.vue'
 
 describe('SearchPage', () => {
   function factory(
-    overviews?: { tags: string[] }[],
+    overviews?: readonly { tags: string[] }[],
     path = '/hoge/foo?page=2&tags=vue+nuxt.js'
   ) {
     const params = new URLSearchParams(path.split('?')[1])
@@ -21,7 +21,7 @@ describe('SearchPage', () => {
         $route: {
           fullPath: path,
           query: {
-            page: params.get('page'),
+            page: params.get('page') ?? -1,
             tags: params.get('tags'),
           },
         },
@@ -119,16 +119,20 @@ describe('SearchPage', () => {
   })
 
   describe('pageIndex', () => {
-    const views = new Array(41).fill({ tags: 'hoge' })
+    const views: ReadonlyArray<{ tags: string[] }> = new Array(41).fill({
+      tags: 'hoge',
+    })
 
     test.each([
-      ['/?page=1', 1, 3],
-      ['/?tags=foo&page=3', 1, 1],
+      ['/?page=1', 1, 5],
+      ['/?page=3', 3, 5],
+      ['/?tags=notfound-tag&page=3', 1, 1],
     ])('path: %s', (path, num, total) => {
       const w = factory(views, path)
       assertSeachPage(w.vm)
 
       const index = w.vm.pageIndex
+
       expect(index.num).toBe(num)
       expect(index.total).toBe(total)
     })

@@ -83,6 +83,8 @@ describe('TopPage', () => {
     test('normal', () => {
       expect(pagerFactory(createProps())).toEqual({
         current: 2,
+        next: 3,
+        prev: 1,
         pages: [1, 2, 3, 4, 5, 6],
       })
     })
@@ -90,11 +92,11 @@ describe('TopPage', () => {
     test.each([
       [
         { num: 7, total: 2 },
-        { current: 2, pages: [1, 2] },
+        { current: 2, next: 2, prev: 1, pages: [1, 2] },
       ],
       [
         { num: -3, total: 5 },
-        { current: 1, pages: [1, 2, 3, 4, 5] },
+        { current: 1, next: 2, prev: 1, pages: [1, 2, 3, 4, 5] },
       ],
     ])('irregular', (obj, expected) => {
       expect(pagerFactory({ ...createProps(), pageIndex: obj })).toEqual(

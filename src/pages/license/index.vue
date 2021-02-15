@@ -28,11 +28,20 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Context } from '@nuxt/types'
+import { MetaInfo } from 'vue-meta'
 import LicensePage from '@/components/templates/LicensePage.vue'
 import LinkWrapper from '@/components/atoms/LinkWrapper.vue'
+import { noindex } from '~/helpers/globals'
 
 @Component({
-  async asyncData(ctx) {
+  components: {
+    LicensePage,
+    LinkWrapper,
+  },
+})
+export default class License extends Vue {
+  async asyncData(ctx: Context) {
     const $http: import('@nuxt/http').NuxtHTTPInstance = ctx.$http
     const res = await $http.get('/txt/thirdparty_license.txt')
     const license = await res.text()
@@ -42,16 +51,15 @@ import LinkWrapper from '@/components/atoms/LinkWrapper.vue'
         library: license,
       },
     }
-  },
-  components: {
-    LicensePage,
-    LinkWrapper,
-  },
-  head: {
-    title: 'License',
-  },
-})
-export default class License extends Vue {}
+  }
+
+  head(): MetaInfo {
+    return {
+      title: 'License',
+      meta: [noindex],
+    }
+  }
+}
 </script>
 
 <style></style>

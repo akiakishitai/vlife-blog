@@ -52,10 +52,17 @@ export default class TopPage
   }
 
   get pager(): Paging {
+    // 1 以上 total 以下の数値
+    const current = Math.min(
+      Math.max(this.pageIndex.num, 1),
+      this.pageIndex.total
+    )
+    const pages = [...new Array(this.pageIndex.total)].map((_, i) => i + 1)
     return {
-      // 1 以上 total 以下の数値
-      current: Math.min(Math.max(this.pageIndex.num, 1), this.pageIndex.total),
-      pages: [...new Array(this.pageIndex.total)].map((_, i) => i + 1),
+      next: Math.min(current + 1, this.pageIndex.total),
+      prev: Math.max(current - 1, 1),
+      current,
+      pages,
     }
   }
 }
