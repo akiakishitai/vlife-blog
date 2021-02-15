@@ -1,5 +1,6 @@
 /* eslint-env node */
 import { join, resolve } from 'path'
+import { sortRoutes } from '@nuxt/utils'
 
 // <base> 要素の基準URIを設定
 const routerBase =
@@ -75,6 +76,7 @@ const conf = {
       '@/modules/asciidocPresenter',
       {
         source: 'outsides/asciidocs/source',
+        count: 10,
         processorOptions: {
           safe: 'server',
           template_dirs: [resolve(__dirname, 'src/helpers/asciidocTemplates')],
@@ -175,6 +177,17 @@ const conf = {
   router: {
     base: routerBase,
     trailingSlash: false,
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'page-id',
+        path: '/page/:id',
+        component: resolve(__dirname, 'src', 'pages/index.vue'),
+        meta: {},
+        children: [],
+      })
+
+      sortRoutes(routes)
+    },
   },
   /**
    * Generate route

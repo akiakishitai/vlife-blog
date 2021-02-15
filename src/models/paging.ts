@@ -10,10 +10,12 @@ export interface PagingContent<T> {
 /**
  * ページング用の型。
  *
- * 現在ページと総ページ数を格納する。
+ * 現在ページ、次のページ、前のページおよび全てのページ番号を格納する。
  */
 export interface Paging {
   current: number
+  next: number
+  prev: number
   pages: number[]
 }
 
