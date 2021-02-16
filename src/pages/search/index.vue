@@ -1,11 +1,12 @@
 <template>
-  <search-page :contents="contents"></search-page>
+  <search-page :contents="contents" :currentPath="route"></search-page>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import { MetaInfo } from 'vue-meta'
+import { Route, NavigationGuardNext } from 'vue-router'
 import { SearchProp } from '~/models/vueProperties/searchPageProps'
 import SearchPage from '../../components/templates/SearchPage.vue'
 import { fullUrl } from '~/helpers/functions'
@@ -36,6 +37,11 @@ export default class Search extends Vue {
       contents,
       pageUrl: fullUrl(ctx.route.path),
     }
+  }
+
+  get route(): Omit<Route, 'matched'> {
+    const { matched, ...obj } = this.$route
+    return obj
   }
 
   head(): MetaInfo {

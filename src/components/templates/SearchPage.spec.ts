@@ -7,7 +7,8 @@ describe('SearchPage', () => {
     overviews?: readonly { tags: string[] }[],
     path = '/hoge/foo?page=2&tags=vue+nuxt.js'
   ) {
-    const params = new URLSearchParams(path.split('?')[1])
+    const pathes = path.split('?')
+    const params = new URLSearchParams(pathes[1])
     const mockPost =
       overviews == null ? [{ tags: [params.get('tags')] }] : overviews
 
@@ -16,10 +17,10 @@ describe('SearchPage', () => {
         contents: {
           overviews: mockPost,
         },
-      },
-      mocks: {
-        $route: {
+        currentPath: {
           fullPath: path,
+          path: pathes[0],
+          params: '',
           query: {
             page: params.get('page') ?? -1,
             tags: params.get('tags'),

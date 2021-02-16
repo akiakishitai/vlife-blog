@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import { MetaInfo } from 'vue-meta'
 import TopPage from '../components/templates/TopPage.vue'
@@ -27,6 +27,9 @@ type PageUrl = { pageUrl: string }
 })
 export default class Home extends Vue {
   pageIndex = { num: 1, total: 1 }
+
+  /** `noindex` メタタグの有無を判定するフラグ。 */
+  @Prop({ required: false, default: false }) noindex?: boolean
 
   get isFirstPage() {
     return this.pageIndex.num === 1
@@ -58,15 +61,21 @@ export default class Home extends Vue {
   }
 
   head(): MetaInfo {
+    const metaProperties: MetaInfo['meta'] = [
+      {
+        name: 'google-site-verification',
+        content: 'kvmP84hGKCFAytrygXPyfzJ_V9LGD0N2t4O8UVMBsBw',
+        hid: 'google-site-verification',
+      },
+    ]
+
+    if (this.noindex) {
+      metaProperties.push(noindex)
+    }
+
     return {
       title: 'Home',
-      meta: [
-        {
-          name: 'google-site-verification',
-          content: 'kvmP84hGKCFAytrygXPyfzJ_V9LGD0N2t4O8UVMBsBw',
-          hid: 'google-site-verification',
-        },
-      ],
+      meta: metaProperties,
     }
   }
 }
