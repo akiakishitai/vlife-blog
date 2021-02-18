@@ -2,8 +2,8 @@
   <div class="flex items-center">
     <text-field
       label="Search"
-      :inputData.sync="message"
-      :inputAttrs="{ name: '検索タグ' }"
+      :input-data.sync="message"
+      :input-attrs="{ name: '検索タグ' }"
       @keyup.enter.native="start(message)"
     />
     <div class="inline-flex items-center text-2xl w-12 h-12 ml-2">
@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import { Route } from 'vue-router'
+import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
+import { Route, NavigationGuardNext } from 'vue-router'
 import TextField from './TextField.vue'
 import ButtonMaterialIcon from '../atoms/ButtonMaterialIcon.vue'
 
@@ -40,11 +40,16 @@ export default class InputSearch extends Vue {
    */
   @Prop({ required: true, default: {} }) query!: Record<'tags', string>
 
-  //--- ライフサイクル
-  created() {
+  /**
+   * `query.tags` プロパティの変更を監視する。
+   *
+   * 親コンポーネントから `props` が更新された場合、
+   * `watch` で監視していないと描画が更新されない。
+   */
+  @Watch('query.tags', { immediate: true })
+  onUpdateQueryTags() {
     this.message = this.query.tags?.toString() ?? ''
   }
-  //---
 
   /**
    * 検索開始

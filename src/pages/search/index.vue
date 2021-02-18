@@ -1,5 +1,5 @@
 <template>
-  <search-page :contents="contents" :currentPath="route"></search-page>
+  <search-page :contents="contents" :current-path="route"></search-page>
 </template>
 
 <script lang="ts">
