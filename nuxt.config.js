@@ -178,13 +178,18 @@ const conf = {
     base: routerBase,
     trailingSlash: false,
     extendRoutes(routes, resolve) {
-      routes.push({
-        name: 'page-id',
-        path: '/page/:id',
-        component: resolve(__dirname, 'src', 'pages/index.vue'),
-        meta: {},
-        children: [],
-      })
+      routes.push(
+        {
+          name: 'page-id',
+          path: '/page/:id',
+          component: resolve(__dirname, 'src', 'pages/index.vue'),
+          props: { noindex: true },
+        },
+        {
+          path: '/posts',
+          redirect: '/',
+        }
+      )
 
       sortRoutes(routes)
     },
