@@ -1,29 +1,28 @@
 <template functional>
   <div class="mdc-chip-set" role="table">
-    <button
+    <nuxt-link
       v-for="(item, index) in $options.methods.skipEmpty(props.tags)"
-      :key="index"
-      type="button"
-      @click="
-        listeners['move-page']('/search', { page: '1', tags: item.value })
-      "
+      :key="[item.value, index].join('-')"
+      :to="$options.methods.target({ tags: item.value })"
     >
       <component
-        v-bind:is="injections.components.TagChip"
-        v-bind:tag="item.name"
-        v-bind:value="item.value"
+        :is="injections.components.TagChip"
+        :tag="item.name"
+        :value="item.value"
       />
-    </button>
+    </nuxt-link>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, mixins, Prop, Vue } from 'nuxt-property-decorator'
+import { Component, Inject, mixins, Prop } from 'nuxt-property-decorator'
+import { Location } from 'vue-router'
 import TagChip from '../atoms/TagChip.vue'
 import '@/helpers/string.extension'
 import { ArticleTag } from '@/models'
 import * as search from '~/models/vueProperties/searchPageProps'
 import { LinkToSearchTags } from '~/mixins/linkToSearchTags'
+import { searchRoute } from '~/helpers/globals'
 
 /**
  * 複数タグの表示を定義。
@@ -38,15 +37,7 @@ import { LinkToSearchTags } from '~/mixins/linkToSearchTags'
  *
  * - `components.TagChip` : タグを1つ表示するコンポーネント。
  */
-@Component({
-  inject: {
-    components: {
-      default: {
-        TagChip,
-      },
-    },
-  },
-})
+@Component
 export default class TagColumn extends mixins(LinkToSearchTags) {
   /**
    * タグの配列。
@@ -54,11 +45,26 @@ export default class TagColumn extends mixins(LinkToSearchTags) {
   @Prop({ required: true })
   tags!: ArticleTag[]
 
+  // 使用するVueコンポーネントを注入
+  @Inject({ default: { TagChip } }) components!: any
+
   /**
    * 値が空白文字である要素を排除した配列を返す。
    */
   skipEmpty(strs: ArticleTag[]): ArticleTag[] {
     return strs.filter((value) => value.name.isNotEmpty())
+  }
+
+  /**
+   * `<nuxt-link>` のためにリンク先の情報を返す。
+   */
+  target(query?: Location['query'], params?: Location['params']): Location {
+    return {
+      // 検索ページへのリンク
+      path: searchRoute,
+      query,
+      params,
+    }
   }
 }
 </script>
