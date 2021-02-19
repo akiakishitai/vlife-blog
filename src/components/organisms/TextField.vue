@@ -1,12 +1,12 @@
 <template>
   <validation-provider
     class="validation-provider w-3/4 max-w-4xl"
-    v-bind:rules="rules"
+    :rules="rules"
     v-slot="{ errors, valid, invalid, touched, failed, required }"
   >
     <label
       class="mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating w-full"
-      v-bind:class="{
+      :class="{
         'mdc-text-field--focused': isFocus,
         'mdc-text-field--invalid': invalid && touched,
         'mdc-text-field--textarea': isTextArea,
@@ -16,12 +16,12 @@
       <span v-if="isTextArea" class="mdc-text-field__resizer w-full">
         <textarea
           class="mdc-text-field__input"
-          v-bind:name="inputAttrs.name"
-          v-bind:placeholder="inputAttrs.placeholder || false"
-          v-bind:value="inputData"
-          v-on:input="$emit('update:inputData', $event.target.value)"
-          v-on:focus="isFocus = true"
-          v-on:blur="isFocus = false"
+          :name="inputAttrs.name"
+          :placeholder="inputAttrs.placeholder || false"
+          :value="inputData"
+          @input="$emit('update:input-data', $event.target.value)"
+          @focus="isFocus = true"
+          @blur="isFocus = false"
           rows="6"
         >
         </textarea>
@@ -30,17 +30,17 @@
         v-else
         type="text"
         class="mdc-text-field__input"
-        v-bind:name="inputAttrs.name"
-        v-bind:placeholder="inputAttrs.placeholder || false"
-        v-bind:value="inputData"
-        v-on:input="$emit('update:inputData', $event.target.value)"
-        v-on:focus="isFocus = true"
-        v-on:blur="isFocus = false"
+        :name="inputAttrs.name"
+        :placeholder="inputAttrs.placeholder || false"
+        :value="inputData"
+        @input="$emit('update:input-data', $event.target.value)"
+        @focus="isFocus = true"
+        @blur="isFocus = false"
       />
 
       <text-field-outline-label
-        v-bind:label="label + (label.length > 0 && required ? ' *' : '')"
-        v-bind:isAdobe="isFocus || valid"
+        :label="label + (label.length > 0 && required ? ' *' : '')"
+        :isAdobe="isFocus || valid"
       />
     </label>
 
@@ -64,14 +64,11 @@ import { InputAttribute } from '../../models'
     ValidationProvider,
     TextFieldOutlineLabel,
   },
-  data: () => {
-    return {
-      // 入力欄へのフォーカス状態
-      isFocus: false,
-    }
-  },
 })
 export default class TextField extends Vue {
+  /** 入力欄へのフォーカス状態 */
+  isFocus = false
+
   /**
    * HTMLの<input> タグの属性値
    */
