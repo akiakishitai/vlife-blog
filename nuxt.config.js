@@ -178,13 +178,31 @@ const conf = {
     base: routerBase,
     trailingSlash: false,
     extendRoutes(routes, resolve) {
-      routes.push({
-        name: 'page-id',
-        path: '/page/:id',
-        component: resolve(__dirname, 'src', 'pages/index.vue'),
-        meta: {},
-        children: [],
-      })
+      routes.push(
+        {
+          name: 'page-id',
+          path: '/page/:id',
+          component: resolve(__dirname, 'src', 'pages/index.vue'),
+          /** @return { { metaInfo: import('vue-meta').MetaInfo } } */
+          props: (route) => {
+            return {
+              metaInfo: {
+                title: `記事一覧 ${route.params.id}ページ目`,
+                meta: [
+                  // noindex
+                  { name: 'robots', content: 'noindex' },
+                  // canonical url
+                  { rel: 'canonical', href: '/' },
+                ],
+              },
+            }
+          },
+        },
+        {
+          path: '/posts',
+          redirect: '/',
+        }
+      )
 
       sortRoutes(routes)
     },

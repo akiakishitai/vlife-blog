@@ -1,9 +1,12 @@
 <template>
   <client-only>
-    <top-page :contents="contentsByPage" :pageIndex="pageIndex" :route="route">
+    <top-page :contents="contentsByPage" :page-index="pageIndex" :route="route">
       <template v-slot:preamble>
         <div class="mt-6 w-7/12">
-          <input-search :routePath="$route.path" :query="$route.query" />
+          <input-search
+            :route-path="currentPath.path"
+            :query="currentPath.query"
+          />
         </div>
         <div v-if="matchPages.length === 0" class="not-found text-lg bold mt-6">
           検索条件に一致する記事が見つかりませんでした。
@@ -15,6 +18,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Route } from 'vue-router'
 import { AsciidocOverview } from '~/modules/asciidocPresenter'
 import * as search from '~/models/vueProperties/searchPageProps'
 import { pagePostCount, postRoute } from '~/helpers/globals'
@@ -31,11 +35,17 @@ import InputSearch from '../organisms/InputSearch.vue'
 export default class SearchPage extends Vue implements search.SearchProp {
   @Prop() contents!: AsciidocOverview
 
+  /** 記事ページのルート相対パス */
+  @Prop({ required: false, default: postRoute }) postPath!: string
+
+  /** 現在ページの相対パス */
+  @Prop({ required: true, validator: (value) => 'path' in value })
+  currentPath!: Pick<Route, 'fullPath' | 'path' | 'params' | 'query'>
+
   get route() {
     return {
-      /** 現在ページの相対パス */
-      pagination: this.$route.fullPath,
-      post: postRoute,
+      pagination: this.currentPath.fullPath,
+      post: this.postPath,
     }
   }
 
@@ -56,7 +66,8 @@ export default class SearchPage extends Vue implements search.SearchProp {
   /** 検索に一致したコンテンツの内、当該ページ分のコンテンツを返す */
   get contentsByPage() {
     const count = pagePostCount
-    const start = (pageNumber(this.$route.query.page?.toString()) - 1) * count
+    const start =
+      (pageNumber(this.currentPath.query.page?.toString()) - 1) * count
     return this.matchPages.slice(start, start + count)
   }
 
@@ -64,7 +75,7 @@ export default class SearchPage extends Vue implements search.SearchProp {
     const total = Math.ceil(Math.max(this.matchPages.length, 1) / pagePostCount)
 
     return {
-      num: Math.min(pageNumber(this.$route.query.page?.toString()), total),
+      num: Math.min(pageNumber(this.currentPath.query.page?.toString()), total),
       total,
     }
   }
@@ -75,7 +86,7 @@ export default class SearchPage extends Vue implements search.SearchProp {
    * 区切り文字は空白または `+` （`%20` はNuxtが空白に置換してくれるみたい）
    */
   tagSpliter() {
-    return (this.$route.query.tags?.toString() ?? '').split(/[\s\+]+/)
+    return (this.currentPath.query.tags?.toString() ?? '').split(/[\s\+]+/)
   }
 }
 

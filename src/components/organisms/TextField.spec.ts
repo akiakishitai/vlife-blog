@@ -96,7 +96,9 @@ describe('TextField', () => {
       elem.setValue('hello, world')
       //elem.trigger('input')
 
-      expect(w.emitted()['update:inputData']?.flat().pop()).toBe('hello, world')
+      expect(w.emitted()['update:input-data']?.flat().pop()).toBe(
+        'hello, world'
+      )
     })
   })
 })

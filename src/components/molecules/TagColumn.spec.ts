@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import TagColumn from './TagColumn.vue'
 import { ArticleTag } from '@/models/tag'
+import { searchRoute } from '../../helpers/globals'
 
 describe('TagColumn', () => {
   const mockClass = 'mock-tag-chip'
@@ -28,52 +29,72 @@ describe('TagColumn', () => {
       },
     })
 
-  test('display tags to list', () => {
-    const testing = (tags: ArticleTag[]) => {
+  describe('display tags to list', () => {
+    test.each([
+      [{ name: 'one', value: '1' }],
+      [
+        { name: 'hoge', value: 'hoge' },
+        { name: 'foo', value: '' },
+      ],
+      [
+        { name: 'hello', value: 'h1' },
+        { name: 'world', value: 'w1' },
+        { name: 'nuxt', value: '' },
+        { name: 'vue', value: '2.11' },
+      ],
+      [],
+    ])('tags exist', (...tags) => {
       const wrapper = factoryWrapper(tags)
 
-      if (tags.some((x) => x.name == '')) {
-        expect(wrapper.findAll(`.${mockClass}`).length).toBe(
-          tags.length - tags.filter((value) => value.name === '').length
+      expect(wrapper.findAll(`.${mockClass}`).length).toBe(tags.length)
+      expect(wrapper.findAll('.mdc-chip-set > *').length).toBe(tags.length)
+
+      wrapper.findAll(`.${mockClass}`).wrappers.forEach((elem, index) => {
+        expect(elem.attributes().tag).toBe(tags[index].name)
+        expect(elem.attributes().value).toBe(tags[index].value)
+      })
+    })
+
+    test.each([
+      [{ name: '', value: 'empty' }],
+      [{ name: 'empty', value: '' }],
+      [{ name: '', value: '' }],
+      [],
+    ])('tag is empty', (...tags) => {
+      const wrapper = factoryWrapper(tags)
+      expect(wrapper.findAll(`.${mockClass}`).length).toBe(
+        tags.length - tags.filter((value) => value.name === '').length
+      )
+      wrapper.findAll(`.${mockClass}`).wrappers.forEach((elem, index) => {
+        expect(elem.attributes().tag).toBe(
+          tags.filter((value) => value.name !== '')[index].name
         )
-        wrapper.findAll(`.${mockClass}`).wrappers.forEach((elem, index) => {
-          expect(elem.attributes().tag).toBe(
-            tags.filter((value) => value.name !== '')[index].name
-          )
-        })
-      } else {
-        expect(wrapper.findAll(`.${mockClass}`).length).toBe(tags.length)
-        wrapper.findAll(`.${mockClass}`).wrappers.forEach((elem, index) => {
-          expect(elem.attributes().tag).toBe(tags[index].name)
-          expect(elem.attributes().value).toBe(tags[index].value)
-        })
-      }
-      return wrapper
-    }
+      })
+    })
+  })
 
-    let wrapper = testing([
+  test.each([
+    [{ name: 'hoge', value: 'hoge' }],
+    [
       { name: 'hoge', value: 'hoge' },
-      { name: 'foo', value: '' },
-    ])
-    expect(wrapper.findAll('.mdc-chip-set > *').length).toBe(2)
+      { name: 'foo', value: 'foo' },
+    ],
+    [
+      { name: 'hoge', value: 'fuga' },
+      { name: 'foo', value: 'bar' },
+    ],
+  ])('target method', (...tags) => {
+    const w = factoryWrapper(tags)
+    const elems = w.findAll('nuxtlink-stub')
 
-    wrapper = testing([
-      { name: 'hello', value: 'h1' },
-      { name: 'world', value: 'w1' },
-      { name: 'nuxt', value: '' },
-      { name: 'vue', value: '2.11' },
-    ])
-    expect(wrapper.findAll('.mdc-chip-set > *').length).toBe(4)
+    expect(elems.length).toBe(tags.length)
 
-    wrapper = testing([{ name: 'one', value: '1' }])
-    expect(wrapper.findAll('.mdc-chip-set > *').length).toBe(1)
-
-    testing([
-      { name: 'abc', value: 'ABC' },
-      { name: '', value: 'empty' },
-      { name: 'edf', value: '' },
-    ])
-    testing([{ name: '', value: '' }])
-    testing([])
+    tags.forEach((tag) => {
+      expect(TagColumn.options.methods.target({ tags: tag.value })).toEqual({
+        path: searchRoute,
+        query: { tags: tag.value },
+        params: undefined,
+      })
+    })
   })
 })
