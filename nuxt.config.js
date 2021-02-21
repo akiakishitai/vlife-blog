@@ -183,7 +183,20 @@ const conf = {
           name: 'page-id',
           path: '/page/:id',
           component: resolve(__dirname, 'src', 'pages/index.vue'),
-          props: { noindex: true },
+          /** @return { { metaInfo: import('vue-meta').MetaInfo } } */
+          props: (route) => {
+            return {
+              metaInfo: {
+                title: `記事一覧 ${route.params.id}ページ目`,
+                meta: [
+                  // noindex
+                  { name: 'robots', content: 'noindex' },
+                  // canonical url
+                  { rel: 'canonical', href: '/' },
+                ],
+              },
+            }
+          },
         },
         {
           path: '/posts',
