@@ -14,7 +14,7 @@
       ]
     },
     {
-      "files": ["*.config.js", "**/modules/**/*.js"],
+      "files": ["*.config.js", "**/modules/**/*.js", "__test__/**/*.js"],
       "env": { "node": true, "es6": true },
       "parserOptions": {
         "ecmaVersion": 2015,
