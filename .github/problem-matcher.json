@@ -1,0 +1,14 @@
+{
+  "problemMatcher": [
+    {
+      "owner": "asciidoctor",
+      "pattern": [
+        {
+          "regexp": "^asciidoctor:\\s+(WARNING|ERROR|FATAL): (.+)$",
+          "message": 2,
+          "severity": 1
+        }
+      ]
+    }
+  ]
+}

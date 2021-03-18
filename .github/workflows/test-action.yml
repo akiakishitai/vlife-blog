@@ -1,0 +1,83 @@
+name: Test - Github Actions
+
+on:
+  push:
+    branches:
+      - 'test/action/*'
+  workflow_dispatch:
+
+jobs:
+  yarn_cache:
+    runs-on: ubuntu-20.04
+    outputs:
+      cachedir: ${{ steps.cachedir.outputs.path }}
+      key: ${{ steps.cachekey.outputs.key }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: set cachedir of yarn
+        id: cachedir
+        run: echo "::set-output name=path::$(yarn cache dir)"
+
+      - name: set cache key
+        id: cachekey
+        run: echo "::set-output name=key::$CACHE_KEY"
+        env:
+          CACHE_KEY: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: caches
+        # https://github.com/actions/cache/tree/v2.1.4
+        uses: actions/cache@v2.1.4
+        id: cache-action
+        with:
+          path: ${{ steps.cachedir.outputs.path }}
+          key: ${{ steps.cachekey.outputs.key }}
+
+      - name: install if there is no cache
+        if: ${{ steps.cache-action.outputs.cache-hit != 'true' }}
+        run: yarn install
+
+  kroki_services:
+    runs-on: ubuntu-20.04
+    needs: yarn_cache
+    services:
+      kroki:
+        image: yuzutech/kroki
+        env:
+          KROKI_MERMAID_HOST: mermaid
+        ports:
+          - 8000:8000
+      mermaid:
+        image: yuzutech/kroki-mermaid
+        ports:
+          - 8002:8002
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: use caches
+        uses: actions/cache@v2.1.4
+        id: cache-action
+        with:
+          path: ${{ needs.yarn_cache.outputs.cachedir }}
+          key: ${{ needs.yarn_cache.outputs.key }}
+
+      - name: install from caches
+        run: yarn install --offline
+
+      - name: Enable problem matcher
+        run: echo "::add-matcher::.github/problem-matcher.json"
+
+      - name: execute
+        run: node __test__/kroki/main.js
