@@ -16,42 +16,61 @@ env:
   DEPLOY_ENV: GH_PAGES
 
 jobs:
-  build-deploy:
-    runs-on: ubuntu-18.04
+  build:
+    runs-on: ubuntu-20.04
     env:
       ARTICLE_DIR: src/outsides/asciidocs
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-          token: ${{ secrets.PERSONAL_TOKEN }} # For private repository of submodules
-
-      - name: update to latest submodules
-        run: |
-          # echo "$CREDENTIAL_HELPER_PATH" >> $GITHUB_PATH
-          git config --global credential.helper "$CREDENTIAL_HELPER_PATH/git-credential-github-token"
-          yarn run update-articles
+    services:
+      kroki:
+        image: yuzutech/kroki
         env:
-          CREDENTIAL_HELPER_PATH: ${{ github.workspace }}/.github/bin
-          CREDENTIAL_USERNAME: ${{ github.actor }}
-          CREDENTIAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-
-      #- name: check article sources
-      #  if: ${{ env.ACT }}
-      #  run: ls -al $ARTICLE_DIR && exit 1
-
+          KROKI_MERMAID_HOST: mermaid
+        ports:
+          - 8000:8000
+      mermaid:
+        image: yuzutech/kroki-mermaid
+        ports:
+          - 8002:8002
+    steps:
+      ### Setup
       - name: setup node
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
+      - name: checkout
+        uses: actions/checkout@v2
+
+      ### Git Submodule
+      - name: setup git credential
+        if: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          # echo "$CREDENTIAL_HELPER_PATH" >> $GITHUB_PATH
+          git config --global credential.helper "$CREDENTIAL_HELPER_PATH/git-credential-github-token"
+        env:
+          CREDENTIAL_HELPER_PATH: ${{ github.workspace }}/.github/bin
+          CREDENTIAL_USERNAME: ${{ github.actor }}
+          CREDENTIAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: update to latest submodules
+        if: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git submodule init
+          yarn run update-articles
+
+      - name: check article sources
+        if: ${{ env.ACT }}
+        run: |
+          echo "::debug::Check updated aritcle sources"
+          ls -al $ARTICLE_DIR
+
+      ### Cache
       - name: get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2.1.4
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -67,17 +86,16 @@ jobs:
         if: ${{ steps.yarn-cache.outputs.cache-hit == 'true' }}
         run: yarn install --offline
 
-      - name: compile scss
-        run: yarn sass-build
-
-      - name: output licences
-        run: yarn license-file
+      ### Build
+      - name: pre generate
+        run: yarn sass-build && yarn license-file
 
       - name: generate
         run: yarn generate
         env:
           NODE_ENV: production
 
+      ### Deploy
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ !env.ACT }}
