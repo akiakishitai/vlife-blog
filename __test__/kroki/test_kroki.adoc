@@ -1,0 +1,33 @@
+= セルフホストkrokiのテスト
+ifdef::env-github[]
+:kroki-server-url: http://localhost:8000
+:kroki-default-options: inline
+endif::[]
+
+`kroki` Docerコンテナのテスト。
+
+.PlantUML
+[plantuml, plantuml, svg]
+....
+@startuml
+start
+
+:テスト;
+:ほげほげ;
+
+stop
+@enduml
+....
+
+.Mermaid.js
+[mermaid, mermaid.js, svg]
+....
+gantt
+  title サンプル
+
+  section サンプルタスク
+    apple :a, 2017-07-20, 1w
+    banana :crit, b, 2017-07-23, 1d
+    ぶどう :active, c, after b a, 1d
+    オレンジ  : d, after c, 3d
+....
