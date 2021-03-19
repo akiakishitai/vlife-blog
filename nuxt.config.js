@@ -80,7 +80,10 @@ const conf = {
         processorOptions: {
           safe: 'server',
           template_dirs: [resolve(__dirname, 'src/helpers/asciidocTemplates')],
-          attributes: { 'env-nuxt': true, 'allow-uri-read': '' },
+          attributes: Object.assign(
+            { 'env-nuxt': true, 'allow-uri-read': '' },
+            process.env.GITHUB_ACTIONS === 'true' ? { 'env-github': true } : {}
+          ),
         },
       },
     ],
