@@ -43,7 +43,7 @@ jobs:
 
       ### Git Submodule
       - name: setup git credential
-        if: ${{ secrets.PERSONAL_TOKEN }}
+        if: ${{ !env.SKIP_SUBMOD }}
         run: |
           # echo "$CREDENTIAL_HELPER_PATH" >> $GITHUB_PATH
           git config --global credential.helper "$CREDENTIAL_HELPER_PATH/git-credential-github-token"
@@ -53,7 +53,7 @@ jobs:
           CREDENTIAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: update to latest submodules
-        if: ${{ secrets.PERSONAL_TOKEN }}
+        if: ${{ !env.SKIP_SUBMOD }}
         run: |
           git submodule init
           yarn run update-articles
