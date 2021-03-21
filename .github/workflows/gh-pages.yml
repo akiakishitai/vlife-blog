@@ -42,27 +42,25 @@ jobs:
         uses: actions/checkout@v2
 
       ### Git Submodule
-      - name: setup git credential
-        if: ${{ !env.SKIP_SUBMOD }}
-        run: |
-          # echo "$CREDENTIAL_HELPER_PATH" >> $GITHUB_PATH
-          git config --global credential.helper "$CREDENTIAL_HELPER_PATH/git-credential-github-token"
+      - name: setup git credential helper
+        run: git config --global credential.helper "$CREDENTIAL_PATH"
         env:
-          CREDENTIAL_HELPER_PATH: ${{ github.workspace }}/.github/bin
-          CREDENTIAL_USERNAME: ${{ github.actor }}
-          CREDENTIAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          CREDENTIAL_PATH: ${{ github.workspace }}/.github/bin/git-credential-github-token
 
       - name: update to latest submodules
         if: ${{ !env.SKIP_SUBMOD }}
         run: |
           git submodule init
-          yarn run update-articles
+          git submodule update --remote
+        env:
+          CREDENTIAL_USERNAME: ${{ github.actor }}
+          CREDENTIAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: check article sources
         if: ${{ env.ACT }}
         run: |
           echo "::debug::Check updated aritcle sources"
-          ls -al $ARTICLE_DIR
+          ls -al $ARTICLE_DIR/source
 
       ### Cache
       - name: get yarn cache directory path
@@ -75,8 +73,6 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
 
       - name: install
         if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
