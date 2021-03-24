@@ -29,8 +29,6 @@ jobs:
           - 8000:8000
       mermaid:
         image: yuzutech/kroki-mermaid
-        ports:
-          - 8002:8002
     steps:
       ### Setup
       - name: setup node
