@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-03-24T14:05:21+00:00</updated>
+  <updated>2021-03-26T14:33:34+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>GitHub Actions ワークフローのサービスコンテナ機能を利用してみる</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/github_actions_service_container" />
+    <updated>2021-03-26T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-03-26:posts/github_actions_service_container</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-03-26T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>【ウマ娘】ダイワスカーレットでURA優勝するまでの育成チャート</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/umamusume_game_strategy_of_daiwascarlet" />
