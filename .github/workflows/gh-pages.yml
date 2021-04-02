@@ -24,9 +24,12 @@ jobs:
       kroki:
         image: yuzutech/kroki
         env:
+          KROKI_BLOCKDIAG_HOST: blockdiag
           KROKI_MERMAID_HOST: mermaid
         ports:
           - 8000:8000
+      blockdiag:
+        image: yuzutech/kroki-blockdiag
       mermaid:
         image: yuzutech/kroki-mermaid
     steps:
