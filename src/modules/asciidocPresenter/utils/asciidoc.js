@@ -88,7 +88,11 @@ export function parseFiles(files, options) {
         bTime = new Date(b.created_at).getTime()
 
       if (aTime === bTime) {
-        return a.title.toString().localeCompare(b.title.toString())
+        const titles = {
+          a: a.title?.toString() ?? 'undefined',
+          b: b.title?.toString() ?? 'undefined',
+        }
+        return titles.a.localeCompare(titles.b)
       }
 
       return aTime > bTime ? -1 : 1

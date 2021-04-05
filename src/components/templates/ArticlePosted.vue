@@ -117,7 +117,7 @@ export default class ArticlePosted
   get article(): Article {
     return {
       body: this.fixInternalLink,
-      title: this.posted.title.toString(),
+      title: this.posted.title?.toString() ?? 'undefined',
       tags: this.posted.tags,
       createdAt: new Date(this.posted.created_at),
       updatedAt:

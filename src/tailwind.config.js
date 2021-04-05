@@ -18,12 +18,12 @@ module.exports = {
       colors: {
         ...palette, // override by material color palette
         primary: {
-          default: palette.amber[500],
+          DEFAULT: palette.amber[500],
           dark: palette.amber[700],
           light: palette.amber[300],
         },
         secondary: {
-          default: palette.cyan[500],
+          DEFAULT: palette.cyan[500],
           dark: palette.cyan[700],
           light: palette.cyan[300],
         },
@@ -50,9 +50,5 @@ module.exports = {
     margin: ['responsive', 'first'],
   },
   plugins: [],
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
   purge: ['./**/*.html', './**/*.vue', './**/*.adoc'],
 }
