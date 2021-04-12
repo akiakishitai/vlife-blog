@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-04-02T15:01:22+00:00</updated>
+  <updated>2021-04-12T13:48:12+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>【VS Code】Remote Containers 拡張機能において Dotfiles を再クローン＆インストールさせる</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/vscode_remote-container_dotfiles" />
+    <updated>2021-04-12T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-04-12:posts/vscode_remote-container_dotfiles</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-04-12T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>Nuxtで親コンポーネントから渡されるプロパティ（props）の変更を検出する</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/nuxt_detect_props_changes" />
