@@ -119,6 +119,19 @@ const conf = {
       },
     ],
   ],
+  /**
+   * @nuxt/typescript-build options
+   */
+  typescript: {
+    // fork-ts-checker-webpack-plugin option
+    // https://github.com/TypeStrong/fork-ts-checker-webpack-plugin#options
+    typeCheck: {
+      typescript: {
+        configFile: resolve(__dirname, 'tsconfig.nuxt.json'),
+        extensions: { vue: true },
+      },
+    },
+  },
   /*
    ** Nuxt.js modules
    */
@@ -221,6 +234,12 @@ const conf = {
    ** Nuxt source directory
    */
   srcDir: 'src/',
+  /**
+   * Auto import components in Nuxt
+   *
+   * github: https://github.com/nuxt/components
+   */
+  //components: [{ path: '~/components', ignore: ['**/*.spec.ts'] }],
   /**
    * Watch custom files
    */

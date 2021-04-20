@@ -18,5 +18,6 @@
     },
     "types": ["@types/node", "@types/jest", "@nuxt/types"]
   },
+  "include": ["src/**/*", "src/**/*.vue"],
   "exclude": ["node_modules", ".nuxt", "dist"]
 }

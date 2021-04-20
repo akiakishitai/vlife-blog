@@ -7,9 +7,9 @@ import Processor from '@asciidoctor/core'
 
 dayjs.extend(utc)
 
-export const FeedGenerator: import('@nuxt/types').Module<import('.').FeedGeneratorOptions> = function (
-  options
-) {
+export const FeedGenerator: import('@nuxt/types').Module<
+  import('.').FeedGeneratorOptions
+> = function (options) {
   const processor = Processor()
   // AsciiDocソースファイル
   const asciidocs = fs
@@ -61,7 +61,7 @@ export const FeedGenerator: import('@nuxt/types').Module<import('.').FeedGenerat
         const adoc = adocs.find((x) => x.fileName === basename(curr))
         if (adoc != null) {
           prev.push({
-            title: adoc.title,
+            title: adoc.title ?? 'undefined',
             url: joinUrl(options.feedOptions.siteUrl, curr),
             updated: adoc.updatedAt,
             summary: adoc.summary,

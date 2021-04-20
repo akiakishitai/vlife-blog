@@ -144,10 +144,19 @@ describe('SearchPage', () => {
       return { id: i, tags: ['nuxt.js'] }
     })
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function hasId(value: any): asserts value is { id: number }[] {
+      if (!('id' in value[0])) {
+        throw new Error(`Nothing 'id' property in ${value}`)
+      }
+    }
+
     const w = factory(views, '/?page=3&tags=nuxt.js')
     assertSeachPage(w.vm)
 
     const pages = w.vm.contentsByPage
+    hasId(pages)
+
     expect(pages.length).toBe(pagePostCount)
     expect(pages[0].id).toBe(2 * pagePostCount)
     expect(pages[pagePostCount - 1].id).toBe(3 * pagePostCount - 1)
