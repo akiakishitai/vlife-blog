@@ -32,7 +32,7 @@ export function naviFrontBack(
             dirname(route),
             basename(value.filename, extname(value.filename))
           ),
-          title: value.title.toString(),
+          title: value.title?.toString() ?? 'undefined',
         }
   }
 

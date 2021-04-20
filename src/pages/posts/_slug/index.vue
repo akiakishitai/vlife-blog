@@ -54,7 +54,7 @@ export default Vue.extend({
   head() {
     const prop: AsciidocParsed = (this as any).posted
     return {
-      title: prop.title.toString(),
+      title: prop.title?.toString() ?? 'undefined',
       meta: [
         {
           hid: 'keywords',

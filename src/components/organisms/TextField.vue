@@ -5,7 +5,7 @@
     v-slot="{ errors, valid, invalid, touched, failed, required }"
   >
     <label
-      class="mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating w-full"
+      class="mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating w-full w__full"
       :class="{
         'mdc-text-field--focused': isFocus,
         'mdc-text-field--invalid': invalid && touched,
@@ -107,7 +107,7 @@ export default class TextField extends Vue {
   @include textfield.hover-outline-color(var(--mdc-theme-secondary));
 }
 
-.mdc-text-field--textarea.w-full {
+.mdc-text-field--textarea.w__full {
   @apply w-full;
 }
 

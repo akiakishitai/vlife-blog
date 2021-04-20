@@ -54,7 +54,7 @@ export interface AsciidocSummaryJson {
  */
 export interface AsciidocParsed extends AsciidocSummary {
   rendered: string // '<div>...</div>'
-  title: string | import('@asciidoctor/core').Asciidoctor.Document.Title // 'Asciidoc Document Title'
+  title?: string | import('@asciidoctor/core').Asciidoctor.Document.Title // 'Asciidoc Document Title'
   tags: string[] // '["sample", "test"] (convert from tags attribute)'
   updated_at?: string // '2020-08-10 (revision date)'
   author?: string // 'akiakiS (author attribute)'
