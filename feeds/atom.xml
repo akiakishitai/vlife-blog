@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-04-20T14:43:36+00:00</updated>
+  <updated>2021-05-07T09:34:22+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>Nuxt TypeScript においてビルド用に別の tsconfig.json を指定したい</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/nuxt_tsconfig_dedicated_to_building" />
+    <updated>2021-05-07T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-05-07:posts/nuxt_tsconfig_dedicated_to_building</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-05-07T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>docker volume rm コマンド実行時に「volume is in use」と言われて削除できないときの対処方法</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/docker_cant_remove_volume" />
