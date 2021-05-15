@@ -1,8 +1,8 @@
 diff --git a/node_modules/@asciidoctor/core/dist/node/asciidoctor.js b/node_modules/@asciidoctor/core/dist/node/asciidoctor.js
-index e8c6700..44c9dc7 100644
+index a6e1958..9f4a6a8 100644
 --- a/node_modules/@asciidoctor/core/dist/node/asciidoctor.js
 +++ b/node_modules/@asciidoctor/core/dist/node/asciidoctor.js
-@@ -21062,6 +21062,12 @@ Opal.modules["asciidoctor/js/asciidoctor_ext/document"] = function(Opal) {
+@@ -21103,6 +21103,12 @@ Opal.modules["asciidoctor/js/asciidoctor_ext/document"] = function(Opal) {
        var nil = Opal.nil
        var utc_offset
        var source_date_epoch
@@ -15,12 +15,11 @@ index e8c6700..44c9dc7 100644
  
        var getYear = function (time, utc_offset) {
          return utc_offset === 0 ? time.getUTCFullYear() : time.getFullYear()
-@@ -21149,6 +21155,8 @@ Opal.modules["asciidoctor/js/asciidoctor_ext/document"] = function(Opal) {
+@@ -21190,6 +21196,7 @@ Opal.modules["asciidoctor/js/asciidoctor_ext/document"] = function(Opal) {
          var mtime_hours = ('0' + (getHours(input_mtime, utc_offset))).slice(-2)
          var mtime_minutes = ('0' + (input_mtime.getMinutes())).slice(-2)
          var mtime_seconds = ('0' + (input_mtime.getSeconds())).slice(-2)
 +        var utc_offset_format
-+
          if (utc_offset === 0) {
            utc_offset_format = 'UTC'
          } else if (utc_offset > 0) {
