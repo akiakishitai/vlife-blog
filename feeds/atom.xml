@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-05-15T06:33:54+00:00</updated>
+  <updated>2021-05-17T08:56:14+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>Prism.jsでコードブロック内に記述したHTMLタグを維持したい</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/prismjs_keep_markup" />
+    <updated>2021-05-17T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-05-17:posts/prismjs_keep_markup</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-05-17T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>Nuxt TypeScript においてビルド用に別の tsconfig.json を指定したい</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/nuxt_tsconfig_dedicated_to_building" />
