@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-06-18T14:57:54+00:00</updated>
+  <updated>2021-06-24T10:12:21+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>Linux初心者におすすめ！コマンドのチートシートを表示してくれる tldr コマンド</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/linux_command_tldr" />
+    <updated>2021-06-24T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-06-24:posts/linux_command_tldr</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-06-24T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>GitHub Actions ワークフローを YAML テンプレートツール（ytt）で楽に生成したい！</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/yaml_template_tool" />
