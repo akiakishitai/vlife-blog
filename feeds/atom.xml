@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-07-18T15:23:17+00:00</updated>
+  <updated>2021-07-22T14:08:48+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>巨大なリポジトリをクローンするときに便利なパーシャルクローンとsparse-checkout</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/git_partial_clone" />
+    <updated>2021-07-22T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-07-22:posts/git_partial_clone</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-07-22T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>Dockerfile で apt-key を使わず PPA を追加する</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/apt-get_ppa_without_apt-key" />
