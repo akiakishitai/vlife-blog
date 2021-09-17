@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-09-17T03:44:32+00:00</updated>
+  <updated>2021-09-17T11:41:30+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>bash の補完スクリプト（bash-completion）ファイルってどこに配置すればいいの？</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/linux_bash_completion" />
+    <updated>2021-09-17T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-09-17:posts/linux_bash_completion</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-09-17T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>podman で docker-compose の代わりに Kubernetes YAML を使ってみた</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/podman_kubernetes_yaml" />
