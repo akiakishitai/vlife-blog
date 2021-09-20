@@ -32,7 +32,7 @@
     "nuxt": "^2.15.0",
     "nuxt-property-decorator": "^2.5.1",
     "prism-themes": "^1.4.0",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.25.0",
     "simple-icons": "^3.0.1",
     "vee-validate": "^3.4.3"
   },
