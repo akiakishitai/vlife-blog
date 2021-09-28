@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-09-24T14:50:17+00:00</updated>
+  <updated>2021-09-28T03:31:28+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
   <entry>
@@ -24,7 +24,7 @@
   <entry>
     <title>podman で docker-compose の代わりに Kubernetes YAML を使ってみた</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/podman_kubernetes_yaml" />
-    <updated>2021-09-17T00:00:00+00:00</updated>
+    <updated>2021-09-28T00:00:00+00:00</updated>
     <id>tag:vlike-vlife.netlify.app,2021-09-17:posts/podman_kubernetes_yaml</id>
     <author><name>秋々すすき</name></author>
     <published>2021-09-17T00:00:00+00:00</published>
