@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-10-25T13:26:16+00:00</updated>
+  <updated>2021-10-31T13:56:27+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>systemd についての Tips</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/systemd_tips" />
+    <updated>2021-10-31T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2021-10-31:posts/systemd_tips</id>
+    <author><name>秋々すすき</name></author>
+    <published>2021-10-31T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>systemd を使ってジョブを定期実行させる備忘録</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/systemd_scheduling" />
