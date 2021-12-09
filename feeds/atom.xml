@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2021-10-31T14:17:01+00:00</updated>
+  <updated>2021-12-09T08:50:48+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
   <entry>
@@ -104,7 +104,7 @@
   <entry>
     <title>GitHub Actions ワークフローを YAML テンプレートツール（ytt）で楽に生成したい！</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/yaml_template_tool" />
-    <updated>2021-06-18T00:00:00+00:00</updated>
+    <updated>2021-12-06T00:00:00+00:00</updated>
     <id>tag:vlike-vlife.netlify.app,2021-06-18:posts/yaml_template_tool</id>
     <author><name>秋々すすき</name></author>
     <published>2021-06-18T00:00:00+00:00</published>
