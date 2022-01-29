@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2022-01-28T14:50:28+00:00</updated>
+  <updated>2022-01-29T06:50:05+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
   <entry>
     <title>RapiDoc を使って OpenAPI をドキュメント化する</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/openapi_document_rapidoc" />
-    <updated>2022-01-28T00:00:00+00:00</updated>
+    <updated>2022-01-29T00:00:00+00:00</updated>
     <id>tag:vlike-vlife.netlify.app,2022-01-28:posts/openapi_document_rapidoc</id>
     <author><name>秋々すすき</name></author>
     <published>2022-01-28T00:00:00+00:00</published>
