@@ -2,13 +2,21 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2022-07-12T12:22:18+00:00</updated>
+  <updated>2022-07-15T03:48:33+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
   <entry>
+    <title>update-alternatives でシンボリックリンク管理から逃げたい</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/cli_update-alternatives" />
+    <updated>2022-07-14T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2022-07-14:posts/cli_update-alternatives</id>
+    <author><name>秋々すすき</name></author>
+    <published>2022-07-14T00:00:00+00:00</published>
+  </entry>
+  <entry>
     <title>Bash エイリアスを記述する設定ファイルってどれ？</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/linux_bash_alias" />
-    <updated>2022-07-12T12:16:58+00:00</updated>
+    <updated>2022-07-15T03:44:13+00:00</updated>
     <id>tag:vlike-vlife.netlify.app,2022-02-18:posts/linux_bash_alias</id>
     <author><name>v1.0, 2022-02-18</name></author>
     <published>2022-02-18T00:00:00+00:00</published>
