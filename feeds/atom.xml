@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2022-07-15T03:48:33+00:00</updated>
+  <updated>2022-07-20T14:21:21+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>AsciiDoc のテーブル内で &quot;|&quot; （パイプ、縦棒）を表示したい</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/asciidoc_vbar_in_table" />
+    <updated>2022-07-20T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2022-07-20:posts/asciidoc_vbar_in_table</id>
+    <author><name>秋々すすき</name></author>
+    <published>2022-07-20T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>update-alternatives でシンボリックリンク管理から逃げたい</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/cli_update-alternatives" />
@@ -16,7 +24,7 @@
   <entry>
     <title>Bash エイリアスを記述する設定ファイルってどれ？</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/linux_bash_alias" />
-    <updated>2022-07-15T03:44:13+00:00</updated>
+    <updated>2022-07-20T14:16:10+00:00</updated>
     <id>tag:vlike-vlife.netlify.app,2022-02-18:posts/linux_bash_alias</id>
     <author><name>v1.0, 2022-02-18</name></author>
     <published>2022-02-18T00:00:00+00:00</published>
