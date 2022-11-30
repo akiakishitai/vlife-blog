@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2022-09-30T14:29:28+00:00</updated>
+  <updated>2022-11-30T15:11:35+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>Webサイトのファビコンを取得したい</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/favicon_wanted_from_website" />
+    <updated>2022-11-30T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2022-11-30:posts/favicon_wanted_from_website</id>
+    <author><name>秋々すすき</name></author>
+    <published>2022-11-30T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>リンク元とリンク先ってどっちがどっちなの</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/link-before_link-after" />
@@ -40,7 +48,7 @@
   <entry>
     <title>Bash エイリアスを記述する設定ファイルってどれ？</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/linux_bash_alias" />
-    <updated>2022-09-30T14:24:38+00:00</updated>
+    <updated>2022-11-30T15:07:14+00:00</updated>
     <id>tag:vlike-vlife.netlify.app,2022-02-18:posts/linux_bash_alias</id>
     <author><name>v1.0, 2022-02-18</name></author>
     <published>2022-02-18T00:00:00+00:00</published>
