@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a,b){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1673271229",layout:"default",error:a,serverRendered:true,routePath:"\u002Fposts\u002Fasciidoc_vbar_in_table",config:{_app:{basePath:b,assetsPath:"\u002F_nuxt\u002F",cdnURL:a},http:{browserBaseURL:b}}}}(null,"\u002F"));
