@@ -1,5 +1,0 @@
-{
-  "jest.pathToConfig": "jest.config.js",
-  "jest.pathToJest": "yarn run jest --",
-  "jest.runAllTestsFirst": false
-}
