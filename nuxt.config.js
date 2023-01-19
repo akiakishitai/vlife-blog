@@ -88,6 +88,14 @@ const conf = {
       },
     ],
     [
+      '@/modules/pageFormatter',
+      // https://github.com/beautify-web/js-beautify#options
+      {
+        indent_size: 2,
+        end_with_newline: true,
+      },
+    ],
+    [
       '@/modules/routesGenerator',
       {
         dynamicRoot: ['/posts'],
@@ -186,6 +194,17 @@ const conf = {
     },
 
     transpile: ['vee-validate/dist/rules'],
+    // Nuxt minify config: https://nuxtjs.org/docs/configuration-glossary/configuration-build/#html-minify
+    html: {
+      minify: {
+        collapseWhitespace: true,
+        minifyCSS: false,
+        minifyJS: false,
+        preserveLineBreaks: true,
+        removeComments: true,
+        removeEmptyAttributes: true
+      },
+    },
   },
   /*
    ** Router
