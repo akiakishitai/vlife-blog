@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2023-01-10T15:48:24+00:00</updated>
+  <updated>2023-01-20T09:57:18+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
   <entry>
@@ -64,7 +64,7 @@
   <entry>
     <title>Bash エイリアスを記述する設定ファイルってどれ？</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/linux_bash_alias" />
-    <updated>2023-01-10T15:41:17+00:00</updated>
+    <updated>2023-01-20T09:49:41+00:00</updated>
     <id>tag:vlike-vlife.netlify.app,2022-02-18:posts/linux_bash_alias</id>
     <author><name>v1.0, 2022-02-18</name></author>
     <published>2022-02-18T00:00:00+00:00</published>
