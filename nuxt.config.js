@@ -194,17 +194,6 @@ const conf = {
     },
 
     transpile: ['vee-validate/dist/rules'],
-    // Nuxt minify config: https://nuxtjs.org/docs/configuration-glossary/configuration-build/#html-minify
-    html: {
-      minify: {
-        collapseWhitespace: true,
-        minifyCSS: false,
-        minifyJS: false,
-        preserveLineBreaks: true,
-        removeComments: true,
-        removeEmptyAttributes: true
-      },
-    },
   },
   /*
    ** Router
