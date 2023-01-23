@@ -35,9 +35,10 @@ jobs:
     steps:
       ### Setup
       - name: setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
+          node-version: '14'
+          cache: 'yarn'
 
       - name: checkout
         uses: actions/checkout@v2
@@ -91,6 +92,9 @@ jobs:
         run: yarn generate
         env:
           NODE_ENV: production
+
+      - name: format generated html
+        run: node ./htmlFormatter.js ./dist
 
       ### Deploy
       - name: deploy
