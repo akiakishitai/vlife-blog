@@ -167,17 +167,17 @@ export default class ArticlePosted
 
     // ページ内遷移
     const hashPattern = new RegExp('(<a [^>]*href=")(#[^"]*)("[^>]*>)', 'g')
-    const ast = this.posted.rendered.map(line => line.replace(
+    const ast = this.posted.rendered.replace(
       hashPattern,
       `$1${new URL(this.currentFullPath).pathname}$2$3`
-    ))
+    )
 
     // サイト内遷移
     const internal = new RegExp(
       '(<a [^>]*href=")([^/][^:]+/[^"]*)("[^>]*>)',
       'g'
     )
-    const body = ast.join('\n').replace(internal, `$1${parent}/$2$3`)
+    const body = ast.replace(internal, `$1${parent}/$2$3`)
 
     return body
   }

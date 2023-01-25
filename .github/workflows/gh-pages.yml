@@ -34,14 +34,13 @@ jobs:
         image: yuzutech/kroki-mermaid
     steps:
       ### Setup
-      - name: checkout
-        uses: actions/checkout@v3
-
       - name: setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
-          node-version: '14'
-          cache: 'yarn'
+          node-version: '12.x'
+
+      - name: checkout
+        uses: actions/checkout@v2
 
       ### Git Submodule
       - name: setup git credential helper
@@ -92,9 +91,6 @@ jobs:
         run: yarn generate
         env:
           NODE_ENV: production
-
-      - name: format generated html
-        run: node ./htmlFormatter.js ./dist
 
       ### Deploy
       - name: deploy

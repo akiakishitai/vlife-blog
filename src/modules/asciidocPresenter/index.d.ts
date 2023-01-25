@@ -53,7 +53,7 @@ export interface AsciidocSummaryJson {
  * @param {?string} revision_remark 更新内容
  */
 export interface AsciidocParsed extends AsciidocSummary {
-  rendered: string[] // '[<div class="hoge1">...</div>, <div class="hoge2">...</div>]'
+  rendered: string // '<div>...</div>'
   title?: string | import('@asciidoctor/core').Asciidoctor.Document.Title // 'Asciidoc Document Title'
   tags: string[] // '["sample", "test"] (convert from tags attribute)'
   updated_at?: string // '2020-08-10 (revision date)'
