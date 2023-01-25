@@ -25,7 +25,8 @@ hogehoge`
 :tags: foo,bar
 :created_at: 2020-08-15
 == Obon
-Wacchoi!`
+Wacchoi!
+IYA!`
       )
       .set(
         'sample03.adoc',
@@ -48,7 +49,7 @@ v1.2,2020-08-12
     const expected: AsciidocParsed = {
       filename: path.basename(file),
       created_at: doc.getAttribute('created_at'),
-      rendered: doc.convert(),
+      rendered: doc.convert().split(/\n/),
       tags: (doc.getAttribute('tags') + '').split(',').map((x) => x.trim()),
       title: doc.getDocumentTitle(),
       author: doc.getAttribute('author'),
@@ -89,7 +90,7 @@ v1.2,2020-08-12
     const expected = { filename: 'path/to/hoge', created_at: '2020-08-14' }
     const input: AsciidocParsed = {
       ...expected,
-      rendered: '<div>hello</div>',
+      rendered: ['<div>hello</div>'],
       tags: ['test', 'sample'],
       title: 'Sample Title',
       author: 'akiakiS',

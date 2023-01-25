@@ -15,7 +15,7 @@ describe('ArticlePosted', () => {
       updated_at: '2020-04-29',
       author: 'akiakiS',
       description: 'sample text source.',
-      rendered: '<div>hoge</div>',
+      rendered: ['<div>hoge</div>'],
       revision: '1.2',
       revision_remark: 'Change to asciidoc',
     }
