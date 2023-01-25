@@ -88,6 +88,14 @@ const conf = {
       },
     ],
     [
+      '@/modules/pageFormatter',
+      // https://github.com/beautify-web/js-beautify#options
+      {
+        indent_size: 2,
+        end_with_newline: true,
+      },
+    ],
+    [
       '@/modules/routesGenerator',
       {
         dynamicRoot: ['/posts'],
