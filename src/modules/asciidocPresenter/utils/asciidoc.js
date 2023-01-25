@@ -51,7 +51,7 @@ export function parse(file, options) {
   /** @type {import('..').AsciidocParsed} */
   const parsing = {
     filename: basename(file),
-    rendered: doc.convert().split(/\n/),
+    rendered: doc.convert(),
     title: doc.getDocumentTitle(),
     created_at: doc.getAttribute('created_at'),
     tags: (doc.getAttribute('tags') + '')
