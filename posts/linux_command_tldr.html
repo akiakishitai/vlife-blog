@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/linux_command_tldr/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/linux_command_tldr/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/linux_command_tldr/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/linux_command_tldr/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -108,14 +108,12 @@
                   <h2 id="_tldr">🥪TL;DR</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><code>tldr</code> は指定したコマンドついて、使用例を表示してくれる。<br>
-                        「〇〇がしたいんだけど、どうやるんだっけ？」という時に便利。</p>
+                      <p><code>tldr</code> は指定したコマンドついて、使用例を表示してくれる。<br> 「〇〇がしたいんだけど、どうやるんだっけ？」という時に便利。</p>
                     </div>
                     <div class="exampleblock">
                       <div class="title">Example 1. tldr コマンドを使ってみる</div>
                       <div class="content">
                         <div class="listingblock no-line-numbers command-line">
-
                           <div class="content">
                             <pre class="highlight command-line" data-user="user" data-host="local" data-output="7-30"><code class="language-bash" data-lang="bash">sudo curl -sL \
     https://github.com/dbrgn/tealdeer/releases/download/v1.4.1/tldr-linux-x86_64-musl \
@@ -143,8 +141,7 @@ tldr tar
                   <h2 id="_tldr_ってなに">🤔 <code>tldr</code> ってなに？</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p>OSSコミュニティによって管理されるコマンドライン・ツールのヘルプページ集。<br>
-                        シンプルでとっつきやすい使用例が記述されている。</p>
+                      <p>OSSコミュニティによって管理されるコマンドライン・ツールのヘルプページ集。<br> シンプルでとっつきやすい使用例が記述されている。</p>
                     </div>
                     <div class="paragraph">
                       <p>コマンドの詳細な仕様を表示する <code>man</code> コマンドでは</p>
@@ -160,8 +157,7 @@ tldr tar
                       </ul>
                     </div>
                     <div class="paragraph">
-                      <p>ってなりがち。<br>
-                        したがって <code>tldr</code> はシンプルな使用例を表示し、<code>man</code> を補完することを目的にしている。</p>
+                      <p>ってなりがち。<br> したがって <code>tldr</code> はシンプルな使用例を表示し、<code>man</code> を補完することを目的にしている。</p>
                     </div>
                     <div class="imageblock kroki">
                       <div class="content">
@@ -196,8 +192,7 @@ tldr tar
                     <div class="sect2">
                       <h3 id="_tldr_コマンドクライアント"><code>tldr</code> コマンド（クライアント）</h3>
                       <div class="paragraph">
-                        <p><code>tldr</code> の本体は <em>Markdown</em> で書かれたヘルプページ集。<br>
-                          これらのページを参照するツール（クライアント）が様々な言語で実装されている（<em>Node.js</em> 製とか <em>Go</em> 製とか）。</p>
+                        <p><code>tldr</code> の本体は <em>Markdown</em> で書かれたヘルプページ集。<br> これらのページを参照するツール（クライアント）が様々な言語で実装されている（<em>Node.js</em> 製とか <em>Go</em> 製とか）。</p>
                       </div>
                       <div class="paragraph">
                         <p>本記事では <em>Rust</em> 製のクライアント <code>tealdeer</code> を利用する（v1.4.1）。</p>
@@ -244,7 +239,6 @@ sudo chmod a+x /usr/local/bin/tldr</code></pre>
                       <div class="title">Example 3. tldr の使い方</div>
                       <div class="content">
                         <div class="listingblock no-line-numbers command-line">
-
                           <div class="content">
                             <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">tldr tar            <i class="conum" data-value="1"></i><b>(1)</b>
 tldr git switch     <i class="conum" data-value="2"></i><b>(2)</b>
@@ -276,8 +270,7 @@ tldr --list | peco | xargs tldr  <i class="conum" data-value="3"></i><b>(3)</b><
                             <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                           </td>
                           <td class="content">
-                            <div class="title">COMMAND not found な場合</div>
-                            当該コマンドについてのページがまだ作成されていないので、<em>Pull Request</em> を送って貢献するチャンス。
+                            <div class="title">COMMAND not found な場合</div> 当該コマンドについてのページがまだ作成されていないので、<em>Pull Request</em> を送って貢献するチャンス。
                           </td>
                         </tr>
                       </table>
@@ -359,13 +352,13 @@ tldr --list | peco | xargs tldr  <i class="conum" data-value="3"></i><b>(3)</b><
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/linux_command_tldr/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/linux_command_tldr/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

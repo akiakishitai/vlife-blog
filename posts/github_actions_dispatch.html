@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/github_actions_dispatch/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/github_actions_dispatch/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/github_actions_dispatch/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/github_actions_dispatch/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -227,8 +227,7 @@
                     <div class="sect2">
                       <h3 id="_ワークフローの手動実行">ワークフローの手動実行</h3>
                       <div class="paragraph">
-                        <p>ここでの手動実行とは、<em>GitHub</em> 上から実行したり <em>REST API</em> から実行したりすること。<br>
-                          今回は他ワークフローを呼び出したいので、<em>REST API</em> から実行することを目指す。</p>
+                        <p>ここでの手動実行とは、<em>GitHub</em> 上から実行したり <em>REST API</em> から実行したりすること。<br> 今回は他ワークフローを呼び出したいので、<em>REST API</em> から実行することを目指す。</p>
                       </div>
                       <div class="paragraph">
                         <p>ワークフロー・イベントを次のどちらかに指定しておけば <em>REST API</em> からそのイベントを受信できる。</p>
@@ -251,8 +250,7 @@
                               <p class="tableblock"><strong><code>workflow_dispatch</code></strong></p>
                             </td>
                             <td class="tableblock halign-left valign-top">
-                              <p class="tableblock">特定（単一）のワークフローを実行する<br>
-                                ブランチやタグの指定も可能</p>
+                              <p class="tableblock">特定（単一）のワークフローを実行する<br> ブランチやタグの指定も可能</p>
                             </td>
                           </tr>
                           <tr>
@@ -260,8 +258,7 @@
                               <p class="tableblock"><code>repository_dispatch</code></p>
                             </td>
                             <td class="tableblock halign-left valign-top">
-                              <p class="tableblock">複数のワークフローを実行する<br>
-                                カスタムイベントやイベント型を作成可能</p>
+                              <p class="tableblock">複数のワークフローを実行する<br> カスタムイベントやイベント型を作成可能</p>
                             </td>
                           </tr>
                         </tbody>
@@ -273,8 +270,7 @@
                     <div class="sect2">
                       <h3 id="_workflow_dispatch_イベント"><code>workflow_dispatch</code> イベント</h3>
                       <div class="paragraph">
-                        <p>特定のワークフローを実行するために使われるイベント。<br>
-                          イベント発行時にブランチやタグの指定が可能。</p>
+                        <p>特定のワークフローを実行するために使われるイベント。<br> イベント発行時にブランチやタグの指定が可能。</p>
                       </div>
                       <div class="paragraph">
                         <p>デフォルト入力値やプロパティの定義は <code>github.event.inputs</code> コンテキストで設定可能。</p>
@@ -373,8 +369,7 @@ jobs:
                               <p class="tableblock">workflow_id</p>
                             </td>
                             <td class="tableblock halign-left valign-top">
-                              <p class="tableblock">イベント送信先の ワークフローID または<br>
-                                ワークフローの拡張子つきファイル名（例えば <code>main.yaml</code> ）</p>
+                              <p class="tableblock">イベント送信先の ワークフローID または<br> ワークフローの拡張子つきファイル名（例えば <code>main.yaml</code> ）</p>
                             </td>
                           </tr>
                           <tr>
@@ -393,9 +388,7 @@ jobs:
                             <td class="icon">
                               <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                             </td>
-                            <td class="content">
-                              ワークフローIDは <em>REST API</em> から取得する必要があるため、ファイル名を指定するほうが簡単。
-                            </td>
+                            <td class="content"> ワークフローIDは <em>REST API</em> から取得する必要があるため、ファイル名を指定するほうが簡単。 </td>
                           </tr>
                         </table>
                       </div>
@@ -405,17 +398,14 @@ jobs:
                             <td class="icon">
                               <i class="fa icon-warning" title="Warning" data-md-icon="warning"></i>
                             </td>
-                            <td class="content">
-                              個人アクセストークンは直書きせず、環境変数やパスワードマネージャーで設定する。
-                            </td>
+                            <td class="content"> 個人アクセストークンは直書きせず、環境変数やパスワードマネージャーで設定する。 </td>
                           </tr>
                         </table>
                       </div>
                       <div class="sect3">
                         <h4 id="_個人アクセストークン_personal_access_token_の作成">個人アクセストークン（ <em>Personal Access Token</em> ）の作成</h4>
                         <div class="paragraph">
-                          <p><em>REST API</em> を使うために作成。<br>
-                            以前に作成して <em>Secrets</em> 登録したやつがあったのでそれを使った。</p>
+                          <p><em>REST API</em> を使うために作成。<br> 以前に作成して <em>Secrets</em> 登録したやつがあったのでそれを使った。</p>
                         </div>
                         <div class="paragraph">
                           <p>新規作成する場合は、下記ドキュメントを参考にする。</p>
@@ -527,8 +517,7 @@ jobs:
                       <p>以上で <code>orphan</code> ブランチを更新すれば <code>main</code> ブランチの <em>GitHub Actions</em> が実行するようにできた。</p>
                     </div>
                     <div class="paragraph">
-                      <p>これで <em>Nuxt</em> プログラムコードと記事ソースのブランチを分けて、記事だけを更新しても自動的にデプロイ用ワークフローを実行してくれるようにできた。<br>
-                        おかげでブログ更新も捗る……といいな！🙄<span class="line-through">進捗どうですか</span>。</p>
+                      <p>これで <em>Nuxt</em> プログラムコードと記事ソースのブランチを分けて、記事だけを更新しても自動的にデプロイ用ワークフローを実行してくれるようにできた。<br> おかげでブログ更新も捗る……といいな！🙄<span class="line-through">進捗どうですか</span>。</p>
                     </div>
                   </div>
                 </div>
@@ -610,13 +599,13 @@ jobs:
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/github_actions_dispatch/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/github_actions_dispatch/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

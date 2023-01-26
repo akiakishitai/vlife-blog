@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/github_actions_service_container/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/github_actions_service_container/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/github_actions_service_container/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/github_actions_service_container/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -103,8 +103,7 @@
                   <h2 id="_はじめに">はじめに🤔</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p>本ブログは <em>Asciidoc</em> 記法で記事を書いており、その中でダイアグラム図を描画するのに <em><a href="https://kroki.io" target="_blank" rel="noopener">Kroki</a></em> APIサーバーを利用している。<br>
-                        デフォルト設定では公式のAPIサーバーを利用するので、ブログをビルドするたびに負担をかけるのは申し訳ないなぁ、と思ってなんとかしたかった。</p>
+                      <p>本ブログは <em>Asciidoc</em> 記法で記事を書いており、その中でダイアグラム図を描画するのに <em><a href="https://kroki.io" target="_blank" rel="noopener">Kroki</a></em> APIサーバーを利用している。<br> デフォルト設定では公式のAPIサーバーを利用するので、ブログをビルドするたびに負担をかけるのは申し訳ないなぁ、と思ってなんとかしたかった。</p>
                     </div>
                     <div class="paragraph">
                       <p>そこで <em>GitHub Actions</em> ワークフローで使える<a href="https://docs.github.com/ja/actions/guides/about-service-containers" target="_blank" rel="noopener">サービスコンテナ</a>という機能を利用して、ビルド時に <code>kroki</code> をセルフホストしてみる。</p>
@@ -115,13 +114,10 @@
                   <h2 id="_サービスコンテナ"><a href="https://docs.github.com/ja/actions/guides/about-service-containers" target="_blank" rel="noopener">サービスコンテナ📦</a></h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><em>GitHub Actions</em> ワークフローのジョブ実行時にいっしょに起動させる <em>Docker</em> コンテナのこと。<br>
-                        テストやビルド時にデータベースやAPIサーバが必要なときに利用する。<br>
-                        （公式ドキュメントでは <a href="https://docs.github.com/ja/actions/guides/creating-redis-service-containers" target="_blank" rel="noopener">Redis</a> と <a href="https://docs.github.com/ja/actions/guides/creating-postgresql-service-containers" target="_blank" rel="noopener">PostgreSQL</a> のサンプルが紹介されている。）</p>
+                      <p><em>GitHub Actions</em> ワークフローのジョブ実行時にいっしょに起動させる <em>Docker</em> コンテナのこと。<br> テストやビルド時にデータベースやAPIサーバが必要なときに利用する。<br> （公式ドキュメントでは <a href="https://docs.github.com/ja/actions/guides/creating-redis-service-containers" target="_blank" rel="noopener">Redis</a> と <a href="https://docs.github.com/ja/actions/guides/creating-postgresql-service-containers" target="_blank" rel="noopener">PostgreSQL</a> のサンプルが紹介されている。）</p>
                     </div>
                     <div class="paragraph">
-                      <p>サービスコンテナの定義は以下のように <code>jobs.&lt;job_id>.services</code> キーで定義する。<br>
-                        なお本記事の例はランナーマシン上での実行を前提としている。</p>
+                      <p>サービスコンテナの定義は以下のように <code>jobs.&lt;job_id>.services</code> キーで定義する。<br> なお本記事の例はランナーマシン上での実行を前提としている。</p>
                     </div>
                     <details>
                       <summary class="title">ランナーマシン上って？</summary>
@@ -212,8 +208,7 @@
                             </tr>
                             <tr>
                               <td><i class="conum" data-value="4"></i><b>4</b></td>
-                              <td><code>&lt;host>:&lt;container></code> を書式とするポートマッピング。<br>
-                                ランナーマシン上で実行する場合はアクセスするために必須。</td>
+                              <td><code>&lt;host>:&lt;container></code> を書式とするポートマッピング。<br> ランナーマシン上で実行する場合はアクセスするために必須。</td>
                             </tr>
                           </table>
                         </div>
@@ -225,9 +220,7 @@
                           <td class="icon">
                             <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                           </td>
-                          <td class="content">
-                            ランナーマシン上でワークフロー・ジョブを実行する場合、サービスコンテナには <code>http://localhost:&lt;PORT></code> でアクセスできる。
-                          </td>
+                          <td class="content"> ランナーマシン上でワークフロー・ジョブを実行する場合、サービスコンテナには <code>http://localhost:&lt;PORT></code> でアクセスできる。 </td>
                         </tr>
                       </table>
                     </div>
@@ -348,7 +341,6 @@ jobs:
                         <div class="title">Example 3. Asciidoc</div>
                         <div class="content">
                           <div class="listingblock">
-
                             <div class="content">
                               <pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">= サービスコンテナkrokiのテスト
 ifdef::env-github[]   <i class="conum" data-value="1"></i><b>(1)</b>
@@ -386,7 +378,6 @@ gantt
                         <div class="title">Example 4. Asciidocを変換するjavascript</div>
                         <div class="content">
                           <div class="listingblock">
-
                             <div class="content">
                               <pre class="highlight"><code class="language-js" data-lang="js">/** @type {import('@asciidoctor/core').Asciidoctor} */
 const asciidoctor = require('@asciidoctor/core')()
@@ -427,8 +418,7 @@ doc.convert()</code></pre>
                   <h2 id="_おわりに">おわりに😎</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><em>GitHub Actions</em> ワークフローのサービスコンテナを使うことで外部APIサーバーに負担をかけなくてすむようになった。<br>
-                        ついでに外部通信がなくなることでワークフローの実行時間も短縮できた。</p>
+                      <p><em>GitHub Actions</em> ワークフローのサービスコンテナを使うことで外部APIサーバーに負担をかけなくてすむようになった。<br> ついでに外部通信がなくなることでワークフローの実行時間も短縮できた。</p>
                     </div>
                     <div class="paragraph">
                       <p>こういう便利な機能を知らなかったの悔しい😣。</p>
@@ -522,13 +512,13 @@ doc.convert()</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/github_actions_service_container/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/github_actions_service_container/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

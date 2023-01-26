@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/stop_gitlfs/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/stop_gitlfs/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/stop_gitlfs/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/stop_gitlfs/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -103,8 +103,7 @@
                           <p>特に、画像ファイルが少ないはじめのうちは問題がないようでも、 画像ファイルが増えるにつれて clone や checkout の速度が遅くなるなどの問題が発生する可能性があるので注意が必要です。</p>
                         </div>
                       </blockquote>
-                      <div class="attribution">
-                        — <a href="https://www.gitlab.jp/blog/2020/07/10/how-to-migrate-git-lfs/" target="_blank" rel="noopener">小さな画像ファイルはGit LFSで管理しない方がよい理由 | GitLab.JP</a>
+                      <div class="attribution"> — <a href="https://www.gitlab.jp/blog/2020/07/10/how-to-migrate-git-lfs/" target="_blank" rel="noopener">小さな画像ファイルはGit LFSで管理しない方がよい理由 | GitLab.JP</a>
                       </div>
                     </div>
                     <div class="paragraph">
@@ -151,7 +150,6 @@
                         <li>
                           <p><em>Git LFS</em> 管理対象のファイルを確認</p>
                           <div class="listingblock command-line no-line-numbers">
-
                             <div class="content">
                               <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">git lfs ls-files</code></pre>
                             </div>
@@ -163,7 +161,6 @@
                             <div class="title">Example 1. Git LFS アンインストールのコマンド例</div>
                             <div class="content">
                               <div class="listingblock command-line no-line-numbers">
-
                                 <div class="content">
                                   <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">git lfs untrack '*.png' '*.jpg' '*.jpeg'  <i class="conum" data-value="1"></i><b>(1)</b>
 git rm --cached path/to/file1 path/to/file2  <i class="conum" data-value="2"></i><b>(2)</b>
@@ -197,11 +194,9 @@ git lfs uninstall  <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
                                 <td class="content">
                                   <div class="title">履歴からも消して綺麗にする場合</div>
                                   <div class="paragraph">
-                                    <p><code>git rm</code> の代わりに下記コマンドを実行。<br>
-                                      全履歴を書き換えて対象ファイルを無かったコトにするため、リモートリポジトリには強制上書き（ <code>git push -f</code> ）が必要になる。</p>
+                                    <p><code>git rm</code> の代わりに下記コマンドを実行。<br> 全履歴を書き換えて対象ファイルを無かったコトにするため、リモートリポジトリには強制上書き（ <code>git push -f</code> ）が必要になる。</p>
                                   </div>
                                   <div class="listingblock">
-
                                     <div class="content">
                                       <pre class="highlight"><code class="language-bash" data-lang="bash">git filter-branch --force --index-filter \
   "git rm --cached --ignore-unmatch path/to/file1 path/to/file2" \
@@ -216,7 +211,6 @@ git lfs uninstall  <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
                         <li>
                           <p><em>Git LFS</em> アンインストール後のファイルをコミットし直す</p>
                           <div class="listingblock command-line no-line-numbers">
-
                             <div class="content">
                               <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">git add .
 git commit</code></pre>
@@ -306,13 +300,13 @@ git commit</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/stop_gitlfs/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/stop_gitlfs/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

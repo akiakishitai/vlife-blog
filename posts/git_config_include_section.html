@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/git_config_include_section/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/git_config_include_section/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/git_config_include_section/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/git_config_include_section/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -147,8 +147,7 @@
                             </tr>
                             <tr>
                               <td><i class="conum" data-value="4"></i><b>4</b></td>
-                              <td>ある条件下のみ取り込ませたい設定がある場合は、<code>includeIf</code> を用いる。<br>
-                                この例では、指定したパス以下にある <em>git</em> リポジトリにおいて下記のファイルを取り込ませている。</td>
+                              <td>ある条件下のみ取り込ませたい設定がある場合は、<code>includeIf</code> を用いる。<br> この例では、指定したパス以下にある <em>git</em> リポジトリにおいて下記のファイルを取り込ませている。</td>
                             </tr>
                           </table>
                         </div>
@@ -199,7 +198,6 @@ tester</code></pre>
                       <div class="title">Example 2. CLI から include.path を設定する場合</div>
                       <div class="content">
                         <div class="listingblock no-line-numbers command-line">
-
                           <div class="content">
                             <pre class="highlight command-line" data-user="user" data-host="local" data-output="2,4-10"><code class="language-bash" data-lang="bash">git config --global --add include.path "/path/to/include/file"	<i class="conum" data-value="1"></i><b>(1)</b>
 
@@ -234,9 +232,7 @@ include.path /path/to/include/file</code></pre>
                         <p><code>include</code> 節を使うことで別ファイルから <code>.gitconfig</code> の設定を取り込むことができる。</p>
                       </div>
                       <div class="paragraph">
-                        <p><code>path</code> 変数に取り込ませたい設定ファイルのパスを指定する。<br>
-                          このとき相対パスも指定でき、<code>include</code> が記述されたファイルを起点とした相対パスとなる。<br>
-                          また、チルダ（<code>~</code>）によるパス指定もできる。</p>
+                        <p><code>path</code> 変数に取り込ませたい設定ファイルのパスを指定する。<br> このとき相対パスも指定でき、<code>include</code> が記述されたファイルを起点とした相対パスとなる。<br> また、チルダ（<code>~</code>）によるパス指定もできる。</p>
                       </div>
                       <div class="paragraph">
                         <p><code>path</code> 変数は複数回の設定ができるため、取り込ませるファイルの数だけ指定する。</p>
@@ -261,8 +257,7 @@ include.path /path/to/include/file</code></pre>
                           <dd>
                             <p><code>.git</code> ディレクトリのパスが指定した <em>glob</em> パターンと一致する場合に真となる。</p>
                             <div class="paragraph">
-                              <p>通常はリポジトリのパスを指定したいはずなので、パターンの末尾を <code>/</code> または <code>/**</code> とすればいい<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="/posts/git_config_include_section#_footnotedef_2" title="View footnote.">2</a>]</sup>。<br>
-                                この場合、指定したパターンのパス以下にあるリポジトリすべてが対象となる。</p>
+                              <p>通常はリポジトリのパスを指定したいはずなので、パターンの末尾を <code>/</code> または <code>/**</code> とすればいい<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="/posts/git_config_include_section#_footnotedef_2" title="View footnote.">2</a>]</sup>。<br> この場合、指定したパターンのパス以下にあるリポジトリすべてが対象となる。</p>
                             </div>
                           </dd>
                           <dt class="hdlist1">gitdir/i:<em>&lt;pattern></em></dt>
@@ -362,13 +357,13 @@ include.path /path/to/include/file</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/git_config_include_section/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/git_config_include_section/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

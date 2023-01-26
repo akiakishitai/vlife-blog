@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/git_partial_clone/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/git_partial_clone/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/git_partial_clone/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/git_partial_clone/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -209,7 +209,6 @@
                           <p>リポジトリで作業をする場合はブロブレス・クローンを利用する。</p>
                         </div>
                         <div class="listingblock no-line-numbers command-line">
-
                           <div class="content">
                             <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">git clone --filter=blob:none &lt;URL></code></pre>
                           </div>
@@ -240,11 +239,9 @@
                       <div class="title">Example 3. 一部のファイル/ディレクトリだけ必要なとき</div>
                       <div class="content">
                         <div class="paragraph">
-                          <p><em>sparse-checkout</em> 機能を使う。<br>
-                            パーシャルクローンと組み合わせると更に効果的。</p>
+                          <p><em>sparse-checkout</em> 機能を使う。<br> パーシャルクローンと組み合わせると更に効果的。</p>
                         </div>
                         <div class="listingblock no-line-numbers command-line">
-
                           <div class="content">
                             <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">git clone --filter=blob:none --sparse &lt;URL>
 cd &lt;REPOSITORY>
@@ -260,8 +257,7 @@ git sparse-checkout set &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                   <h2 id="_パーシャルクローン_partial_clone_とは">🍕パーシャルクローン（ <em>partial clone</em> ）とは</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p>指定されたコミットの範囲内でダウンロードする <em>blob</em> オブジェクト<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="/posts/git_partial_clone#_footnotedef_1" title="View footnote.">1</a>]</sup>や <em>tree</em> オブジェクト<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="/posts/git_partial_clone#_footnotedef_2" title="View footnote.">2</a>]</sup>の数を制限してクローンする機能のこと。<br>
-                        巨大なリポジトリから必要なものだけをクローンすることで、ダウンロード時間やディスク使用容量を削減するために使われる。</p>
+                      <p>指定されたコミットの範囲内でダウンロードする <em>blob</em> オブジェクト<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="/posts/git_partial_clone#_footnotedef_1" title="View footnote.">1</a>]</sup>や <em>tree</em> オブジェクト<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="/posts/git_partial_clone#_footnotedef_2" title="View footnote.">2</a>]</sup>の数を制限してクローンする機能のこと。<br> 巨大なリポジトリから必要なものだけをクローンすることで、ダウンロード時間やディスク使用容量を削減するために使われる。</p>
                     </div>
                     <div class="paragraph">
                       <p>パーシャルクローンは <code>git clone</code> コマンドにおいて <code>--filter</code> オプションを指定することで有効化される。</p>
@@ -272,12 +268,10 @@ git sparse-checkout set &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                     <div class="sect2">
                       <h3 id="_ブロブレスクローン">🌟ブロブレス・クローン</h3>
                       <div class="paragraph">
-                        <p><code>git clone</code> 実行時にすべてのコミット履歴と <em>tree</em> オブジェクトはダウンロードされるが、各 <em>blob</em> オブジェクトはそれぞれが必要となった時にダウンロードされる<sup class="footnote" id="_footnote_cloned">[<a id="_footnoteref_3" class="footnote" href="/posts/git_partial_clone#_footnotedef_3" title="View footnote.">3</a>]</sup>。<br>
-                          このブロブレス・クローンは汎用的に使えるパーシャルクローンであり、一般的に使われる手法である。</p>
+                        <p><code>git clone</code> 実行時にすべてのコミット履歴と <em>tree</em> オブジェクトはダウンロードされるが、各 <em>blob</em> オブジェクトはそれぞれが必要となった時にダウンロードされる<sup class="footnote" id="_footnote_cloned">[<a id="_footnoteref_3" class="footnote" href="/posts/git_partial_clone#_footnotedef_3" title="View footnote.">3</a>]</sup>。<br> このブロブレス・クローンは汎用的に使えるパーシャルクローンであり、一般的に使われる手法である。</p>
                       </div>
                       <div class="paragraph">
-                        <p>リポジトリでの作業において、<em>blob</em> オブジェクトを必要とするコマンドは使用頻度が比較的低い。<br>
-                          そのため、ブロブレス・クローンは通常のクローンと同じような感覚で使える。</p>
+                        <p>リポジトリでの作業において、<em>blob</em> オブジェクトを必要とするコマンドは使用頻度が比較的低い。<br> そのため、ブロブレス・クローンは通常のクローンと同じような感覚で使える。</p>
                       </div>
                       <div class="listingblock no-line-numbers command-line">
                         <div class="title">ブロブレス・クローンの実行</div>
@@ -294,8 +288,7 @@ git sparse-checkout set &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                             <td class="content">
                               <div class="title">blobオブジェクトのダウンロードが行われるコマンド</div>
                               <div class="paragraph">
-                                <p><code>git checkout</code> や <code>git pull</code>、 <code>git blame</code> など。<br>
-                                  ファイル内容を利用するコマンドが該当する。</p>
+                                <p><code>git checkout</code> や <code>git pull</code>、 <code>git blame</code> など。<br> ファイル内容を利用するコマンドが該当する。</p>
                               </div>
                             </td>
                           </tr>
@@ -308,8 +301,7 @@ git sparse-checkout set &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                         <p><code>git clone</code> 実行時にはすべてのコミット履歴のみがダウンロードされ、<em>tree</em> オブジェクトと <em>blob</em> オブジェクトはそれぞれが必要となった時にダウンロードされる<sup class="footnoteref">[<a class="footnote" href="/posts/git_partial_clone#_footnotedef_3" title="View footnote.">3</a>]</sup>。</p>
                       </div>
                       <div class="paragraph">
-                        <p>利用方法はシャロー・クローンと似たような感じになり、使い所が限られる。<br>
-                          （<em>tree</em> オブジェクトを必要とする <em>git</em> コマンドが意外とあるみたい）</p>
+                        <p>利用方法はシャロー・クローンと似たような感じになり、使い所が限られる。<br> （<em>tree</em> オブジェクトを必要とする <em>git</em> コマンドが意外とあるみたい）</p>
                       </div>
                       <div class="listingblock no-line-numbers command-line">
                         <div class="title">ツリーレス・クローンの実行</div>
@@ -324,8 +316,7 @@ git sparse-checkout set &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                   <h2 id="_一部のファイルディレクトリだけをクローンする_sparse_checkout">🧩一部のファイル/ディレクトリだけをクローンする（ <a href="https://git-scm.com/docs/git-sparse-checkout" target="_blank" rel="noopener"><em>sparse-checkout</em></a> ）</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><em>sparse-checkout</em> 機能を利用することで、一部のファイルまたはディレクトリだけに制限してクローンすることができる。<br>
-                        この <em>sparse-checkout</em> 機能は <code>git sparse-checkout</code> コマンドから操作する。</p>
+                      <p><em>sparse-checkout</em> 機能を利用することで、一部のファイルまたはディレクトリだけに制限してクローンすることができる。<br> この <em>sparse-checkout</em> 機能は <code>git sparse-checkout</code> コマンドから操作する。</p>
                     </div>
                     <div class="paragraph">
                       <p>例として <a href="https://github.com/derrickstolee/sparse-checkout-example" target="_blank" rel="noopener"><em>Sparse-Checkout Example Repo</em></a> リポジトリを対象にすると次のようになる。</p>
@@ -365,8 +356,7 @@ bootstrap.sh  .git/  LICENSE.md  README.md  web/</code></pre>
                             </tr>
                             <tr>
                               <td><i class="conum" data-value="4"></i><b>4</b></td>
-                              <td>ダウンロードしたいファイル/ディレクトリのパスをパターンで新規指定。<br>
-                                パターンを追加する場合は <code>add</code> サブコマンドを使う。</td>
+                              <td>ダウンロードしたいファイル/ディレクトリのパスをパターンで新規指定。<br> パターンを追加する場合は <code>add</code> サブコマンドを使う。</td>
                             </tr>
                           </table>
                         </div>
@@ -377,8 +367,7 @@ bootstrap.sh  .git/  LICENSE.md  README.md  web/</code></pre>
                                 <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                               </td>
                               <td class="content">
-                                <em>git v2.27.0</em> 以降では <code>--no-checkout</code> オプションと <code>git sparse-checkout</code> の組み合わせはバグがあったため機能しない。<br>
-                                ただし v2.32.0 では修正されて動作するっぽい。
+                                <em>git v2.27.0</em> 以降では <code>--no-checkout</code> オプションと <code>git sparse-checkout</code> の組み合わせはバグがあったため機能しない。<br> ただし v2.32.0 では修正されて動作するっぽい。
                               </td>
                             </tr>
                           </table>
@@ -404,7 +393,6 @@ bootstrap.sh  .git/  LICENSE.md  README.md  web/</code></pre>
                           <dt class="hdlist1"><em>sparse-checkout</em> 機能の有効化</dt>
                           <dd>
                             <div class="listingblock no-line-numbers command-line">
-
                               <div class="content">
                                 <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">git sparse-checkout init --cone</code></pre>
                               </div>
@@ -420,7 +408,6 @@ bootstrap.sh  .git/  LICENSE.md  README.md  web/</code></pre>
                           <dt class="hdlist1">必要なパスのパターンを登録</dt>
                           <dd>
                             <div class="listingblock no-line-numbers command-line">
-
                               <div class="content">
                                 <pre class="highlight command-line" data-user="user" data-host="local" data-output="2-10"><code class="language-bash" data-lang="bash">git sparse-checkout set &lt;PATTERN1> [&lt;PATTERN2> ...]
 git sparse-checkout add &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
@@ -437,8 +424,7 @@ git sparse-checkout add &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                                     <p class="tableblock"><code>set</code></p>
                                   </td>
                                   <td class="tableblock halign-left valign-top">
-                                    <p class="tableblock">指定したパターンで登録リストを新規作成。<br>
-                                      既存のリストは上書きされる。</p>
+                                    <p class="tableblock">指定したパターンで登録リストを新規作成。<br> 既存のリストは上書きされる。</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -462,7 +448,6 @@ git sparse-checkout add &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                           <dt class="hdlist1">登録されているパターンの一覧</dt>
                           <dd>
                             <div class="listingblock no-line-numbers command-line">
-
                               <div class="content">
                                 <pre class="highlight command-line" data-user="user" data-host="local" data-output="2-10"><code class="language-bash" data-lang="bash">git sparse-checkout list</code></pre>
                               </div>
@@ -471,7 +456,6 @@ git sparse-checkout add &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                           <dt class="hdlist1"><em>sparse-checkout</em> 機能を再適用</dt>
                           <dd>
                             <div class="listingblock no-line-numbers command-line">
-
                               <div class="content">
                                 <pre class="highlight command-line" data-user="user" data-host="local" data-output="2-10"><code class="language-bash" data-lang="bash">git sparse-checkout reapply</code></pre>
                               </div>
@@ -487,7 +471,6 @@ git sparse-checkout add &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
                           <dt class="hdlist1"><em>sparse-checkout</em> 機能を無効化</dt>
                           <dd>
                             <div class="listingblock no-line-numbers command-line">
-
                               <div class="content">
                                 <pre class="highlight command-line" data-user="user" data-host="local" data-output="2-10"><code class="language-bash" data-lang="bash">git sparse-checkout disable</code></pre>
                               </div>
@@ -603,13 +586,13 @@ git sparse-checkout add &lt;PATTERN1> [&lt;PATTERN2> ...]</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/git_partial_clone/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/git_partial_clone/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

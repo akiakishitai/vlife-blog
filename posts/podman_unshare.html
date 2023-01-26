@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/podman_unshare/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/podman_unshare/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/podman_unshare/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/podman_unshare/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -97,8 +97,7 @@
                       <dl>
                         <dt class="hdlist1">前提</dt>
                         <dd>
-                          <p>ルートレスモードの <em>Podman</em> では、ユーザ名前空間という仕組みによって実行ユーザーのUIDがコンテナ内の <em>root</em> としてマッピングされる。<br>
-                            これにより、ホスト側のディレクトリをコンテナにマウントしたときに、コンテナ側でファイルを作成してもパーミッションの問題に悩まされることなく利用できる。</p>
+                          <p>ルートレスモードの <em>Podman</em> では、ユーザ名前空間という仕組みによって実行ユーザーのUIDがコンテナ内の <em>root</em> としてマッピングされる。<br> これにより、ホスト側のディレクトリをコンテナにマウントしたときに、コンテナ側でファイルを作成してもパーミッションの問題に悩まされることなく利用できる。</p>
                         </dd>
                         <dt class="hdlist1">問題</dt>
                         <dd>
@@ -139,9 +138,7 @@
                           <td class="icon">
                             <i class="fa icon-important" title="Important" data-md-icon="report"></i>
                           </td>
-                          <td class="content">
-                            この記事では <strong>ルートレスモード</strong> を前提にしています。
-                          </td>
+                          <td class="content"> この記事では <strong>ルートレスモード</strong> を前提にしています。 </td>
                         </tr>
                       </table>
                     </div>
@@ -198,7 +195,6 @@ echo 'hello' >> README.md   <i class="conum" data-value="2"></i><b>(2)</b>
                     <div class="exampleblock">
                       <div class="content">
                         <div class="listingblock no-line-numbers command-line">
-
                           <div class="content">
                             <pre class="highlight command-line" data-user="hoge" data-host="local" data-output="2,4-5"><code class="language-bash" data-lang="bash">podman unshare -- id
 uid=0(root) gid=0(root) groups=0(root),65534(nogroup)   <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b>
@@ -216,8 +212,7 @@ podman unshare -- nano README.md</code></pre>
                             </tr>
                             <tr>
                               <td><i class="conum" data-value="2"></i><b>2</b></td>
-                              <td><code>podman unshare</code> に渡したコマンドは <em>root</em> として実行される。<br>
-                                👉ルートレス <em>Podman</em> において、実行ユーザーは <em>root</em> にマッピングされるため。</td>
+                              <td><code>podman unshare</code> に渡したコマンドは <em>root</em> として実行される。<br> 👉ルートレス <em>Podman</em> において、実行ユーザーは <em>root</em> にマッピングされるため。</td>
                             </tr>
                           </table>
                         </div>
@@ -228,8 +223,7 @@ podman unshare -- nano README.md</code></pre>
                                 <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                               </td>
                               <td class="content">
-                                <code>--</code> はあってもなくてもいい。<br>
-                                例では見た目がわかりやすいかなと思ってつけている。
+                                <code>--</code> はあってもなくてもいい。<br> 例では見た目がわかりやすいかなと思ってつけている。
                               </td>
                             </tr>
                           </table>
@@ -245,8 +239,7 @@ podman unshare -- nano README.md</code></pre>
                       <p>コンテナ側で生成されたファイルをちょっと編集したくなったとき、いちいちコンテナを起動する必要性がなくなって助かる🤗。</p>
                     </div>
                     <div class="paragraph">
-                      <p>もっとも、こういうめったに使わないけど知っておくと便利なコマンドって、作業が終わってから見つかるんだけど。<br>
-                        ぴえん🥺。</p>
+                      <p>もっとも、こういうめったに使わないけど知っておくと便利なコマンドって、作業が終わってから見つかるんだけど。<br> ぴえん🥺。</p>
                     </div>
                   </div>
                 </div>
@@ -325,13 +318,13 @@ podman unshare -- nano README.md</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/podman_unshare/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/podman_unshare/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

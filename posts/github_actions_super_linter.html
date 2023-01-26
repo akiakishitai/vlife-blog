@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/github_actions_super_linter/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/github_actions_super_linter/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/github_actions_super_linter/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/github_actions_super_linter/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -150,13 +150,11 @@
                       <dl>
                         <dt class="hdlist1"><span class="flex items-center text-green-500"><span class="material-icons">check</span>メリット</span></dt>
                         <dd>
-                          <p>様々なリンターが全部つめ込まれて設定済みなので、リンターを利用するまでにかかる手間が少ない。<br>
-                            迷ったらとりあえず <em>Super Linter</em> を使ってみたらいい。</p>
+                          <p>様々なリンターが全部つめ込まれて設定済みなので、リンターを利用するまでにかかる手間が少ない。<br> 迷ったらとりあえず <em>Super Linter</em> を使ってみたらいい。</p>
                         </dd>
                         <dt class="hdlist1"><span class="flex items-center text-red-500"><span class="material-icons">close</span>デメリット</span></dt>
                         <dd>
-                          <p>Dockerイメージのサイズがかなり大きいため、実行開始までの時間が長い（2~3分）。<br>
-                            実行結果のログ（レポート）の確認がしづらい。リポジトリの <em>Actions</em> タブからコンソールログを見に行くか、アーティファクトとして保存したレポートを取得するか。</p>
+                          <p>Dockerイメージのサイズがかなり大きいため、実行開始までの時間が長い（2~3分）。<br> 実行結果のログ（レポート）の確認がしづらい。リポジトリの <em>Actions</em> タブからコンソールログを見に行くか、アーティファクトとして保存したレポートを取得するか。</p>
                         </dd>
                       </dl>
                     </div>
@@ -172,7 +170,6 @@
                       <summary class="title">Super Linter ワークフローのサンプル</summary>
                       <div class="content">
                         <div class="listingblock">
-
                           <div class="content">
                             <pre class="highlight"><code class="language-yaml" data-lang="yaml">name: Super-Linter
 
@@ -214,8 +211,7 @@ jobs:
                           <table>
                             <tr>
                               <td><i class="conum" data-value="1"></i><b>1</b></td>
-                              <td>時間短縮のためにビルド済みDockerイメージを利用。<br>
-                                パブリックアクションを利用すると処理がDockerイメージのビルドから行われてしまう。</td>
+                              <td>時間短縮のためにビルド済みDockerイメージを利用。<br> パブリックアクションを利用すると処理がDockerイメージのビルドから行われてしまう。</td>
                             </tr>
                             <tr>
                               <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -250,8 +246,7 @@ jobs:
                     <div class="sect2">
                       <h3 id="_チェックする言語の選択">チェックする言語の選択</h3>
                       <div class="paragraph">
-                        <p><em>Super Linter</em> でチェックする言語の選択には <code>VALIDATE_[language]</code> 変数を使用して制御する。<br>
-                          以下のように、ちょっと特殊な動作をする。</p>
+                        <p><em>Super Linter</em> でチェックする言語の選択には <code>VALIDATE_[language]</code> 変数を使用して制御する。<br> 以下のように、ちょっと特殊な動作をする。</p>
                       </div>
                       <table class="tableblock frame-all grid-all fit-content">
                         <colgroup>
@@ -278,8 +273,7 @@ jobs:
                               <p class="tableblock">いずれかの変数が <code>true</code></p>
                             </td>
                             <td class="tableblock halign-left valign-top">
-                              <p class="tableblock"><strong><code>true</code> に設定した言語のみが有効。</strong><br>
-                                他の言語は無効となる。</p>
+                              <p class="tableblock"><strong><code>true</code> に設定した言語のみが有効。</strong><br> 他の言語は無効となる。</p>
                             </td>
                           </tr>
                           <tr>
@@ -287,8 +281,7 @@ jobs:
                               <p class="tableblock">いずれかの変数が <code>false</code></p>
                             </td>
                             <td class="tableblock halign-left valign-top">
-                              <p class="tableblock"><strong><code>false</code> に設定した言語のみが無効。</strong><br>
-                                他の言語は有効となる。</p>
+                              <p class="tableblock"><strong><code>false</code> に設定した言語のみが無効。</strong><br> 他の言語は有効となる。</p>
                             </td>
                           </tr>
                           <tr>
@@ -330,8 +323,7 @@ jobs:
                           </tr>
                           <tr>
                             <td><i class="conum" data-value="2"></i><b>2</b></td>
-                            <td>出力先ディレクトリ。<br>
-                              デフォルトは <code>super-linter.report</code> ディレクトリが指定されている。</td>
+                            <td>出力先ディレクトリ。<br> デフォルトは <code>super-linter.report</code> ディレクトリが指定されている。</td>
                           </tr>
                           <tr>
                             <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -349,23 +341,19 @@ jobs:
                             <td class="icon">
                               <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                             </td>
-                            <td class="content">
-                              出力されるレポートのファイル名は <code>super-linter-&lt;LANGUAGE>.tap</code> となる。
-                            </td>
+                            <td class="content"> 出力されるレポートのファイル名は <code>super-linter-&lt;LANGUAGE>.tap</code> となる。 </td>
                           </tr>
                         </table>
                       </div>
                       <div class="sect3">
                         <h4 id="_レポートについて">レポートについて</h4>
                         <div class="paragraph">
-                          <p><em>Super Linter</em> のレポートは <em>tap</em> (<a href="https://testanything.org" target="_blank" rel="noopener">Test Anything Protocol</a>)形式で出力される。<br>
-                            そして <code>message</code> プロパティに各 <em>linter</em> からの出力メッセージをそのまま記述しているみたい。</p>
+                          <p><em>Super Linter</em> のレポートは <em>tap</em> (<a href="https://testanything.org" target="_blank" rel="noopener">Test Anything Protocol</a>)形式で出力される。<br> そして <code>message</code> プロパティに各 <em>linter</em> からの出力メッセージをそのまま記述しているみたい。</p>
                         </div>
                         <details>
                           <summary class="title">出力ログの例</summary>
                           <div class="content">
                             <div class="listingblock">
-
                               <div class="content">
                                 <pre class="highlight"><code class="language-text" data-lang="text">TAP version 13
 1..8
@@ -412,15 +400,13 @@ not ok 1 - wrong.js
                         <dl>
                           <dt class="hdlist1">原因</dt>
                           <dd>
-                            <p><em>Super Linter</em> は <code>DEFAULT_BRANCH</code> にチェックアウトするため、このとき新規追加ファイルはファイルシステム上から削除されてしまう。<br>
-                              これにより検証がスキップされる。</p>
+                            <p><em>Super Linter</em> は <code>DEFAULT_BRANCH</code> にチェックアウトするため、このとき新規追加ファイルはファイルシステム上から削除されてしまう。<br> これにより検証がスキップされる。</p>
                           </dd>
                           <dt class="hdlist1">対策</dt>
                           <dd>
                             <p>新規追加ファイルも検証したいなら <code>VALIDATE_ALL_CODEBASE: true</code> にしておく。</p>
                             <div class="paragraph">
-                              <p>ファイルが多すぎる場合は <code>FILTER_REGEX_EXCLUDE</code> 変数や <code>FILTER_REGEX_INCLUDE</code> 変数で検証するファイルを制限する。<br>
-                                もしくは <em>Super Linter</em> を諦めて個別の <em>linter</em> の導入を考える。</p>
+                              <p>ファイルが多すぎる場合は <code>FILTER_REGEX_EXCLUDE</code> 変数や <code>FILTER_REGEX_INCLUDE</code> 変数で検証するファイルを制限する。<br> もしくは <em>Super Linter</em> を諦めて個別の <em>linter</em> の導入を考える。</p>
                             </div>
                           </dd>
                         </dl>
@@ -500,13 +486,13 @@ not ok 1 - wrong.js
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/github_actions_super_linter/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/github_actions_super_linter/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

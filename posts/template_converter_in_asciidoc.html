@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/template_converter_in_asciidoc/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/template_converter_in_asciidoc/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/template_converter_in_asciidoc/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/template_converter_in_asciidoc/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -107,8 +107,7 @@
                   <h2 id="_動機">動機🤔</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><em>AsciiDoc</em> で <code>prism.js</code> の <a href="https://prismjs.com/plugins/command-line/" target="_blank" rel="noopener">Command Line プラグイン</a> を使ってみたかった。<br>
-                        上記プラグインではカスタムデータ属性の指定が必要だが、標準の <code>Asciidoctor.js</code> では任意のカスタムデータ属性に対応していない。</p>
+                      <p><em>AsciiDoc</em> で <code>prism.js</code> の <a href="https://prismjs.com/plugins/command-line/" target="_blank" rel="noopener">Command Line プラグイン</a> を使ってみたかった。<br> 上記プラグインではカスタムデータ属性の指定が必要だが、標準の <code>Asciidoctor.js</code> では任意のカスタムデータ属性に対応していない。</p>
                     </div>
                     <div class="paragraph">
                       <p>よって、<a href="https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/" target="_blank" rel="noopener">テンプレートコンバーター</a>を使ってカスタムデータ属性に対応したHTML出力をさせてみる。</p>
@@ -254,8 +253,7 @@
                     <div class="sect2">
                       <h3 id="_jsテンプレートエンジン">JSテンプレートエンジン</h3>
                       <div class="paragraph">
-                        <p><code>Asciidoctor.js</code> がサポートするテンプレートエンジンには <code>pug</code> や <code>EJS</code> など<a href="https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/#built-in-template-engines" target="_blank" rel="noopener">いくつかある</a>。<br>
-                          今回はそのうちの <a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="noopener">nunjucks</a> を使ってみた。</p>
+                        <p><code>Asciidoctor.js</code> がサポートするテンプレートエンジンには <code>pug</code> や <code>EJS</code> など<a href="https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/#built-in-template-engines" target="_blank" rel="noopener">いくつかある</a>。<br> 今回はそのうちの <a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="noopener">nunjucks</a> を使ってみた。</p>
                       </div>
                       <div class="listingblock command-line no-line-numbers">
                         <div class="title">nunjucksインストール</div>
@@ -275,17 +273,14 @@
                             <p>テンプレートを配置するディレクトリを作成（出力時に <code>template_dirs</code> で指定）</p>
                           </li>
                           <li>
-                            <p><strong>置き換えたいノード名と一致する名前でファイル作成</strong><br>
-                              ノード名の一覧は <a href="https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/#naming-convention">こちら</a> を参照。</p>
+                            <p><strong>置き換えたいノード名と一致する名前でファイル作成</strong><br> ノード名の一覧は <a href="https://asciidoctor-docs.netlify.app/asciidoctor.js/3.0/extend/converter/template-converter/#naming-convention">こちら</a> を参照。</p>
                             <div class="admonitionblock note">
                               <table>
                                 <tr>
                                   <td class="icon">
                                     <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                                   </td>
-                                  <td class="content">
-                                    たとえば置き換えたいノード名が <code>listing</code> ならば、作成するテンプレートは <code>listing.njk</code> というように同じ名前にする。
-                                  </td>
+                                  <td class="content"> たとえば置き換えたいノード名が <code>listing</code> ならば、作成するテンプレートは <code>listing.njk</code> というように同じ名前にする。 </td>
                                 </tr>
                               </table>
                             </div>
@@ -377,9 +372,7 @@
                               <i class="fa icon-tip" title="Tip" data-md-icon="emoji_objects"></i>
                             </td>
                             <td class="content">
-                              <div class="title">node オブジェクト</div>
-                              テンプレートには <a href="https://asciidoctor.github.io/asciidoctor.js/master/#abstractnode" target="_blank" rel="noopener">AbstractNode</a> 型の <code>node</code> オブジェクトが引数として渡される。<br>
-                              テンプレート内ではこの <code>node</code> からノードのクラスや属性、テキストなどを参照する。
+                              <div class="title">node オブジェクト</div> テンプレートには <a href="https://asciidoctor.github.io/asciidoctor.js/master/#abstractnode" target="_blank" rel="noopener">AbstractNode</a> 型の <code>node</code> オブジェクトが引数として渡される。<br> テンプレート内ではこの <code>node</code> からノードのクラスや属性、テキストなどを参照する。
                             </td>
                           </tr>
                         </table>
@@ -407,134 +400,134 @@ console.log(doc.convert())</code></pre>
                     </div>
                     <div class="imageblock kroki">
                       <div class="content">
-                        <svg aria-roledescription="flowchart-v2" viewBox="-8 -8 966.09375 329.9375" height="329.9375" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="966.09375" id="mermaid-1674719174212">
+                        <svg aria-roledescription="flowchart-v2" viewBox="-8 -8 966.09375 329.9375" height="329.9375" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="966.09375" id="mermaid-1674746139312">
                           <style>
-                            #mermaid-1674719174212 {
+                            #mermaid-1674746139312 {
                               font-family: "trebuchet ms", verdana, arial, sans-serif;
                               font-size: 16px;
                               fill: #333
                             }
 
-                            #mermaid-1674719174212 .error-icon {
+                            #mermaid-1674746139312 .error-icon {
                               fill: #522
                             }
 
-                            #mermaid-1674719174212 .error-text {
+                            #mermaid-1674746139312 .error-text {
                               fill: #522;
                               stroke: #522
                             }
 
-                            #mermaid-1674719174212 .edge-thickness-normal {
+                            #mermaid-1674746139312 .edge-thickness-normal {
                               stroke-width: 2px
                             }
 
-                            #mermaid-1674719174212 .edge-thickness-thick {
+                            #mermaid-1674746139312 .edge-thickness-thick {
                               stroke-width: 3.5px
                             }
 
-                            #mermaid-1674719174212 .edge-pattern-solid {
+                            #mermaid-1674746139312 .edge-pattern-solid {
                               stroke-dasharray: 0
                             }
 
-                            #mermaid-1674719174212 .edge-pattern-dashed {
+                            #mermaid-1674746139312 .edge-pattern-dashed {
                               stroke-dasharray: 3
                             }
 
-                            #mermaid-1674719174212 .edge-pattern-dotted {
+                            #mermaid-1674746139312 .edge-pattern-dotted {
                               stroke-dasharray: 2
                             }
 
-                            #mermaid-1674719174212 .marker {
+                            #mermaid-1674746139312 .marker {
                               fill: #333;
                               stroke: #333
                             }
 
-                            #mermaid-1674719174212 .marker.cross {
+                            #mermaid-1674746139312 .marker.cross {
                               stroke: #333
                             }
 
-                            #mermaid-1674719174212 svg {
+                            #mermaid-1674746139312 svg {
                               font-family: "trebuchet ms", verdana, arial, sans-serif;
                               font-size: 16px
                             }
 
-                            #mermaid-1674719174212 .label {
+                            #mermaid-1674746139312 .label {
                               font-family: "trebuchet ms", verdana, arial, sans-serif;
                               color: #333
                             }
 
-                            #mermaid-1674719174212 .cluster-label text {
+                            #mermaid-1674746139312 .cluster-label text {
                               fill: #333
                             }
 
-                            #mermaid-1674719174212 .cluster-label span {
+                            #mermaid-1674746139312 .cluster-label span {
                               color: #333
                             }
 
-                            #mermaid-1674719174212 .label text,
-                            #mermaid-1674719174212 span {
+                            #mermaid-1674746139312 .label text,
+                            #mermaid-1674746139312 span {
                               fill: #333;
                               color: #333
                             }
 
-                            #mermaid-1674719174212 .node circle,
-                            #mermaid-1674719174212 .node ellipse,
-                            #mermaid-1674719174212 .node path,
-                            #mermaid-1674719174212 .node polygon,
-                            #mermaid-1674719174212 .node rect {
+                            #mermaid-1674746139312 .node circle,
+                            #mermaid-1674746139312 .node ellipse,
+                            #mermaid-1674746139312 .node path,
+                            #mermaid-1674746139312 .node polygon,
+                            #mermaid-1674746139312 .node rect {
                               fill: #ececff;
                               stroke: #9370db;
                               stroke-width: 1px
                             }
 
-                            #mermaid-1674719174212 .node .label {
+                            #mermaid-1674746139312 .node .label {
                               text-align: center
                             }
 
-                            #mermaid-1674719174212 .node.clickable {
+                            #mermaid-1674746139312 .node.clickable {
                               cursor: pointer
                             }
 
-                            #mermaid-1674719174212 .arrowheadPath {
+                            #mermaid-1674746139312 .arrowheadPath {
                               fill: #333
                             }
 
-                            #mermaid-1674719174212 .edgePath .path {
+                            #mermaid-1674746139312 .edgePath .path {
                               stroke: #333;
                               stroke-width: 2px
                             }
 
-                            #mermaid-1674719174212 .flowchart-link {
+                            #mermaid-1674746139312 .flowchart-link {
                               stroke: #333;
                               fill: none
                             }
 
-                            #mermaid-1674719174212 .edgeLabel {
+                            #mermaid-1674746139312 .edgeLabel {
                               background-color: #e8e8e8;
                               text-align: center
                             }
 
-                            #mermaid-1674719174212 .edgeLabel rect {
+                            #mermaid-1674746139312 .edgeLabel rect {
                               opacity: .5;
                               background-color: #e8e8e8;
                               fill: #e8e8e8
                             }
 
-                            #mermaid-1674719174212 .cluster rect {
+                            #mermaid-1674746139312 .cluster rect {
                               fill: #ffffde;
                               stroke: #aa3;
                               stroke-width: 1px
                             }
 
-                            #mermaid-1674719174212 .cluster text {
+                            #mermaid-1674746139312 .cluster text {
                               fill: #333
                             }
 
-                            #mermaid-1674719174212 .cluster span {
+                            #mermaid-1674746139312 .cluster span {
                               color: #333
                             }
 
-                            #mermaid-1674719174212 div.mermaidTooltip {
+                            #mermaid-1674746139312 div.mermaidTooltip {
                               position: absolute;
                               text-align: center;
                               max-width: 200px;
@@ -548,13 +541,13 @@ console.log(doc.convert())</code></pre>
                               z-index: 100
                             }
 
-                            #mermaid-1674719174212 .flowchartTitleText {
+                            #mermaid-1674746139312 .flowchartTitleText {
                               text-anchor: middle;
                               font-size: 18px;
                               fill: #333
                             }
 
-                            #mermaid-1674719174212 :root {
+                            #mermaid-1674746139312 :root {
                               --mermaid-font-family: "trebuchet ms", verdana, arial, sans-serif
                             }
 
@@ -801,13 +794,13 @@ console.log(doc.convert())</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/template_converter_in_asciidoc/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/template_converter_in_asciidoc/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

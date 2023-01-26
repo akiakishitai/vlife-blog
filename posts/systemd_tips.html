@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/systemd_tips/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/systemd_tips/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/systemd_tips/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/systemd_tips/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -164,8 +164,7 @@
                             <p class="tableblock"><code>systemctl edit --force --full &lt;ユニット></code></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock">指定したユニットファイル自体を編集する。<br>
-                              ユニットファイルが存在しない場合は新規作成される。</p>
+                            <p class="tableblock">指定したユニットファイル自体を編集する。<br> ユニットファイルが存在しない場合は新規作成される。</p>
                           </td>
                         </tr>
                         <tr>
@@ -173,8 +172,7 @@
                             <p class="tableblock"><code>systemctl revert &lt;ユニット></code></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock"><code>systemctl edit</code> による変更を初期設定に戻す。<br>
-                              （ドロップインファイルは削除される）</p>
+                            <p class="tableblock"><code>systemctl edit</code> による変更を初期設定に戻す。<br> （ドロップインファイルは削除される）</p>
                           </td>
                         </tr>
                         <tr>
@@ -193,8 +191,7 @@
                   <h2 id="_ユーザーモード">🏃ユーザーモード</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><em>systemd</em> はユーザーがログインすると自動的に <em>systemd</em> ユーザーインスタンスを起動し、ユーザーユニットを管理する。<br>
-                        各ユーザーごとの個人設定ができる。</p>
+                      <p><em>systemd</em> はユーザーがログインすると自動的に <em>systemd</em> ユーザーインスタンスを起動し、ユーザーユニットを管理する。<br> 各ユーザーごとの個人設定ができる。</p>
                     </div>
                     <div class="ulist">
                       <ul>
@@ -256,8 +253,7 @@
                             <p class="tableblock"><code>$PATH</code></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock">固定値。<code>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin</code><br>
-                              （システムが <code>/usr</code> を使わない場合は <code>:/sbin:/bin</code> が追加される）</p>
+                            <p class="tableblock">固定値。<code>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin</code><br> （システムが <code>/usr</code> を使わない場合は <code>:/sbin:/bin</code> が追加される）</p>
                           </td>
                         </tr>
                         <tr>
@@ -289,9 +285,7 @@
                           <td class="icon">
                             <i class="fa icon-tip" title="Tip" data-md-icon="emoji_objects"></i>
                           </td>
-                          <td class="content">
-                            後述するユニット指定子も参照するといいかも。
-                          </td>
+                          <td class="content"> 後述するユニット指定子も参照するといいかも。 </td>
                         </tr>
                       </table>
                     </div>
@@ -313,8 +307,7 @@
                           <dd>
                             <p><code>~/.config/environment.d/</code> や <code>/etc/environment.d/</code> ディレクトリに環境変数を記述した <code>.conf</code> ファイルを配置する（参考: <a href="https://man.archlinux.org/man/environment.d.5" target="_blank" rel="noopener">environment.d(5) — Arch manual pages</a>）。</p>
                             <div class="paragraph">
-                              <p>この <code>.conf</code> ファイルには行ごとに <code>&lt;環境変数名>=&lt;値></code> の書式で記述する。<br>
-                                またファイル名には起動順序用の数値を接頭辞につけることが推奨される（例: <code>60-foo.conf</code>）。</p>
+                              <p>この <code>.conf</code> ファイルには行ごとに <code>&lt;環境変数名>=&lt;値></code> の書式で記述する。<br> またファイル名には起動順序用の数値を接頭辞につけることが推奨される（例: <code>60-foo.conf</code>）。</p>
                             </div>
                           </dd>
                           <dt class="hdlist1">ユニットファイルごと</dt>
@@ -333,23 +326,19 @@
                       <dl>
                         <dt class="hdlist1">メリット</dt>
                         <dd>
-                          <p>ユニットファイルをテンプレートユニットとして定義すると、<em>インスタンス名</em> と呼ばれる引数によってパラメータ化できる。<br>
-                            つまり、1つのユニットファイルから動作が異なる複数のユニットを起動できる。</p>
+                          <p>ユニットファイルをテンプレートユニットとして定義すると、<em>インスタンス名</em> と呼ばれる引数によってパラメータ化できる。<br> つまり、1つのユニットファイルから動作が異なる複数のユニットを起動できる。</p>
                         </dd>
                         <dt class="hdlist1">定義方法</dt>
                         <dd>
-                          <p>テンプレートユニットとして定義するには、ユニットファイル名の末尾（拡張子の直前）に <code>@</code> 記号をつける。<br>
-                            このユニットファイルの中で <em>インスタンス名</em> は <a href="/posts/systemd_tips#_part_of_unit_specifiers"><code>%i</code> 指定子</a>を使って参照する。</p>
+                          <p>テンプレートユニットとして定義するには、ユニットファイル名の末尾（拡張子の直前）に <code>@</code> 記号をつける。<br> このユニットファイルの中で <em>インスタンス名</em> は <a href="/posts/systemd_tips#_part_of_unit_specifiers"><code>%i</code> 指定子</a>を使って参照する。</p>
                           <div class="exampleblock">
                             <div class="content">
                               <div class="listingblock no-line-numbers command-line">
-
                                 <div class="content">
                                   <pre class="highlight command-line" data-user="root" data-host="local" data-output="2-10"><code class="language-bash" data-lang="bash">systemctl edit --force --full template-sample@.service</code></pre>
                                 </div>
                               </div>
                               <div class="listingblock">
-
                                 <div class="content">
                                   <pre class="highlight"><code class="language-ini" data-lang="ini">[Unit]
 Description=Unit-Template sample
@@ -375,12 +364,10 @@ WantedBy=multi-user.target</code></pre>
                         </dd>
                         <dt class="hdlist1">使い方</dt>
                         <dd>
-                          <p>テンプレートユニットからユニットを開始するとき、ユニット名には <em>インスタンス名</em> を <code>@</code> 記号の直後に挿入する。<br>
-                            書式は <code>&lt;ユニット名>@&lt;インスタンス名>.service</code> のようになる。</p>
+                          <p>テンプレートユニットからユニットを開始するとき、ユニット名には <em>インスタンス名</em> を <code>@</code> 記号の直後に挿入する。<br> 書式は <code>&lt;ユニット名>@&lt;インスタンス名>.service</code> のようになる。</p>
                           <div class="exampleblock">
                             <div class="content">
                               <div class="listingblock no-line-numbers command-line">
-
                                 <div class="content">
                                   <pre class="highlight command-line" data-user="root" data-host="local" data-output="3-10"><code class="language-bash" data-lang="bash">systemctl start template-sample@hogehoge.service
 journalctl --unit template-sample@hogehoge.service
@@ -408,9 +395,7 @@ Oct 26 20:46:15 raspberrypi systemd[747]: template-sample@hogehoge.service: Succ
                   <h2 id="_ユニット指定子">🥨ユニット指定子</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p>ユニットファイルが読み込まれるときに置換される指定子。<br>
-                        指定子の一覧については<a href="https://man.archlinux.org/man/systemd.unit.5.en#SPECIFIERS" target="_blank" rel="noopener">ここを参照</a>。<br>
-                        下表はそのうちのよく使いそうな一部。</p>
+                      <p>ユニットファイルが読み込まれるときに置換される指定子。<br> 指定子の一覧については<a href="https://man.archlinux.org/man/systemd.unit.5.en#SPECIFIERS" target="_blank" rel="noopener">ここを参照</a>。<br> 下表はそのうちのよく使いそうな一部。</p>
                     </div>
                     <table id="_part_of_unit_specifiers" class="tableblock frame-all grid-all fit-content">
                       <caption class="title">Table 3. 指定子の一部</caption>
@@ -432,8 +417,7 @@ Oct 26 20:46:15 raspberrypi systemd[747]: template-sample@hogehoge.service: Succ
                             <p class="tableblock"><code>%E</code></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock">設定ファイルの<br>
-                              ルートディレクトリ</p>
+                            <p class="tableblock">設定ファイルの<br> ルートディレクトリ</p>
                           </td>
                           <td class="tableblock halign-left valign-top">
                             <p class="tableblock"><em>system</em> → <code>/etc</code><br>
@@ -446,8 +430,7 @@ Oct 26 20:46:15 raspberrypi systemd[747]: template-sample@hogehoge.service: Succ
                             <p class="tableblock"><code>%h</code></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock">ユーザー<sup class="footnote" id="_footnote_user">[<a id="_footnoteref_3" class="footnote" href="/posts/systemd_tips#_footnotedef_3" title="View footnote.">3</a>]</sup>の<br>
-                              ホームディレクトリ</p>
+                            <p class="tableblock">ユーザー<sup class="footnote" id="_footnote_user">[<a id="_footnoteref_3" class="footnote" href="/posts/systemd_tips#_footnotedef_3" title="View footnote.">3</a>]</sup>の<br> ホームディレクトリ</p>
                           </td>
                           <td class="tableblock halign-left valign-top">
                             <p class="tableblock"><em>system</em> → <code>/root</code><br>
@@ -561,9 +544,7 @@ Oct 26 20:46:15 raspberrypi systemd[747]: template-sample@hogehoge.service: Succ
                             <td class="icon">
                               <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                             </td>
-                            <td class="content">
-                              どっちでもいいならデフォルト推奨の <em>simple</em> を使うのが良さそう。
-                            </td>
+                            <td class="content"> どっちでもいいならデフォルト推奨の <em>simple</em> を使うのが良さそう。 </td>
                           </tr>
                         </table>
                       </div>
@@ -663,13 +644,13 @@ Oct 26 20:46:15 raspberrypi systemd[747]: template-sample@hogehoge.service: Succ
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/systemd_tips/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/systemd_tips/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

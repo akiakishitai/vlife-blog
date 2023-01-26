@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/linux_tmux_autostart/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/linux_tmux_autostart/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/linux_tmux_autostart/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/linux_tmux_autostart/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -123,8 +123,7 @@
                             <p class="tableblock"><strong>OS</strong></p>
                           </td>
                           <td class="tableblock halign-center valign-top">
-                            <p class="tableblock">Debian10<br>
-                              (RaspberryPi OS Lite)</p>
+                            <p class="tableblock">Debian10<br> (RaspberryPi OS Lite)</p>
                           </td>
                           <td class="tableblock halign-center valign-top">
                             <p class="tableblock">Windows10 Pro</p>
@@ -171,9 +170,7 @@
                             <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                           </td>
                           <td class="content">
-                            <div class="title">サーバー側での設定が非推奨の理由</div>
-                            うっかり設定を間違えてSSH接続が不可能になり死んだ、という悲劇が起こり得るため。<br>
-                            あと、SSH接続を使うツール（<em>Ansible</em> とか）で不具合が出たときが面倒（クライアント側なら別の <code>ssh_config</code> を参照させればいいだけなので修正が簡単）。
+                            <div class="title">サーバー側での設定が非推奨の理由</div> うっかり設定を間違えてSSH接続が不可能になり死んだ、という悲劇が起こり得るため。<br> あと、SSH接続を使うツール（<em>Ansible</em> とか）で不具合が出たときが面倒（クライアント側なら別の <code>ssh_config</code> を参照させればいいだけなので修正が簡単）。
                           </td>
                         </tr>
                       </table>
@@ -181,8 +178,7 @@
                     <div class="sect2">
                       <h3 id="_クライアント側でやる場合推奨">🌟クライアント側でやる場合（推奨）</h3>
                       <div class="paragraph">
-                        <p><code>ssh_config</code> の設定に追記するだけで達成できる。<br>
-                          以下のように、SSH接続後にリモート側で実行するコマンドを指定する <code>RemoteCommand</code> プロパティを設定すればいい。</p>
+                        <p><code>ssh_config</code> の設定に追記するだけで達成できる。<br> 以下のように、SSH接続後にリモート側で実行するコマンドを指定する <code>RemoteCommand</code> プロパティを設定すればいい。</p>
                       </div>
                       <div class="exampleblock">
                         <div class="title">Example 1. クライアント側</div>
@@ -203,13 +199,11 @@
                             <table>
                               <tr>
                                 <td><i class="conum" data-value="1"></i><b>1</b></td>
-                                <td><code>ssh</code> の <code>--tty</code> オプションと同じく、常に疑似 <em>TTY</em> を要求する。<br>
-                                  この設定がないと <em>open terminal failed: not a terminal</em> エラーが発生する。</td>
+                                <td><code>ssh</code> の <code>--tty</code> オプションと同じく、常に疑似 <em>TTY</em> を要求する。<br> この設定がないと <em>open terminal failed: not a terminal</em> エラーが発生する。</td>
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="2"></i><b>2</b></td>
-                                <td>リモートログイン後に実行するコマンド。<br>
-                                  ここでは <code>tmux</code> を利用するコマンドを指定。</td>
+                                <td>リモートログイン後に実行するコマンド。<br> ここでは <code>tmux</code> を利用するコマンドを指定。</td>
                               </tr>
                             </table>
                           </div>
@@ -239,8 +233,7 @@
                                   <p class="tableblock"><strong>-A</strong></p>
                                 </td>
                                 <td class="tableblock halign-left valign-top">
-                                  <p class="tableblock">既存のセッションがあれば接続し、新規作成はしない。<br>
-                                    （<code>attach-session</code> と同様のふるまいにする）</p>
+                                  <p class="tableblock">既存のセッションがあれば接続し、新規作成はしない。<br> （<code>attach-session</code> と同様のふるまいにする）</p>
                                 </td>
                               </tr>
                               <tr>
@@ -266,8 +259,7 @@
                         </div>
                       </div>
                       <div class="paragraph">
-                        <p>あとは通常通りにSSH接続すれば、<code>tmux</code> が起動された状態になる。<br>
-                          またデタッチするとSSH切断される。</p>
+                        <p>あとは通常通りにSSH接続すれば、<code>tmux</code> が起動された状態になる。<br> またデタッチするとSSH切断される。</p>
                       </div>
                     </div>
                     <div class="sect2">
@@ -321,14 +313,12 @@ EOF</code></pre>
                                 <p><strong>PS1</strong> is set and <strong>$-</strong> includes <strong>i</strong> if <strong>bash</strong> is interactive, allowing a shell script or a startup file to test this state.</p>
                               </div>
                             </blockquote>
-                            <div class="attribution">
-                              — Debian Manpages<br>
+                            <div class="attribution"> — Debian Manpages<br>
                               <cite><a href="https://manpages.debian.org/buster/bash/bash.1.en.html" target="_blank" rel="noopener">bash(1) — bash — Debian buster</a></cite>
                             </div>
                           </div>
                           <div class="paragraph">
-                            <p>とうことらしい。<br>
-                              よって、<code>$-</code> に <code>i</code> 文字が含まれているか調べる <code>[[ $- =~ i ]]</code> が真ならば対話的なシェルだと判別できる。</p>
+                            <p>とうことらしい。<br> よって、<code>$-</code> に <code>i</code> 文字が含まれているか調べる <code>[[ $- =~ i ]]</code> が真ならば対話的なシェルだと判別できる。</p>
                           </div>
                         </div>
                       </details>
@@ -444,13 +434,13 @@ EOF</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/linux_tmux_autostart/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/linux_tmux_autostart/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

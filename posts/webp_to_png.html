@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/webp_to_png/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/webp_to_png/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/webp_to_png/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/webp_to_png/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -97,8 +97,7 @@
                   <h2 id="_はじめに">🤔はじめに</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p>普段使ってるツールが <em>Webp</em> に対応してなかったので、<em>PNG</em> に変換したかった。<br>
-                        探せばオンラインツールが山ほど出てくるけど、さくっとコマンドで解決したいんだよなぁ。ってなったので。</p>
+                      <p>普段使ってるツールが <em>Webp</em> に対応してなかったので、<em>PNG</em> に変換したかった。<br> 探せばオンラインツールが山ほど出てくるけど、さくっとコマンドで解決したいんだよなぁ。ってなったので。</p>
                     </div>
                     <div class="paragraph">
                       <p>結論から言うと、<em>Webp</em> ライブリをインストールしてくればよかった。</p>
@@ -147,7 +146,6 @@
                           <p>今回は <a href="https://scoop.sh"><em>scoop</em></a><sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="/posts/webp_to_png#_footnotedef_1" title="View footnote.">1</a>]</sup> を使ってインストールした。</p>
                         </div>
                         <div class="listingblock no-line-numbers command-line">
-
                           <div class="content">
                             <pre class="highlight command-line" data-prompt="PS C:\>" data-output="3-10"><code class="language-powershell" data-lang="powershell">scoop update
 scoop install libwebp
@@ -167,8 +165,7 @@ Installing 'libwebp' (1.2.3) [64bit]
                   <h2 id="_使い方">🍰使い方</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><a href="https://developers.google.com/speed/webp/docs/using" target="_blank" rel="noopener">公式ドキュメント</a>を見るのが一番いい。<br>
-                        ここではやりたかった画像変換のとこだけ抜粋。</p>
+                      <p><a href="https://developers.google.com/speed/webp/docs/using" target="_blank" rel="noopener">公式ドキュメント</a>を見るのが一番いい。<br> ここではやりたかった画像変換のとこだけ抜粋。</p>
                     </div>
                     <div class="dlist">
                       <dl>
@@ -176,7 +173,6 @@ Installing 'libwebp' (1.2.3) [64bit]
                         <dd>
                           <p><code><strong>dwebp</strong> <em>&lt;WEBPファイルパス></em> -o <em>&lt;出力ファイルパス></em></code></p>
                           <div class="listingblock no-line-numbers command-line">
-
                             <div class="content">
                               <pre class="highlight command-line" data-prompt="PS C:\>" data-output="2-10"><code class="language-powershell" data-lang="powershell">dwebp path\to\sample.webp -o path\to\output.png
 Decoded path\to\sample.webp. Dimensions: 750 x 1000 . Format: lossy. Now saving...
@@ -190,8 +186,7 @@ Saved file path\to\output.png</code></pre>
                                   <i class="fa icon-caution" title="Caution" data-md-icon="local_fire_department"></i>
                                 </td>
                                 <td class="content">
-                                  <div class="title">拡張子も忘れずに指定</div>
-                                  拡張子を省略すると自動でつけてくれたりしないので注意。
+                                  <div class="title">拡張子も忘れずに指定</div> 拡張子を省略すると自動でつけてくれたりしないので注意。
                                 </td>
                               </tr>
                             </table>
@@ -201,7 +196,6 @@ Saved file path\to\output.png</code></pre>
                         <dd>
                           <p><code><strong>cwebp</strong> <em>&lt;PNGファイルパス></em> -o <em>&lt;出力ファイルパス></em></code></p>
                           <div class="listingblock no-line-numbers command-line">
-
                             <div class="content">
                               <pre class="highlight command-line" data-prompt="PS C:\>" data-output="2-20"><code class="language-powershell" data-lang="powershell">cwebp path\to\sample.png -o path\to\output.webp
 Saving file 'path\to\output.webp'
@@ -227,8 +221,7 @@ bytes used:  header:            296  (0.5%)
                                   <i class="fa icon-caution" title="Caution" data-md-icon="local_fire_department"></i>
                                 </td>
                                 <td class="content">
-                                  <div class="title">拡張子も忘れずに指定</div>
-                                  拡張子を省略すると自動でつけてくれたりしないので注意。
+                                  <div class="title">拡張子も忘れずに指定</div> 拡張子を省略すると自動でつけてくれたりしないので注意。
                                 </td>
                               </tr>
                             </table>
@@ -316,13 +309,13 @@ bytes used:  header:            296  (0.5%)
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/webp_to_png/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/webp_to_png/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

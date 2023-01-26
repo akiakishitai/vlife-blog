@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/cli_update-alternatives/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/cli_update-alternatives/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/cli_update-alternatives/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/cli_update-alternatives/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -132,12 +132,10 @@
                         </ul>
                       </div>
                       <div class="paragraph">
-                        <p>のようなアプリがある場合、そのうちのどれを優先的にデフォルトとして利用するかを決める必要がでてくる。<br>
-                          その方法としてはシンボリックリンクを利用するのが一般的。</p>
+                        <p>のようなアプリがある場合、そのうちのどれを優先的にデフォルトとして利用するかを決める必要がでてくる。<br> その方法としてはシンボリックリンクを利用するのが一般的。</p>
                       </div>
                       <div class="paragraph">
-                        <p>ただし、そのシンボリックリンクの管理を全部人力でやろうとすると手間がかかるしミスしやすい。<br>
-                          そこでシステムがシンボリックリンクの作成や管理を行うことで上記の問題点を解消させるため、 <em>Debian Alternatives</em> システムが導入されている。</p>
+                        <p>ただし、そのシンボリックリンクの管理を全部人力でやろうとすると手間がかかるしミスしやすい。<br> そこでシステムがシンボリックリンクの作成や管理を行うことで上記の問題点を解消させるため、 <em>Debian Alternatives</em> システムが導入されている。</p>
                       </div>
                       <div class="imageblock kroki">
                         <div class="content">
@@ -199,10 +197,7 @@
                               <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                             </td>
                             <td class="content">
-                              <div class="title">リンクグループ</div>
-                              関連の強いシンボリックリンクをひとまとめにグループ化したもの（たとえば <code>editor</code>）。<br>
-                              グループとして変更を行えると便利なことが多い、らしい。<br>
-                              だいたい <code>/etc/alternatives</code> 配下のシンボリックリンクのことを指す、はず。
+                              <div class="title">リンクグループ</div> 関連の強いシンボリックリンクをひとまとめにグループ化したもの（たとえば <code>editor</code>）。<br> グループとして変更を行えると便利なことが多い、らしい。<br> だいたい <code>/etc/alternatives</code> 配下のシンボリックリンクのことを指す、はず。
                             </td>
                           </tr>
                         </table>
@@ -244,9 +239,7 @@
                             <p class="tableblock"><em><strong>&lt;link></strong></em></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock">ユーザー実行用のシンボリックリンクのパス。<br>
-                              環境変数 <code>PATH</code> に登録済みの場所を指定するのが一般的。<br>
-                              （<em>e.g.</em> <code>/usr/bin/editor</code>）</p>
+                            <p class="tableblock">ユーザー実行用のシンボリックリンクのパス。<br> 環境変数 <code>PATH</code> に登録済みの場所を指定するのが一般的。<br> （<em>e.g.</em> <code>/usr/bin/editor</code>）</p>
                           </td>
                         </tr>
                         <tr>
@@ -255,8 +248,7 @@
                           </td>
                           <td class="tableblock halign-left valign-top">
                             <p class="tableblock">リンクグループ名かつ <code>/etc/alternatives</code> 下のシンボリックリンク名。<br>
-                              <strong>パスではない</strong>ことに注意。<br>
-                              （<em>e.g.</em> <code>editor</code>）
+                              <strong>パスではない</strong>ことに注意。<br> （<em>e.g.</em> <code>editor</code>）
                             </p>
                           </td>
                         </tr>
@@ -265,8 +257,7 @@
                             <p class="tableblock"><em><strong>&lt;path></strong></em></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock">実際に実行されるアプリ本体のパス。<br>
-                              （<em>e.g.</em> <code>/bin/nano</code>）</p>
+                            <p class="tableblock">実際に実行されるアプリ本体のパス。<br> （<em>e.g.</em> <code>/bin/nano</code>）</p>
                           </td>
                         </tr>
                         <tr>
@@ -274,8 +265,7 @@
                             <p class="tableblock"><em><strong>&lt;priority></strong></em></p>
                           </td>
                           <td class="tableblock halign-left valign-top">
-                            <p class="tableblock">優先度の数値。数値が大きいほど優先度も高い。<br>
-                              （<em>e.g.</em> <code>50</code>）</p>
+                            <p class="tableblock">優先度の数値。数値が大きいほど優先度も高い。<br> （<em>e.g.</em> <code>50</code>）</p>
                           </td>
                         </tr>
                       </tbody>
@@ -286,8 +276,7 @@
                         <dl>
                           <dt class="hdlist1">update-alternatives --install <em>&lt;link> &lt;name> &lt;path> &lt;priority></em></dt>
                           <dd>
-                            <p>リンクグループを新規作成してアプリを登録する。<br>
-                              もしくは既存のリンクグループにアプリを追加登録する。</p>
+                            <p>リンクグループを新規作成してアプリを登録する。<br> もしくは既存のリンクグループにアプリを追加登録する。</p>
                             <div class="openblock">
                               <div class="content">
                                 <div class="listingblock no-line-numbers command-line">
@@ -486,13 +475,13 @@ editor - auto mode
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/cli_update-alternatives/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/cli_update-alternatives/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

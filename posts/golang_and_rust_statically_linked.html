@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/golang_and_rust_statically_linked/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/golang_and_rust_statically_linked/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/golang_and_rust_statically_linked/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/golang_and_rust_statically_linked/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -159,14 +159,12 @@
                     <div class="sect2">
                       <h3 id="_go_言語">Go 言語</h3>
                       <div class="paragraph">
-                        <p><em>C</em> 言語コードを呼び出す <em>cgo</em> を使っていると動的リンクされるらしい。<br>
-                          よって <em>cgo</em> を無効化したり、リンカーに静的リンクするオプションを渡したりする。</p>
+                        <p><em>C</em> 言語コードを呼び出す <em>cgo</em> を使っていると動的リンクされるらしい。<br> よって <em>cgo</em> を無効化したり、リンカーに静的リンクするオプションを渡したりする。</p>
                       </div>
                       <div class="exampleblock">
                         <div class="title">Example 1. Go</div>
                         <div class="content">
                           <div class="listingblock no-line-numbers command-line">
-
                             <div class="content">
                               <pre class="highlight command-line" data-user="user" data-host="local"><code class="language-bash" data-lang="bash">export CGO_ENABLED=0    <i class="conum" data-value="1"></i><b>(1)</b>
 go build -ldflags '-extldflags=-static'   <i class="conum" data-value="2"></i><b>(2)</b>
@@ -181,8 +179,7 @@ strip /path/to/binary   <i class="conum" data-value="3"></i><b>(3)</b></code></p
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="2"></i><b>2</b></td>
-                                <td>リンカーに静的リンクであることを伝えてビルド。<br>
-                                  利用しているパッケージによっては <code>-tags</code> オプションも使って <code>cgo</code> 部分をスキップする。</td>
+                                <td>リンカーに静的リンクであることを伝えてビルド。<br> 利用しているパッケージによっては <code>-tags</code> オプションも使って <code>cgo</code> 部分をスキップする。</td>
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -240,7 +237,6 @@ strip /path/to/binary   <i class="conum" data-value="3"></i><b>(3)</b></code></p
                                 <p><code>file</code> コマンドや <code>ldd</code> コマンドを使って確認する。</p>
                               </div>
                               <div class="listingblock no-line-numbers command-line">
-
                                 <div class="content">
                                   <pre class="highlight command-line" data-user="user" data-host="local" data-output="2-10"><code class="language-bash" data-lang="bash">file path/to/static/binary | tr , '\n'
 path/to/static/binary: ELF 64-bit LSB executable
@@ -268,7 +264,6 @@ path/to/static/binary: ELF 64-bit LSB executable
                       <div class="title">Example 3. Go in dockerfile</div>
                       <div class="content">
                         <div class="listingblock">
-
                           <div class="content">
                             <pre class="highlight"><code class="language-dockerfile" data-lang="dockerfile">FROM golang:1.16-alpine AS build-go
 WORKDIR /go/src
@@ -315,7 +310,6 @@ RUN ...</code></pre>
                           <p><code>*-unknown-linux-musl</code> ターゲットを追加して利用することで、静的リンクにできる。</p>
                         </div>
                         <div class="listingblock">
-
                           <div class="content">
                             <pre class="highlight"><code class="language-dockerfile" data-lang="dockerfile">FROM rust:1.53-alpine AS build-rust
 
@@ -451,13 +445,13 @@ RUN ...</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/golang_and_rust_statically_linked/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/golang_and_rust_statically_linked/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

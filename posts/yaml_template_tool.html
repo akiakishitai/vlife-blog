@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/yaml_template_tool/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/yaml_template_tool/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/yaml_template_tool/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/yaml_template_tool/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -137,12 +137,10 @@
                   <h2 id="_はじめに">🍨はじめに</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><em>GitHub Actions ワークフロー</em> では <em>YAML</em> のアンカーやエイリアスが使えないため同じ設定を何度も記述しなくてはならない場合がある。<br>
-                        とてもつらい。設定を変更したいときには全ての箇所を修正する必要があってつらい。</p>
+                      <p><em>GitHub Actions ワークフロー</em> では <em>YAML</em> のアンカーやエイリアスが使えないため同じ設定を何度も記述しなくてはならない場合がある。<br> とてもつらい。設定を変更したいときには全ての箇所を修正する必要があってつらい。</p>
                     </div>
                     <div class="paragraph">
-                      <p>そこで <code>ytt</code> を使えばテンプレートファイルから <em>YAML</em> ドキュメントを生成できるので楽ができそう。<br>
-                        と思って試してみたサンプルを備忘録として残しておく。</p>
+                      <p>そこで <code>ytt</code> を使えばテンプレートファイルから <em>YAML</em> ドキュメントを生成できるので楽ができそう。<br> と思って試してみたサンプルを備忘録として残しておく。</p>
                     </div>
                     <div class="admonitionblock note">
                       <table>
@@ -150,9 +148,7 @@
                           <td class="icon">
                             <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                           </td>
-                          <td class="content">
-                            本記事はバージョン <code>0.37.0</code> での情報。
-                          </td>
+                          <td class="content"> 本記事はバージョン <code>0.37.0</code> での情報。 </td>
                         </tr>
                       </table>
                     </div>
@@ -222,8 +218,7 @@
                     </div>
                     <hr>
                     <div class="paragraph">
-                      <p><em>YAML</em> 構造を把握しているので、テンプレートなどを書く際には <em>YAML</em> ドキュメントにアノテーションを付け加える形になる。<br>
-                        このため新たに覚えることが少ないので、さっと使えて便利。</p>
+                      <p><em>YAML</em> 構造を把握しているので、テンプレートなどを書く際には <em>YAML</em> ドキュメントにアノテーションを付け加える形になる。<br> このため新たに覚えることが少ないので、さっと使えて便利。</p>
                     </div>
                     <div class="admonitionblock note">
                       <table>
@@ -312,8 +307,7 @@
                           </td>
                           <td class="content">
                             <div class="title">YAMLドキュメント</div>
-                            <em>YAML</em> ドキュメントは1ファイルに複数ふくめることができる（<code>---</code> 区切り）。<br>
-                            よって <em>ファイル</em> と <em>ドキュメント</em> の呼び方の違いに気をつける。
+                            <em>YAML</em> ドキュメントは1ファイルに複数ふくめることができる（<code>---</code> 区切り）。<br> よって <em>ファイル</em> と <em>ドキュメント</em> の呼び方の違いに気をつける。
                           </td>
                         </tr>
                       </table>
@@ -324,8 +318,7 @@
                         <p>別ファイルに記述した <em>YAML</em> ドキュメントの <code><em>key:value</em></code> は、 <a href="https://carvel.dev/ytt/docs/latest/ytt-data-values/" target="_blank" rel="noopener"><em>Data Values</em></a> として宣言すれば変数として参照することができる。</p>
                       </div>
                       <div class="paragraph">
-                        <p><em>YAML</em> ドキュメントに <code>@data/values</code> アノテーションをつければ <em>Data Values</em> として宣言したことになる。<br>
-                          また、テンプレートファイルから <em>Data Values</em> を参照するには、ファイル先頭に <code>@ load("@ytt:data", "data")</code> アノテーションをつける。</p>
+                        <p><em>YAML</em> ドキュメントに <code>@data/values</code> アノテーションをつければ <em>Data Values</em> として宣言したことになる。<br> また、テンプレートファイルから <em>Data Values</em> を参照するには、ファイル先頭に <code>@ load("@ytt:data", "data")</code> アノテーションをつける。</p>
                       </div>
                       <div class="exampleblock">
                         <div class="title">Example 2. Data Values を使う例</div>
@@ -438,9 +431,7 @@ var4: add new key</code></pre>
                               <i class="fa icon-caution" title="Caution" data-md-icon="local_fire_department"></i>
                             </td>
                             <td class="content">
-                              <div class="title">Data Values のキーについて</div>
-                              キーは <em>snake_case</em> 形式が推奨（つまり <strong>ハイフン（<code>-</code>）は非推奨</strong>）。<br>
-                              これは参照時に <code>.</code> を使った参照ができなくなるため。
+                              <div class="title">Data Values のキーについて</div> キーは <em>snake_case</em> 形式が推奨（つまり <strong>ハイフン（<code>-</code>）は非推奨</strong>）。<br> これは参照時に <code>.</code> を使った参照ができなくなるため。
                             </td>
                           </tr>
                         </table>
@@ -454,8 +445,7 @@ var4: add new key</code></pre>
                             <td class="content">
                               <div class="title">アノテーションのスペースについて</div>
                               <div class="paragraph">
-                                <p><code>#@</code> 後にスペースが必要なものと不要なものがある。<br>
-                                  これについては、</p>
+                                <p><code>#@</code> 後にスペースが必要なものと不要なものがある。<br> これについては、</p>
                               </div>
                               <div class="ulist">
                                 <ul>
@@ -515,8 +505,7 @@ json:
                                 </tr>
                                 <tr>
                                   <td><i class="conum" data-value="2"></i><b>2</b></td>
-                                  <td>プロパティを <code>.</code> から参照できるように <code>dict</code> 型の値を <code>struct</code> 型に変換。<br>
-                                    （末尾の <code>\</code> は <em>Starlark</em> 言語における改行のエスケープ）</td>
+                                  <td>プロパティを <code>.</code> から参照できるように <code>dict</code> 型の値を <code>struct</code> 型に変換。<br> （末尾の <code>\</code> は <em>Starlark</em> 言語における改行のエスケープ）</td>
                                 </tr>
                                 <tr>
                                   <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -543,8 +532,7 @@ json:
                               <table>
                                 <tr>
                                   <td><i class="conum" data-value="1"></i><b>1</b></td>
-                                  <td><code>&lt;key>=&lt;/path/to/file></code> の書式。<br>
-                                    指定した <code>key</code> の値にファイル内容を文字列として読み込む。</td>
+                                  <td><code>&lt;key>=&lt;/path/to/file></code> の書式。<br> 指定した <code>key</code> の値にファイル内容を文字列として読み込む。</td>
                                 </tr>
                               </table>
                             </div>
@@ -560,8 +548,7 @@ json:
                         </p>
                       </div>
                       <div class="paragraph">
-                        <p>この <em>Data Values Schema</em> で定義した値はデフォルト値として機能し、 <em>Data Values</em> に定義された値で上書きマージされる。<br>
-                          よって、</p>
+                        <p>この <em>Data Values Schema</em> で定義した値はデフォルト値として機能し、 <em>Data Values</em> に定義された値で上書きマージされる。<br> よって、</p>
                       </div>
                       <div class="olist arabic">
                         <ol class="arabic">
@@ -625,8 +612,7 @@ cache:
                             <table>
                               <tr>
                                 <td><i class="conum" data-value="1"></i><b>1</b></td>
-                                <td><em>Data Values Schema</em> としての宣言。<br>
-                                  ここで定義した値はデフォルト値になる。</td>
+                                <td><em>Data Values Schema</em> としての宣言。<br> ここで定義した値はデフォルト値になる。</td>
                               </tr>
                             </table>
                           </div>
@@ -647,8 +633,7 @@ cache:
                             <table>
                               <tr>
                                 <td><i class="conum" data-value="1"></i><b>1</b></td>
-                                <td><em>Data Values</em> で定義した値は一緒に読み込んだ <em>Schema</em> の値を上書きする。<br>
-                                  上書きしたいプロパティだけを記述すればOK。</td>
+                                <td><em>Data Values</em> で定義した値は一緒に読み込んだ <em>Schema</em> の値を上書きする。<br> 上書きしたいプロパティだけを記述すればOK。</td>
                               </tr>
                             </table>
                           </div>
@@ -661,7 +646,6 @@ loading: #@ data.values.cache</code></pre>
                             </div>
                           </div>
                           <div class="listingblock no-line-numbers command-line">
-
                             <div class="content">
                               <pre class="highlight command-line" data-user="user" data-host="local" data-output="2-30"><code class="language-bash" data-lang="bash">ytt template --file=config
 
@@ -682,9 +666,7 @@ loading:
                                 <td class="icon">
                                   <i class="fa icon-tip" title="Tip" data-md-icon="emoji_objects"></i>
                                 </td>
-                                <td class="content">
-                                  複数ファイルに分割して <em>Schema</em> を定義する場合は、<em>Overlays</em> の機能（<code>#@overlay/match missing_ok=True</code>）を利用する必要があるので注意。
-                                </td>
+                                <td class="content"> 複数ファイルに分割して <em>Schema</em> を定義する場合は、<em>Overlays</em> の機能（<code>#@overlay/match missing_ok=True</code>）を利用する必要があるので注意。 </td>
                               </tr>
                             </table>
                           </div>
@@ -706,8 +688,7 @@ loading:
                           </ul>
                         </div>
                         <div class="paragraph">
-                          <p>のどちらかを行う必要がある。<br>
-                            （横着して <em>Data Values</em> で追加しようとすると怒られる。）</p>
+                          <p>のどちらかを行う必要がある。<br> （横着して <em>Data Values</em> で追加しようとすると怒られる。）</p>
                         </div>
                         <div class="exampleblock">
                           <div class="title">Example 5. Overlays を利用して Schema を拡張</div>
@@ -743,7 +724,6 @@ cache:
                               </div>
                             </div>
                             <div class="listingblock no-line-numbers command-line">
-
                               <div class="content">
                                 <pre class="highlight command-line" data-user="user" data-host="local" data-output="2-30"><code class="language-bash" data-lang="bash">ytt template --file=config
 
@@ -767,9 +747,7 @@ loading:
                               <td class="icon">
                                 <i class="fa icon-tip" title="Tip" data-md-icon="emoji_objects"></i>
                               </td>
-                              <td class="content">
-                                オプショナルなプロパティをもつ型を定義したい場合は <a href="https://carvel.dev/ytt/docs/latest/how-to-write-schema/#declaring-pass-through-data-values" target="_blank" rel="noopener"><code>#@schema/type any=True</code> を利用する方法</a>がある。
-                              </td>
+                              <td class="content"> オプショナルなプロパティをもつ型を定義したい場合は <a href="https://carvel.dev/ytt/docs/latest/how-to-write-schema/#declaring-pass-through-data-values" target="_blank" rel="noopener"><code>#@schema/type any=True</code> を利用する方法</a>がある。 </td>
                             </tr>
                           </table>
                         </div>
@@ -779,8 +757,7 @@ loading:
                       <h3 id="_overlays">パッチの適用（ <a href="https://carvel.dev/ytt/docs/latest/ytt-overlays/" target="_blank" rel="noopener"><em>Overlays</em></a> ）</h3>
                       <div class="paragraph">
                         <p>テンプレートや <em>Data Values</em> の設定の一部だけを変更したり、共通の設定を適用したりすることができる。<br>
-                          <em>Overlays</em> として宣言するには、<em>YAML</em> ドキュメントに <code>@overlay/match</code> アノテーションをつける。<br>
-                          また <em>Overlays</em> の関数などを使うには、ファイルの先頭で <code>#@ load("@ytt:overlay", "overlay")</code> アノテーションを記述しておく。
+                          <em>Overlays</em> として宣言するには、<em>YAML</em> ドキュメントに <code>@overlay/match</code> アノテーションをつける。<br> また <em>Overlays</em> の関数などを使うには、ファイルの先頭で <code>#@ load("@ytt:overlay", "overlay")</code> アノテーションを記述しておく。
                         </p>
                       </div>
                       <div class="paragraph">
@@ -850,8 +827,7 @@ metadata:
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="2"></i><b>2</b></td>
-                                <td><em>Overlays</em> 用のドキュメントであることを宣言。<br>
-                                  かつ <em>Overlays</em> を適用する <em>YAML</em> 要素のパターンマッチ方法を指定（<code>by</code>）。</td>
+                                <td><em>Overlays</em> 用のドキュメントであることを宣言。<br> かつ <em>Overlays</em> を適用する <em>YAML</em> 要素のパターンマッチ方法を指定（<code>by</code>）。</td>
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -867,8 +843,7 @@ metadata:
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="6"></i><b>6</b></td>
-                                <td>詳細な値を指定したくないときは、空の値（<code>[]</code>, <code>{}</code>）を指定すればいい。<br>
-                                  が、こういう場合は <code>overlay.all()</code> を使ったほうがいい。</td>
+                                <td>詳細な値を指定したくないときは、空の値（<code>[]</code>, <code>{}</code>）を指定すればいい。<br> が、こういう場合は <code>overlay.all()</code> を使ったほうがいい。</td>
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="7"></i><b>7</b></td>
@@ -915,9 +890,7 @@ metadata:
                               <i class="fa icon-tip" title="Tip" data-md-icon="emoji_objects"></i>
                             </td>
                             <td class="content">
-                              <div class="title">配列の値の置換について</div>
-                              配列の値を追加したり空にしたりすることは簡単にできるが、置換することは難しい。<br>
-                              ある程度あきらめたほうがよさそう。
+                              <div class="title">配列の値の置換について</div> 配列の値を追加したり空にしたりすることは簡単にできるが、置換することは難しい。<br> ある程度あきらめたほうがよさそう。
                             </td>
                           </tr>
                         </table>
@@ -1007,8 +980,7 @@ metadata:
                               <i class="fa icon-note" title="Note" data-md-icon="info"></i>
                             </td>
                             <td class="content">
-                              <code>overlay.map_key(…​)</code> は理解が不十分なせいで期待通りの動作をしてくれないことが多かった。<br>
-                              なので少し冗長でも <code>overlay.subset(…​)</code> を使ったほうがイライラせずにすんだ。
+                              <code>overlay.map_key(…​)</code> は理解が不十分なせいで期待通りの動作をしてくれないことが多かった。<br> なので少し冗長でも <code>overlay.subset(…​)</code> を使ったほうがイライラせずにすんだ。
                             </td>
                           </tr>
                         </table>
@@ -1016,8 +988,7 @@ metadata:
                       <div class="sect3">
                         <h4 id="_共通の設定項目を定義する">共通の設定項目を定義する</h4>
                         <div class="paragraph">
-                          <p><code>runs-on</code> とかの共通設定は1回の記述で済ませたい。<br>
-                            そういう場合にも <em>Overlays</em> が有効。</p>
+                          <p><code>runs-on</code> とかの共通設定は1回の記述で済ませたい。<br> そういう場合にも <em>Overlays</em> が有効。</p>
                         </div>
                         <div class="exampleblock">
                           <div class="title">Example 7. Overlays で共通設定を定義</div>
@@ -1117,8 +1088,7 @@ jobs:
                               </tr>
                               <tr>
                                 <td><i class="conum" data-value="2"></i><b>2</b></td>
-                                <td>ここの配列要素を <code>setup</code> の <em>YAML</em> 要素で置換している。<br>
-                                  これによって二次元配列にならずに済む。</td>
+                                <td>ここの配列要素を <code>setup</code> の <em>YAML</em> 要素で置換している。<br> これによって二次元配列にならずに済む。</td>
                               </tr>
                             </table>
                           </div>
@@ -1258,8 +1228,7 @@ hoge: sample-for-comment</code></pre>
                     <div class="sect2">
                       <h3 id="_anchoralias_は使えるの">anchor/alias は使えるの？</h3>
                       <div class="paragraph">
-                        <p>普通に使える。<br>
-                          その上 <code>ytt</code> で出力された <em>YAML</em> ドキュメントは <em>alias</em> が展開されるので、anchor/alias が使えない <em>GitHub Actions ワークフロー</em> でも安心して利用できる。</p>
+                        <p>普通に使える。<br> その上 <code>ytt</code> で出力された <em>YAML</em> ドキュメントは <em>alias</em> が展開されるので、anchor/alias が使えない <em>GitHub Actions ワークフロー</em> でも安心して利用できる。</p>
                       </div>
                       <div class="paragraph">
                         <p>ただまあ、<code>ytt</code> を使うなら <em>anchor/alias</em> の代わりに<a href="https://carvel.dev/ytt/docs/latest/lang-ref-def/" target="_blank" rel="noopener">関数</a>を利用したほうが筋はいいかも。</p>
@@ -1277,8 +1246,7 @@ hoge: sample-for-comment</code></pre>
                     <div class="sect2">
                       <h3 id="_on_キーが_true_に変換されてしまう"><code>on</code> キーが <code>true</code> に変換されてしまう</h3>
                       <div class="paragraph">
-                        <p><a href="https://yaml.org/type/bool.html" target="_blank" rel="noopener"><em>YAML Version 1.1</em> の仕様</a>のせい。<br>
-                          ダブルクォーテーション <code>"</code> で囲み、文字列として扱わせるといい。</p>
+                        <p><a href="https://yaml.org/type/bool.html" target="_blank" rel="noopener"><em>YAML Version 1.1</em> の仕様</a>のせい。<br> ダブルクォーテーション <code>"</code> で囲み、文字列として扱わせるといい。</p>
                       </div>
                       <div class="listingblock">
                         <div class="title">onキーが true に変換されないようにする</div>
@@ -1340,8 +1308,7 @@ hoge: sample-for-comment</code></pre>
                   <h2 id="_おわりに">😎おわりに</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><code>ytt</code> のサンプルがいまいちわからなかったので実際に試してみたのを書いた。<br>
-                        ただ <em>Overlays</em> はすごい便利なんだけど <code>match</code> 条件が全然わからん。ふんいきで使ってる。</p>
+                      <p><code>ytt</code> のサンプルがいまいちわからなかったので実際に試してみたのを書いた。<br> ただ <em>Overlays</em> はすごい便利なんだけど <code>match</code> 条件が全然わからん。ふんいきで使ってる。</p>
                     </div>
                     <div class="paragraph">
                       <p>なお、作成した <code>ytt</code> 用のテンプレートのままでは <em>GitHub</em> で使えないので、</p>
@@ -1445,13 +1412,13 @@ hoge: sample-for-comment</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/yaml_template_tool/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/yaml_template_tool/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

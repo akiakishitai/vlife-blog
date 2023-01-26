@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/json_schema_on_vscode/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/json_schema_on_vscode/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/json_schema_on_vscode/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/json_schema_on_vscode/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -117,8 +117,7 @@
                   <h2 id="_はじめに">🥞はじめに</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p>ちょっとしたデータを集めて <em>JSON</em> や <em>YAML</em> 形式で保存したいときがある。<br>
-                        このデータ収集が中長期的におよぶ場合、「どの項目を保存することにしたんだっけ……？」ってなるのを防ぎたい。</p>
+                      <p>ちょっとしたデータを集めて <em>JSON</em> や <em>YAML</em> 形式で保存したいときがある。<br> このデータ収集が中長期的におよぶ場合、「どの項目を保存することにしたんだっけ……？」ってなるのを防ぎたい。</p>
                     </div>
                     <div class="paragraph">
                       <p>よって、<a href="https://json-schema.org" target="_blank" rel="noopener"><strong><em>Json Schema</em></strong></a> を作成することで <em>JSON</em> データのスキーマを定義する。<br>
@@ -204,7 +203,6 @@
                         <li>
                           <p><em>VS Code</em> が対応している <em>Json Schema</em> の仕様バージョン <strong><em>Draft 7</em></strong> を指定（<a href="https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings" target="_blank" rel="noopener">参考</a>）。</p>
                           <div class="listingblock">
-
                             <div class="content">
                               <pre class="highlight"><code class="language-json" data-lang="json">{ "$schema": "http://json-schema.org/draft-07/schema#" }</code></pre>
                             </div>
@@ -371,14 +369,12 @@
                       <div class="sect3">
                         <h4 id="_declare-schema"><em>Json Schema</em> の宣言</h4>
                         <div class="paragraph">
-                          <p><code>$schema</code> キーワードで <em>Json Schema</em> およびそのバージョンを宣言する。<br>
-                            JSONデータのルートで定義する必要がある。</p>
+                          <p><code>$schema</code> キーワードで <em>Json Schema</em> およびそのバージョンを宣言する。<br> JSONデータのルートで定義する必要がある。</p>
                         </div>
                         <div class="exampleblock">
                           <div class="title">Example 2. バージョン Draft 7 を宣言</div>
                           <div class="content">
                             <div class="listingblock">
-
                               <div class="content">
                                 <pre class="highlight"><code class="language-json" data-lang="json">{ "$schema": "http://json-schema.org/draft-07/schema#" }</code></pre>
                               </div>
@@ -389,18 +385,15 @@
                       <div class="sect3">
                         <h4 id="_ref_キーワードによる他スキーマ参照"><a href="https://json-schema.org/understanding-json-schema/structuring.html#ref" target="_blank" rel="noopener"><code>$ref</code> キーワード</a>による他スキーマ参照</h4>
                         <div class="paragraph">
-                          <p><code>$ref</code> キーワードを使って他のスキーマを参照することができる。<br>
-                            これにより、同じ設定を流用できたり深いネストになってしまうことを避けられる。</p>
+                          <p><code>$ref</code> キーワードを使って他のスキーマを参照することができる。<br> これにより、同じ設定を流用できたり深いネストになってしまうことを避けられる。</p>
                         </div>
                         <div class="paragraph">
-                          <p><code>$ref</code> の値は <em>Base URI</em> からの <em>URI</em> 参照となる。<br>
-                            ファイル内部のスキーマを参照する場合、ルートは <code>#</code> で表現され、プロパティごとに <code>/</code> で区切る。</p>
+                          <p><code>$ref</code> の値は <em>Base URI</em> からの <em>URI</em> 参照となる。<br> ファイル内部のスキーマを参照する場合、ルートは <code>#</code> で表現され、プロパティごとに <code>/</code> で区切る。</p>
                         </div>
                         <div class="exampleblock">
                           <div class="title">Example 3. $ref</div>
                           <div class="content">
                             <div class="listingblock">
-
                               <div class="content">
                                 <pre class="highlight"><code class="language-json" data-lang="json">{
   "type": "object",
@@ -436,7 +429,6 @@
                           <div class="title">Example 4. 値を固定値から選ばせる</div>
                           <div class="content">
                             <div class="listingblock">
-
                               <div class="content">
                                 <pre class="highlight"><code class="language-json" data-lang="json">{ "enum": ["yellow", "green", "blue"] }</code></pre>
                               </div>
@@ -449,9 +441,7 @@
                               <td class="icon">
                                 <i class="fa icon-tip" title="Tip" data-md-icon="emoji_objects"></i>
                               </td>
-                              <td class="content">
-                                正規表現で <em>string</em> 値を制限したい場合は <a href="https://json-schema.org/understanding-json-schema/reference/string.html#regular-expressions" target="_blank" rel="noopener"><code>pattern</code> キーワード</a>を利用する。
-                              </td>
+                              <td class="content"> 正規表現で <em>string</em> 値を制限したい場合は <a href="https://json-schema.org/understanding-json-schema/reference/string.html#regular-expressions" target="_blank" rel="noopener"><code>pattern</code> キーワード</a>を利用する。 </td>
                             </tr>
                           </table>
                         </div>
@@ -477,13 +467,11 @@
                               <table>
                                 <tr>
                                   <td><i class="conum" data-value="1"></i><b>1</b></td>
-                                  <td>任意キーの値について、スキーマを与える。<br>
-                                    スキーマではなく <code>true</code> を与えると任意の値をとる。</td>
+                                  <td>任意キーの値について、スキーマを与える。<br> スキーマではなく <code>true</code> を与えると任意の値をとる。</td>
                                 </tr>
                               </table>
                             </div>
                             <div class="listingblock">
-
                               <div class="content">
                                 <pre class="highlight"><code class="language-json" data-lang="json">{ "example": "ok" }</code></pre>
                               </div>
@@ -496,9 +484,7 @@
                               <td class="icon">
                                 <i class="fa icon-tip" title="Tip" data-md-icon="emoji_objects"></i>
                               </td>
-                              <td class="content">
-                                一定の文字列パターンに従ったキーを許可したい場合は <code>patternProperties</code> を利用する。
-                              </td>
+                              <td class="content"> 一定の文字列パターンに従ったキーを許可したい場合は <code>patternProperties</code> を利用する。 </td>
                             </tr>
                           </table>
                         </div>
@@ -509,13 +495,11 @@
                           <dl>
                             <dt class="hdlist1">default</dt>
                             <dd>
-                              <p>デフォルト値を明示するために使われる。<br>
-                                あくまでデフォルト値を明示するだけであり、ここで指定したからといって<strong>欠損値を埋める機能はない</strong><sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="/posts/json_schema_on_vscode#_footnotedef_3" title="View footnote.">3</a>]</sup>。</p>
+                              <p>デフォルト値を明示するために使われる。<br> あくまでデフォルト値を明示するだけであり、ここで指定したからといって<strong>欠損値を埋める機能はない</strong><sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="/posts/json_schema_on_vscode#_footnotedef_3" title="View footnote.">3</a>]</sup>。</p>
                             </dd>
                             <dt class="hdlist1">examples</dt>
                             <dd>
-                              <p>スキーマに従ったJSONデータ値の例。<br>
-                                利用者に向けた使い方の例示。</p>
+                              <p>スキーマに従ったJSONデータ値の例。<br> 利用者に向けた使い方の例示。</p>
                             </dd>
                             <dt class="hdlist1">example</dt>
                             <dd>
@@ -680,9 +664,7 @@ paths:
                           <td class="icon">
                             <i class="fa icon-important" title="Important" data-md-icon="report"></i>
                           </td>
-                          <td class="content">
-                            VS Code 上で利用することを前提。
-                          </td>
+                          <td class="content"> VS Code 上で利用することを前提。 </td>
                         </tr>
                       </table>
                     </div>
@@ -737,13 +719,11 @@ paths:
                           <table>
                             <tr>
                               <td><i class="conum" data-value="1"></i><b>1</b></td>
-                              <td>スキーマを適用するファイルパスのパターンを指定。<br>
-                                ワイルドカード（<code>*</code>）や否定演算子（<code>!</code>）も利用できる。</td>
+                              <td>スキーマを適用するファイルパスのパターンを指定。<br> ワイルドカード（<code>*</code>）や否定演算子（<code>!</code>）も利用できる。</td>
                             </tr>
                             <tr>
                               <td><i class="conum" data-value="2"></i><b>2</b></td>
-                              <td>使用する <em>Json Schema</em> の <em>URI</em> を指定。<br>
-                                ローカルファイルを相対参照する場合、カレントディレクトリ（<code>.</code>）を指定しないとうまく解釈してくれない。</td>
+                              <td>使用する <em>Json Schema</em> の <em>URI</em> を指定。<br> ローカルファイルを相対参照する場合、カレントディレクトリ（<code>.</code>）を指定しないとうまく解釈してくれない。</td>
                             </tr>
                           </table>
                         </div>
@@ -889,13 +869,13 @@ paths:
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/json_schema_on_vscode/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/json_schema_on_vscode/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>

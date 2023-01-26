@@ -11,23 +11,23 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/de72ab3.js" as="script">
+  <link rel="preload" href="/_nuxt/de5239f.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/43eff35.js" as="script">
+  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
   <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
   <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/e95911d.js" as="script">
+  <link rel="preload" href="/_nuxt/df69b66.js" as="script">
   <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
   <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
   <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
   <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/nuxt_detect_props_changes/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/posts/nuxt_detect_props_changes/payload.js" as="script">
-  <link rel="preload" href="/_nuxt/static/1674718930/manifest.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/nuxt_detect_props_changes/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/posts/nuxt_detect_props_changes/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/1674745749/manifest.js" as="script">
 </head>
 
 <body>
@@ -97,8 +97,7 @@
                       <p>親コンポーネントから渡されたプロパティ（<code>props</code>）のデータが変更されたとき、それを検出してビューを更新したい。</p>
                     </div>
                     <div class="paragraph">
-                      <p><code>string</code> 型や <code>number</code> 型のデータならばなんの手間もいらず変更を検出してくれるが、オブジェクトや配列データでは一手間が必要になってくる。<br>
-                        その一手間について記事にしてみた。</p>
+                      <p><code>string</code> 型や <code>number</code> 型のデータならばなんの手間もいらず変更を検出してくれるが、オブジェクトや配列データでは一手間が必要になってくる。<br> その一手間について記事にしてみた。</p>
                     </div>
                     <table class="tableblock frame-all grid-all fit-content">
                       <caption class="title">Table 1. 環境</caption>
@@ -132,8 +131,7 @@
                       <p><a href="https://jp.vuejs.org/v2/guide/reactivity.html" target="_blank" rel="noopener"><em>Vue</em> 公式のドキュメント</a>に書いてある通り。</p>
                     </div>
                     <div class="paragraph">
-                      <p>全てのコンポーネントには対応するウォッチャ（<em>watcher</em>）があり、コンポーネントのデータが変更されると <code>setter</code> がこのウォッチャに通知する。<br>
-                        そして通知を受け取ったウォッチャからコンポーネントの再描画が行われる。</p>
+                      <p>全てのコンポーネントには対応するウォッチャ（<em>watcher</em>）があり、コンポーネントのデータが変更されると <code>setter</code> がこのウォッチャに通知する。<br> そして通知を受け取ったウォッチャからコンポーネントの再描画が行われる。</p>
                     </div>
                     <div class="imageblock kroki">
                       <div class="content">
@@ -144,28 +142,7 @@
                             </filter>
                           </defs>
                           <title>blockdiag</title>
-                          <desc>blockdiag {
-                            component [label = "コンポーネントの\n描画関数"]
-                            dom [label = "仮想DOMツリー", shape = roundedbox]
-                            data [label = "データの変更", shape = flowchart.input]
-
-                            group {
-                            orientation = portrait
-                            shape = line;
-
-                            data -> setter;
-                            }
-
-                            setter -> Watcher;
-
-                            group {
-                            orientation = portrait
-                            shape = line;
-                            color = "#4DD0E1";
-
-                            Watcher -> component -> dom;
-                            }
-                            }</desc>
+                          <desc>blockdiag { component [label = "コンポーネントの\n描画関数"] dom [label = "仮想DOMツリー", shape = roundedbox] data [label = "データの変更", shape = flowchart.input] group { orientation = portrait shape = line; data -> setter; } setter -> Watcher; group { orientation = portrait shape = line; color = "#4DD0E1"; Watcher -> component -> dom; } }</desc>
                           <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:.7;fill-opacity:1" width="128" x="259" y="126" />
                           <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:.7;fill-opacity:1" width="128" x="259" y="206" />
                           <path d="M 267 286 L 379 286 A8,8 0 0 1 387 294 L 387 318 A8,8 0 0 1 379 326 L 267 326 A8,8 0 0 1 259 318 L 259 294 A8,8 0 0 1 267 286" fill="rgb(0,0,0)" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:.7;fill-opacity:1" />
@@ -247,14 +224,12 @@
                     <div class="sect2">
                       <h3 id="_監視プロパティwatchで変更を検出する">監視プロパティ（<code>watch</code>）で変更を検出する</h3>
                       <div class="paragraph">
-                        <p><code>watch</code> オプションで <code>props</code> のデータを監視し、変更に対して反応させる。<br>
-                          下記の例では <a href="https://github.com/nuxt-community/nuxt-property-decorator" target="_blank" rel="noopener">nuxt-property-decorator</a> ライブラリを利用しているので、代わりに <code>@Watch</code> デコレータを利用している。</p>
+                        <p><code>watch</code> オプションで <code>props</code> のデータを監視し、変更に対して反応させる。<br> 下記の例では <a href="https://github.com/nuxt-community/nuxt-property-decorator" target="_blank" rel="noopener">nuxt-property-decorator</a> ライブラリを利用しているので、代わりに <code>@Watch</code> デコレータを利用している。</p>
                       </div>
                       <div class="exampleblock">
                         <div class="title">Example 1. オブジェクトのプロパティを監視して変更を検出する</div>
                         <div class="content">
                           <div class="listingblock">
-
                             <div class="content">
                               <pre class="highlight" data-line="13-16"><code class="language-ts" data-lang="ts">&lt;script lang="ts">
 import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
@@ -307,7 +282,6 @@ export default class InputSearch extends Vue {
                                     <p>オブジェクトのネストされているプロパティ全てを監視したい場合は <code>deep</code> オプションを有効化する。</p>
                                   </div>
                                   <div class="listingblock">
-
                                     <div class="content">
                                       <pre class="highlight"><code class="language-ts" data-lang="ts">@Watch('query', { immediate: true, deep: true })</code></pre>
                                     </div>
@@ -427,13 +401,13 @@ export default class InputSearch extends Vue {
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/1674718930/posts/nuxt_detect_props_changes/state.js"></script>
-  <script src="/_nuxt/de72ab3.js" defer></script>
-  <script src="/_nuxt/e95911d.js" defer></script>
-  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script defer src="/_nuxt/static/1674745749/posts/nuxt_detect_props_changes/state.js"></script>
+  <script src="/_nuxt/de5239f.js" defer></script>
+  <script src="/_nuxt/df69b66.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/43eff35.js" defer></script>
-  <script src="/_nuxt/554ac69.js" defer></script>
+  <script src="/_nuxt/4fde5eb.js" defer></script>
+  <script src="/_nuxt/61ba754.js" defer></script>
 </body>
 
 </html>
