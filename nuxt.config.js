@@ -23,6 +23,9 @@ const conf = {
   },
   ssr: true,
   target: 'static',
+  server: {
+    host: '0.0.0.0', // allow from outside of the host machine, on container
+  },
   /*
    ** Headers of the page
    */
@@ -192,7 +195,13 @@ const conf = {
         webpackImporter: false,
       },
     },
-
+    /**
+     * CSSをHTMLに埋め込まず、個々のCSSファイルとして抽出する。
+     * https://nuxtjs.org/ja/docs/configuration-glossary/configuration-build/#extractcss
+     */
+    extractCSS: true,
+    /** https://nuxtjs.org/docs/configuration-glossary/configuration-build/#htmlminify */
+    // html: { minify },
     transpile: ['vee-validate/dist/rules'],
   },
   /*
