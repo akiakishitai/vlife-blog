@@ -13,6 +13,22 @@ const host = new URL(
   isDeploy ? 'https://vlike-vlife.netlify.app' : 'http://localhost:3000'
 ).toString()
 
+/**
+ * `pageFormatter` モジュール用のオプション。
+ * （https://github.com/beautify-web/js-beautify#options）
+ *
+ * @type { import('js-beautify').HTMLBeautifyOptions & { excludeFiles: string[] } }
+ */
+const formatOption = {
+  indent_size: 2,
+  end_with_newline: true,
+  preserve_newlines: false,
+  max_preserve_newlines: 0,
+  wrap_line_length: 0,
+  wrap_attributes_indent_size: 0,
+  excludeFiles: ['search.html'], // なぜか `search.html` をフォーマットすると期待通りの動作をしない
+}
+
 /** @type {import('@nuxt/types').NuxtConfig} */
 const conf = {
   /**
@@ -90,14 +106,7 @@ const conf = {
         },
       },
     ],
-    [
-      '@/modules/pageFormatter',
-      // https://github.com/beautify-web/js-beautify#options
-      {
-        indent_size: 2,
-        end_with_newline: true,
-      },
-    ],
+    ['@/modules/pageFormatter', formatOption],
     [
       '@/modules/routesGenerator',
       {
@@ -203,6 +212,8 @@ const conf = {
     /** https://nuxtjs.org/docs/configuration-glossary/configuration-build/#htmlminify */
     // html: { minify },
     transpile: ['vee-validate/dist/rules'],
+    /** Nuxt build speed up */
+    hardSource: true,
   },
   /*
    ** Router

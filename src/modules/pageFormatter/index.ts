@@ -21,17 +21,28 @@ type Page = {
 /**
  * Nuxt Module 型のエイリアス。
  */
-type FormatterModule = import('@nuxt/types').Module<
-  import('js-beautify').HTMLBeautifyOptions
->
+type extendBeautifyOptions = import('js-beautify').HTMLBeautifyOptions & {
+  excludeFiles: string[]
+}
+type FormatterModule = import('@nuxt/types').Module<extendBeautifyOptions>
 
 /**
  * 生成されたHTMLページの整形を行う Nuxt hook の登録。
+ * なお `extractCSS` で抽出されるCSSファイルはファイル名にハッシュ値が用いられており
+ * （https://nuxtjs.org/docs/configuration-glossary/configuration-build/#filenames）、
+ * CSS変更時には毎回ファイル名が異なるため無視する。
  */
 const pageFormatter: FormatterModule = function (options?) {
   // Nuxt hook 登録
   // ページの情報を生成した直後（ファイル作成前）のタイミング
   this.nuxt.hook('generate:page', (page: Page) => {
+    // skip format
+    if (options?.excludeFiles !== undefined) {
+      if (options.excludeFiles.some((file) => page.path.includes(file))) {
+        return
+      }
+    }
+
     page.html = html_beautify(page.html, options) // フォーマット
     // console.debug(`  -> formated html: ${page.path}`)
   })
