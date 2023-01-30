@@ -46,7 +46,7 @@ export function createPlugin(contents, count, api) {
          * @param {Record<string, any>} obj オブジェクトデータ
          */
         const addAssets = (name, obj) => {
-          const data = JSON.stringify(obj)
+          const data = JSON.stringify(obj, undefined, 2)  // スペース2個のインデント
           compilation.assets[name] = {
             source: () => data,
             size: () => data.length,
