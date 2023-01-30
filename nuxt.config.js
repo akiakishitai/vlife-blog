@@ -257,6 +257,11 @@ const conf = {
   generate: {
     fallback: true,
     subFolders: false,
+    // https://github.com/nuxt/nuxt/blob/d4b9e4b0553bcd617ecbc0b8b76871070b347fcb/packages/generator/src/generator.js#L33
+    staticAssets: {
+      // nuxt generate 時に生成される静的ディレクトリ名を固定する
+      version: '2023013021',
+    },
   },
   /*
    ** Nuxt source directory
