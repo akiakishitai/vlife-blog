@@ -5,6 +5,18 @@
   },
   "overviews": [
     {
+      "filename": "git_conventional_commits.adoc",
+      "title": "git_conventional_commits",
+      "created_at": "2023-02-08",
+      "tags": [
+        "git",
+        "semver"
+      ],
+      "updated_at": "2023-02-08",
+      "author": "秋々すすき",
+      "revision": "1.0"
+    },
+    {
       "filename": "bluetooth_audio_tips.adoc",
       "title": "Bluetooth オーディオ関連のあれこれ",
       "created_at": "2023-01-07",
@@ -101,7 +113,9 @@
         "alias",
         "備忘録"
       ],
-      "author": "v1.0, 2022-02-18"
+      "updated_at": "2023-02-08",
+      "author": "秋々すすき",
+      "revision": "1.1"
     },
     {
       "filename": "openapi_document_rapidoc.adoc",
@@ -115,20 +129,6 @@
       "updated_at": "2022-01-29",
       "author": "秋々すすき",
       "revision": "1.1"
-    },
-    {
-      "filename": "json_schema_on_vscode.adoc",
-      "title": "VS Code で Json Schema を作って使う",
-      "created_at": "2022-01-26",
-      "tags": [
-        "json",
-        "json-schema",
-        "openapi",
-        "vscode"
-      ],
-      "updated_at": "2022-01-26",
-      "author": "秋々すすき",
-      "revision": "1.0"
     }
   ]
 }

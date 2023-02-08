@@ -5,6 +5,20 @@
   },
   "overviews": [
     {
+      "filename": "json_schema_on_vscode.adoc",
+      "title": "VS Code で Json Schema を作って使う",
+      "created_at": "2022-01-26",
+      "tags": [
+        "json",
+        "json-schema",
+        "openapi",
+        "vscode"
+      ],
+      "updated_at": "2022-01-26",
+      "author": "秋々すすき",
+      "revision": "1.0"
+    },
+    {
       "filename": "cli_yt-dlp.adoc",
       "title": "動画ダウンロードツール youtube-dl のフォークである yt-dlp を使ってみる",
       "created_at": "2021-12-20",
@@ -122,19 +136,6 @@
       "updated_at": "2021-07-22",
       "author": "秋々すすき",
       "revision": "1.0"
-    },
-    {
-      "filename": "apt-get_ppa_without_apt-key.adoc",
-      "title": "Dockerfile で apt-key を使わず PPA を追加する",
-      "created_at": "2021-07-18",
-      "tags": [
-        "ubuntu",
-        "debian",
-        "docker"
-      ],
-      "updated_at": "2021-07-19",
-      "author": "秋々すすき",
-      "revision": "1.1"
     }
   ]
 }

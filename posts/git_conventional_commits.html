@@ -1,0 +1,672 @@
+<!doctype html>
+<html data-n-head-ssr lang="ja" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22ja%22%7D%7D">
+
+<head>
+  <title>git_conventional_commits - Vがいる日々</title>
+  <meta data-n-head="ssr" charset="utf-8">
+  <meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1">
+  <meta data-n-head="ssr" data-hid="description" name="description" content="Generate a static site with Nuxt.js">
+  <meta data-n-head="ssr" data-hid="keywords" name="keywords" content="git,semver">
+  <base href="/">
+  <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
+  <link rel="preload" href="/_nuxt/0e5221e.js" as="script">
+  <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
+  <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
+  <link rel="preload" href="/_nuxt/99a2f6a.js" as="script">
+  <link rel="preload" href="/_nuxt/css/c1a62f9.css" as="style">
+  <link rel="preload" href="/_nuxt/71596c0.js" as="script">
+  <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
+  <link rel="preload" href="/_nuxt/cf45fea.js" as="script">
+  <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
+  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
+  <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
+  <link rel="stylesheet" href="/_nuxt/css/c1a62f9.css">
+  <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
+  <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
+  <link rel="preload" href="/_nuxt/static/2023013021/posts/git_conventional_commits/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/2023013021/posts/git_conventional_commits/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/2023013021/manifest.js" as="script">
+</head>
+
+<body>
+  <div data-server-rendered="true" id="__nuxt"><!---->
+    <div id="__layout">
+      <div class="min-h-screen flex flex-col items-center mx-auto bg-background">
+        <header class="mdc-top-app-bar relative" data-v-357cda0d>
+          <div class="mdc-top-app-bar__row" data-v-357cda0d>
+            <div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" data-v-357cda0d><a href="/" class="mdc-top-app-bar__title nuxt-link-active" data-v-357cda0d>Vがいる日々</a></div>
+            <nav class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" data-v-357cda0d>
+              <ul class="flex" data-v-357cda0d>
+                <li data-v-357cda0d><a href="/" class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-grey-500 hover:bg-opacity-15" data-v-357cda0d>Home</a></li>
+                <li class="ml-2" data-v-357cda0d><a href="/license" class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-grey-500 hover:bg-opacity-15" data-v-357cda0d>License</a></li>
+              </ul>
+              <ul class="flex ml-4" data-v-357cda0d>
+                <li class="flex items-center" data-v-357cda0d><a href="https://twitter.com/akiakiS101" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" data-v-357cda0d><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-357cda0d data-v-49dc8ae1>
+                      <title data-v-4b4cfb63>Twitter account</title>
+                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" data-v-4b4cfb63></path>
+                    </svg></a></li>
+                <li class="flex items-center" data-v-357cda0d><a href="https://github.com/akiakishitai/vlife-blog" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" data-v-357cda0d><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-357cda0d data-v-f1b30468>
+                      <title data-v-4b4cfb63>Github source</title>
+                      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" data-v-4b4cfb63></path>
+                    </svg></a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main class="container flex-grow text-black text-opacity-87 px-4">
+          <div class="pb-6 mt-6" data-v-346bb96f>
+            <h1 class="text-4xl font-light">git_conventional_commits</h1>
+            <div class="mt-4">
+              <div role="table" class="mdc-chip-set" data-v-78553c6c><a href="/search?tags=git">
+                  <div role="row" class="mdc-chip" data-v-78553c6c>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>git</span></span></span>
+                  </div>
+                </a><a href="/search?tags=semver">
+                  <div role="row" class="mdc-chip" data-v-78553c6c>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>semver</span></span></span>
+                  </div>
+                </a></div>
+              <div class="flex justify-end">
+                <div class="flex items-center"><span class="material-icons text-xl opacity-87">create</span>
+                  <div class="pl-1">2023年02月08日</div>
+                </div>
+                <div class="flex items-center ml-2"><span class="material-icons text-xl opacity-87">update</span>
+                  <div class="pl-1">2023年02月08日</div>
+                </div>
+              </div>
+            </div>
+            <hr class="mt-2 border-grey-500"> <!---->
+            <div class="mt-6">
+              <div class="post-body line-numbers">
+                <div id="toc" class="toc">
+                  <div id="toctitle">目次</div>
+                  <ul class="sectlevel1">
+                    <li><a href="/posts/git_conventional_commits#_はじめに">🍩はじめに</a>
+                      <ul class="sectlevel2">
+                        <li><a href="/posts/git_conventional_commits#_それぞれの導入目的">それぞれの導入目的</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/posts/git_conventional_commits#_conventional_commits_と_semantic_versioning_の関係図">🚋<em>Conventional Commits</em> と <em>Semantic Versioning</em> の関係図</a></li>
+                    <li><a href="/posts/git_conventional_commits#_semantic_versioning">🐕<em>Semantic Versioning</em></a></li>
+                    <li><a href="/posts/git_conventional_commits#_conventional_commits">🐈<em>Conventional Commits</em></a>
+                      <ul class="sectlevel2">
+                        <li><a href="/posts/git_conventional_commits#_commit_type"><em>Commit Type</em></a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/posts/git_conventional_commits#_参考">📖参考</a></li>
+                  </ul>
+                </div>
+                <div class="sect1">
+                  <h2 id="_はじめに">🍩はじめに</h2>
+                  <div class="sectionbody">
+                    <div class="paragraph">
+                      <p>ちょいちょいコミットメッセージ型の規約を間違えるので整理しておく。<br>
+                        <a href="https://semver.org/lang/ja/" target="_blank" rel="noopener"><em>Semantic Versioning</em></a> についても少し絡める。
+                      </p>
+                    </div>
+                    <table class="tableblock frame-all grid-all fit-content">
+                      <caption class="title">Table 1. 環境</caption>
+                      <colgroup>
+                        <col>
+                        <col>
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th class="tableblock halign-center valign-top">App</th>
+                          <th class="tableblock halign-center valign-top">Version</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tableblock halign-left valign-top">
+                            <p class="tableblock"><strong><a href="https://www.conventionalcommits.org/ja/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a></strong></p>
+                          </td>
+                          <td class="tableblock halign-center valign-top">
+                            <p class="tableblock">1.0.0</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="tableblock halign-left valign-top">
+                            <p class="tableblock"><strong><a href="https://semver.org/lang/ja/" target="_blank" rel="noopener">Semantic Versioning</a></strong></p>
+                          </td>
+                          <td class="tableblock halign-center valign-top">
+                            <p class="tableblock">2.0.0</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="sect2">
+                      <h3 id="_それぞれの導入目的">それぞれの導入目的</h3>
+                      <div class="dlist">
+                        <dl>
+                          <dt class="hdlist1"><em>Semantic Versioning</em> の目的</dt>
+                          <dd>
+                            <p>依存性地獄に陥るのを防ぐためのバージョン番号に関する規約。<br> 依存性を安全に管理することに役立つ。</p>
+                          </dd>
+                          <dt class="hdlist1"><em>Conventional Commits</em> の目的</dt>
+                          <dd>
+                            <p>コミットメッセージのための規約。</p>
+                            <div class="quoteblock">
+                              <blockquote>
+                                <div class="ulist">
+                                  <ul>
+                                    <li>
+                                      <p>変更履歴 (CHANGELOG) を自動的に生成できます。</p>
+                                    </li>
+                                    <li>
+                                      <p>semantic version 単位で自動的に履歴をまとめられます (コミットの型に基づきます)。</p>
+                                    </li>
+                                    <li>
+                                      <p>チームメイトや一般のユーザー、およびその他の利害関係者へ変更の内容を伝えることができます。</p>
+                                    </li>
+                                    <li>
+                                      <p>ビルドや公開の処理をトリガーできます。</p>
+                                    </li>
+                                    <li>
+                                      <p>より構造化されたコミット履歴を調査できるようにすることで、人々があなたのプロジェクトに貢献しやすくなります。</p>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </blockquote>
+                              <div class="attribution"> — 何故 Conventional Commits を使うのか<br>
+                                <cite><a href="https://www.conventionalcommits.org/ja/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a> （<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>）</cite>
+                              </div>
+                            </div>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sect1">
+                  <h2 id="_conventional_commits_と_semantic_versioning_の関係図">🚋<em>Conventional Commits</em> と <em>Semantic Versioning</em> の関係図</h2>
+                  <div class="sectionbody">
+                    <div class="admonitionblock note">
+                      <table>
+                        <tr>
+                          <td class="icon">
+                            <i class="fa icon-note" title="Note" data-md-icon="info"></i>
+                          </td>
+                          <td class="content"> 特に指定がない限り、ここでの <em>API</em> とは <em>パブリック API</em> のことを指す。 </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="imageblock kroki">
+                      <div class="content">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="730px" preserveAspectRatio="none" style="width:645px;height:730px;background:#fff" version="1.1" viewBox="0 0 645 730" width="645px" zoomAndPan="magnify">
+                          <defs />
+                          <g><!--cluster SemVer-->
+                            <g id="cluster_SemVer">
+                              <rect fill="none" height="112" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:1" width="461" x="51" y="7" />
+                              <path d="M123,7 L123,16.2969 L113,26.2969 L51,26.2969 " fill="none" style="stroke:#181818;stroke-width:1" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="62" x="54" y="20.9951">SemVer</text>
+                            </g><!--cluster Commit Type-->
+                            <g id="cluster_Commit Type">
+                              <rect fill="none" height="573" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:1" width="632" x="7" y="151" />
+                              <path d="M120,151 L120,160.2969 L110,170.2969 L7,170.2969 " fill="none" style="stroke:#181818;stroke-width:1" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="103" x="10" y="164.9951">Commit Type</text>
+                            </g><!--cluster commit-->
+                            <g id="cluster_commit">
+                              <rect fill="none" height="112" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:1" width="477" x="39" y="202" />
+                              <path d="M225,202 L225,211.2969 L215,221.2969 L39,221.2969 " fill="none" style="stroke:#181818;stroke-width:1" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="176" x="42" y="215.9951">Conventional Commits</text>
+                            </g><!--cluster angular-->
+                            <g id="cluster_angular">
+                              <rect fill="none" height="338" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:1" width="568" x="39" y="354" />
+                              <path d="M103,354 L103,363.2969 L93,373.2969 L39,373.2969 " fill="none" style="stroke:#181818;stroke-width:1" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="54" x="42" y="367.9951">Others</text>
+                            </g>
+                            <g id="elem_MAJOR">
+                              <rect fill="#87CEEB" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="131" x="94.5" y="50" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="137.5" y="64.9951">MAJOR</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="95.5" x2="224.5" y1="70.2969" y2="70.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="100.5" y="87.292">APIの破壊的な変更</text>
+                            </g>
+                            <g id="elem_MINOR">
+                              <rect fill="#9ACD32" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="124" x="261" y="50" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="300" y="64.9951">MINOR</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="262" x2="384" y1="70.2969" y2="70.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="267" y="87.292">機能の追加や廃止</text>
+                            </g>
+                            <g id="elem_PATCH">
+                              <rect fill="#FA8072" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="68" x="420" y="50" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="430.5" y="64.9951">PATCH</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="421" x2="487" y1="70.2969" y2="70.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="426" y="87.292">バグ修正</text>
+                            </g>
+                            <g id="elem_feat">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="124" x="265" y="245" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26" x="314" y="259.9951">feat</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="266" x2="388" y1="265.2969" y2="265.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="271" y="282.292">機能の追加や廃止</text>
+                            </g>
+                            <g id="elem_fix">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="68" x="424" y="245" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="451" y="259.9951">fix</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="425" x2="491" y1="265.2969" y2="265.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="430" y="282.292">バグ修正</text>
+                            </g>
+                            <g id="elem_break">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="148" x="82" y="245" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="89" y="259.9951">BREAKING CHANGE</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="83" x2="229" y1="265.2969" y2="265.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="88" y="282.292">APIの破壊的な変更</text>
+                            </g>
+                            <g id="elem_build">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="222" x="82" y="405" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="176.5" y="419.9951">build</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="83" x2="303" y1="425.2969" y2="425.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="210" x="88" y="442.292">ビルドシステムや外部依存に影響</text>
+                            </g>
+                            <g id="elem_chore">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="82" x="339" y="405" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="360" y="419.9951">chore</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="340" x2="420" y1="425.2969" y2="425.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="345" y="442.292">その他変更</text>
+                            </g>
+                            <g id="elem_ci">
+                              <rect fill="#F1F1F1" height="60.8906" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="110" x="456" y="397" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="11" x="505.5" y="411.9951">ci</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="457" x2="565" y1="417.2969" y2="417.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="462" y="434.292">CIの設定や</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="462" y="450.5889">スクリプト変更</text>
+                            </g>
+                            <g id="elem_docs">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="166" x="78" y="518" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="144" y="532.9951">docs</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="79" x2="243" y1="538.2969" y2="538.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="84" y="555.292">ドキュメントのみの変更</text>
+                            </g>
+                            <g id="elem_perf">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="138" x="279" y="518" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="334.5" y="532.9951">perf</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="280" x2="416" y1="538.2969" y2="538.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="285" y="555.292">パフォーマンス改善</text>
+                            </g>
+                            <g id="elem_refactor">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="124" x="452" y="518" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53" x="487.5" y="532.9951">refactor</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="453" x2="575" y1="538.2969" y2="538.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="458" y="555.292">リファクタリング</text>
+                            </g>
+                            <g id="elem_revert">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="166" x="71" y="623" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="134" y="637.9951">revert</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="72" x2="236" y1="643.2969" y2="643.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="77" y="660.292">以前のコミットへの復帰</text>
+                            </g>
+                            <g id="elem_style">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="138" x="272" y="623" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="325" y="637.9951">style</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="273" x2="409" y1="643.2969" y2="643.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="278" y="660.292">コードフォーマット</text>
+                            </g>
+                            <g id="elem_test">
+                              <rect fill="#F1F1F1" height="44.5938" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:.5" width="138" x="445" y="623" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="500.5" y="637.9951">test</text>
+                              <line style="stroke:#181818;stroke-width:.5" x1="446" x2="582" y1="643.2969" y2="643.2969" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="451" y="660.292">テストの追加や修正</text>
+                            </g><!--link MAJOR to MINOR-->
+                            <g id="link_MAJOR_MINOR">
+                              <path codeLine="15" d="M225.9,72.5 C237.53,72.5 249.16,72.5 260.8,72.5 " fill="none" id="MAJOR-MINOR" style="stroke:#181818;stroke-width:1" />
+                            </g><!--link MINOR to PATCH-->
+                            <g id="link_MINOR_PATCH">
+                              <path codeLine="16" d="M385.43,72.5 C396.86,72.5 408.29,72.5 419.71,72.5 " fill="none" id="MINOR-PATCH" style="stroke:#181818;stroke-width:1" />
+                            </g><!--reverse link MAJOR to break-->
+                            <g id="link_MAJOR_break">
+                              <path codeLine="31" d="M159.42,101.67 C158.61,140.42 157.18,209.34 156.46,244.52 " fill="none" id="MAJOR-backto-break" style="stroke:#181818;stroke-width:1" />
+                              <polygon fill="#181818" points="159.52,96.78,155.3408,105.6982,159.42,101.779,163.3392,105.8582,159.52,96.78" style="stroke:#181818;stroke-width:1" />
+                            </g><!--reverse link MINOR to feat-->
+                            <g id="link_MINOR_feat">
+                              <path codeLine="32" d="M323.58,101.67 C324.39,140.42 325.82,209.34 326.54,244.52 " fill="none" id="MINOR-backto-feat" style="stroke:#181818;stroke-width:1" />
+                              <polygon fill="#181818" points="323.48,96.78,319.6608,105.8582,323.58,101.779,327.6592,105.6982,323.48,96.78" style="stroke:#181818;stroke-width:1" />
+                            </g><!--reverse link PATCH to fix-->
+                            <g id="link_PATCH_fix">
+                              <path codeLine="33" d="M454.58,101.67 C455.39,140.42 456.82,209.34 457.54,244.52 " fill="none" id="PATCH-backto-fix" style="stroke:#181818;stroke-width:1" />
+                              <polygon fill="#181818" points="454.48,96.78,450.6608,105.8582,454.58,101.779,458.6592,105.6982,454.48,96.78" style="stroke:#181818;stroke-width:1" />
+                            </g><!--link SemVer to commit--><!--link commit to angular--><!--SRC=[VPH1Jnf168Rl-oiczBo77dfjGebHsnIDDRqqFIpi05kMNJAxQ4d3WHrYnAH9JLlQs5YqQY8Og4rDAa7antmiuh_epEmkBA1UIFQRUTxlVR-PmSfgHbuXIWuHis2eCPCOcA37JoGfnOeOlSAvrwpmGKB8JBp3IHkzZ3vVMKEFh6mneHUmM44ekheCvVRDmOLxj7EpLu5oqpsk3dzSiCLI25sESxI8TTtSJ1EC3HyVDkeZscCAetxFtJa0f-9swR3rQnfVZQx7bbXdHS-P0Gdq4pZdWtvxs3eIkqkIv3cKYPREsBBNLF9Q1pMX54ICnCnSJhFHUZ6F8q9sN3Ssi65hfg7eoDjaHP1YeQG7U0vySoci19K7ytY99fZsVapDP9dP6NcsjX1ziHnVHB6bQ7nnGJX94Ananm8Fd88dneQ3V4OkvEMdtc7onDozNnBpGiAPL_6d5SnbnSvWOl7kYf4kw0gP7aIYeEbgADDde6T0g-3y0wS3T0kecCTnxPQU3gxttTPtA9-vlJ-tzVvyw6J697WYLjvd-GRTsaoioNPjl3V6Hp4wRRdjFTOk460EdDz0cq2_0Ts-JqOrarOe0VFU0de2z13eNuOnOIZtsUzzV1wJL8ZV1VeLd0RGAw0_kOJJ6NxfkBNAF4bmIadQ9WdHJK4VSjzENtmoWVExq0rC9bTmq3rngn-vLOTvhWEbmlabjttTS2_lKB3ieXuQDkUkUFefzrnc7hMnPOSyRucZtWu_W9bhBMwY_-SYg-QcyIQZgIestih-wsBB_ZERMVOldLJw3m00]-->
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sect1">
+                  <h2 id="_semantic_versioning">🐕<a href="https://semver.org/lang/ja/" target="_blank" rel="noopener"><em>Semantic Versioning</em></a></h2>
+                  <div class="sectionbody">
+                    <div class="exampleblock">
+                      <div class="title">Example 1. バージョン 1.2.3 の場合</div>
+                      <div class="content">
+                        <div class="literalblock">
+                          <div class="content">
+                            <pre>$len = 0.2cm
+
+One: text "1" big big
+text "." big big
+Two: text "2" big big
+text "." big big
+Third: text "3" big big
+
+line $len*2 "MAJOR" below small small small color blue from $len * 2/3 above $len left of One.south
+line $len*2 "MINOR" below small small small color green from $len * 2/3 above $len left of Two.south
+line $len*2 "PATCH" below small small small color red from $len * 2/3 above $len left of Third.south</pre>
+                          </div>
+                        </div>
+                        <table class="tableblock frame-all grid-all fit-content">
+                          <colgroup>
+                            <col>
+                            <col>
+                          </colgroup>
+                          <tbody>
+                            <tr>
+                              <td class="tableblock halign-left valign-top">
+                                <p class="tableblock"><span class="image"><img src="https://img.shields.io/badge/Version-MAJOR-blue" alt="メジャーバージョン"></span></p>
+                              </td>
+                              <td class="tableblock halign-left valign-top">
+                                <p class="tableblock"><em>API</em> に後方互換性のない、破壊的な変更があったとき。</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="tableblock halign-left valign-top">
+                                <p class="tableblock"><span class="image"><img src="https://img.shields.io/badge/Version-MINOR-green" alt="マイナーバージョン"></span></p>
+                              </td>
+                              <td class="tableblock halign-left valign-top">
+                                <p class="tableblock"><em>API</em> の後方互換性を保ったまま、新機能を追加もしくは機能を廃止したとき。</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="tableblock halign-left valign-top">
+                                <p class="tableblock"><span class="image"><img src="https://img.shields.io/badge/Version-PATCH-red" alt="パッチバージョン"></span></p>
+                              </td>
+                              <td class="tableblock halign-left valign-top">
+                                <p class="tableblock"><em>API</em> の後方互換性を保ちつつバグの修正を行ったとき。</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sect1">
+                  <h2 id="_conventional_commits">🐈<a href="https://www.conventionalcommits.org/ja/v1.0.0/" target="_blank" rel="noopener"><em>Conventional Commits</em></a></h2>
+                  <div class="sectionbody">
+                    <div class="exampleblock">
+                      <div class="title">Example 2. Conventional Commits の形式</div>
+                      <div class="content">
+                        <div class="listingblock font-bold">
+                          <div class="content">
+                            <pre class="highlight"><code class="language-git-commit" data-lang="git-commit"><span class="text-orange-300">type</span>(scope)<span class="text-orange-300">:</span> <span class="text-orange-300">subject</span>  <i class="conum" data-value="1"></i><b>(1)</b><i class="conum" data-value="2"></i><b>(2)</b><i class="conum" data-value="3"></i><b>(3)</b>
+
+body     <i class="conum" data-value="4"></i><b>(4)</b>
+
+footers  <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+                          </div>
+                        </div>
+                        <div class="colist arabic">
+                          <table>
+                            <tr>
+                              <td><i class="conum" data-value="1"></i><b>1</b></td>
+                              <td><span class="image"><img src="https://img.shields.io/badge/必須-type-orange" alt="type - 必須"></span> コミットの型。後述する型のうちどれかを指定する。</td>
+                            </tr>
+                            <tr>
+                              <td><i class="conum" data-value="2"></i><b>2</b></td>
+                              <td><span class="image"><img src="https://img.shields.io/badge/任意-scope-blue" alt="scope - 任意"></span> 本コミットで影響を受けるライブラリやパッケージ名。</td>
+                            </tr>
+                            <tr>
+                              <td><i class="conum" data-value="3"></i><b>3</b></td>
+                              <td><span class="image"><img src="https://img.shields.io/badge/必須-subject-orange" alt="subject - 必須"></span> コミットのタイトル。コード変更の要約。</td>
+                            </tr>
+                            <tr>
+                              <td><i class="conum" data-value="4"></i><b>4</b></td>
+                              <td><span class="image"><img src="https://img.shields.io/badge/任意-body-blue" alt="body - 任意"></span> コミットの本文。コード変更の詳しい説明。</td>
+                            </tr>
+                            <tr>
+                              <td><i class="conum" data-value="5"></i><b>5</b></td>
+                              <td><span class="image"><img src="https://img.shields.io/badge/任意-footers-blue" alt="footers - 任意"></span> 本文以外での追加情報を書いたフッター。<br>
+                                <code>&lt;token>: &lt;description></code> の形式（<em>ex.</em> <code>refs: #123</code>）。
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sect2">
+                      <h3 id="_commit_type"><em>Commit Type</em></h3>
+                      <table class="tableblock frame-all grid-all fit-content">
+                        <caption class="title">Table 2. Conventional Commits 規約</caption>
+                        <colgroup>
+                          <col>
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th class="tableblock halign-center valign-top">Type</th>
+                            <th class="tableblock halign-left valign-top">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="tableblock halign-center valign-top">
+                              <p class="tableblock"><strong>feat</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><span class="image"><img src="https://img.shields.io/badge/SemVer-MINOR-green" alt="MINOR"></span> 新機能の追加や機能の廃止。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-center valign-top">
+                              <p class="tableblock"><strong>fix</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><span class="image"><img src="https://img.shields.io/badge/SemVer-PATCH-red" alt="PATCH"></span> バグの修正。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-center valign-top">
+                              <p class="tableblock"><strong>!<br> BREAKING CHANGE:</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><span class="image"><img src="https://img.shields.io/badge/SemVer-MAJOR-blue" alt="MAJOR"></span> <em>API</em> の破壊的な変更。</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="admonitionblock important">
+                        <table>
+                          <tr>
+                            <td class="icon">
+                              <i class="fa icon-important" title="Important" data-md-icon="report"></i>
+                            </td>
+                            <td class="content">
+                              <div class="title">BREAKING CHANGE</div>
+                              <div class="paragraph">
+                                <p><em>API</em> の破壊的変更が伴うとき、コミットは次のうちどちらかにする。</p>
+                              </div>
+                              <div class="ulist">
+                                <ul>
+                                  <li>
+                                    <p><em>(scope)</em> 直後の位置に <code>!</code> を追加（<em>ex.</em> <code>chore(deps)!:</code>, <code>feat!</code> ）</p>
+                                  </li>
+                                  <li>
+                                    <p>フッターに <code>BREAKING CHANGE: &lt;description></code> を追加</p>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <hr>
+                      <div class="paragraph">
+                        <p>上記に加え、よく使われる型は<a href="https://github.com/angular/angular/blob/15.1.2/CONTRIBUTING.md">Angular の規約<sup></sup></a>や<a href="https://github.com/conventional-changelog/commitlint">commitlint</a>を参考<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="/posts/git_conventional_commits#_footnotedef_1" title="View footnote.">1</a>]</sup>に下記のようになる。</p>
+                      </div>
+                      <table class="tableblock frame-all grid-all fit-content">
+                        <caption class="title">Table 3. 上記以外によく使われる型</caption>
+                        <colgroup>
+                          <col>
+                          <col>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th class="tableblock halign-left valign-top">Custom Type</th>
+                            <th class="tableblock halign-left valign-top">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>build</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock">ビルドシステムまたは外部依存関係に影響を与える変更。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>chore</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock">その他の変更。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>ci</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><em>CI</em> 設定やスクリプトの変更。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>docs</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock">ドキュメント<strong>のみ</strong>の変更。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>perf</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock">パフォーマンス改善のためのコード変更。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>refactor</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock">バグ修正や新機能のコードを含まない、リファクタリングによる変更。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>revert</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><code>git revert</code> などによって以前のコミットに戻した場合。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>style</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock">コードの動作には影響しない、コードのフォーマット変更。</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock"><strong>test</strong></p>
+                            </td>
+                            <td class="tableblock halign-left valign-top">
+                              <p class="tableblock">テストの追加や修正。</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="admonitionblock caution">
+                        <table>
+                          <tr>
+                            <td class="icon">
+                              <i class="fa icon-caution" title="Caution" data-md-icon="local_fire_department"></i>
+                            </td>
+                            <td class="content">
+                              <div class="title">バージョンアップについて</div>
+                              <div class="paragraph">
+                                <p>基本的に <code>feat</code> や <code>fix</code> 以外の型では<strong>バージョン番号を上げない</strong>。<br> ただし、<code>revert</code> で機能が廃止された場合はバージョン番号を上げるべき。</p>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sect1">
+                  <h2 id="_参考">📖参考</h2>
+                  <div class="sectionbody">
+                    <div class="ulist">
+                      <ul>
+                        <li>
+                          <p><a href="https://www.conventionalcommits.org/ja/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a></p>
+                        </li>
+                        <li>
+                          <p><a href="https://semver.org/lang/ja/" target="_blank" rel="noopener">セマンティック バージョニング 2.0.0 | Semantic Versioning</a></p>
+                        </li>
+                        <li>
+                          <p><a href="https://github.com/conventional-changelog/commitlint" target="_blank" rel="noopener">conventional-changelog/commitlint: 📓 Lint commit messages</a></p>
+                        </li>
+                        <li>
+                          <p><a href="https://github.com/angular/angular/tree/15.1.2" target="_blank" rel="noopener">angular/angular at 15.1.2</a></p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div id="footnotes">
+                  <hr>
+                  <div class="footnote" id="_footnotedef_1">
+                    <a href="/posts/git_conventional_commits#_footnoteref_1">1</a>. <em>Conventional Commits</em> 規約では <code>feat</code> と <code>fix</code> のみが規定されている。
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="share-buttons mt-8">
+              <ul class="flex items-center justify-center" data-v-6cf1db65>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-6b9fb88e>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-6b9fb88e>
+                      <div data-v-6cf1db65 data-v-6b9fb88e><a href="https://twitter.com/intent/tweet?text=git_conventional_commits&url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fgit_conventional_commits" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-6b9fb88e>
+                            <title data-v-4b4cfb63>Twitter</title>
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" data-v-4b4cfb63></path>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-083f3255>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-083f3255>
+                      <div data-v-6cf1db65 data-v-083f3255><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fgit_conventional_commits" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-083f3255>
+                            <title data-v-4b4cfb63>Facebook</title>
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" data-v-4b4cfb63></path>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-a2dd0576>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-a2dd0576>
+                      <div data-v-6cf1db65 data-v-a2dd0576><a href="https://getpocket.com/edit?url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fgit_conventional_commits" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-a2dd0576>
+                            <title data-v-4b4cfb63>Pocket</title>
+                            <path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41 0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9 0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739 0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023 0 .049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z" data-v-4b4cfb63></path>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-492a0c04>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-492a0c04>
+                      <div data-v-6cf1db65 data-v-492a0c04><button class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><span title="Copy URL" class="material-icons" data-v-6cf1db65>link</span></button></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <ul class="grid grid-cols-2 gap-12 border-t border-b border-grey-500 py-2 mt-6">
+              <li class="flex items-center justify-end text-grey-500 text-opacity-87"><a href="/posts/git_conventional_commits" aria-current="page" class="nuxt-link-exact-active nuxt-link-active link disabled inline-flex justify-center px-4"><span></span></a> <span class="material-icons transform rotate-180">double_arrow</span></li>
+              <li class="flex items-center fustify-start"><span class="material-icons">double_arrow</span> <a href="/posts/bluetooth_audio_tips" class="link inline-flex justify-center px-4"><span>Bluetooth オーディオ関連のあれこれ</span></a></li>
+            </ul>
+          </div>
+        </main>
+        <footer class="footerbar mt-8" data-v-a0bb2a58>
+          <ul class="flex justify-center items-center" data-v-a0bb2a58>
+            <li data-v-a0bb2a58><a href="/" class="p-2 block nuxt-link-active" data-v-a0bb2a58>Home</a></li>
+            <li data-v-a0bb2a58><a href="/contact" class="p-2 block" data-v-a0bb2a58>お問い合わせ</a></li>
+            <li data-v-a0bb2a58><a href="/privacy-policy" class="p-2 block" data-v-a0bb2a58>プライバシーポリシー</a></li>
+            <li class="mx-4 absolute right-0" data-v-a0bb2a58><a href="/feeds/atom.xml" title="atom 1.0" class="p-2 block" data-v-a0bb2a58><span class="material-icons" data-v-a0bb2a58>rss_feed</span></a></li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script defer src="/_nuxt/static/2023013021/posts/git_conventional_commits/state.js"></script>
+  <script src="/_nuxt/0e5221e.js" defer></script>
+  <script src="/_nuxt/cf45fea.js" defer></script>
+  <script src="/_nuxt/73d1167.js" defer></script>
+  <script src="/_nuxt/8f5170d.js" defer></script>
+  <script src="/_nuxt/99a2f6a.js" defer></script>
+  <script src="/_nuxt/71596c0.js" defer></script>
+</body>
+
+</html>
