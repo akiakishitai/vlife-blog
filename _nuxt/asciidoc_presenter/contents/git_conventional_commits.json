@@ -363,13 +363,14 @@
     "</div>",
     "</div>"
   ],
-  "title": "git_conventional_commits",
+  "title": "Conventional Commits についての覚書",
   "created_at": "2023-02-08",
   "tags": [
     "git",
+    "commit",
     "semver"
   ],
-  "updated_at": "2023-02-08",
+  "updated_at": "2023-02-09",
   "author": "秋々すすき",
-  "revision": "1.0"
+  "revision": "1.1"
 }
