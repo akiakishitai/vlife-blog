@@ -34,13 +34,14 @@ jobs:
         image: yuzutech/kroki-mermaid
     steps:
       ### Setup
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'yarn'
 
       ### Git Submodule
       - name: setup git credential helper

@@ -213,7 +213,7 @@ const conf = {
     // html: { minify },
     transpile: ['vee-validate/dist/rules'],
     /** Nuxt build speed up */
-    hardSource: true,
+    hardSource: !isDeploy,
   },
   /*
    ** Router

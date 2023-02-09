@@ -298,14 +298,10 @@ table.tableblock,
   @apply not-italic text-white text-opacity-87;
   @apply rounded-full bg-secondary;
 }
-pre .conum[data-value] {
-  &::before {
-    @extend %callout-number;
-    @apply w-5 h-5;
-    @apply text-sm;
-
-    content: attr(data-value);
-  }
+pre .conum {
+  @extend %callout-number;
+  @apply w-5 h-5;
+  @apply text-sm;
 }
 .colist {
   > table {
@@ -322,9 +318,6 @@ pre .conum[data-value] {
 
     content: attr(data-value);
   }
-}
-.conum + b {
-  display: none;
 }
 
 /* Image inline */
