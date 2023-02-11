@@ -40,7 +40,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
           cache: 'yarn'
 
       ### Git Submodule
@@ -67,10 +67,10 @@ jobs:
       ### Cache
       - name: get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: cache dependencies
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v3.2.5
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
