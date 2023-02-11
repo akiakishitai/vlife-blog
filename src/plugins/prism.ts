@@ -44,14 +44,12 @@ declare module 'vue/types/vue' {
  * Asciidoctor のコールアウトで生成されるHTMLタグにおいて、文字列を非表示にする（`.hidden` クラスを追加）。
  *
  * Keep Markupプラグインが実行される前のタイミングで処理させたいので、`before-sanity-check` とする。
- *
- * @asciidoctor/core@2.2.6 で Callout のHTML出力が変わった（`<b class="conum">(1)</b>`）のでコメントアウト。
  */
-// Prism.hooks.add('before-sanity-check', (env) => {
-//   env.element.querySelectorAll('.conum + b').forEach((elem) => {
-//     elem.classList.add('hidden')
-//   })
-// })
+Prism.hooks.add('before-sanity-check', (env) => {
+  env.element.querySelectorAll('.conum + b').forEach((elem) => {
+    elem.classList.add('hidden')
+  })
+})
 
 // 実装
 Vue.prototype.$prism = {
