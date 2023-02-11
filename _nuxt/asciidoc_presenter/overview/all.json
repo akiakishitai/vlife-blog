@@ -5,6 +5,19 @@
   },
   "overviews": [
     {
+      "filename": "git_conventional_commits.adoc",
+      "title": "Conventional Commits についての覚書",
+      "created_at": "2023-02-08",
+      "tags": [
+        "git",
+        "commit",
+        "semver"
+      ],
+      "updated_at": "2023-02-09",
+      "author": "秋々すすき",
+      "revision": "1.1"
+    },
+    {
       "filename": "bluetooth_audio_tips.adoc",
       "title": "Bluetooth オーディオ関連のあれこれ",
       "created_at": "2023-01-07",
@@ -101,7 +114,9 @@
         "alias",
         "備忘録"
       ],
-      "author": "v1.0, 2022-02-18"
+      "updated_at": "2023-02-08",
+      "author": "秋々すすき",
+      "revision": "1.1"
     },
     {
       "filename": "openapi_document_rapidoc.adoc",

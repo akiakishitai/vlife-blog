@@ -5,6 +5,19 @@
   },
   "overviews": [
     {
+      "filename": "apt-get_ppa_without_apt-key.adoc",
+      "title": "Dockerfile で apt-key を使わず PPA を追加する",
+      "created_at": "2021-07-18",
+      "tags": [
+        "ubuntu",
+        "debian",
+        "docker"
+      ],
+      "updated_at": "2021-07-19",
+      "author": "秋々すすき",
+      "revision": "1.1"
+    },
+    {
       "filename": "git_config_include_section.adoc",
       "title": ".gitconfig で別ファイルから設定を include する",
       "created_at": "2021-07-06",
@@ -115,19 +128,6 @@
         "nuxt.js"
       ],
       "updated_at": "2021-04-02",
-      "author": "秋々すすき",
-      "revision": "1.0"
-    },
-    {
-      "filename": "github_actions_service_container.adoc",
-      "title": "GitHub Actions ワークフローのサービスコンテナ機能を利用してみる",
-      "created_at": "2021-03-26",
-      "tags": [
-        "github",
-        "github-actions",
-        "kroki"
-      ],
-      "updated_at": "2021-03-26",
       "author": "秋々すすき",
       "revision": "1.0"
     }

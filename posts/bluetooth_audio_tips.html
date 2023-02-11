@@ -11,20 +11,20 @@
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
-  <link rel="preload" href="/_nuxt/0e5221e.js" as="script">
+  <link rel="preload" href="/_nuxt/c627058.js" as="script">
   <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
   <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
-  <link rel="preload" href="/_nuxt/4fde5eb.js" as="script">
-  <link rel="preload" href="/_nuxt/css/9f3c58f.css" as="style">
-  <link rel="preload" href="/_nuxt/61ba754.js" as="script">
-  <link rel="preload" href="/_nuxt/css/87938c0.css" as="style">
-  <link rel="preload" href="/_nuxt/cf45fea.js" as="script">
-  <link rel="preload" href="/_nuxt/css/63ee372.css" as="style">
-  <link rel="preload" href="/_nuxt/73d1167.js" as="script">
+  <link rel="preload" href="/_nuxt/c87f742.js" as="script">
+  <link rel="preload" href="/_nuxt/css/805abd7.css" as="style">
+  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/css/6cb0cba.css" as="style">
+  <link rel="preload" href="/_nuxt/a7a2b87.js" as="script">
+  <link rel="preload" href="/_nuxt/css/fb25293.css" as="style">
+  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
   <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
-  <link rel="stylesheet" href="/_nuxt/css/9f3c58f.css">
-  <link rel="stylesheet" href="/_nuxt/css/87938c0.css">
-  <link rel="stylesheet" href="/_nuxt/css/63ee372.css">
+  <link rel="stylesheet" href="/_nuxt/css/805abd7.css">
+  <link rel="stylesheet" href="/_nuxt/css/6cb0cba.css">
+  <link rel="stylesheet" href="/_nuxt/css/fb25293.css">
   <link rel="preload" href="/_nuxt/static/2023013021/posts/bluetooth_audio_tips/state.js" as="script">
   <link rel="preload" href="/_nuxt/static/2023013021/posts/bluetooth_audio_tips/payload.js" as="script">
   <link rel="preload" href="/_nuxt/static/2023013021/manifest.js" as="script">
@@ -393,47 +393,36 @@
                             <div class="paragraph">
                               <p>送信側端末（PCやスマートフォンなど）と受信側デバイス（イヤホンなど）の両方が <strong>同じコーデックに対応</strong> している必要がある。</p>
                             </div>
-                            <div class="literalblock px-8">
+                            <div class="imageblock px-8 kroki-format-svg kroki">
                               <div class="content">
-                                <pre>$gap = 0.5cm
-$margin = 0.4cm
-lineht = $gap
-ovalht *= 0.5
-ovalwid *= 0.55
-down
-
-T_SBC: oval "SBC"
-move down $gap
-T_AAC: oval "AAC" fill 0xBDBDBD
-move down $gap
-T_APT: oval "aptX"
-move down $gap
-oval invis
-FRAME: box width last oval.width+$margin*4 \
-    height (1st oval.top.y - last oval.bottom.y)+$margin*2 \
-    color 0x00796B \
-    at 1/2&lt;1st oval, last oval>
-LABEL: text "💻送信側" at $margin/2 above FRAME.top
-
-
-R_SBC: oval "SBC" at 6cm right of 1st oval.east
-move down $gap
-oval invis
-move down $gap
-R_APT: oval "aptX"
-move down $gap
-R_LDAC: oval "LDAC" same as T_AAC
-box same as FRAME color 0x7B1FA2 at 1/2&lt;5th oval, last oval>
-text "🎧受信側" at $margin/2 above last box.top
-
-line &lt;-> dashed from T_SBC to R_SBC chop
-circle radius 70% color 0xEF5350 thick at 1/2&lt;T_SBC, R_SBC>
-line &lt;-> dashed from T_APT to R_APT chop
-circle same as last circle at 1/2&lt;T_APT, R_APT>
-
-text "この例では SBC か aptX のどちらかだけが利用できる。 " \
-    at 2.5cm below last
-text "利用するコーデックは性能が高い方が自動的に選ばれる（つまり aptX）"</pre>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="pikchr" viewBox="0 0 553.986 377.161">
+                                  <path d="M65,82L108,82A18 18 0 0 0 126 64A18 18 0 0 0 108 46L65,46A18 18 0 0 0 47 64A18 18 0 0 0 65 82Z" style="fill:none;stroke-width:2.16;stroke:#000" />
+                                  <text x="87" y="64" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">SBC</text>
+                                  <path d="M65,146L108,146A18 18 0 0 0 126 128A18 18 0 0 0 108 110L65,110A18 18 0 0 0 47 128A18 18 0 0 0 65 146Z" style="fill:#bdbdbd;stroke-width:2.16;stroke:#000" />
+                                  <text x="87" y="128" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">AAC</text>
+                                  <path d="M65,210L108,210A18 18 0 0 0 126 192A18 18 0 0 0 108 174L65,174A18 18 0 0 0 47 192A18 18 0 0 0 65 210Z" style="fill:none;stroke-width:2.16;stroke:#000" />
+                                  <text x="87" y="192" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">aptX</text>
+                                  <path d="M2,297L172,297L172,23L2,23Z" style="fill:none;stroke-width:2.16;stroke:#00796b" />
+                                  <text x="87" y="12" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">💻送信側</text>
+                                  <path d="M445,82L488,82A18 18 0 0 0 506 64A18 18 0 0 0 488 46L445,46A18 18 0 0 0 427 64A18 18 0 0 0 445 82Z" style="fill:none;stroke-width:2.16;stroke:#000" />
+                                  <text x="466" y="64" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">SBC</text>
+                                  <path d="M445,210L488,210A18 18 0 0 0 506 192A18 18 0 0 0 488 174L445,174A18 18 0 0 0 427 192A18 18 0 0 0 445 210Z" style="fill:none;stroke-width:2.16;stroke:#000" />
+                                  <text x="466" y="192" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">aptX</text>
+                                  <path d="M445,275L488,275A18 18 0 0 0 506 257A18 18 0 0 0 488 239L445,239A18 18 0 0 0 427 257A18 18 0 0 0 445 275Z" style="fill:#bdbdbd;stroke-width:2.16;stroke:#000" />
+                                  <text x="466" y="257" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">LDAC</text>
+                                  <path d="M381,297L551,297L551,23L381,23Z" style="fill:none;stroke-width:2.16;stroke:#7b1fa2" />
+                                  <text x="466" y="12" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">🎧受信側</text>
+                                  <polygon points="126,64 138,59 138,68" style="fill:#000" />
+                                  <polygon points="427,64 415,68 415,59" style="fill:#000" />
+                                  <path d="M132,64L421,64" style="fill:none;stroke-width:2.16;stroke:#000;stroke-dasharray:7.2,7.2" />
+                                  <circle cx="276" cy="64" r="25.2" style="fill:none;stroke-width:3.24;stroke:#ef5350" />
+                                  <polygon points="126,192 138,188 138,197" style="fill:#000" />
+                                  <polygon points="427,192 415,197 415,188" style="fill:#000" />
+                                  <path d="M132,192L421,192" style="fill:none;stroke-width:2.16;stroke:#000;stroke-dasharray:7.2,7.2" />
+                                  <circle cx="276" cy="192" r="25.2" style="fill:none;stroke-width:3.24;stroke:#ef5350" />
+                                  <text x="276" y="334" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">この例では SBC か aptX のどちらかだけが利用できる。 </text>
+                                  <text x="276" y="364" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">利用するコーデックは性能が高い方が自動的に選ばれる（つまり aptX）</text>
+                                </svg>
                               </div>
                             </div>
                           </td>
@@ -531,7 +520,7 @@ text "利用するコーデックは性能が高い方が自動的に選ばれ�
               </ul>
             </div>
             <ul class="grid grid-cols-2 gap-12 border-t border-b border-grey-500 py-2 mt-6">
-              <li class="flex items-center justify-end text-grey-500 text-opacity-87"><a href="/posts/bluetooth_audio_tips" aria-current="page" class="nuxt-link-exact-active nuxt-link-active link disabled inline-flex justify-center px-4"><span></span></a> <span class="material-icons transform rotate-180">double_arrow</span></li>
+              <li class="flex items-center justify-end"><a href="/posts/git_conventional_commits" class="link inline-flex justify-center px-4"><span>Conventional Commits についての覚書</span></a> <span class="material-icons transform rotate-180">double_arrow</span></li>
               <li class="flex items-center fustify-start"><span class="material-icons">double_arrow</span> <a href="/posts/bluetooth_cant_connect" class="link inline-flex justify-center px-4"><span>突然Bluetoothイヤホンから音が出なくなった話</span></a></li>
             </ul>
           </div>
@@ -548,12 +537,12 @@ text "利用するコーデックは性能が高い方が自動的に選ばれ�
     </div>
   </div>
   <script defer src="/_nuxt/static/2023013021/posts/bluetooth_audio_tips/state.js"></script>
-  <script src="/_nuxt/0e5221e.js" defer></script>
-  <script src="/_nuxt/cf45fea.js" defer></script>
-  <script src="/_nuxt/73d1167.js" defer></script>
+  <script src="/_nuxt/c627058.js" defer></script>
+  <script src="/_nuxt/a7a2b87.js" defer></script>
+  <script src="/_nuxt/ce5f7e1.js" defer></script>
   <script src="/_nuxt/8f5170d.js" defer></script>
-  <script src="/_nuxt/4fde5eb.js" defer></script>
-  <script src="/_nuxt/61ba754.js" defer></script>
+  <script src="/_nuxt/c87f742.js" defer></script>
+  <script src="/_nuxt/554ac69.js" defer></script>
 </body>
 
 </html>
