@@ -17,9 +17,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
+          node-version: '14'
+          cache: 'yarn'
 
       - name: set cachedir of yarn
         id: cachedir
@@ -60,9 +61,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
+          node-version: '14'
+          cache: 'yarn'
 
       - name: use caches
         uses: actions/cache@v2.1.4
