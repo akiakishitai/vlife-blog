@@ -19,22 +19,22 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
           cache: 'yarn'
 
       - name: set cachedir of yarn
         id: cachedir
-        run: echo "::set-output name=path::$(yarn cache dir)"
+        run: echo "path=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: set cache key
         id: cachekey
-        run: echo "::set-output name=key::$CACHE_KEY"
+        run: echo "key=$CACHE_KEY" >> $GITHUB_OUTPUT
         env:
           CACHE_KEY: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: caches
-        # https://github.com/actions/cache/tree/v2.1.4
-        uses: actions/cache@v2.1.4
+        # https://github.com/actions/cache/tree/v3.2.5
+        uses: actions/cache@v3.2.5
         id: cache-action
         with:
           path: ${{ steps.cachedir.outputs.path }}
@@ -63,11 +63,11 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
           cache: 'yarn'
 
       - name: use caches
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v3.2.5
         id: cache-action
         with:
           path: ${{ needs.yarn_cache.outputs.cachedir }}
