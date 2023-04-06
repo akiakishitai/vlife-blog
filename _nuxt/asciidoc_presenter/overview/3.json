@@ -5,6 +5,18 @@
   },
   "overviews": [
     {
+      "filename": "git_partial_clone.adoc",
+      "title": "巨大なリポジトリをクローンするときに便利なパーシャルクローンとsparse-checkout",
+      "created_at": "2021-07-22",
+      "tags": [
+        "git",
+        "partial-clone"
+      ],
+      "updated_at": "2021-07-22",
+      "author": "秋々すすき",
+      "revision": "1.0"
+    },
+    {
       "filename": "apt-get_ppa_without_apt-key.adoc",
       "title": "Dockerfile で apt-key を使わず PPA を追加する",
       "created_at": "2021-07-18",
@@ -117,17 +129,6 @@
         "備忘録"
       ],
       "updated_at": "2021-04-12",
-      "author": "秋々すすき",
-      "revision": "1.0"
-    },
-    {
-      "filename": "nuxt_detect_props_changes.adoc",
-      "title": "Nuxtで親コンポーネントから渡されるプロパティ（props）の変更を検出する",
-      "created_at": "2021-04-02",
-      "tags": [
-        "nuxt.js"
-      ],
-      "updated_at": "2021-04-02",
       "author": "秋々すすき",
       "revision": "1.0"
     }
