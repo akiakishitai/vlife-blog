@@ -5,6 +5,19 @@
   },
   "overviews": [
     {
+      "filename": "typescript_type_guard_function.adoc",
+      "title": "【TypeScript】ユーザー定義の型ガード関数で型を絞り込もう",
+      "created_at": "2023-04-04",
+      "tags": [
+        "typescript",
+        "assert",
+        "type-guard"
+      ],
+      "updated_at": "2023-04-04",
+      "author": "秋々すすき",
+      "revision": "1.0"
+    },
+    {
       "filename": "git_conventional_commits.adoc",
       "title": "Conventional Commits についての覚書",
       "created_at": "2023-02-08",
@@ -115,19 +128,6 @@
         "備忘録"
       ],
       "updated_at": "2023-02-08",
-      "author": "秋々すすき",
-      "revision": "1.1"
-    },
-    {
-      "filename": "openapi_document_rapidoc.adoc",
-      "title": "RapiDoc を使って OpenAPI をドキュメント化する",
-      "created_at": "2022-01-28",
-      "tags": [
-        "openapi",
-        "documentation",
-        "rapidoc"
-      ],
-      "updated_at": "2022-01-29",
       "author": "秋々すすき",
       "revision": "1.1"
     }
