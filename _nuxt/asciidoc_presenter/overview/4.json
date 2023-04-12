@@ -1,9 +1,23 @@
 {
   "paging": {
     "current": 4,
-    "total": 5
+    "total": 6
   },
   "overviews": [
+    {
+      "filename": "vscode_remote-container_dotfiles.adoc",
+      "title": "【VS Code】Remote Containers 拡張機能において Dotfiles を再クローン＆インストールさせる",
+      "created_at": "2021-04-12",
+      "tags": [
+        "vscode",
+        "remote-containers",
+        "dotfiles",
+        "備忘録"
+      ],
+      "updated_at": "2021-04-12",
+      "author": "秋々すすき",
+      "revision": "1.0"
+    },
     {
       "filename": "nuxt_detect_props_changes.adoc",
       "title": "Nuxtで親コンポーネントから渡されるプロパティ（props）の変更を検出する",
@@ -120,19 +134,6 @@
       "updated_at": "2021-01-07",
       "author": "秋々すすき",
       "revision": "1.1"
-    },
-    {
-      "filename": "vscode_remote_container_command.adoc",
-      "title": "VSCode拡張機能 Remote Containers におけるpostCreateCommandなどの実行タイミングについて",
-      "created_at": "2021-01-06",
-      "tags": [
-        "vscode",
-        "remote-containers",
-        "devcontainer.json"
-      ],
-      "updated_at": "2021-01-06",
-      "author": "秋々すすき",
-      "revision": "1.0"
     }
   ]
 }

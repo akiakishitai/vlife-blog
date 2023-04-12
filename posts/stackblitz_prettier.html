@@ -2,11 +2,11 @@
 <html data-n-head-ssr lang="ja" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22ja%22%7D%7D">
 
 <head>
-  <title>Prism.jsでコードブロック内に記述したHTMLタグを維持したい - Vがいる日々</title>
+  <title>StackBlitz でのフォーマット設定 - Vがいる日々</title>
   <meta data-n-head="ssr" charset="utf-8">
   <meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1">
   <meta data-n-head="ssr" data-hid="description" name="description" content="Generate a static site with Nuxt.js">
-  <meta data-n-head="ssr" data-hid="keywords" name="keywords" content="syntax-highlighter,prism">
+  <meta data-n-head="ssr" data-hid="keywords" name="keywords" content="stackblitz,prettier,備忘録">
   <base href="/">
   <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
   <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="/_nuxt/css/805abd7.css">
   <link rel="stylesheet" href="/_nuxt/css/6cb0cba.css">
   <link rel="stylesheet" href="/_nuxt/css/fb25293.css">
-  <link rel="preload" href="/_nuxt/static/2023013021/posts/prismjs_keep_markup/state.js" as="script">
-  <link rel="preload" href="/_nuxt/static/2023013021/posts/prismjs_keep_markup/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/2023013021/posts/stackblitz_prettier/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/2023013021/posts/stackblitz_prettier/payload.js" as="script">
   <link rel="preload" href="/_nuxt/static/2023013021/manifest.js" as="script">
 </head>
 
@@ -57,23 +57,27 @@
         </header>
         <main class="container flex-grow text-black text-opacity-87 px-4">
           <div class="pb-6 mt-6" data-v-346bb96f>
-            <h1 class="text-4xl font-light">Prism.jsでコードブロック内に記述したHTMLタグを維持したい</h1>
+            <h1 class="text-4xl font-light">StackBlitz でのフォーマット設定</h1>
             <div class="mt-4">
-              <div role="table" class="mdc-chip-set" data-v-78553c6c><a href="/search?tags=syntax-highlighter">
+              <div role="table" class="mdc-chip-set" data-v-78553c6c><a href="/search?tags=stackblitz">
                   <div role="row" class="mdc-chip" data-v-78553c6c>
-                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>syntax-highlighter</span></span></span>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>stackblitz</span></span></span>
                   </div>
-                </a><a href="/search?tags=prism">
+                </a><a href="/search?tags=prettier">
                   <div role="row" class="mdc-chip" data-v-78553c6c>
-                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>prism</span></span></span>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>prettier</span></span></span>
+                  </div>
+                </a><a href="/search?tags=%E5%82%99%E5%BF%98%E9%8C%B2">
+                  <div role="row" class="mdc-chip" data-v-78553c6c>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>備忘録</span></span></span>
                   </div>
                 </a></div>
               <div class="flex justify-end">
                 <div class="flex items-center"><span class="material-icons text-xl opacity-87">create</span>
-                  <div class="pl-1">2021年05月17日</div>
+                  <div class="pl-1">2023年04月12日</div>
                 </div>
                 <div class="flex items-center ml-2"><span class="material-icons text-xl opacity-87">update</span>
-                  <div class="pl-1">2021年05月17日</div>
+                  <div class="pl-1">2023年04月12日</div>
                 </div>
               </div>
             </div>
@@ -83,122 +87,61 @@
                 <div id="toc" class="toc">
                   <div id="toctitle">目次</div>
                   <ul class="sectlevel1">
-                    <li><a href="/posts/prismjs_keep_markup#_やりたいこと">💪やりたいこと</a></li>
-                    <li><a href="/posts/prismjs_keep_markup#_結論_keep_markup_プラグインを使う">🌠結論: <em>Keep Markup</em> プラグインを使う</a>
-                      <ul class="sectlevel2">
-                        <li><a href="/posts/prismjs_keep_markup#_コードブロック内の_html_要素をカスタマイズしたいとき">コードブロック内の <em>HTML</em> 要素をカスタマイズしたいとき</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="/posts/prismjs_keep_markup#_参考">📖参考</a></li>
+                    <li><a href="/posts/stackblitz_prettier#_フォーマット設定">📝フォーマット設定</a></li>
+                    <li><a href="/posts/stackblitz_prettier#_参考">📖参考</a></li>
                   </ul>
                 </div>
-                <div class="sect1">
-                  <h2 id="_やりたいこと">💪やりたいこと</h2>
+                <div id="preamble">
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p>シンタックスハイライターの <code>Prism</code> を利用しているが、コードブロック内に記述した <em>HTML</em> タグを維持したままシンタックスハイライトを有効にしたい。</p>
-                    </div>
-                    <div class="exampleblock">
-                      <div class="title">Example 1. コードブロック中のHTMLタグ</div>
-                      <div class="content">
-                        <div class="listingblock no-keep-markup">
-                          <div class="title">元のソース</div>
-                          <div class="content">
-                            <pre class="highlight"><code class="language-bash" data-lang="bash">echo "&lt;strong>Strong text.&lt;/strong>"</code></pre>
-                          </div>
-                        </div>
-                        <div class="listingblock no-keep-markup">
-                          <div class="title">通常ではHTMLタグは除外される</div>
-                          <div class="content">
-                            <pre class="highlight"><code class="language-bash" data-lang="bash">echo "<strong>Strong text.</strong>"</code></pre>
-                          </div>
-                        </div>
-                        <div class="listingblock">
-                          <div class="title">このようにHTMLタグをコードブロック内でも維持したい</div>
-                          <div class="content">
-                            <pre class="highlight"><code class="language-bash" data-lang="bash">echo "<strong>Strong text.</strong>"</code></pre>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="admonitionblock note">
-                      <table>
-                        <tr>
-                          <td class="icon">
-                            <i class="fa icon-note" title="Note" data-md-icon="info"></i>
-                          </td>
-                          <td class="content">
-                            <div class="paragraph">
-                              <p><em>HTML</em> タグをテキスト表示させたい場合は、次の2文字について文字実体参照に変換しておく。</p>
-                            </div>
-                            <div class="ulist">
-                              <ul>
-                                <li>
-                                  <p><code>&lt;</code> → <code>&amplt;</code></p>
-                                </li>
-                                <li>
-                                  <p><code>&</code> → <code>&ampamp;</code></p>
-                                </li>
-                              </ul>
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
+                      <p><a href="https://stackblitz.com/" target="_blank" rel="noopener"><em>StackBlitz</em></a> でフォーマットの設定ってどうするのか分からなかったので備忘録。</p>
                     </div>
                   </div>
                 </div>
                 <div class="sect1">
-                  <h2 id="_結論_keep_markup_プラグインを使う">🌠結論: <em>Keep Markup</em> プラグインを使う</h2>
+                  <h2 id="_フォーマット設定">📝フォーマット設定</h2>
                   <div class="sectionbody">
                     <div class="paragraph">
-                      <p><a href="https://prismjs.com/plugins/keep-markup/" target="_blank" rel="noopener"><em>Keep Markup</em> プラグイン</a>を利用するだけでいい。<br> このプラグインは <code>&lt;code></code> ブロック内の <em>HTML</em> タグを保護する。</p>
+                      <p><em>StackBlitz</em> はフォーマッタとして <em>prettier</em> をサポートしているので<a href="https://prettier.io/docs/en/configuration.html" target="_blank" rel="noopener"> <em>prettier</em> の設定</a>をすればいい。</p>
                     </div>
-                    <div class="exampleblock">
-                      <div class="title">Example 2. Keep Markup プラグインの使用例</div>
-                      <div class="content">
-                        <div class="listingblock">
-                          <div class="title">Node(TypeScript)での例</div>
-                          <div class="content">
-                            <pre class="highlight" data-line="3"><code class="language-ts" data-lang="ts">import * as Prism from 'prismjs'
-// plugins
-import 'prismjs/plugins/keep-markup/prism-keep-markup.min'
-// languages
-import 'prismjs/components/prism-bash.min'
-import 'prismjs/components/prism-git.min'
-import 'prismjs/components/prism-json.min'
-import 'prismjs/components/prism-typescript.min'
-
-Prism.highlightAllUnder(document)</code></pre>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="paragraph">
+                      <p>とりあえず下記の方法で <em>prettier</em> の設定が可能。</p>
                     </div>
-                    <div class="sect2">
-                      <h3 id="_コードブロック内の_html_要素をカスタマイズしたいとき">コードブロック内の <em>HTML</em> 要素をカスタマイズしたいとき</h3>
-                      <div class="paragraph">
-                        <p><em>Keep Markup</em> プラグインは <code>before-highlight</code> の <em>hooks</em> で実行され、<em>HTML</em> タグをコードから一時的に隔離して保護する。<br> よってコードブロック内の <em>HTML</em> 要素をカスタマイズしたいときは、それよりも前に実行される <code>before-sanity-check</code> や <code>after-sanity-check</code> などの <em>hooks</em> で処理すればいい。</p>
-                      </div>
-                      <div class="exampleblock">
-                        <div class="title">Example 3. コードブロック内のHTML要素を操作する</div>
-                        <div class="content">
+                    <div class="olist arabic">
+                      <ol class="arabic">
+                        <li>
+                          <p><code>package.json</code> ファイル内の <code>prettier</code> キーで設定。</p>
                           <div class="listingblock">
-                            <div class="title">AsciiDocのコールアウト要素を編集する例</div>
+                            <div class="title">package.json</div>
                             <div class="content">
-                              <pre class="highlight"><code class="language-ts" data-lang="ts">import * as Prism from 'prismjs'
-import 'prismjs/plugins/keep-markup/prism-keep-markup.min'
-
-// コールアウト番号は CSS で表示させるため、テキスト部分は非表示にする。
-Prism.hooks.add('before-sanity-check', (env) => {
-  env.element.querySelectorAll('.conum + b').forEach((elem) => {
-    elem.classList.add('hidden')
-  })
-})
-
-Prism.highlightAllUnder(document)</code></pre>
+                              <pre class="highlight"><code class="language-json" data-lang="json">{
+  ...,
+  "prettier": {
+    // write settings hire
+  }
+}</code></pre>
                             </div>
                           </div>
-                        </div>
-                      </div>
+                        </li>
+                        <li>
+                          <p><code>.prettierrc</code> ファイルに <strong><em>JSON</em> 形式</strong>で設定。</p>
+                          <div class="admonitionblock important">
+                            <table>
+                              <tr>
+                                <td class="icon">
+                                  <i class="fa icon-important" title="Important" data-md-icon="report"></i>
+                                </td>
+                                <td class="content">
+                                  <em>YAML</em> 形式だと認識してくれなかった。
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </li>
+                        <li>
+                          <p><code>.prettierrc.json</code> ファイルで設定。</p>
+                        </li>
+                      </ol>
                     </div>
                   </div>
                 </div>
@@ -208,7 +151,7 @@ Prism.highlightAllUnder(document)</code></pre>
                     <div class="ulist">
                       <ul>
                         <li>
-                          <p><a href="https://prismjs.com/plugins/keep-markup/" target="_blank" rel="noopener">Keep markup ▲ Prism plugins</a></p>
+                          <p><a href="https://prettier.io/docs/en/configuration.html" target="_blank" rel="noopener">Configuration File · Prettier</a></p>
                         </li>
                       </ul>
                     </div>
@@ -221,7 +164,7 @@ Prism.highlightAllUnder(document)</code></pre>
                 <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
                   <div data-v-6cf1db65 data-v-6b9fb88e>
                     <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-6b9fb88e>
-                      <div data-v-6cf1db65 data-v-6b9fb88e><a href="https://twitter.com/intent/tweet?text=Prism.js%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E5%86%85%E3%81%AB%E8%A8%98%E8%BF%B0%E3%81%97%E3%81%9FHTML%E3%82%BF%E3%82%B0%E3%82%92%E7%B6%AD%E6%8C%81%E3%81%97%E3%81%9F%E3%81%84&url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fprismjs_keep_markup" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-6b9fb88e>
+                      <div data-v-6cf1db65 data-v-6b9fb88e><a href="https://twitter.com/intent/tweet?text=StackBlitz+%E3%81%A7%E3%81%AE%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E8%A8%AD%E5%AE%9A&url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fstackblitz_prettier" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-6b9fb88e>
                             <title data-v-4b4cfb63>Twitter</title>
                             <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" data-v-4b4cfb63></path>
                           </svg></a></div>
@@ -231,7 +174,7 @@ Prism.highlightAllUnder(document)</code></pre>
                 <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
                   <div data-v-6cf1db65 data-v-083f3255>
                     <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-083f3255>
-                      <div data-v-6cf1db65 data-v-083f3255><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fprismjs_keep_markup" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-083f3255>
+                      <div data-v-6cf1db65 data-v-083f3255><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fstackblitz_prettier" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-083f3255>
                             <title data-v-4b4cfb63>Facebook</title>
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" data-v-4b4cfb63></path>
                           </svg></a></div>
@@ -241,7 +184,7 @@ Prism.highlightAllUnder(document)</code></pre>
                 <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
                   <div data-v-6cf1db65 data-v-a2dd0576>
                     <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-a2dd0576>
-                      <div data-v-6cf1db65 data-v-a2dd0576><a href="https://getpocket.com/edit?url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fprismjs_keep_markup" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-a2dd0576>
+                      <div data-v-6cf1db65 data-v-a2dd0576><a href="https://getpocket.com/edit?url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fstackblitz_prettier" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-a2dd0576>
                             <title data-v-4b4cfb63>Pocket</title>
                             <path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41 0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9 0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739 0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023 0 .049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z" data-v-4b4cfb63></path>
                           </svg></a></div>
@@ -258,8 +201,8 @@ Prism.highlightAllUnder(document)</code></pre>
               </ul>
             </div>
             <ul class="grid grid-cols-2 gap-12 border-t border-b border-grey-500 py-2 mt-6">
-              <li class="flex items-center justify-end"><a href="/posts/yaml_template_tool" class="link inline-flex justify-center px-4"><span>GitHub Actions ワークフローを YAML テンプレートツール（ytt）で楽に生成したい！</span></a> <span class="material-icons transform rotate-180">double_arrow</span></li>
-              <li class="flex items-center fustify-start"><span class="material-icons">double_arrow</span> <a href="/posts/nuxt_tsconfig_dedicated_to_building" class="link inline-flex justify-center px-4"><span>Nuxt TypeScript においてビルド用に別の tsconfig.json を指定したい</span></a></li>
+              <li class="flex items-center justify-end text-grey-500 text-opacity-87"><a href="/posts/stackblitz_prettier" aria-current="page" class="nuxt-link-exact-active nuxt-link-active link disabled inline-flex justify-center px-4"><span></span></a> <span class="material-icons transform rotate-180">double_arrow</span></li>
+              <li class="flex items-center fustify-start"><span class="material-icons">double_arrow</span> <a href="/posts/typescript_type_guard_function" class="link inline-flex justify-center px-4"><span>【TypeScript】ユーザー定義の型ガード関数で型を絞り込もう</span></a></li>
             </ul>
           </div>
         </main>
@@ -274,7 +217,7 @@ Prism.highlightAllUnder(document)</code></pre>
       </div>
     </div>
   </div>
-  <script defer src="/_nuxt/static/2023013021/posts/prismjs_keep_markup/state.js"></script>
+  <script defer src="/_nuxt/static/2023013021/posts/stackblitz_prettier/state.js"></script>
   <script src="/_nuxt/c627058.js" defer></script>
   <script src="/_nuxt/a7a2b87.js" defer></script>
   <script src="/_nuxt/ce5f7e1.js" defer></script>
