@@ -31,7 +31,7 @@
     "js-beautify": "^1.14.7",
     "material-colors": "^1.2.6",
     "material-components-web": "^7.0.0",
-    "nunjucks": "^3.2.2",
+    "nunjucks": "^3.2.4",
     "nuxt": "^2.15.0",
     "nuxt-property-decorator": "^2.5.1",
     "prism-themes": "^1.4.0",
