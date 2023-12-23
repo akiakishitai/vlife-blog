@@ -81,7 +81,7 @@
                   <div class="pl-1">2021年02月03日</div>
                 </div>
                 <div class="flex items-center ml-2"><span class="material-icons text-xl opacity-87">update</span>
-                  <div class="pl-1">2021年02月03日</div>
+                  <div class="pl-1">2023年07月13日</div>
                 </div>
               </div>
             </div>
@@ -199,7 +199,7 @@ bogus-priv      <i class="conum" data-value="2"></i><b>(2)</b>
 no-resolv       <i class="conum" data-value="3"></i><b>(3)</b>
 addn-hosts=/etc/dnsmasq.hosts.d   <i class="conum" data-value="4"></i><b>(4)</b>
 expand-hosts    <i class="conum" data-value="5"></i><b>(5)</b>
-domain=my.homenet,192.168.100.0/24,local  <i class="conum" data-value="6"></i><b>(6)</b>
+domain=my.home,192.168.100.0/24,local  <i class="conum" data-value="6"></i><b>(6)</b>
 cache-size=0    <i class="conum" data-value="7"></i><b>(7)</b>
 conf-dir=/etc/dnsmasq.d,.conf     <i class="conum" data-value="8"></i><b>(8)</b></code></pre>
                             </div>
@@ -295,7 +295,7 @@ server=1.0.0.1</code></pre>
                             <div class="title">/etc/dnsmasq.hosts.d/internals</div>
                             <div class="content">
                               <pre class="highlight"><code class="language-ini" data-lang="ini">192.168.100.2                       volumio
-172.16.1.10   example01.other.net   example01</code></pre>
+172.16.1.10     other.example.com   example01</code></pre>
                             </div>
                           </div>
                         </div>
@@ -375,16 +375,16 @@ sudo systemctl status dnsmasq</code></pre>
                       <p>必要なら広告ドメインのブロックも行っておく。</p>
                     </div>
                     <div class="paragraph">
-                      <p>広告のドメインに対して <em>NXDOMAIN</em> を返すようにすればいい。<br> よって <code>dnsmasq</code> 設定の <code>address</code> オプションにて、 <code>address=/ad.domain/</code> というようにIPアドレスを指定しなければいい。</p>
+                      <p>広告のドメインに対して <em>NXDOMAIN</em> を返すようにすればいい。<br> よって <code>dnsmasq</code> 設定の <code>address</code> オプションにて、 <code>address=/example.com/</code> というようにドメインを指定しなければいい。</p>
                     </div>
                     <div class="exampleblock">
                       <div class="title">Example 4. /etc/dnsmasq.d/adblock-sample.conf</div>
                       <div class="content">
                         <div class="listingblock">
                           <div class="content">
-                            <pre class="highlight"><code class="language-ini" data-lang="ini">address=/ad.hoge.com/
-address=/ads.hoge.com/
-address=/ads-foo.bar.com/</code></pre>
+                            <pre class="highlight"><code class="language-ini" data-lang="ini">address=/ad.example.com/
+address=/ads.example.com/
+address=/ads-foo.example.com/</code></pre>
                           </div>
                         </div>
                       </div>

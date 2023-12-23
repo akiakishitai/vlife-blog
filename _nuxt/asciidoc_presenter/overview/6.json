@@ -13,9 +13,10 @@
         "sample",
         "draft"
       ],
-      "updated_at": "2020-08-25",
+      "updated_at": "2023-07-13",
       "author": "akiakiS",
-      "revision": "1.3"
+      "revision": "1.4",
+      "revision_remark": "例として記述するドメインを、例示・テスト用として予約済みのドメインを利用するよう修正。"
     }
   ]
 }

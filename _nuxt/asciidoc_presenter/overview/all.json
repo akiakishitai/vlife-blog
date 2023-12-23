@@ -465,9 +465,10 @@
         "dns",
         "dnsmasq"
       ],
-      "updated_at": "2021-02-03",
+      "updated_at": "2023-07-13",
       "author": "秋々すすき",
-      "revision": "1.0"
+      "revision": "1.1",
+      "revision_remark": "例として記述するドメインを、例示・テスト用として予約済みのドメインを利用するよう修正。"
     },
     {
       "filename": "github_actions_annotation.adoc",
@@ -575,9 +576,10 @@
         "atom",
         "備忘録"
       ],
-      "updated_at": "2020-12-04",
+      "updated_at": "2023-07-13",
       "author": "秋々すすき",
-      "revision": "1.0"
+      "revision": "1.1",
+      "revision_remark": "例として記述するドメインを、例示・テスト用として予約済みのドメインを利用するよう修正。"
     },
     {
       "filename": "template_converter_in_asciidoc.adoc",
@@ -660,9 +662,10 @@
         "sample",
         "draft"
       ],
-      "updated_at": "2020-08-25",
+      "updated_at": "2023-07-13",
       "author": "akiakiS",
-      "revision": "1.3"
+      "revision": "1.4",
+      "revision_remark": "例として記述するドメインを、例示・テスト用として予約済みのドメインを利用するよう修正。"
     }
   ]
 }
