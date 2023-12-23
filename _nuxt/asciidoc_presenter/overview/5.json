@@ -56,9 +56,10 @@
         "atom",
         "備忘録"
       ],
-      "updated_at": "2020-12-04",
+      "updated_at": "2023-07-13",
       "author": "秋々すすき",
-      "revision": "1.0"
+      "revision": "1.1",
+      "revision_remark": "例として記述するドメインを、例示・テスト用として予約済みのドメインを利用するよう修正。"
     },
     {
       "filename": "template_converter_in_asciidoc.adoc",
