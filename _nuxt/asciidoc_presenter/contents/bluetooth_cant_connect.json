@@ -114,7 +114,7 @@
     "<li>",
     "<p><code>コントロールパネル</code> の <code>デバイスとプリンター</code> からプロパティを開き、<em>Bluetooth</em> サービスのオーディオシンクなどを追加<br>",
     "❌ ペアリングが成功し <code>接続</code> ステータスが表示されるが、すぐにペアリング待ち状態に戻ってしまう。<br>",
-    "<span class=\"image\"><img src=\"_images/windows/bluetooth/bluetooth_trouble_10-37-11.png\" alt=\"Bluetoothデバイスのプロパティ\" width=\"380\"></span></p>",
+    "<span class=\"image\"><img src=\"/_images/windows/bluetooth/bluetooth_trouble_10-37-11.png\" alt=\"Bluetoothデバイスのプロパティ\" width=\"380\"></span></p>",
     "</li>",
     "<li>",
     "<p>デバイス側のペアリング情報を削除した後、上記をもう一度試行。<br>",
