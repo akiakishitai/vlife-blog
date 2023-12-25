@@ -13,6 +13,22 @@ const host = new URL(
   isDeploy ? 'https://vlike-vlife.netlify.app' : 'http://localhost:3000'
 ).toString()
 
+/** AsciiDoc プロジェクトのファイルパスに関わる情報 */
+const asciidocProject = {
+  /** AsciiDoc プロジェクトのルートパス */
+  root: join(__dirname, 'src/outsides/asciidocs'),
+  /** AsciiDoc ソースのあるディレクトリパス */
+  get srcDir() {
+    return join(this.root, 'source')
+  },
+  /** AsciiDoc 文書に含まれる画像ディレクトリパス */
+  get imageDir() {
+    return join(this.root, 'images')
+  },
+  /** HTML変換後に画像参照先となるURLパス */
+  imageLink: '/_images',
+}
+
 /**
  * `pageFormatter` モジュール用のオプション。
  * （https://github.com/beautify-web/js-beautify#options）
@@ -100,7 +116,11 @@ const conf = {
           safe: 'server',
           template_dirs: [resolve(__dirname, 'src/helpers/asciidocTemplates')],
           attributes: Object.assign(
-            { 'env-nuxt': true, 'allow-uri-read': '' },
+            {
+              'env-nuxt': true,
+              'allow-uri-read': '',
+              imagesoutdir: asciidocProject.imageDir, // output directry for diagram images
+            },
             process.env.GITHUB_ACTIONS === 'true' ? { 'env-github': true } : {}
           ),
         },
@@ -117,8 +137,8 @@ const conf = {
     [
       '@/modules/copyToDist',
       {
-        api: '/_images',
-        dirpath: join(__dirname, 'src/outsides/asciidocs/images'),
+        api: asciidocProject.imageLink,
+        dirpath: asciidocProject.imageDir,
       },
     ],
     [
@@ -126,7 +146,7 @@ const conf = {
       {
         includes: ['/posts'],
         excludes: ['/posts', '/posts/demo'],
-        asciidocDir: join(__dirname, 'src/outsides/asciidocs/source'),
+        asciidocDir: asciidocProject.srcDir,
         feedOptions: {
           title: 'Vがいる生活',
           siteUrl: host,
