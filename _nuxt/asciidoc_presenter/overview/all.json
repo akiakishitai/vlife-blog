@@ -5,6 +5,19 @@
   },
   "overviews": [
     {
+      "filename": "vscode_dev_coep_error.adoc",
+      "title": "vscode.dev においてAsciiDocプレビュー内の画像が net::ERR_BLOCKED_BY_RESPONSE エラーで表示されない問題",
+      "created_at": "2023-12-25",
+      "tags": [
+        "vscode",
+        "remote-tunnels",
+        "asciidoc"
+      ],
+      "updated_at": "2023-12-25",
+      "author": "秋々すすき",
+      "revision": "1.0"
+    },
+    {
       "filename": "stackblitz_prettier.adoc",
       "title": "StackBlitz でのフォーマット設定",
       "created_at": "2023-04-12",

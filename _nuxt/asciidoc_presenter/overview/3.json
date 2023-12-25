@@ -5,6 +5,19 @@
   },
   "overviews": [
     {
+      "filename": "podman_kubernetes_yaml.adoc",
+      "title": "podman で docker-compose の代わりに Kubernetes YAML を使ってみた",
+      "created_at": "2021-09-17",
+      "tags": [
+        "podman",
+        "kubernetes"
+      ],
+      "updated_at": "2021-09-28",
+      "author": "秋々すすき",
+      "revision": "1.1",
+      "revision_remark": "docker-compose 対応についての追記。"
+    },
+    {
       "filename": "linux_tmux_autostart.adoc",
       "title": "SSH接続時に tmux を自動起動させる",
       "created_at": "2021-08-09",
@@ -118,18 +131,6 @@
       "updated_at": "2021-05-07",
       "author": "秋々すすき",
       "revision": "1.0"
-    },
-    {
-      "filename": "docker_cant_remove_volume.adoc",
-      "title": "docker volume rm コマンド実行時に「volume is in use」と言われて削除できないときの対処方法",
-      "created_at": "2021-04-14",
-      "tags": [
-        "docker",
-        "備忘録"
-      ],
-      "updated_at": "2021-04-14",
-      "author": "秋々すすき",
-      "revision": "1.1"
     }
   ]
 }

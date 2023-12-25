@@ -5,6 +5,18 @@
   },
   "overviews": [
     {
+      "filename": "docker_cant_remove_volume.adoc",
+      "title": "docker volume rm コマンド実行時に「volume is in use」と言われて削除できないときの対処方法",
+      "created_at": "2021-04-14",
+      "tags": [
+        "docker",
+        "備忘録"
+      ],
+      "updated_at": "2021-04-14",
+      "author": "秋々すすき",
+      "revision": "1.1"
+    },
+    {
       "filename": "vscode_remote-container_dotfiles.adoc",
       "title": "【VS Code】Remote Containers 拡張機能において Dotfiles を再クローン＆インストールさせる",
       "created_at": "2021-04-12",
@@ -120,21 +132,6 @@
       "updated_at": "2021-01-12",
       "author": "秋々すすき",
       "revision": "1.0"
-    },
-    {
-      "filename": "git_credential_windows.adoc",
-      "title": "Gitにおけるパスワード入力を省略する（Windows編）",
-      "created_at": "2021-01-07",
-      "tags": [
-        "git",
-        "github",
-        "windows",
-        "資格情報マネージャー",
-        "powershell"
-      ],
-      "updated_at": "2021-01-07",
-      "author": "秋々すすき",
-      "revision": "1.1"
     }
   ]
 }

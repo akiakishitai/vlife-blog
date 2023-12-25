@@ -1,0 +1,424 @@
+<!doctype html>
+<html data-n-head-ssr lang="ja" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22ja%22%7D%7D">
+
+<head>
+  <title>vscode.dev においてAsciiDocプレビュー内の画像が net::ERR_BLOCKED_BY_RESPONSE エラーで表示されない問題 - Vがいる日々</title>
+  <meta data-n-head="ssr" charset="utf-8">
+  <meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1">
+  <meta data-n-head="ssr" data-hid="description" name="description" content="Generate a static site with Nuxt.js">
+  <meta data-n-head="ssr" data-hid="keywords" name="keywords" content="vscode,remote-tunnels,asciidoc">
+  <base href="/">
+  <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link data-n-head="ssr" rel="alternate" type="application/atom+xml" href="/feeds/atom.xml" title="Atom 1.0">
+  <link rel="preload" href="/_nuxt/c627058.js" as="script">
+  <link rel="preload" href="/_nuxt/8f5170d.js" as="script">
+  <link rel="preload" href="/_nuxt/css/0f5c967.css" as="style">
+  <link rel="preload" href="/_nuxt/1eb1347.js" as="script">
+  <link rel="preload" href="/_nuxt/css/6abcea6.css" as="style">
+  <link rel="preload" href="/_nuxt/554ac69.js" as="script">
+  <link rel="preload" href="/_nuxt/css/6cb0cba.css" as="style">
+  <link rel="preload" href="/_nuxt/a7a2b87.js" as="script">
+  <link rel="preload" href="/_nuxt/css/fb25293.css" as="style">
+  <link rel="preload" href="/_nuxt/ce5f7e1.js" as="script">
+  <link rel="stylesheet" href="/_nuxt/css/0f5c967.css">
+  <link rel="stylesheet" href="/_nuxt/css/6abcea6.css">
+  <link rel="stylesheet" href="/_nuxt/css/6cb0cba.css">
+  <link rel="stylesheet" href="/_nuxt/css/fb25293.css">
+  <link rel="preload" href="/_nuxt/static/2023013021/posts/vscode_dev_coep_error/state.js" as="script">
+  <link rel="preload" href="/_nuxt/static/2023013021/posts/vscode_dev_coep_error/payload.js" as="script">
+  <link rel="preload" href="/_nuxt/static/2023013021/manifest.js" as="script">
+</head>
+
+<body>
+  <div data-server-rendered="true" id="__nuxt"><!---->
+    <div id="__layout">
+      <div class="min-h-screen flex flex-col items-center mx-auto bg-background">
+        <header class="mdc-top-app-bar relative" data-v-357cda0d>
+          <div class="mdc-top-app-bar__row" data-v-357cda0d>
+            <div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" data-v-357cda0d><a href="/" class="mdc-top-app-bar__title nuxt-link-active" data-v-357cda0d>Vがいる日々</a></div>
+            <nav class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" data-v-357cda0d>
+              <ul class="flex" data-v-357cda0d>
+                <li data-v-357cda0d><a href="/" class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-grey-500 hover:bg-opacity-15" data-v-357cda0d>Home</a></li>
+                <li class="ml-2" data-v-357cda0d><a href="/license" class="mdc-top-app-bar__action-item p-2 rounded-t hover:bg-grey-500 hover:bg-opacity-15" data-v-357cda0d>License</a></li>
+              </ul>
+              <ul class="flex ml-4" data-v-357cda0d>
+                <li class="flex items-center" data-v-357cda0d><a href="https://twitter.com/akiakiS101" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" data-v-357cda0d><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-357cda0d data-v-49dc8ae1>
+                      <title data-v-4b4cfb63>Twitter account</title>
+                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" data-v-4b4cfb63></path>
+                    </svg></a></li>
+                <li class="flex items-center" data-v-357cda0d><a href="https://github.com/akiakishitai/vlife-blog" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" data-v-357cda0d><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-357cda0d data-v-f1b30468>
+                      <title data-v-4b4cfb63>Github source</title>
+                      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" data-v-4b4cfb63></path>
+                    </svg></a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main class="container flex-grow text-black text-opacity-87 px-4">
+          <div class="pb-6 mt-6" data-v-346bb96f>
+            <h1 class="text-4xl font-light">vscode.dev においてAsciiDocプレビュー内の画像が net::ERR_BLOCKED_BY_RESPONSE エラーで表示されない問題</h1>
+            <div class="mt-4">
+              <div role="table" class="mdc-chip-set" data-v-78553c6c><a href="/search?tags=vscode">
+                  <div role="row" class="mdc-chip" data-v-78553c6c>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>vscode</span></span></span>
+                  </div>
+                </a><a href="/search?tags=remote-tunnels">
+                  <div role="row" class="mdc-chip" data-v-78553c6c>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>remote-tunnels</span></span></span>
+                  </div>
+                </a><a href="/search?tags=asciidoc">
+                  <div role="row" class="mdc-chip" data-v-78553c6c>
+                    <div class="mdc-chip__ripple" data-v-1a8ed682></div> <i role="cell" class="material-icons mdc-chip__icon mdc-chip__icon--leading" data-v-1a8ed682>local_offer</i> <span role="cell" data-v-1a8ed682><span role="button" tabindex="0" class="mdc-chip__primary-action" data-v-1a8ed682><span class="mdc-chip__text" data-v-1a8ed682>asciidoc</span></span></span>
+                  </div>
+                </a></div>
+              <div class="flex justify-end">
+                <div class="flex items-center"><span class="material-icons text-xl opacity-87">create</span>
+                  <div class="pl-1">2023年12月25日</div>
+                </div>
+                <div class="flex items-center ml-2"><span class="material-icons text-xl opacity-87">update</span>
+                  <div class="pl-1">2023年12月25日</div>
+                </div>
+              </div>
+            </div>
+            <hr class="mt-2 border-grey-500"> <!---->
+            <div class="mt-6">
+              <div class="post-body line-numbers">
+                <div id="toc" class="toc">
+                  <div id="toctitle">目次</div>
+                  <ul class="sectlevel1">
+                    <li><a href="/posts/vscode_dev_coep_error#_症状">🤢症状</a></li>
+                    <li><a href="/posts/vscode_dev_coep_error#_原因">🔍原因</a></li>
+                    <li><a href="/posts/vscode_dev_coep_error#_対策">🚑対策</a>
+                      <ul class="sectlevel2">
+                        <li><a href="/posts/vscode_dev_coep_error#_asciidoctor_js_extensions_で_crossorigin_属性を追加する"><em>Asciidoctor.js Extensions</em> で <code>crossorigin</code> 属性を追加する</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/posts/vscode_dev_coep_error#_参考">📖参考</a></li>
+                  </ul>
+                </div>
+                <div class="sect1">
+                  <h2 id="_症状">🤢症状</h2>
+                  <div class="sectionbody">
+                    <div class="paragraph">
+                      <p><em>AsciiDoc</em> 文書作成中に <em>kroki</em> でグラフ描画しようとしたらプレビュー画面に表示されなかった。<br>
+                        <em>Chrome</em> の <em>Developper Tools</em> からコンソールエラーを見てみると <code>net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep</code> のエラー表示。
+                      </p>
+                    </div>
+                    <table class="tableblock frame-all grid-all fit-content">
+                      <caption class="title">Table 1. 環境</caption>
+                      <colgroup>
+                        <col>
+                        <col>
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th class="tableblock halign-center valign-top">App</th>
+                          <th class="tableblock halign-center valign-top">Version</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tableblock halign-left valign-top">
+                            <p class="tableblock"><strong>VS Code</strong></p>
+                          </td>
+                          <td class="tableblock halign-left valign-top">
+                            <p class="tableblock">1.84.1</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="tableblock halign-left valign-top">
+                            <p class="tableblock"><strong>AsciiDoc (VS Code 拡張機能)</strong></p>
+                          </td>
+                          <td class="tableblock halign-left valign-top">
+                            <p class="tableblock">v3.1.7</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="sect1">
+                  <h2 id="_原因">🔍原因</h2>
+                  <div class="sectionbody">
+                    <div class="paragraph">
+                      <p><code>vscode.dev</code> ドメインを介してアクセスしてるので <em>CORS</em> 問題か？<br> と思ったら <a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Cross-Origin_Resource_Policy" target="_blank" rel="noopener"><em>Cross-Origin-Resource-Policy（CORP）</em> レスポンスヘッダー</a>未定義によるエラーみたい。</p>
+                    </div>
+                    <div class="imageblock border-2 flex justify-center">
+                      <div class="content">
+                        <img src="/_images/error/cross-origin-resource-policy-undefined.png" alt="CORP未定義によるエラー。" width="400px">
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="paragraph">
+                      <p>上記エラーは <a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy" target="_blank" rel="noopener"><em>Cross-Origin-Embedder-Policy（COEP）</em> レスポンスヘッダー</a>において、明示的に許可を与えていない外部 <em>origin</em> のリソースが読み込まれることを防止する設定<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="/posts/vscode_dev_coep_error#_footnotedef_1" title="View footnote.">1</a>]</sup>の場合に発生する。<br> つまり <code>vscode.dev</code> 側の <em>COEP</em> 設定に起因する。</p>
+                    </div>
+                    <div class="paragraph">
+                      <p>よって当然これは <em>kroki</em> サービスだけの問題ではなく、他の <em>CORP</em> レスポンスヘッダーが定義されていないサービスもブロックされる。</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sect1">
+                  <h2 id="_対策">🚑対策</h2>
+                  <div class="sectionbody">
+                    <div class="paragraph">
+                      <p>とりあえず今回は <code>vscode.dev</code> 上のプレビューで画像ブロックされてしまうことを回避できればいいので、 <code>&lt;img></code> タグに <strong><code>crossorigin</code></strong> 属性をつけることにした<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="/posts/vscode_dev_coep_error#_footnotedef_2" title="View footnote.">2</a>]</sup>。</p>
+                    </div>
+                    <div class="exampleblock">
+                      <div class="title">Example 1. crossorigin 属性</div>
+                      <div class="content">
+                        <div class="listingblock">
+                          <div class="content">
+                            <pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">&lt;img src="https://example.com/hoge.png">  <i class="conum" data-value="1"></i><b>(1)</b>
+
+&lt;img src="https://example.com/hoge.png" <strong class="text-red-500">crossorigin</strong>>  <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+                          </div>
+                        </div>
+                        <div class="colist arabic">
+                          <table>
+                            <tr>
+                              <td><i class="conum" data-value="1"></i><b>1</b></td>
+                              <td><em>COEP</em> ブロックされる。</td>
+                            </tr>
+                            <tr>
+                              <td><i class="conum" data-value="2"></i><b>2</b></td>
+                              <td><code>&lt;img></code> や <code>&lt;link></code> タグなどに <strong><code>crossorigin</code></strong> 属性をつけると <em>COEP</em> によるブロックは回避できる（<em>CORS</em> 対応の必要あり）。<br> 📖 <a href="https://developer.mozilla.org/ja/docs/Web/HTML/Attributes/crossorigin" class="italic" target="_blank" rel="noopener">HTML 属性: crossorigin - HTML: ハイパーテキストマークアップ言語 | MDN</a></td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="paragraph">
+                      <p>なお <em>AsciiDoc</em> の基本機能では自由に <em>HTML</em> 属性を追加することはできないため、<em>Asciidoc.js</em> のカスタマイズ機能を利用する。</p>
+                    </div>
+                    <div class="sect2">
+                      <h3 id="_asciidoctor_js_extensions_で_crossorigin_属性を追加する"><em>Asciidoctor.js Extensions</em> で <code>crossorigin</code> 属性を追加する</h3>
+                      <div class="paragraph">
+                        <p><code>asciidoctor-vscode</code> ではカスタマイズ機能の一つである <a href="https://docs.asciidoctor.org/asciidoctor.js/latest/extend/extensions/" target="_blank" rel="noopener"><em>Asciidoctor.js Extensions</em></a> が利用できる<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="/posts/vscode_dev_coep_error#_footnotedef_3" title="View footnote.">3</a>]</sup>ため、それにより <code>crossorigin</code> 属性を自動で追加するようにした。</p>
+                      </div>
+                      <div class="exampleblock">
+                        <div class="title">Example 2. asciidoctor-vscode で Asciidoctor.js Extensions の利用</div>
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>方法としては <em>Postprocessor</em> でHTML変換後の文字列を正規表現で置換させる。<br> 📖 <span class="italic"><a href="https://docs.asciidoctor.org/asciidoctor.js/latest/extend/extensions/postprocessor/" target="_blank" rel="noopener">Postprocessor Extension Example | Asciidoctor Docs</a></span></p>
+                          </div>
+                          <div class="olist arabic">
+                            <ol class="arabic">
+                              <li>
+                                <p>Asciidoctor.js の拡張機能を有効化する</p>
+                                <div class="listingblock">
+                                  <div class="title">.vscode/settings.json</div>
+                                  <div class="content">
+                                    <pre class="highlight"><code class="language-json" data-lang="json">{
+  "asciidoc.extensions.registerWorkspaceExtensions": true
+}</code></pre>
+                                  </div>
+                                </div>
+                              </li>
+                              <li>
+                                <p><code>.asciidoctor/lib</code> ディレクトリ下に拡張機能（<code>*.js</code>）ファイルを作成する</p>
+                                <details>
+                                  <summary class="title">crossorigin 属性を追加する拡張機能ファイルの例</summary>
+                                  <div class="content">
+                                    <div class="listingblock">
+                                      <div class="title">.asciidoctor/lib/crossorigin.js</div>
+                                      <div class="content">
+                                        <pre class="highlight"><code class="language-javascript" data-lang="javascript">// @ts-check
+/**
+ * @typedef {object} CrossoriginTarget - crossorigin 属性をつけたい対象の情報を格納。
+ * @prop {string[]} urls - 置換対象とするURL
+ * @prop {'audio'|'img'|'link'|'script'|'video'} tag - 置換対象とするHTMLタグ名
+ */
+
+/**
+ * @typedef {*} Postprocessor
+ *
+ * @typedef {object} PostprocessorDsl
+ * @prop {(block: (this: Postprocessor, document: Document, output: string) => void) => void} process
+ */
+
+/**
+ * 置換対象とする正規表現パターンを作成。
+ * @param {CrossoriginTarget} target
+ * @returns {RegExp}
+ */
+const createPattern = (target) => {
+  const orUrl = `(?:${target.urls.join('|')})`
+
+  switch (target.tag) {
+    case 'img':
+      return new RegExp(`(&lt;img .*?src="${orUrl}[^>]*)>`, 'g')
+
+    default:
+      console.warn(
+        `[crossorigin Extension]: ${target.tag} tag is not implements.`
+      )
+      break
+  }
+
+  return new RegExp('')
+}
+
+/**
+ * Postprocessor 拡張機能の実装。
+ * 外部参照の &lt;img> タグに crossorigin 属性を挿入する。
+ * @this {PostprocessorDsl}
+ */
+function processor() {
+  /** @type {CrossoriginTarget[]} */
+  const targets = [
+    {
+      tag: 'img',
+      urls: ['https://img.shields.io', 'https://kroki.io', 'http://localhost'],
+    },
+  ]
+
+  const self = this
+  self.process((doc, output) => {
+    const replaced = targets
+      .map((target) => createPattern(target))
+      .reduce(
+        (source, pattern) => source.replace(pattern, '$1 crossorigin>'),
+        output
+      )
+
+    return replaced
+  })
+}
+
+/**
+ * 上記 processor() を Postprocessor として登録する register 関数を公開。
+ * @param {*} registry
+ */
+module.exports.register = (registry) => {
+  typeof registry.postprocessor === 'function'
+    ? registry.postprocessor(processor)
+    : console.warn(
+        '[crossorigin Extension]: registry.postprocessor is not function.'
+      )
+}</code></pre>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </details>
+                              </li>
+                            </ol>
+                          </div>
+                          <hr>
+                          <div class="paragraph">
+                            <p>以上で作成した拡張機能が適用される。</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sect1">
+                  <h2 id="_参考">📖参考</h2>
+                  <div class="sectionbody">
+                    <div class="ulist">
+                      <div class="title">crossorigin</div>
+                      <ul>
+                        <li>
+                          <p><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Cross-Origin_Resource_Policy" target="_blank" rel="noopener">Cross-Origin Resource Policy (CORP) - HTTP | MDN</a></p>
+                        </li>
+                        <li>
+                          <p><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy" target="_blank" rel="noopener">Cross-Origin-Embedder-Policy - HTTP | MDN</a></p>
+                        </li>
+                        <li>
+                          <p><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Attributes/crossorigin" class="italic" target="_blank" rel="noopener">HTML 属性: crossorigin - HTML: ハイパーテキストマークアップ言語 | MDN</a></p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="ulist">
+                      <div class="title">AsciiDoc</div>
+                      <ul>
+                        <li>
+                          <p><a href="https://docs.asciidoctor.org/asciidoctor.js/latest/extend/extensions/postprocessor/" target="_blank" rel="noopener">Postprocessor Extension Example | Asciidoctor Docs</a></p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div id="footnotes">
+                  <hr>
+                  <div class="footnote" id="_footnotedef_1">
+                    <a href="/posts/vscode_dev_coep_error#_footnoteref_1">1</a>. <code>require-corp</code>
+                  </div>
+                  <div class="footnote" id="_footnotedef_2">
+                    <a href="/posts/vscode_dev_coep_error#_footnoteref_2">2</a>. 本来は <em>kroki</em> サーバー側で <code>Cross-Origin-Resource-Policy: <strong>cross-origin</strong></code> レスポンスヘッダーを設定することが一番筋がよさそう。ただ、<em>kroki</em> 側の設定で <em>CORP</em> レスポンスヘッダーを追加する仕組みはなさそうだし、ローカルサーバー立ててあれこれしても外部アクセスできるメリットが意味なくなるし……。
+                  </div>
+                  <div class="footnote" id="_footnotedef_3">
+                    <a href="/posts/vscode_dev_coep_error#_footnoteref_3">3</a>. <a href="https://docs.asciidoctor.org/asciidoctor.js/latest/extend/converter/template-converter/" target="_blank" rel="noopener"><em>Template Converter</em></a> も使えるはずだけど <code>vscode.dev</code> 上ではエラーが出たので見送り。
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="share-buttons mt-8">
+              <ul class="flex items-center justify-center" data-v-6cf1db65>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-6b9fb88e>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-6b9fb88e>
+                      <div data-v-6cf1db65 data-v-6b9fb88e><a href="https://twitter.com/intent/tweet?text=vscode.dev+%E3%81%AB%E3%81%8A%E3%81%84%E3%81%A6AsciiDoc%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E5%86%85%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%8C+net%3A%3AERR_BLOCKED_BY_RESPONSE+%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%95%8F%E9%A1%8C&url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fvscode_dev_coep_error" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-6b9fb88e>
+                            <title data-v-4b4cfb63>Twitter</title>
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" data-v-4b4cfb63></path>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-083f3255>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-083f3255>
+                      <div data-v-6cf1db65 data-v-083f3255><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fvscode_dev_coep_error" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-083f3255>
+                            <title data-v-4b4cfb63>Facebook</title>
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" data-v-4b4cfb63></path>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-a2dd0576>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-a2dd0576>
+                      <div data-v-6cf1db65 data-v-a2dd0576><a href="https://getpocket.com/edit?url=https%3A%2F%2Fvlike-vlife.netlify.app%2Fposts%2Fvscode_dev_coep_error" target="_blank" class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current" data-v-6cf1db65 data-v-a2dd0576>
+                            <title data-v-4b4cfb63>Pocket</title>
+                            <path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41 0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9 0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739 0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023 0 .049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z" data-v-4b4cfb63></path>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="share-button ml-4 first:ml-0" data-v-6cf1db65>
+                  <div data-v-6cf1db65 data-v-492a0c04>
+                    <div rel="nofollow" class="share-button rounded-md w-10 h-10 p-2" data-v-492a0c04>
+                      <div data-v-6cf1db65 data-v-492a0c04><button class="material-icons mdc-icon-button w-full h-full" data-v-6cf1db65 data-v-0c784d82><span title="Copy URL" class="material-icons" data-v-6cf1db65>link</span></button></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <ul class="grid grid-cols-2 gap-12 border-t border-b border-grey-500 py-2 mt-6">
+              <li class="flex items-center justify-end text-grey-500 text-opacity-87"><a href="/posts/vscode_dev_coep_error" aria-current="page" class="nuxt-link-exact-active nuxt-link-active link disabled inline-flex justify-center px-4"><span></span></a> <span class="material-icons transform rotate-180">double_arrow</span></li>
+              <li class="flex items-center fustify-start"><span class="material-icons">double_arrow</span> <a href="/posts/stackblitz_prettier" class="link inline-flex justify-center px-4"><span>StackBlitz でのフォーマット設定</span></a></li>
+            </ul>
+          </div>
+        </main>
+        <footer class="footerbar mt-8" data-v-a0bb2a58>
+          <ul class="flex justify-center items-center" data-v-a0bb2a58>
+            <li data-v-a0bb2a58><a href="/" class="p-2 block nuxt-link-active" data-v-a0bb2a58>Home</a></li>
+            <li data-v-a0bb2a58><a href="/contact" class="p-2 block" data-v-a0bb2a58>お問い合わせ</a></li>
+            <li data-v-a0bb2a58><a href="/privacy-policy" class="p-2 block" data-v-a0bb2a58>プライバシーポリシー</a></li>
+            <li class="mx-4 absolute right-0" data-v-a0bb2a58><a href="/feeds/atom.xml" title="atom 1.0" class="p-2 block" data-v-a0bb2a58><span class="material-icons" data-v-a0bb2a58>rss_feed</span></a></li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script defer src="/_nuxt/static/2023013021/posts/vscode_dev_coep_error/state.js"></script>
+  <script src="/_nuxt/c627058.js" defer></script>
+  <script src="/_nuxt/a7a2b87.js" defer></script>
+  <script src="/_nuxt/ce5f7e1.js" defer></script>
+  <script src="/_nuxt/8f5170d.js" defer></script>
+  <script src="/_nuxt/1eb1347.js" defer></script>
+  <script src="/_nuxt/554ac69.js" defer></script>
+</body>
+
+</html>

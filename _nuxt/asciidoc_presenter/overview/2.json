@@ -5,6 +5,19 @@
   },
   "overviews": [
     {
+      "filename": "cli_update-alternatives.adoc",
+      "title": "update-alternatives でシンボリックリンク管理から逃げたい",
+      "created_at": "2022-07-14",
+      "tags": [
+        "linux",
+        "cli",
+        "備忘録"
+      ],
+      "updated_at": "2022-07-14",
+      "author": "秋々すすき",
+      "revision": "1.0"
+    },
+    {
       "filename": "linux_bash_alias.adoc",
       "title": "Bash エイリアスを記述する設定ファイルってどれ？",
       "created_at": "2022-02-18",
@@ -124,19 +137,6 @@
       "updated_at": "2021-09-17",
       "author": "秋々すすき",
       "revision": "1.0"
-    },
-    {
-      "filename": "podman_kubernetes_yaml.adoc",
-      "title": "podman で docker-compose の代わりに Kubernetes YAML を使ってみた",
-      "created_at": "2021-09-17",
-      "tags": [
-        "podman",
-        "kubernetes"
-      ],
-      "updated_at": "2021-09-28",
-      "author": "秋々すすき",
-      "revision": "1.1",
-      "revision_remark": "docker-compose 対応についての追記。"
     }
   ]
 }
