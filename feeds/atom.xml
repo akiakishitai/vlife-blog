@@ -2,9 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Vがいる生活</title>
   <link rel="self" href="https://vlike-vlife.netlify.app/feeds/atom.xml" />
-  <updated>2023-12-25T06:42:09+00:00</updated>
+  <updated>2023-12-25T12:27:46+00:00</updated>
   <id>tag:vlike-vlife.netlify.app,2020-11:feeds/atom.xml</id>
   <author><name>秋々すすき</name></author>
+  <entry>
+    <title>vscode.dev においてAsciiDocプレビュー内の画像が net::ERR_BLOCKED_BY_RESPONSE エラーで表示されない問題</title>
+    <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/vscode_dev_coep_error" />
+    <updated>2023-12-25T00:00:00+00:00</updated>
+    <id>tag:vlike-vlife.netlify.app,2023-12-25:posts/vscode_dev_coep_error</id>
+    <author><name>秋々すすき</name></author>
+    <published>2023-12-25T00:00:00+00:00</published>
+  </entry>
   <entry>
     <title>StackBlitz でのフォーマット設定</title>
     <link rel="alternate" href="https://vlike-vlife.netlify.app/posts/stackblitz_prettier" />
