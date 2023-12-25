@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' class="pikchr" viewBox="0 0 138.288 47.8233">
+<text x="21" y="17" text-anchor="middle" fill="rgb(0,0,0)" font-size="156.25%" dominant-baseline="central">1</text>
+<text x="45" y="17" text-anchor="middle" fill="rgb(0,0,0)" font-size="156.25%" dominant-baseline="central">.</text>
+<text x="69" y="17" text-anchor="middle" fill="rgb(0,0,0)" font-size="156.25%" dominant-baseline="central">2</text>
+<text x="92" y="17" text-anchor="middle" fill="rgb(0,0,0)" font-size="156.25%" dominant-baseline="central">.</text>
+<text x="116" y="17" text-anchor="middle" fill="rgb(0,0,0)" font-size="156.25%" dominant-baseline="central">3</text>
+<path d="M10,31L32,31"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,255);" />
+<text x="21" y="39" text-anchor="middle" fill="rgb(0,0,255)" font-size="64%" dominant-baseline="central">MAJOR</text>
+<path d="M57,31L80,31"  style="fill:none;stroke-width:2.16;stroke:rgb(0,128,0);" />
+<text x="69" y="39" text-anchor="middle" fill="rgb(0,128,0)" font-size="64%" dominant-baseline="central">MINOR</text>
+<path d="M105,31L127,31"  style="fill:none;stroke-width:2.16;stroke:rgb(255,0,0);" />
+<text x="116" y="39" text-anchor="middle" fill="rgb(255,0,0)" font-size="64%" dominant-baseline="central">PATCH</text>
+</svg>
+
